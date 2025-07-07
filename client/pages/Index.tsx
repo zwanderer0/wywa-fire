@@ -166,6 +166,9 @@ export default function Index() {
             </h2>
           </motion.div>
 
+          {/* Mock Dashboard */}
+          <MockDashboard />
+
           {/* Technology Cards */}
           <TechnologyCards />
 
