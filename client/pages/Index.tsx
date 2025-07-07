@@ -69,12 +69,20 @@ export default function Index() {
                     WHO WE ARE & OUR MISSION
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text mb-3">
-                    We are a group of engineers and scientists who love nature.
+                    We are a group of interdisciplinary scientists and
+                    engineers. Environmentalists who spend as much time in
+                    nature as in AI. We believe in collaboration.{" "}
+                    <span className="font-bold text-primary">
+                      Policy, tech, impact
+                    </span>{" "}
+                    — that's our approach.
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
                     We plan to utilize latest advancements in{" "}
                     <span className="font-bold text-primary">
                       Vision AI and sensors
                     </span>{" "}
-                    to help detect wildfires, starting with California.
+                    to help detect wildfires. Starting with California.
                   </p>
                   <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
                     Deploying intelligent sensors across{" "}
@@ -814,8 +822,8 @@ export default function Index() {
             </h2>
             <div className="sketch-border bg-card p-4 md:p-6 max-w-4xl mx-auto transform -rotate-1">
               <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text mb-4">
-                Meet the core team and advisors behind the First Responder
-                Initiative
+                The people behind the First Responder Initiative. Field experts
+                and tech builders.
               </p>
             </div>
           </motion.div>
