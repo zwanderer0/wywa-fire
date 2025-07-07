@@ -1096,17 +1096,8 @@ function MockDashboard() {
             </div>
             <div className="text-xs text-gray-500 uppercase tracking-wide">Confidence</div>
           </div>
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="text-xs text-gray-400 font-mono mb-1">
-                LOCATION
-              </div>
-              <div className="text-sm text-blue-300">{current.location}</div>
-              <div className="text-xs text-gray-500 font-mono">
+        </div>
+      </div>
                 {current.coords}
               </div>
             </div>
