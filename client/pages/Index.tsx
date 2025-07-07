@@ -169,29 +169,11 @@ export default function Index() {
             </h2>
           </motion.div>
 
+          {/* Interactive System Flow */}
+          <InteractiveSystemFlow />
+
           {/* Mock Dashboard */}
           <MockDashboard />
-
-          {/* Technology Cards */}
-          <TechnologyCards />
-
-          {/* Reference Process Flow */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-12 text-center"
-          >
-            <div className="max-w-2xl mx-auto">
-              <p className="text-sm text-gray-500 pt-4 italic">
-                Technical workflow: From sensor data to emergency response
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Interactive Process Rail */}
-          <ProcessRail />
         </div>
       </section>
 
