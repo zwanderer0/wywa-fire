@@ -1033,7 +1033,7 @@ function HeroDetectionDemo() {
       action: "WARNING - likely campfire",
       color: "text-yellow-600",
       bgColor: "bg-yellow-50",
-      icon: "🏕️",
+      icon: "",
       status: "warning",
     },
     {
