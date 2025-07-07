@@ -50,52 +50,51 @@ export default function Index() {
             {/* Left: Title and Mission */}
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight">
-                  <br />
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
+                  First Responder Initiative
                 </h1>
-
-                {/* The Mission - Problem Focused */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="sketch-border bg-card p-4 md:p-6 mb-4 md:mb-6 transform rotate-1"
-                >
-                  <h2 className="text-sm md:text-base lg:text-lg font-bold text-primary mb-2 md:mb-3 sketch-text">
-                    THE MISSION
-                  </h2>
-                  <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text mb-3">
-                    Wildfires devastate millions of acres annually. Early
-                    detection remains unsolved at scale. Current systems fail in
-                    remote areas where fires start.
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
-                    We're deploying{" "}
-                    <span className="font-bold text-primary">
-                      Vision AI and sensor networks
-                    </span>{" "}
-                    across <span className="font-bold">1000s of miles</span> of
-                    California wilderness for real-time wildfire detection.
-                  </p>
-                </motion.div>
 
                 {/* Who We Are - People Focused */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="sketch-border bg-accent/20 p-3 md:p-4 transform -rotate-1"
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <h3 className="text-xs md:text-sm font-bold text-primary mb-2 sketch-text">
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-primary mb-4 sketch-text">
                     WHO WE ARE
-                  </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-foreground sketch-text">
-                    Interdisciplinary researchers. Field scientists. Hardware
-                    engineers. We split our time between wilderness and labs.{" "}
+                  </h2>
+                  <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
+                    Interdisciplinary researchers bridging nature and
+                    technology. Field scientists who spend weeks in wilderness.
+                    Hardware engineers building for extreme environments.
+                  </p>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+                    We believe breakthroughs happen at intersections.{" "}
                     <span className="font-bold text-primary">
                       Policy, tech, impact
                     </span>{" "}
                     through collaboration.
+                  </p>
+                </motion.div>
+
+                {/* Research Focus */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="sketch-border bg-accent/20 p-4 md:p-6 transform -rotate-1"
+                >
+                  <h3 className="text-sm md:text-base font-bold text-primary mb-3 sketch-text">
+                    RESEARCH FOCUS
+                  </h3>
+                  <p className="text-sm md:text-base lg:text-lg text-foreground sketch-text">
+                    <span className="font-bold text-primary">Vision AI</span>{" "}
+                    for environmental monitoring.{" "}
+                    <span className="font-bold text-primary">
+                      Sensor networks
+                    </span>{" "}
+                    for remote detection. Real-world deployment at scale.
                   </p>
                 </motion.div>
               </div>
@@ -158,14 +157,21 @@ export default function Index() {
                 className="sketch-border bg-card p-4 md:p-6 mb-6 transform rotate-1"
               >
                 <p className="text-base md:text-lg lg:text-xl text-foreground mb-4 leading-relaxed sketch-text">
-                  California wildfires are difficult to spot early across vast,
-                  remote wilderness areas.
+                  Wildfires devastate millions of acres annually. Early
+                  detection remains unsolved at scale.
                 </p>
-                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
-                  With over 33 million acres of forest land and increasing
-                  drought conditions, California needs early detection systems
-                  covering thousands of miles of unmonitored terrain. By the
-                  time smoke is visible, precious hours have been lost.
+                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed mb-4">
+                  Current systems fail in remote areas where fires start. By the
+                  time smoke is visible to satellites or observers, precious
+                  hours are lost.
+                </p>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  California's 33 million acres of forest need intelligent
+                  monitoring across{" "}
+                  <span className="font-bold text-primary">
+                    thousands of miles
+                  </span>{" "}
+                  of unmonitored wilderness.
                 </p>
               </motion.div>
             </div>
