@@ -818,7 +818,8 @@ function SimpleSystemOverview() {
             How It Works
           </h3>
           <p className="text-gray-600">
-            From fire detection to emergency response
+            AI-powered filtering with human verification for accurate fire
+            detection
           </p>
         </div>
 
