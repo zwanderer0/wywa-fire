@@ -850,7 +850,7 @@ function MockDashboard() {
         {/* Action Taken */}
         <div className="lg:col-span-1 border border-gray-600 rounded p-4 bg-gray-800/50">
           <div className="text-xs text-gray-400 font-mono mb-2">
-            ⚡ ACTION TAKEN
+            ACTION TAKEN
           </div>
           <div
             className={`text-lg font-bold mb-2 ${current.action === "DISPATCH_CREWS" ? "text-red-400" : "text-yellow-400"}`}
