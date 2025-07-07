@@ -602,28 +602,32 @@ function MockDashboard() {
   const detections = [
     {
       id: "DET-001",
-      location: "Grid 34°N, 118°W",
-      confidence: 0.94,
-      sensors: { pm25: 45, temp: 32, humidity: 12, wind: "NE 8mph" },
-      vlm_output: "Smoke column visible, dry vegetation context",
-      classification: "HIGH_RISK",
-      timestamp: "2024-01-15 13:42:07",
+      location: "Sonoma County, CA",
+      riskScore: 94,
+      action: "DISPATCH_CREWS",
+      actionLabel: "Fire crews dispatched",
+      keyInsight: "Thermal anomaly + smoke pattern in dry conditions",
+      sensors: { temp: 43, humidity: 8, pm25: 67, wind: "NE 12mph" },
+      timestamp: "13:42:07",
+      status: "CRITICAL",
     },
     {
       id: "DET-002",
-      location: "Grid 37°N, 122°W",
-      confidence: 0.67,
-      sensors: { pm25: 23, temp: 28, humidity: 34, wind: "SW 4mph" },
-      vlm_output: "Controlled burn pattern, managed area",
-      classification: "MONITORED",
-      timestamp: "2024-01-15 13:38:22",
+      location: "Napa Valley, CA",
+      riskScore: 31,
+      action: "MONITOR",
+      actionLabel: "Continued monitoring",
+      keyInsight: "Controlled burn signature detected in managed area",
+      sensors: { temp: 28, humidity: 45, pm25: 23, wind: "SW 4mph" },
+      timestamp: "13:38:22",
+      status: "NORMAL",
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveDetection((prev) => (prev + 1) % detections.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -635,109 +639,111 @@ function MockDashboard() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-12 sketch-border bg-gray-900 text-white p-6 md:p-8 rounded-lg transform -rotate-1"
+      className="mb-12 sketch-border bg-slate-900 text-white p-6 md:p-8 rounded-lg transform -rotate-1"
     >
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-bold text-green-400">
-          WILDFIRE DETECTION SYSTEM v0.3-dev
+        <h3 className="text-lg font-bold text-emerald-400">
+          🔥 WILDFIRE EARLY DETECTION DASHBOARD
         </h3>
         <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span className="text-sm">INFERENCE ACTIVE</span>
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span className="text-sm text-gray-300">LIVE</span>
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {/* VLM Output */}
-        <div className="border border-gray-600 rounded p-4">
-          <div className="text-xs text-gray-400 font-mono mb-2">
-            VLM ANALYSIS
-          </div>
-          <div className="text-sm mb-2">
-            <span className="text-blue-400">ID:</span> {current.id}
-          </div>
-          <div className="text-sm mb-2">
-            <span className="text-blue-400">Location:</span> {current.location}
-          </div>
-          <div className="text-sm mb-3">
-            <span className="text-blue-400">Output:</span> {current.vlm_output}
-          </div>
+      <div className="grid lg:grid-cols-4 gap-6">
+        {/* Risk Score - Large Visual */}
+        <div className="lg:col-span-1 border border-gray-600 rounded p-6 text-center bg-gray-800/50">
+          <div className="text-xs text-gray-400 font-mono mb-2">RISK SCORE</div>
           <div
-            className={`text-sm font-bold ${current.classification === "HIGH_RISK" ? "text-red-400" : "text-yellow-400"}`}
+            className={`text-5xl font-black mb-3 ${current.riskScore > 80 ? "text-red-400" : current.riskScore > 50 ? "text-yellow-400" : "text-green-400"}`}
           >
-            {current.classification}
+            {current.riskScore}
           </div>
-        </div>
-
-        {/* Sensor Fusion */}
-        <div className="border border-gray-600 rounded p-4">
-          <div className="text-xs text-gray-400 font-mono mb-2">
-            SENSOR FUSION
-          </div>
-          <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span>PM2.5:</span>
-              <span
-                className={
-                  current.sensors.pm25 > 35 ? "text-red-400" : "text-green-400"
-                }
-              >
-                {current.sensors.pm25} μg/m³
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span>Temperature:</span>
-              <span
-                className={
-                  current.sensors.temp > 30
-                    ? "text-orange-400"
-                    : "text-blue-400"
-                }
-              >
-                {current.sensors.temp}°C
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span>Humidity:</span>
-              <span
-                className={
-                  current.sensors.humidity < 20
-                    ? "text-red-400"
-                    : "text-green-400"
-                }
-              >
-                {current.sensors.humidity}%
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span>Wind:</span>
-              <span className="text-blue-400">{current.sensors.wind}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Confidence & Actions */}
-        <div className="border border-gray-600 rounded p-4">
-          <div className="text-xs text-gray-400 font-mono mb-2">
-            INFERENCE CONFIDENCE
-          </div>
-          <div className="text-3xl font-bold mb-2 text-white">
-            {(current.confidence * 100).toFixed(0)}%
-          </div>
-          <div className="w-full bg-gray-700 rounded-full h-2 mb-4">
+          <div className="w-full bg-gray-700 rounded-full h-3 mb-3">
             <div
-              className="bg-gradient-to-r from-yellow-400 to-red-400 h-2 rounded-full"
-              style={{ width: `${current.confidence * 100}%` }}
+              className={`h-3 rounded-full transition-all duration-1000 ${current.riskScore > 80 ? "bg-gradient-to-r from-red-500 to-red-600" : current.riskScore > 50 ? "bg-gradient-to-r from-yellow-500 to-orange-500" : "bg-gradient-to-r from-green-500 to-emerald-500"}`}
+              style={{ width: `${current.riskScore}%` }}
             ></div>
           </div>
-          <div className="text-xs text-gray-400 mb-2">TIMESTAMP</div>
-          <div className="text-sm font-mono">{current.timestamp}</div>
+          <div
+            className={`text-sm font-bold ${current.status === "CRITICAL" ? "text-red-400" : "text-green-400"}`}
+          >
+            {current.status}
+          </div>
+        </div>
+
+        {/* Key Insight */}
+        <div className="lg:col-span-2 border border-gray-600 rounded p-4 bg-gray-800/50">
+          <div className="text-xs text-gray-400 font-mono mb-2">
+            🧠 KEY INSIGHT
+          </div>
+          <div className="text-lg font-medium mb-3 text-white">
+            {current.keyInsight}
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="text-gray-400">Location:</span>
+              <span className="ml-2 text-blue-300">{current.location}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Time:</span>
+              <span className="ml-2 text-blue-300">{current.timestamp}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Taken */}
+        <div className="lg:col-span-1 border border-gray-600 rounded p-4 bg-gray-800/50">
+          <div className="text-xs text-gray-400 font-mono mb-2">
+            ⚡ ACTION TAKEN
+          </div>
+          <div
+            className={`text-lg font-bold mb-2 ${current.action === "DISPATCH_CREWS" ? "text-red-400" : "text-yellow-400"}`}
+          >
+            {current.actionLabel}
+          </div>
+          <div className="text-xs text-gray-400">ID: {current.id}</div>
+        </div>
+      </div>
+
+      {/* Sensor Data Row */}
+      <div className="grid grid-cols-4 gap-4 mt-6 p-4 bg-gray-800/30 rounded border border-gray-700">
+        <div className="text-center">
+          <div className="text-xs text-gray-400 mb-1">🌡️ TEMP</div>
+          <div
+            className={`text-lg font-bold ${current.sensors.temp > 35 ? "text-red-400" : "text-blue-300"}`}
+          >
+            {current.sensors.temp}°C
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="text-xs text-gray-400 mb-1">💧 HUMIDITY</div>
+          <div
+            className={`text-lg font-bold ${current.sensors.humidity < 15 ? "text-red-400" : "text-blue-300"}`}
+          >
+            {current.sensors.humidity}%
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="text-xs text-gray-400 mb-1">☁️ PM2.5</div>
+          <div
+            className={`text-lg font-bold ${current.sensors.pm25 > 50 ? "text-red-400" : "text-green-400"}`}
+          >
+            {current.sensors.pm25}
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="text-xs text-gray-400 mb-1">💨 WIND</div>
+          <div className="text-lg font-bold text-blue-300">
+            {current.sensors.wind}
+          </div>
         </div>
       </div>
 
       <div className="mt-4 text-xs text-gray-500 text-center">
-        Mock dashboard showing VLM inference with multi-sensor fusion •
-        Development build
+        Live dashboard showing AI analysis with risk assessment • Development
+        prototype
       </div>
     </motion.div>
   );
