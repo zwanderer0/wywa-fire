@@ -35,17 +35,15 @@ export default function Index() {
               </div>
             </div>
             <div className="hidden md:flex space-x-6 lg:space-x-8">
-              {["Problem", "Solution", "Progress", "Team", "Get Involved"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(" ", "")}`}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-medium"
-                  >
-                    {item}
-                  </a>
-                ),
-              )}
+              {["Why", "How", "Progress", "Team", "Join"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-normal"
+                >
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
         </div>
