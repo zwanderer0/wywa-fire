@@ -106,8 +106,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Why Section */}
-      <section id="why" className="py-16 md:py-24 bg-muted/30">
+      {/* Problem Section */}
+      <section id="problem" className="py-16 md:py-24 bg-muted/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
