@@ -70,8 +70,8 @@ export default function Index() {
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
                   <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    We are on a mission to build actionable intelligence that
-                    helps detect and combat wild-fires
+                    actionable intelligence that helps identify wildfires before
+                    they grow
                     <br />
                   </p>
                 </motion.div>
