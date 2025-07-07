@@ -516,67 +516,227 @@ function ProcessRail() {
   );
 }
 
-// Field Results Cards Component
-function FieldResultsCards() {
+// Development Status Cards Component
+function DevelopmentStatusCards() {
   return (
-    <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
       >
-        <h3 className="text-2xl font-bold mb-4 text-primary">Model Accuracy</h3>
-        <div className="text-4xl font-black text-primary mb-2">93%</div>
+        <h3 className="text-xl font-bold mb-4 text-primary">VLM Training</h3>
+        <div className="text-lg font-bold text-yellow-600 mb-2">
+          In Progress
+        </div>
         <p className="text-gray-600 mb-4">
-          True positive on controlled burns, 7% false positive rate.
+          Vision-Language Model under fine-tuning for wildfire detection and
+          classification.
         </p>
-        <div className="h-24 bg-gradient-to-r from-green-100 to-green-200 rounded mb-3 flex items-end p-3">
-          <div className="grid grid-cols-10 gap-1 w-full h-full">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div
-                key={i}
-                className={`rounded-sm ${i < 9 ? "bg-green-500" : "bg-red-400"}`}
-                style={{ height: `${60 + Math.random() * 40}%` }}
-              />
-            ))}
+        <div className="bg-yellow-100 rounded p-3">
+          <div className="text-sm text-yellow-800">
+            Current: Dataset preparation & augmentation
+          </div>
+          <div className="text-sm text-yellow-800">
+            Next: Multi-modal fusion testing
           </div>
         </div>
-        <p className="text-xs text-gray-500">
-          <sup>2</sup> Test report: controlled-burn-validation-oct2024.pdf
-        </p>
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
         viewport={{ once: true }}
         className="sketch-border bg-card p-6 md:p-8 transform -rotate-1 border rounded"
       >
-        <h3 className="text-2xl font-bold mb-4 text-primary">Uptime</h3>
-        <div className="text-4xl font-black text-primary mb-2">637</div>
+        <h3 className="text-xl font-bold mb-4 text-primary">Hardware Build</h3>
+        <div className="text-lg font-bold text-blue-600 mb-2">Development</div>
         <p className="text-gray-600 mb-4">
-          Node-hours logged since April, zero packet loss events longer than
-          three minutes.
+          Sensor arrays and environmental housing being assembled and tested.
         </p>
-        <div className="h-24 bg-gradient-to-r from-blue-100 to-blue-200 rounded mb-3 flex items-end p-3">
-          <div className="grid grid-cols-12 gap-1 w-full h-full">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div
-                key={i}
-                className="bg-blue-500 rounded-sm"
-                style={{ height: `${80 + Math.random() * 20}%` }}
-              />
-            ))}
+        <div className="bg-blue-100 rounded p-3">
+          <div className="text-sm text-blue-800">
+            Current: Prototype assembly
+          </div>
+          <div className="text-sm text-blue-800">
+            Next: Field testing in controlled environment
           </div>
         </div>
-        <p className="text-xs text-gray-500">
-          <sup>3</sup> Network monitoring dashboard, April-November 2024
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+      >
+        <h3 className="text-xl font-bold mb-4 text-primary">LoRa Mesh</h3>
+        <div className="text-lg font-bold text-green-600 mb-2">Building</div>
+        <p className="text-gray-600 mb-4">
+          Network topology and communication protocols being implemented.
         </p>
+        <div className="bg-green-100 rounded p-3">
+          <div className="text-sm text-green-800">
+            Current: Protocol stack development
+          </div>
+          <div className="text-sm text-green-800">
+            Next: Range testing & optimization
+          </div>
+        </div>
       </motion.div>
     </div>
+  );
+}
+
+// Mock Dashboard Component
+function MockDashboard() {
+  const [activeDetection, setActiveDetection] = useState(0);
+
+  const detections = [
+    {
+      id: "DET-001",
+      location: "Grid 34°N, 118°W",
+      confidence: 0.94,
+      sensors: { pm25: 45, temp: 32, humidity: 12, wind: "NE 8mph" },
+      vlm_output: "Smoke column visible, dry vegetation context",
+      classification: "HIGH_RISK",
+      timestamp: "2024-01-15 13:42:07",
+    },
+    {
+      id: "DET-002",
+      location: "Grid 37°N, 122°W",
+      confidence: 0.67,
+      sensors: { pm25: 23, temp: 28, humidity: 34, wind: "SW 4mph" },
+      vlm_output: "Controlled burn pattern, managed area",
+      classification: "MONITORED",
+      timestamp: "2024-01-15 13:38:22",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveDetection((prev) => (prev + 1) % detections.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const current = detections[activeDetection];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="mb-12 sketch-border bg-gray-900 text-white p-6 md:p-8 rounded-lg transform -rotate-1"
+    >
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-lg font-bold text-green-400">
+          WILDFIRE DETECTION SYSTEM v0.3-dev
+        </h3>
+        <div className="flex items-center space-x-2">
+          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <span className="text-sm">INFERENCE ACTIVE</span>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6">
+        {/* VLM Output */}
+        <div className="border border-gray-600 rounded p-4">
+          <div className="text-xs text-gray-400 font-mono mb-2">
+            VLM ANALYSIS
+          </div>
+          <div className="text-sm mb-2">
+            <span className="text-blue-400">ID:</span> {current.id}
+          </div>
+          <div className="text-sm mb-2">
+            <span className="text-blue-400">Location:</span> {current.location}
+          </div>
+          <div className="text-sm mb-3">
+            <span className="text-blue-400">Output:</span> {current.vlm_output}
+          </div>
+          <div
+            className={`text-sm font-bold ${current.classification === "HIGH_RISK" ? "text-red-400" : "text-yellow-400"}`}
+          >
+            {current.classification}
+          </div>
+        </div>
+
+        {/* Sensor Fusion */}
+        <div className="border border-gray-600 rounded p-4">
+          <div className="text-xs text-gray-400 font-mono mb-2">
+            SENSOR FUSION
+          </div>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span>PM2.5:</span>
+              <span
+                className={
+                  current.sensors.pm25 > 35 ? "text-red-400" : "text-green-400"
+                }
+              >
+                {current.sensors.pm25} μg/m³
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span>Temperature:</span>
+              <span
+                className={
+                  current.sensors.temp > 30
+                    ? "text-orange-400"
+                    : "text-blue-400"
+                }
+              >
+                {current.sensors.temp}°C
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span>Humidity:</span>
+              <span
+                className={
+                  current.sensors.humidity < 20
+                    ? "text-red-400"
+                    : "text-green-400"
+                }
+              >
+                {current.sensors.humidity}%
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span>Wind:</span>
+              <span className="text-blue-400">{current.sensors.wind}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Confidence & Actions */}
+        <div className="border border-gray-600 rounded p-4">
+          <div className="text-xs text-gray-400 font-mono mb-2">
+            INFERENCE CONFIDENCE
+          </div>
+          <div className="text-3xl font-bold mb-2 text-white">
+            {(current.confidence * 100).toFixed(0)}%
+          </div>
+          <div className="w-full bg-gray-700 rounded-full h-2 mb-4">
+            <div
+              className="bg-gradient-to-r from-yellow-400 to-red-400 h-2 rounded-full"
+              style={{ width: `${current.confidence * 100}%` }}
+            ></div>
+          </div>
+          <div className="text-xs text-gray-400 mb-2">TIMESTAMP</div>
+          <div className="text-sm font-mono">{current.timestamp}</div>
+        </div>
+      </div>
+
+      <div className="mt-4 text-xs text-gray-500 text-center">
+        Mock dashboard showing VLM inference with multi-sensor fusion •
+        Development build
+      </div>
+    </motion.div>
   );
 }
 
