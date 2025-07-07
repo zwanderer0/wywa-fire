@@ -70,14 +70,9 @@ export default function Index() {
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
                   <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    We are on a mission to build ambient, local intelligence for
-                    large spaces
-                  </p>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text md:mr-0 max-md:-mr-1">
-                    <span className="font-bold text-primary">
-                      with small edge AIA models
-                    </span>{" "}
-                    and cutting edge sensors.
+                    We are on a mission to build actionable intelligence that
+                    helps detect and combat wild-fires
+                    <br />
                   </p>
                 </motion.div>
               </div>
