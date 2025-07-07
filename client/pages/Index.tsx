@@ -850,9 +850,12 @@ function SimpleSystemOverview() {
               <h4 className="text-lg font-bold text-gray-800 mb-2">
                 {step.title}
               </h4>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
                 {step.description}
               </p>
+              <div className="text-xs font-semibold text-primary bg-white/70 px-2 py-1 rounded">
+                {step.stats}
+              </div>
 
               {/* Connection Arrow */}
               {index < steps.length - 1 && (
