@@ -133,7 +133,7 @@ export default function Index() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1"
               >
-                USA lost 10.3 million acres to wildfires in 2023
+                About 25 fires start each day in California
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
