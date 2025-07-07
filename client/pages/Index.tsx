@@ -859,7 +859,7 @@ export default function Index() {
                       Navya Veeturi
                     </div>
                     <div className="text-xs md:text-sm text-muted-foreground">
-                      Lead Engineer
+                      Founder
                     </div>
                   </div>
                 </div>
@@ -872,7 +872,7 @@ export default function Index() {
                       Jaspreet Riar
                     </div>
                     <div className="text-xs md:text-sm text-muted-foreground">
-                      AI Researcher
+                      Hardware Lead
                     </div>
                   </div>
                 </div>
@@ -1024,10 +1024,7 @@ export default function Index() {
               First Responder Initiative
             </div>
             <p className="text-sm md:text-base text-muted-foreground mb-4 sketch-text">
-              Environmental AI for wildfire detection
-            </p>
-            <p className="text-xs md:text-sm text-muted-foreground sketch-text">
-              Building first responder technology for environmental threats
+              WYWA: While You were away
             </p>
           </div>
         </div>
