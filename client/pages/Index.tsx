@@ -966,7 +966,7 @@ function TeamSection() {
         <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
-              🧠 AI/ML Engineers
+              AI/ML Engineers
             </div>
             <div className="text-gray-600">
               Computer vision, edge AI, model optimization
@@ -974,7 +974,7 @@ function TeamSection() {
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
-              🔧 Hardware Engineers
+              Hardware Engineers
             </div>
             <div className="text-gray-600">
               Sensor networks, embedded systems, IoT
@@ -982,7 +982,7 @@ function TeamSection() {
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
-              🌲 Field Partners
+              Field Partners
             </div>
             <div className="text-gray-600">
               Pilot deployments, community connections
