@@ -797,7 +797,7 @@ function MockDashboard() {
     >
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-bold text-emerald-400">
-          🔥 WILDFIRE EARLY DETECTION DASHBOARD
+          WILDFIRE EARLY DETECTION DASHBOARD
         </h3>
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
