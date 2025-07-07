@@ -839,27 +839,14 @@ export default function Index() {
                 </span>{" "}
                 through collaboration.
               </p>
+              <p className="text-base md:text-lg text-foreground leading-relaxed sketch-text mb-4">
+                navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
+              </p>
             </div>
           </motion.div>
 
           {/* Team Members */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="sketch-border bg-card p-6 md:p-8 transform rotate-1"
-            >
-              <p className="text-base md:text-lg text-foreground sketch-text mb-4">
-                navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
-              </p>
-              <p className="text-sm md:text-base text-muted-foreground sketch-text">
-                Interdisciplinary researchers, AI scientists, academics, and
-                hardware engineers.
-              </p>
-            </motion.div>
-          </div>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8"></div>
         </div>
       </section>
 
