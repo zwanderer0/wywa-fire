@@ -48,40 +48,41 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Title and tagline */}
-            <motion.div {...fadeInUp}>
-              <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
-                <span className="text-primary">WYWA</span>
-                <br />
-                <span className="text-forest-600 text-2xl md:text-3xl sketch-text transform -rotate-1 inline-block">
-                  while you were away
-                </span>
-              </h1>
-              <div className="sketch-border bg-card p-6 mb-8 transform rotate-1">
-                <p className="text-lg md:text-xl text-foreground leading-relaxed sketch-text">
-                  Environmental AI that never sleeps.
-                  <span className="sketch-highlight">
-                    Detects. Acts. Responds.
+            <motion.div {...fadeInUp} className="space-y-8">
+              <div>
+                <h1 className="text-7xl md:text-9xl font-black mb-6 tracking-tight">
+                  <span className="text-primary">WYWA</span>
+                  <br />
+                  <span className="text-forest-600 text-3xl md:text-4xl sketch-text transform -rotate-1 inline-block">
+                    while you were away
                   </span>
-                </p>
+                </h1>
+                <div className="sketch-border bg-card p-6 mb-6 transform rotate-1">
+                  <p className="text-xl md:text-2xl text-foreground leading-relaxed sketch-text">
+                    Protecting California from wildfires.
+                    <span className="sketch-highlight">
+                      Detects. Acts. Responds.
+                    </span>
+                  </p>
+                </div>
+                <div className="sketch-border bg-accent/20 p-4 transform -rotate-1">
+                  <p className="text-lg text-foreground sketch-text">
+                    Tiny sensors deployed across{" "}
+                    <span className="font-bold">1000s of miles</span> of
+                    unmonitored California wilderness
+                  </p>
+                </div>
               </div>
             </motion.div>
 
-            {/* Right: Detection Scene Sketch + Interactive Demo */}
+            {/* Right: Enhanced Interactive Demo */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-6"
+              className="w-full"
             >
-              {/* Detection scene sketch */}
-              <div className="h-64 w-full relative sketch-border bg-white transform rotate-1 overflow-hidden">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F46f08da4989a47b1a6329739ca5435e8?format=webp&width=800"
-                  alt="Hand-drawn sketch showing person monitoring wildfire detection systems with real-time alerts and data visualization screens"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <InteractiveDetectionDemo />
+              <EnhancedDetectionDemo />
             </motion.div>
           </div>
         </div>
@@ -119,13 +120,14 @@ export default function Index() {
               </h2>
               <div className="sketch-border bg-card p-6 mb-6 transform rotate-1">
                 <p className="text-xl text-foreground mb-4 leading-relaxed sketch-text">
-                  Wildfires are difficult to spot early across vast, remote
-                  areas.
+                  California wildfires are difficult to spot early across vast,
+                  remote wilderness areas.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  By the time smoke is visible to human observers or satellites,
-                  precious hours have been lost. Early detection can mean the
-                  difference between containment and catastrophe.
+                  With over 33 million acres of forest land and increasing
+                  drought conditions, California needs early detection systems
+                  covering thousands of miles of unmonitored terrain. By the
+                  time smoke is visible, precious hours have been lost.
                 </p>
               </div>
             </div>
@@ -711,37 +713,75 @@ export default function Index() {
         id="getinvolved"
         className="py-24 bg-gradient-to-br from-primary/5 to-forest-50"
       >
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="sketch-border bg-card p-12 transform rotate-1">
-              <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-2">
-                GET INVOLVED
-              </h2>
-              <p className="text-xl text-foreground mb-8 leading-relaxed sketch-text">
-                Join our mission to protect communities and environments through
-                early detection technology. Whether you're a researcher,
-                engineer, or just passionate about our cause - there's a place
-                for you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Join WhatsApp */}
+              <div className="sketch-border bg-card p-8 transform rotate-1">
+                <h2 className="text-4xl md:text-5xl font-black mb-6 text-primary sketch-text transform -rotate-2">
+                  GET INVOLVED
+                </h2>
+                <p className="text-lg text-foreground mb-6 leading-relaxed sketch-text">
+                  Join our WhatsApp group to stay updated on California wildfire
+                  prevention efforts and contribute to our mission.
+                </p>
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+                  className="w-full text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform mb-4"
+                  onClick={() =>
+                    window.open(
+                      "https://chat.whatsapp.com/your-group-link",
+                      "_blank",
+                    )
+                  }
                 >
-                  Contribute Code
+                  Join our WhatsApp Group
                 </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-lg px-8 py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
-                >
-                  Learn More
-                </Button>
+                <p className="text-sm text-muted-foreground sketch-text">
+                  Connect with researchers, engineers, and California residents
+                  working together on wildfire early detection
+                </p>
+              </div>
+
+              {/* Contact Card */}
+              <div className="sketch-border bg-card p-8 transform -rotate-1">
+                <h3 className="text-3xl font-black mb-6 text-primary sketch-text transform rotate-2">
+                  CONTACT US
+                </h3>
+                <div className="space-y-4">
+                  <div className="sketch-border bg-accent/20 p-4 transform rotate-1">
+                    <p className="text-sm text-muted-foreground sketch-text mb-2">
+                      Lead Engineer
+                    </p>
+                    <p className="font-bold text-foreground">Navya Veeturi</p>
+                    <a
+                      href="mailto:navya@wywa.ai"
+                      className="text-primary hover:text-primary/80 transition-colors font-mono text-sm"
+                    >
+                      navya@wywa.ai
+                    </a>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full text-lg px-8 py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
+                    onClick={() =>
+                      (window.location.href =
+                        "mailto:navya@wywa.ai?subject=WYWA California Wildfire Initiative&body=Hi Navya, I am interested in learning more about the WYWA wildfire detection project.")
+                    }
+                  >
+                    Send Email
+                  </Button>
+                  <p className="text-sm text-muted-foreground sketch-text">
+                    Questions about deployment, partnerships, or technical
+                    details? We'd love to hear from you.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
