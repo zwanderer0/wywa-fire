@@ -1097,20 +1097,6 @@ function MockDashboard() {
             <div className="text-xs text-gray-500 uppercase tracking-wide">Confidence</div>
           </div>
         </div>
-      </div>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">WIND</span>
-                <span className="text-blue-300 font-mono">5.8mph NW</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-6 text-xs text-gray-500 text-center font-mono">
-        TACTICAL OVERVIEW • DEVELOPMENT BUILD • NETWORK STATUS: OPERATIONAL
-      </div>
     </motion.div>
   );
 }
