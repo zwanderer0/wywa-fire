@@ -472,26 +472,68 @@ function TechnologyCards() {
   );
 }
 
-// Process Rail Component
+// Visual Process Rail Component based on reference image
 function ProcessRail() {
+  const [activeStep, setActiveStep] = useState(0);
+
   const steps = [
-    { number: 1, title: "Sense", description: "Multi-modal data collection" },
+    {
+      number: 1,
+      title: "Data Collection",
+      description:
+        "Edge sensors continuously monitor environmental conditions including:",
+      details: [
+        { icon: "🌡️", label: "Temperature", color: "text-red-500" },
+        { icon: "💧", label: "Humidity", color: "text-blue-500" },
+        { icon: "💨", label: "Wind Speed", color: "text-gray-500" },
+        { icon: "☁️", label: "Air Quality", color: "text-purple-500" },
+      ],
+    },
     {
       number: 2,
-      title: "Classify on device",
-      description: "Edge AI inference",
+      title: "Edge Processing",
+      description:
+        "Small VLMs/AI models analyze sensor readings to detect anomalies:",
+      details: [
+        {
+          icon: "🔥",
+          label: "Smoke detected, thermal anomaly confirmed",
+          color: "text-red-600",
+        },
+      ],
     },
     {
       number: 3,
-      title: "Confirm across peers",
-      description: "Mesh validation",
+      title: "Gateway Analysis",
+      description: "Mother node validates with additional data:",
+      details: [
+        {
+          icon: "📷",
+          label: "Visual confirmation via camera feed",
+          color: "text-yellow-600",
+        },
+      ],
     },
     {
       number: 4,
-      title: "Notify county dispatch",
-      description: "Alert routing",
+      title: "Coordinated Response",
+      description: "Cloud system triggers appropriate response:",
+      details: [
+        {
+          icon: "🚒",
+          label: "Fire teams dispatched to precise coordinates",
+          color: "text-green-600",
+        },
+      ],
     },
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.div
@@ -499,20 +541,85 @@ function ProcessRail() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-gray-50 border rounded-lg p-6 md:p-8"
+      className="bg-white border-2 border-blue-200 rounded-lg p-6 md:p-8"
     >
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {steps.map((step, index) => (
-          <div key={index} className="text-center">
-            <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-3">
+          <motion.div
+            key={index}
+            className={`relative ${activeStep === index ? "scale-105" : "scale-100"} transition-all duration-500`}
+            initial={{ opacity: 0.6 }}
+            animate={{ opacity: activeStep === index ? 1 : 0.7 }}
+          >
+            {/* Step Number */}
+            <div
+              className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto transition-all duration-500 ${
+                activeStep === index
+                  ? "bg-blue-500 text-white shadow-lg"
+                  : "bg-blue-100 text-blue-600"
+              }`}
+            >
               {step.number}
             </div>
-            <h4 className="font-bold text-sm mb-2">{step.title}</h4>
-            <p className="text-xs text-gray-600">{step.description}</p>
+
+            {/* Connecting Line */}
             {index < steps.length - 1 && (
-              <div className="hidden md:block absolute top-6 left-full w-full h-0.5 bg-gray-300 transform translate-x-4" />
+              <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-200 transform translate-x-4 -translate-y-1/2">
+                <motion.div
+                  className="h-full bg-blue-500"
+                  initial={{ width: "0%" }}
+                  animate={{ width: activeStep > index ? "100%" : "0%" }}
+                  transition={{ duration: 0.5 }}
+                />
+              </div>
             )}
-          </div>
+
+            {/* Content */}
+            <div className="text-center">
+              <h4 className="font-bold text-lg mb-3 text-gray-800">
+                {step.title}
+              </h4>
+              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                {step.description}
+              </p>
+
+              {/* Details */}
+              <div className="space-y-2">
+                {step.details.map((detail, idx) => (
+                  <motion.div
+                    key={idx}
+                    className={`flex items-center justify-center space-x-2 p-2 rounded ${
+                      activeStep === index ? "bg-blue-50" : "bg-gray-50"
+                    }`}
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{
+                      scale: activeStep === index ? 1 : 0.95,
+                      opacity: activeStep === index ? 1 : 0.7,
+                    }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <span className="text-lg">{detail.icon}</span>
+                    <span className={`text-sm font-medium ${detail.color}`}>
+                      {detail.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Progress Dots */}
+      <div className="flex justify-center space-x-2 mt-8">
+        {steps.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveStep(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              activeStep === index ? "bg-blue-500 scale-125" : "bg-blue-200"
+            }`}
+          />
         ))}
       </div>
     </motion.div>
