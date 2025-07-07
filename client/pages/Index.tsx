@@ -1098,55 +1098,6 @@ function MockDashboard() {
           </div>
         </div>
       </div>
-                {current.coords}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Alert Timeline */}
-        <div>
-          <div className="text-sm font-mono text-gray-400 mb-2">
-            ALERT TIMELINE
-          </div>
-
-          <div className="space-y-3">
-            {current.alerts.map((alert, index) => (
-              <div
-                key={index}
-                className="bg-gray-800 rounded p-3 border border-gray-600"
-              >
-                <div className="flex justify-between items-start mb-1">
-                  <div className="text-xs font-mono text-gray-400">
-                    {alert.time}
-                  </div>
-                  <div
-                    className={`w-2 h-2 rounded-full ${alert.event.includes("Confirmed") ? "bg-red-400" : alert.event.includes("Smoke") ? "bg-yellow-400" : "bg-blue-400"}`}
-                  ></div>
-                </div>
-                <div
-                  className={`text-sm font-medium ${alert.event.includes("Confirmed") ? "text-red-400" : "text-white"}`}
-                >
-                  {alert.event}
-                </div>
-                <div className="text-xs text-gray-500">{alert.sensor}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Environmental Data */}
-          <div className="mt-4 bg-gray-800 rounded p-3 border border-gray-600">
-            <div className="text-xs font-mono text-gray-400 mb-2">
-              ENVIRONMENTAL
-            </div>
-            <div className="space-y-1 text-xs">
-              <div className="flex justify-between">
-                <span className="text-gray-400">TEMP</span>
-                <span className="text-orange-400 font-mono">78.2°F CO2</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">HUMIDITY</span>
-                <span className="text-blue-300 font-mono">22.5% RH</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">WIND</span>
