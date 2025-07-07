@@ -381,46 +381,49 @@ function HeroDetectionDemo() {
   );
 }
 
-// Technology Cards Component
+// Technology Cards Component - Visual & Interactive
 function TechnologyCards() {
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const cards = [
     {
-      title: "Sensors",
-      content: {
-        hardware: "Gas array, temperature, humidity, camera",
-        sampling: "1Hz continuous, 10Hz on anomaly",
-        power: "2.4W average, 4.1W peak",
-      },
+      title: "Edge Sensors",
+      icon: "🌡️",
+      gradient: "from-blue-400 to-cyan-400",
+      stats: [
+        { label: "Temperature", value: "±0.1°C", icon: "🌡️" },
+        { label: "Air Quality", value: "PM2.5", icon: "☁️" },
+        { label: "Humidity", value: "±2%", icon: "💧" },
+        { label: "Wind", value: "Real-time", icon: "💨" },
+      ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F131dac3b4f3e40b0bd5819fd93ecab5c?format=webp&width=800",
-      caption:
-        "Exploded view of Mother/Daughter node assembly with labeled components.",
     },
     {
-      title: "Edge AI",
-      content: {
-        input: "Multi-modal sensor vectors + visual frames",
-        model: "YOLOv8 + custom LoRA, 47MB",
-        output: "Smoke probability (0-1), 23ms inference",
-      },
+      title: "Small VLMs/AI Models",
+      icon: "🧠",
+      gradient: "from-purple-400 to-pink-400",
+      stats: [
+        { label: "Model Size", value: "47MB", icon: "📊" },
+        { label: "Inference", value: "23ms", icon: "⚡" },
+        { label: "Accuracy", value: "94%", icon: "🎯" },
+        { label: "Power", value: "2.4W", icon: "🔋" },
+      ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fdc10538fe7bc44fea19f318a6ce1e6ef?format=webp&width=800",
-      caption:
-        "Flow diagram showing sensor fusion and on-device classification.",
     },
     {
-      title: "Mesh and Alerts",
-      content: {
-        network: "LoRa mesh, 915MHz, 1km+ range",
-        latency: "Node to gateway: 2-8 seconds",
-        alerts: "API → email/dispatch feed, 15-45 second total",
-      },
+      title: "LoRa Mesh Network",
+      icon: "📡",
+      gradient: "from-green-400 to-emerald-400",
+      stats: [
+        { label: "Range", value: "1km+", icon: "📏" },
+        { label: "Frequency", value: "915MHz", icon: "📻" },
+        { label: "Latency", value: "2-8s", icon: "⏱️" },
+        { label: "Nodes", value: "Scalable", icon: "🔗" },
+      ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F98c0087d75cf4cdeb427c469d0f6a0b6?format=webp&width=800",
-      caption:
-        "Network topology showing packet routing and alert dispatch flow.",
     },
   ];
 
@@ -431,41 +434,83 @@ function TechnologyCards() {
           key={index}
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.1 }}
+          transition={{ duration: 0.8, delay: index * 0.2 }}
           viewport={{ once: true }}
-          className="sketch-border bg-card p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer border rounded"
-          onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+          className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+          onMouseEnter={() => setHoveredCard(index)}
+          onMouseLeave={() => setHoveredCard(null)}
         >
-          <h3 className="text-xl font-bold mb-4 text-primary">{card.title}</h3>
+          {/* Gradient Background */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
+          />
 
-          <div className="h-48 w-full mb-4 border rounded overflow-hidden">
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
+          {/* Card Content */}
+          <div className="relative p-6">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-3xl">{card.icon}</div>
+              <div
+                className={`w-12 h-12 rounded-full bg-gradient-to-r ${card.gradient} flex items-center justify-center text-white font-bold`}
+              >
+                {index + 1}
+              </div>
+            </div>
+
+            <h3 className="text-lg font-bold mb-6 text-gray-800">
+              {card.title}
+            </h3>
+
+            {/* Interactive Image */}
+            <div className="h-32 w-full mb-6 rounded-lg overflow-hidden bg-gray-100">
+              <motion.img
+                src={card.image}
+                alt={card.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                animate={{
+                  scale: hoveredCard === index ? 1.1 : 1,
+                  filter:
+                    hoveredCard === index ? "brightness(1.1)" : "brightness(1)",
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {card.stats.map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  className="bg-gray-50 rounded-lg p-3 border border-gray-100"
+                  initial={{ opacity: 0.7, y: 10 }}
+                  animate={{
+                    opacity: hoveredCard === index ? 1 : 0.8,
+                    y: hoveredCard === index ? 0 : 5,
+                  }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm">{stat.icon}</span>
+                    <div>
+                      <div className="text-xs text-gray-500">{stat.label}</div>
+                      <div className="text-sm font-semibold text-gray-800">
+                        {stat.value}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Hover Indicator */}
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
             />
           </div>
-
-          <p className="text-xs text-gray-600 mb-4 italic">{card.caption}</p>
-
-          {expandedCard === index && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="space-y-3"
-            >
-              {Object.entries(card.content).map(([key, value]) => (
-                <div key={key}>
-                  <div className="text-xs font-mono text-muted-foreground uppercase">
-                    {key}
-                  </div>
-                  <div className="text-sm">{value}</div>
-                </div>
-              ))}
-            </motion.div>
-          )}
         </motion.div>
       ))}
     </div>
