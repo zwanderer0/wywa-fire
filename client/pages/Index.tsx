@@ -55,7 +55,7 @@ export default function Index() {
       <section className="min-h-screen flex items-center justify-center relative pt-20 bg-gradient-to-b from-sky-50 to-earth-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left: Title and Mission */}
+            {/* Left: Initiative and Mission */}
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
@@ -997,7 +997,7 @@ export default function Index() {
                 <div className="space-y-4">
                   <div className="sketch-border bg-accent/20 p-3 md:p-4 transform rotate-1">
                     <p className="text-xs md:text-sm text-muted-foreground sketch-text mb-2">
-                      Lead Engineer
+                      Founder
                     </p>
                     <p className="font-bold text-foreground text-sm md:text-base">
                       Navya Veeturi
@@ -1272,131 +1272,6 @@ function HeroDetectionDemo() {
             <div className="text-sm md:text-base font-medium text-foreground">
               Solar + 7-day backup
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Enhanced Detection Demo Component (Simplified)
-function EnhancedDetectionDemo() {
-  const [currentAlert, setCurrentAlert] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const alerts = [
-    {
-      time: "13:04:07",
-      location: "Sonoma County",
-      type: "normal",
-      sensor: "PM2.5 SPIKE",
-      reading: "High PM2.5 at node 47",
-      context: "Vehicle dust pattern + road proximity",
-      action: "IGNORE - dust from car",
-      color: "text-muted-foreground",
-      bgColor: "bg-muted/20",
-    },
-    {
-      time: "13:06:55",
-      location: "Napa Valley",
-      type: "warning",
-      sensor: "VISUAL SMOKE",
-      reading: "Thin grey column detected",
-      context: "Campground area + weekend pattern",
-      action: "WARNING - likely campfire",
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-50",
-    },
-    {
-      time: "13:09:14",
-      location: "Paradise Area",
-      type: "critical",
-      sensor: "MULTI-MODAL",
-      reading: "Heat + smoke + wind analysis",
-      context: "Remote area + dry conditions + spreading pattern",
-      action: "ALERT - wildfire confirmed",
-      color: "text-destructive",
-      bgColor: "bg-destructive/10",
-    },
-  ];
-
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentAlert((prev) => (prev + 1) % alerts.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  return (
-    <div className="w-full">
-      {/* Live Detection Feed */}
-      <div className="sketch-border bg-card p-4 md:p-6 lg:p-8 transform -rotate-1">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg md:text-xl font-bold sketch-text text-primary">
-            LIVE AI DETECTION
-          </h3>
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="text-xs md:text-sm text-muted-foreground hover:text-foreground sketch-border px-2 md:px-3 py-1 rounded"
-          >
-            {isPlaying ? "PAUSE" : "PLAY"}
-          </button>
-        </div>
-
-        <div className="space-y-3">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentAlert}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              className={`p-3 md:p-4 rounded-lg ${alerts[currentAlert].bgColor} sketch-border`}
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-muted-foreground">
-                  [{alerts[currentAlert].time}] {alerts[currentAlert].location}
-                </span>
-                <span
-                  className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}
-                >
-                  {alerts[currentAlert].sensor}
-                </span>
-              </div>
-              <div className="text-sm space-y-2">
-                <div className="text-xs md:text-sm">
-                  <span className="text-muted-foreground">Anomaly: </span>
-                  <span className="font-medium">
-                    {alerts[currentAlert].reading}
-                  </span>
-                </div>
-                <div className="text-xs md:text-sm">
-                  <span className="text-muted-foreground">Context: </span>
-                  <span className="text-foreground">
-                    {alerts[currentAlert].context}
-                  </span>
-                </div>
-                <div
-                  className={`font-mono text-xs md:text-sm font-bold ${alerts[currentAlert].color} bg-current/10 px-2 py-1 rounded`}
-                >
-                  → {alerts[currentAlert].action}
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Progress indicators */}
-          <div className="flex space-x-2">
-            {alerts.map((_, i) => (
-              <div
-                key={i}
-                className={`h-2 md:h-3 flex-1 rounded-full transition-colors sketch-border ${
-                  i === currentAlert ? "bg-primary" : "bg-muted"
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>
