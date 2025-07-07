@@ -45,37 +45,42 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 bg-gradient-to-b from-sky-50 to-earth-50">
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <motion.div {...fadeInUp}>
-            <h1 className="text-7xl md:text-9xl font-black mb-6 tracking-tight">
-              <span className="text-primary">WYWA</span>
-              <br />
-              <span className="text-forest-600 text-3xl md:text-4xl sketch-text transform -rotate-1 inline-block">
-                while you were away
-              </span>
-            </h1>
-            <div className="sketch-border bg-card p-6 max-w-2xl mx-auto mb-8 transform rotate-1">
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed sketch-text">
-                Environmental AI that never sleeps.
-                <span className="sketch-highlight">
-                  First responder technology
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Title and tagline */}
+            <motion.div {...fadeInUp}>
+              <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+                <span className="text-primary">WYWA</span>
+                <br />
+                <span className="text-forest-600 text-2xl md:text-3xl sketch-text transform -rotate-1 inline-block">
+                  while you were away
                 </span>
-                for wildfires, smoke, and environmental threats.
-              </p>
-            </div>
-            <Button
-              size="lg"
-              className="text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+              </h1>
+              <div className="sketch-border bg-card p-6 mb-8 transform rotate-1">
+                <p className="text-lg md:text-xl text-foreground leading-relaxed sketch-text">
+                  Environmental AI that never sleeps.
+                  <span className="sketch-highlight">
+                    Detects. Acts. Responds.
+                  </span>
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right: Interactive Detection Demo */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative"
             >
-              See How It Works ↓
-            </Button>
-          </motion.div>
+              <InteractiveDetectionDemo />
+            </motion.div>
+          </div>
         </div>
 
-        {/* Hand-drawn landscape background inspired by first sketch */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+        {/* Hand-drawn landscape background */}
+        <div className="absolute inset-0 opacity-15 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
-            {/* Mountains */}
             <path
               d="M0,600 Q100,400 200,450 Q300,350 400,400 Q500,300 600,350 Q700,250 800,300 Q900,200 1000,250 Q1100,180 1200,220 L1200,800 L0,800 Z"
               fill="currentColor"
@@ -85,21 +90,6 @@ export default function Index() {
               d="M0,650 Q150,500 300,550 Q450,450 600,500 Q750,400 900,450 Q1050,350 1200,400 L1200,800 L0,800 Z"
               fill="currentColor"
               className="text-forest-500"
-            />
-            {/* Smoke plumes */}
-            <path
-              d="M300,450 Q305,400 310,380 Q315,360 320,350 Q325,340 330,335 Q335,340 340,350 Q345,360 350,380 Q355,400 360,450"
-              stroke="currentColor"
-              strokeWidth="4"
-              fill="none"
-              className="text-muted-foreground opacity-60"
-            />
-            <path
-              d="M800,300 Q805,250 810,230 Q815,210 820,200 Q825,190 830,185 Q835,190 840,200 Q845,210 850,230 Q855,250 860,300"
-              stroke="currentColor"
-              strokeWidth="4"
-              fill="none"
-              className="text-muted-foreground opacity-60"
             />
           </svg>
         </div>
