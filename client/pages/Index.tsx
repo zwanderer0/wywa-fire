@@ -39,7 +39,7 @@ export default function Index() {
                 (item) => (
                   <a
                     key={item}
-                    href={`#${item.toLowerCase()}`}
+                    href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
                     className="text-muted-foreground hover:text-foreground transition-colors font-normal"
                   >
                     {item}
