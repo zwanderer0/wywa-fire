@@ -48,30 +48,39 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Title and tagline */}
-            <motion.div {...fadeInUp} className="space-y-8">
+            <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
-                <h1 className="text-7xl md:text-9xl font-black mb-6 tracking-tight">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 tracking-tight">
                   <span className="text-primary">WYWA</span>
                   <br />
-                  <span className="text-forest-600 text-3xl md:text-4xl sketch-text transform -rotate-1 inline-block">
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-forest-600 sketch-text transform -rotate-1 inline-block">
                     while you were away
                   </span>
                 </h1>
-                <div className="sketch-border bg-card p-6 mb-6 transform rotate-1">
-                  <p className="text-xl md:text-2xl text-foreground leading-relaxed sketch-text">
-                    Protecting California from wildfires.
-                    <span className="sketch-highlight">
-                      Detects. Acts. Responds.
-                    </span>
+
+                {/* Mission Statement */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="sketch-border bg-card p-4 md:p-6 mb-4 md:mb-6 transform rotate-1"
+                >
+                  <h2 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 md:mb-3 sketch-text">OUR MISSION</h2>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text">
+                    We plan to develop and deploy an AI-powered early detection system with tiny sensors across <span className="font-bold text-primary">1000s of miles</span> of unmonitored California wilderness.
                   </p>
-                </div>
-                <div className="sketch-border bg-accent/20 p-4 transform -rotate-1">
-                  <p className="text-lg text-foreground sketch-text">
-                    Tiny sensors deployed across{" "}
-                    <span className="font-bold">1000s of miles</span> of
-                    unmonitored California wilderness
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="sketch-border bg-accent/20 p-3 md:p-4 transform -rotate-1"
+                >
+                  <p className="text-sm sm:text-base md:text-lg text-foreground sketch-text">
+                    <span className="sketch-highlight font-bold">Detects. Analyzes. Reports to authorities.</span>
                   </p>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -539,7 +548,7 @@ export default function Index() {
                   ✓ Solar panel integration complete
                 </div>
                 <div className="text-primary">
-                  ✓ LoRa antenna tested 5km range
+                  ��� LoRa antenna tested 5km range
                 </div>
                 <div className="text-primary">✓ Weather sealing verified</div>
                 <div className="text-primary">
