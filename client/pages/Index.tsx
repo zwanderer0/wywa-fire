@@ -108,7 +108,7 @@ export default function Index() {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1"
               >
-                Wildfires burned 1.8 M acres in California last year
+                About 25 wildfires start every day in California
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
