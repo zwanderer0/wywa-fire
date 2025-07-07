@@ -85,37 +85,17 @@ export default function Index() {
                     through collaboration.
                   </p>
                 </motion.div>
-
-                {/* Research Focus */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="sketch-border bg-accent/20 p-4 md:p-6 transform -rotate-1"
-                >
-                  <h3 className="text-sm md:text-base font-bold text-primary mb-3 sketch-text">
-                    CONTEXTUAL INTELLIGENCE
-                  </h3>
-                  <p className="text-sm md:text-base lg:text-lg text-foreground sketch-text">
-                    Beyond traditional CV. Understanding{" "}
-                    <span className="font-bold text-primary">
-                      time series data from sensors
-                    </span>
-                    . Environmental context from multi-modal signals. Real-world
-                    ambient intelligence.
-                  </p>
-                </motion.div>
               </div>
             </motion.div>
 
-            {/* Right: Enhanced Interactive Demo */}
+            {/* Right: Hero LIVE AI Detection */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="w-full"
             >
-              <EnhancedDetectionDemo />
+              <HeroDetectionDemo />
             </motion.div>
           </div>
         </div>
@@ -232,13 +212,34 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform -rotate-1"
+              className="sketch-border bg-card p-6 md:p-8 max-w-4xl mx-auto transform -rotate-1"
             >
-              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-4 sketch-text transform rotate-1">
+                CONTEXTUAL INTELLIGENCE
+              </h3>
+              <p className="text-base md:text-lg text-foreground sketch-text mb-4">
                 The key intelligence: distinguishing campfires from wildfires,
                 dust from smoke. Contextual understanding that knows when to
                 alert, warn, or ignore.
               </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm md:text-base text-muted-foreground">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span>Beyond traditional CV</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-forest-500 rounded-full"></div>
+                  <span>Time series sensor data</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
+                  <span>Multi-modal signals</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-accent rounded-full"></div>
+                  <span>Real-world ambient intelligence</span>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -1032,6 +1033,232 @@ export default function Index() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// Hero Detection Demo Component (Larger, Enhanced)
+function HeroDetectionDemo() {
+  const [currentAlert, setCurrentAlert] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const alerts = [
+    {
+      time: "13:04:07",
+      location: "Sonoma County",
+      node: "Node 47",
+      type: "normal",
+      sensor: "PM2.5 SPIKE",
+      reading: "High PM2.5 detected",
+      context: "Vehicle dust pattern + road proximity",
+      action: "IGNORE - dust from car",
+      color: "text-muted-foreground",
+      bgColor: "bg-muted/20",
+      icon: "🚗",
+      status: "ignored",
+    },
+    {
+      time: "13:06:55",
+      location: "Napa Valley",
+      node: "Node 23",
+      type: "warning",
+      sensor: "VISUAL SMOKE",
+      reading: "Thin grey column detected",
+      context: "Campground area + weekend pattern",
+      action: "WARNING - likely campfire",
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+      icon: "🏕️",
+      status: "warning",
+    },
+    {
+      time: "13:09:14",
+      location: "Paradise Area",
+      node: "Node 12",
+      type: "critical",
+      sensor: "MULTI-MODAL",
+      reading: "Heat + smoke + wind analysis",
+      context: "Remote area + dry conditions + spreading",
+      action: "ALERT - wildfire confirmed",
+      color: "text-destructive",
+      bgColor: "bg-destructive/10",
+      icon: "🔥",
+      status: "alert",
+    },
+  ];
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentAlert((prev) => (prev + 1) % alerts.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  return (
+    <div className="w-full space-y-6">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="text-center"
+      >
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary mb-2 sketch-text transform -rotate-1">
+          LIVE AI DETECTION
+        </h2>
+        <p className="text-sm md:text-base text-muted-foreground sketch-text">
+          Watch contextual intelligence in action
+        </p>
+      </motion.div>
+
+      {/* Main Detection Card */}
+      <div className="sketch-border bg-card p-6 md:p-8 lg:p-10 transform -rotate-1 shadow-lg">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center space-x-3">
+            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-sm md:text-base font-bold text-primary sketch-text">
+              REAL-TIME ANALYSIS
+            </span>
+          </div>
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="sketch-border bg-accent/20 hover:bg-accent/40 px-4 py-2 rounded-lg transition-colors transform hover:rotate-1"
+          >
+            <div className="flex items-center space-x-2">
+              <div
+                className={`w-2 h-2 ${isPlaying ? "bg-destructive" : "bg-primary"} rounded-full`}
+              ></div>
+              <span className="text-xs md:text-sm font-medium">
+                {isPlaying ? "LIVE" : "PAUSED"}
+              </span>
+            </div>
+          </button>
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentAlert}
+            initial={{ opacity: 0, x: 20, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -20, scale: 0.95 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className={`p-6 md:p-8 rounded-xl ${alerts[currentAlert].bgColor} sketch-border`}
+          >
+            {/* Alert Header */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center space-x-3">
+                <span className="text-2xl">{alerts[currentAlert].icon}</span>
+                <div>
+                  <div className="text-xs md:text-sm font-mono text-muted-foreground">
+                    [{alerts[currentAlert].time}]{" "}
+                    {alerts[currentAlert].location}
+                  </div>
+                  <div className="text-xs font-mono text-muted-foreground opacity-60">
+                    {alerts[currentAlert].node}
+                  </div>
+                </div>
+              </div>
+              <div
+                className={`text-xs md:text-sm font-mono px-3 py-1 rounded-full ${alerts[currentAlert].color} bg-current/10 sketch-border`}
+              >
+                {alerts[currentAlert].sensor}
+              </div>
+            </div>
+
+            {/* Detection Process */}
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                    ANOMALY DETECTED
+                  </div>
+                  <div className="text-sm md:text-base font-medium">
+                    {alerts[currentAlert].reading}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-sky-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                    CONTEXTUAL ANALYSIS
+                  </div>
+                  <div className="text-sm md:text-base text-foreground">
+                    {alerts[currentAlert].context}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <div
+                  className={`w-2 h-2 ${
+                    alerts[currentAlert].status === "alert"
+                      ? "bg-destructive"
+                      : alerts[currentAlert].status === "warning"
+                        ? "bg-yellow-500"
+                        : "bg-muted-foreground"
+                  } rounded-full mt-2 flex-shrink-0`}
+                ></div>
+                <div>
+                  <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                    INTELLIGENT DECISION
+                  </div>
+                  <div
+                    className={`text-sm md:text-lg font-bold ${alerts[currentAlert].color} bg-current/10 px-3 py-2 rounded-lg inline-block mt-1`}
+                  >
+                    {alerts[currentAlert].action}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Progress Indicators */}
+        <div className="flex space-x-2 mt-6">
+          {alerts.map((_, i) => (
+            <div
+              key={i}
+              className={`h-2 flex-1 rounded-full transition-all duration-500 sketch-border ${
+                i === currentAlert ? "bg-primary scale-110" : "bg-muted"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-border">
+          <div className="text-center">
+            <div className="text-lg md:text-xl font-bold text-primary">
+              4.2s
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              Analysis Time
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg md:text-xl font-bold text-forest-600">
+              847
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              Active Nodes
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg md:text-xl font-bold text-sky-600">
+              99.1%
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              Accuracy
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
