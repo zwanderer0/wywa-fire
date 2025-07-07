@@ -670,41 +670,6 @@ export default function Index() {
               </div>
             </motion.div>
           </div>
-
-          {/* University Logos */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="sketch-border bg-card p-8 transform rotate-1">
-              <h3 className="text-xl font-bold mb-6 sketch-text text-primary">
-                BACKED BY
-              </h3>
-              <div className="flex justify-center items-center space-x-12">
-                {/* MIT Logo */}
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-2 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">MIT</span>
-                  </div>
-                  <div className="text-sm text-muted-foreground sketch-text">
-                    MIT
-                  </div>
-                </div>
-                {/* CMU Logo */}
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-2 bg-gradient-to-br from-red-800 to-red-900 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">CMU</span>
-                  </div>
-                  <div className="text-sm text-muted-foreground sketch-text">
-                    Carnegie Mellon
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
