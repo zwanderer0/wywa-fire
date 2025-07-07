@@ -731,48 +731,45 @@ function DevelopmentStatusCards() {
   );
 }
 
-// Interactive System Flow Component
-function InteractiveSystemFlow() {
-  const [activeNode, setActiveNode] = useState(0);
-  const [showFlow, setShowFlow] = useState(false);
+// Simple System Overview Component
+function SimpleSystemOverview() {
+  const [activeStep, setActiveStep] = useState(0);
 
-  const nodes = [
+  const steps = [
     {
-      id: 1,
-      title: "Edge Sensors",
-      position: { x: "10%", y: "50%" },
-      data: "Temperature\nHumidity\nAir Quality\nWind",
-      color: "bg-blue-500",
+      number: "01",
+      title: "Fire Starts",
+      description: "Wildfire begins in remote area",
+      visual: "bg-orange-100 border-orange-300",
+      icon: "🔥",
     },
     {
-      id: 2,
-      title: "AI Processing",
-      position: { x: "35%", y: "30%" },
-      data: "47MB Model\n23ms Inference\n94% Accuracy",
-      color: "bg-purple-500",
+      number: "02",
+      title: "Sensors Detect",
+      description: "Temperature & smoke detected instantly",
+      visual: "bg-blue-100 border-blue-300",
+      icon: "🌡️",
     },
     {
-      id: 3,
-      title: "LoRa Mesh",
-      position: { x: "60%", y: "50%" },
-      data: "1km+ Range\n2-8s Latency\n915MHz",
-      color: "bg-green-500",
+      number: "03",
+      title: "AI Analyzes",
+      description: "Model confirms fire vs false alarm",
+      visual: "bg-purple-100 border-purple-300",
+      icon: "🧠",
     },
     {
-      id: 4,
-      title: "Alert System",
-      position: { x: "85%", y: "30%" },
-      data: "Risk Score\nAction Taken\nDispatch",
-      color: "bg-red-500",
+      number: "04",
+      title: "Alert Sent",
+      description: "Crews dispatched within minutes",
+      visual: "bg-green-100 border-green-300",
+      icon: "🚒",
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveNode((prev) => (prev + 1) % nodes.length);
-      setShowFlow(true);
-      setTimeout(() => setShowFlow(false), 2000);
-    }, 4000);
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -784,136 +781,87 @@ function InteractiveSystemFlow() {
       viewport={{ once: true }}
       className="mb-12"
     >
-      <div className="relative h-96 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-gray-200 overflow-hidden">
-        {/* Flow Lines */}
-        <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
-          <defs>
-            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="33%" stopColor="#A855F7" />
-              <stop offset="66%" stopColor="#10B981" />
-              <stop offset="100%" stopColor="#EF4444" />
-            </linearGradient>
-          </defs>
-
-          {/* Connection Lines */}
-          <motion.path
-            d="M 15% 50% Q 25% 40% 35% 30%"
-            stroke="url(#flowGradient)"
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray="5,5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: showFlow ? 1 : 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-          />
-          <motion.path
-            d="M 40% 30% Q 50% 40% 60% 50%"
-            stroke="url(#flowGradient)"
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray="5,5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: showFlow ? 1 : 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
-          />
-          <motion.path
-            d="M 65% 50% Q 75% 40% 85% 30%"
-            stroke="url(#flowGradient)"
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray="5,5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: showFlow ? 1 : 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
-          />
-
-          {/* Flow Particles */}
-          {showFlow && (
-            <>
-              <motion.circle
-                cx="15%"
-                cy="50%"
-                r="4"
-                fill="#3B82F6"
-                initial={{ cx: "15%", cy: "50%" }}
-                animate={{ cx: "35%", cy: "30%" }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              />
-              <motion.circle
-                cx="40%"
-                cy="30%"
-                r="4"
-                fill="#A855F7"
-                initial={{ cx: "40%", cy: "30%" }}
-                animate={{ cx: "60%", cy: "50%" }}
-                transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
-              />
-              <motion.circle
-                cx="65%"
-                cy="50%"
-                r="4"
-                fill="#10B981"
-                initial={{ cx: "65%", cy: "50%" }}
-                animate={{ cx: "85%", cy: "30%" }}
-                transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
-              />
-            </>
-          )}
-        </svg>
-
-        {/* Interactive Nodes */}
-        {nodes.map((node, index) => (
-          <motion.div
-            key={node.id}
-            className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer`}
-            style={{ left: node.position.x, top: node.position.y, zIndex: 10 }}
-            initial={{ scale: 0.8, opacity: 0.7 }}
-            animate={{
-              scale: activeNode === index ? 1.2 : 1,
-              opacity: activeNode === index ? 1 : 0.8,
-            }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setActiveNode(index)}
-            onMouseEnter={() => setActiveNode(index)}
-          >
-            <div
-              className={`w-20 h-20 rounded-full ${node.color} flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-white`}
-            >
-              {node.id}
-            </div>
-
-            {/* Node Info Popup */}
-            <motion.div
-              className="absolute top-24 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl border-2 border-gray-200 p-4 min-w-32"
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              animate={{
-                opacity: activeNode === index ? 1 : 0,
-                y: activeNode === index ? 0 : 10,
-                scale: activeNode === index ? 1 : 0.9,
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <h4 className="font-bold text-sm text-gray-800 mb-2">
-                {node.title}
-              </h4>
-              <div className="text-xs text-gray-600 whitespace-pre-line">
-                {node.data}
-              </div>
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-l-2 border-t-2 border-gray-200 rotate-45"></div>
-            </motion.div>
-          </motion.div>
-        ))}
-
-        {/* Instructions */}
-        <div className="absolute bottom-4 left-4 text-sm text-gray-500">
-          Click or hover on nodes to explore • Auto-cycling every 4s
+      <div className="bg-white rounded-xl border-2 border-gray-200 p-8">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">
+            How It Works
+          </h3>
+          <p className="text-gray-600">
+            From fire detection to emergency response
+          </p>
         </div>
 
-        {/* Flow Direction Indicator */}
-        <div className="absolute top-4 right-4 flex items-center space-x-2 text-sm text-gray-500">
-          <div className="w-4 h-0.5 bg-gradient-to-r from-blue-500 to-red-500"></div>
-          <span>Data Flow</span>
+        <div className="grid md:grid-cols-4 gap-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              className={`relative p-6 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
+                activeStep === index
+                  ? step.visual
+                  : "bg-gray-50 border-gray-200"
+              }`}
+              onClick={() => setActiveStep(index)}
+              animate={{
+                scale: activeStep === index ? 1.05 : 1,
+                boxShadow:
+                  activeStep === index
+                    ? "0 10px 25px rgba(0,0,0,0.1)"
+                    : "0 2px 5px rgba(0,0,0,0.05)",
+              }}
+            >
+              {/* Step Number */}
+              <div className="text-3xl font-black text-gray-400 mb-3">
+                {step.number}
+              </div>
+
+              {/* Content */}
+              <h4 className="text-lg font-bold text-gray-800 mb-2">
+                {step.title}
+              </h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {step.description}
+              </p>
+
+              {/* Connection Arrow */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                  <div className="w-6 h-0.5 bg-gray-300"></div>
+                  <div className="absolute -right-1 -top-1 w-2 h-2 border-r-2 border-t-2 border-gray-300 transform rotate-45"></div>
+                </div>
+              )}
+
+              {/* Active Indicator */}
+              {activeStep === index && (
+                <motion.div
+                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mt-8 flex justify-center">
+          <div className="flex space-x-2">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  activeStep === index ? "bg-primary scale-125" : "bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-6 text-sm text-gray-500">
+          Click any step to explore • Auto-advancing every 3 seconds
         </div>
       </div>
     </motion.div>
