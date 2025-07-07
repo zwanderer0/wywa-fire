@@ -980,71 +980,83 @@ function MockDashboard() {
       {/* Main Content */}
       <div className="p-6">
         {/* Alert Card */}
-        <div className={`mb-6 p-4 rounded-lg border-l-4 ${
-          current.status === "CONFIRMED FIRE"
-            ? "bg-red-50 border-red-500"
-            : "bg-yellow-50 border-yellow-500"
-        }`}>
+        <div
+          className={`mb-6 p-4 rounded-lg border-l-4 ${
+            current.status === "CONFIRMED FIRE"
+              ? "bg-red-50 border-red-500"
+              : "bg-yellow-50 border-yellow-500"
+          }`}
+        >
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center space-x-2">
-              <div className={`w-3 h-3 rounded-full ${
-                current.status === "CONFIRMED FIRE" ? "bg-red-500" : "bg-yellow-500"
-              } animate-pulse`}></div>
+              <div
+                className={`w-3 h-3 rounded-full ${
+                  current.status === "CONFIRMED FIRE"
+                    ? "bg-red-500"
+                    : "bg-yellow-500"
+                } animate-pulse`}
+              ></div>
               <span className="font-bold text-lg text-gray-800">
                 {current.location}
               </span>
             </div>
             <span className="text-sm text-gray-600">{current.timestamp}</span>
           </div>
-          <div className={`text-sm font-medium ${
-            current.status === "CONFIRMED FIRE" ? "text-red-700" : "text-yellow-700"
-          }`}>
-            {current.aiStage} • {(current.confidence * 100).toFixed(0)}% confidence
+          <div
+            className={`text-sm font-medium ${
+              current.status === "CONFIRMED FIRE"
+                ? "text-red-700"
+                : "text-yellow-700"
+            }`}
+          >
+            {current.aiStage} • {(current.confidence * 100).toFixed(0)}%
+            confidence
           </div>
           <div className="text-xs text-gray-500 mt-1">{current.coords}</div>
         </div>
 
         {/* Key Metrics Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {/* Left: Sensor Data */}
-        <div className="space-y-4">
-          <div className="text-sm font-mono text-gray-400 mb-2">
-            SENSOR READINGS
+          <div className="bg-gray-50 rounded-lg p-4 text-center">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+              Temperature
+            </div>
+            <div
+              className={`text-2xl font-bold ${current.sensors.temp > 80 ? "text-red-600" : "text-blue-600"}`}
+            >
+              {current.sensors.temp}°
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4">
-            <div className="bg-gray-800 rounded p-3 border border-gray-600">
-              <div className="text-xs text-gray-400 font-mono">TEMPERATURE</div>
-              <div
-                className={`text-xl font-bold ${current.sensors.temp > 80 ? "text-orange-400" : "text-blue-300"}`}
-              >
-                {current.sensors.temp}°F
-              </div>
+          <div className="bg-gray-50 rounded-lg p-4 text-center">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+              Humidity
             </div>
-
-            <div className="bg-gray-800 rounded p-3 border border-gray-600">
-              <div className="text-xs text-gray-400 font-mono">HUMIDITY</div>
-              <div
-                className={`text-xl font-bold ${current.sensors.humidity < 30 ? "text-red-400" : "text-blue-300"}`}
-              >
-                {current.sensors.humidity}%
-              </div>
+            <div
+              className={`text-2xl font-bold ${current.sensors.humidity < 30 ? "text-red-600" : "text-blue-600"}`}
+            >
+              {current.sensors.humidity}%
             </div>
+          </div>
 
-            <div className="bg-gray-800 rounded p-3 border border-gray-600">
-              <div className="text-xs text-gray-400 font-mono">GAS</div>
-              <div
-                className={`text-xl font-bold ${current.sensors.gas > 5 ? "text-red-400" : "text-green-400"}`}
-              >
-                {current.sensors.gas} ppm
-              </div>
+          <div className="bg-gray-50 rounded-lg p-4 text-center">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+              Gas
             </div>
+            <div
+              className={`text-2xl font-bold ${current.sensors.gas > 5 ? "text-red-600" : "text-green-600"}`}
+            >
+              {current.sensors.gas}
+            </div>
+            <div className="text-xs text-gray-500">ppm</div>
+          </div>
 
-            <div className="bg-gray-800 rounded p-3 border border-gray-600">
-              <div className="text-xs text-gray-400 font-mono">WIND</div>
-              <div className="text-xl font-bold text-blue-300">
-                {current.sensors.wind}
-              </div>
+          <div className="bg-gray-50 rounded-lg p-4 text-center">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+              Wind
+            </div>
+            <div className="text-2xl font-bold text-blue-600">
+              {current.sensors.wind}
             </div>
           </div>
         </div>
