@@ -69,21 +69,10 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    Edge sensors and vision models send verified alerts within
-                    thirty seconds.
+                  <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text">
+                    Early smoke detection from edge sensors, live in California
+                    pilots.
                   </p>
-                  <Button
-                    size="lg"
-                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
-                    onClick={() =>
-                      document
-                        .getElementById("join")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    Join the pilot
-                  </Button>
                 </motion.div>
               </div>
             </motion.div>
