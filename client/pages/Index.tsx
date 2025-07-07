@@ -1058,7 +1058,7 @@ function HeroDetectionDemo() {
       {/* Caption */}
       <div className="text-center">
         <p className="text-sm md:text-base text-muted-foreground sketch-text">
-          Sample feed from our Napa Valley test mesh
+          Sensor read-out, five second refresh.
         </p>
       </div>
 
