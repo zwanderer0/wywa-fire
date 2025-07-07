@@ -1047,7 +1047,7 @@ function HeroDetectionDemo() {
       action: "ALERT - wildfire confirmed",
       color: "text-destructive",
       bgColor: "bg-destructive/10",
-      icon: "🔥",
+      icon: "",
       status: "alert",
     },
   ];
