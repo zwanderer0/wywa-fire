@@ -23,8 +23,8 @@ export default function Index() {
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b-2 border-primary">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl md:text-3xl font-bold tracking-tight text-primary sketch-text">
-              WYWA
+            <div className="text-xl md:text-2xl font-bold tracking-tight text-primary sketch-text">
+              First Responder Initiative
             </div>
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {["Problem", "Solution", "Progress", "Team", "Get Involved"].map(
@@ -50,15 +50,15 @@ export default function Index() {
             {/* Left: Title and Mission */}
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 tracking-tight">
-                  <span className="text-primary">WYWA</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight">
+                  <span className="text-primary">First Responder</span>
                   <br />
                   <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-forest-600 sketch-text transform -rotate-1 inline-block">
-                    while you were away
+                    Initiative
                   </span>
                 </h1>
 
-                {/* Mission Statement */}
+                {/* Who We Are + Mission */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -66,15 +66,20 @@ export default function Index() {
                   className="sketch-border bg-card p-4 md:p-6 mb-4 md:mb-6 transform rotate-1"
                 >
                   <h2 className="text-sm md:text-base lg:text-lg font-bold text-primary mb-2 md:mb-3 sketch-text">
-                    OUR MISSION
+                    WHO WE ARE & OUR MISSION
                   </h2>
-                  <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text">
-                    We plan to develop and deploy an AI-powered early detection
-                    system with tiny sensors across{" "}
+                  <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text mb-3">
+                    We are a group of engineers and scientists who love nature.
+                    We plan to utilize latest advancements in{" "}
                     <span className="font-bold text-primary">
-                      1000s of miles
+                      Vision AI and sensors
                     </span>{" "}
-                    of unmonitored California wilderness.
+                    to help detect wildfires, starting with California.
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+                    Deploying intelligent sensors across{" "}
+                    <span className="font-bold">1000s of miles</span> of
+                    unmonitored wilderness areas.
                   </p>
                 </motion.div>
 
@@ -634,12 +639,12 @@ export default function Index() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1">
-              WHO WE ARE
+              OUR TEAM
             </h2>
             <div className="sketch-border bg-card p-4 md:p-6 max-w-4xl mx-auto transform -rotate-1">
               <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text mb-4">
-                Engineers and scientists who love nature, believing technology
-                and AI have a role to play in fighting disasters
+                Meet the core team and advisors behind the First Responder
+                Initiative
               </p>
             </div>
           </motion.div>
@@ -807,7 +812,7 @@ export default function Index() {
                     className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
                     onClick={() =>
                       (window.location.href =
-                        "mailto:navya@wywa.ai?subject=WYWA California Wildfire Initiative&body=Hi Navya, I am interested in learning more about the WYWA wildfire detection project.")
+                        "mailto:navya@wywa.ai?subject=First Responder Initiative - California Wildfire Detection&body=Hi Navya, I am interested in learning more about the First Responder Initiative wildfire detection project.")
                     }
                   >
                     Send Email
@@ -827,11 +832,11 @@ export default function Index() {
       <footer className="py-8 md:py-12 border-t-2 border-primary bg-muted/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-black text-primary mb-4 sketch-text">
-              WYWA
+            <div className="text-xl md:text-2xl font-black text-primary mb-4 sketch-text">
+              First Responder Initiative
             </div>
             <p className="text-sm md:text-base text-muted-foreground mb-4 sketch-text">
-              While You Were Away - Environmental AI Initiative
+              Environmental AI for wildfire detection
             </p>
             <p className="text-xs md:text-sm text-muted-foreground sketch-text">
               Building first responder technology for environmental threats
