@@ -1039,8 +1039,12 @@ function HeroDetectionDemo() {
 
   return (
     <div className="w-full space-y-6">
-      {/* Header */}
-      <div className="text-center"></div>
+      {/* Caption */}
+      <div className="text-center">
+        <p className="text-sm md:text-base text-muted-foreground sketch-text">
+          Sample feed from our Napa Valley test mesh
+        </p>
+      </div>
 
       {/* Main Detection Card */}
       <div className="sketch-border bg-card p-6 md:p-8 lg:p-10 transform -rotate-1 shadow-lg">
