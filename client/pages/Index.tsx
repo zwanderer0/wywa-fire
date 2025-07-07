@@ -317,15 +317,27 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Technology Section */}
+      {/* How it Works Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-earth-50 to-forest-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
+              How it works
+            </h2>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-6 md:gap-8"
+            className="grid md:grid-cols-3 gap-6 md:gap-8 mb-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 60, rotateZ: 0 }}
@@ -367,29 +379,13 @@ export default function Index() {
                     fill="currentColor"
                     className="text-primary"
                   />
-                  <rect
-                    x="70"
-                    y="35"
-                    width="10"
-                    height="6"
-                    fill="currentColor"
-                    className="text-destructive"
-                    rx="2"
-                  />
-                  <text
-                    x="25"
-                    y="85"
-                    className="text-xs fill-current text-muted-foreground sketch-text"
-                  >
-                    360° CAM
-                  </text>
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
-                Edge AI
+                Edge AI vision
               </h3>
               <p className="text-sm md:text-base text-muted-foreground sketch-text">
-                Computer vision processing at the edge for instant analysis
+                Vision runs on the node for instant flagging.
               </p>
             </motion.div>
 
