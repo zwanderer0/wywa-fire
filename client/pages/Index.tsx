@@ -235,9 +235,9 @@ export default function Index() {
               className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform -rotate-1"
             >
               <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
-                Contextual intelligence beyond traditional computer vision.
-                Multi-sensor data fusion with temporal understanding for
-                environmental monitoring.
+                The key intelligence: distinguishing campfires from wildfires,
+                dust from smoke. Contextual understanding that knows when to
+                alert, warn, or ignore.
               </p>
             </motion.div>
           </motion.div>
@@ -254,21 +254,23 @@ export default function Index() {
                   DETECTION LOG
                 </div>
                 <div className="space-y-4 text-sm font-mono">
+                  <div className="text-muted-foreground">
+                    → Anomaly: High PM2.5 at node XX
+                  </div>
                   <div className="text-sky-600 sketch-highlight transform rotate-0.5">
-                    → PM2.5 observed, confirmed it's dust from car
+                    → Context: Road proximity + vehicle pattern
                   </div>
                   <div className="text-forest-600">
-                    → Temperature normal, humidity 65%
+                    → Decision: IGNORE - dust from car
                   </div>
                   <div className="text-destructive font-bold sketch-highlight transform -rotate-0.5">
-                    → Smoke observed, confirmed with thermal data, triggering
-                    mini alert...
+                    → Wildfire confirmed: Remote + spreading + multi-sensor
                   </div>
                   <div className="text-primary font-bold">
-                    Report sent to government agencies
+                    → ALERT dispatched to authorities
                   </div>
                   <div className="text-muted-foreground text-xs">
-                    Response time: 4.2 seconds
+                    Contextual analysis: 4.2 seconds
                   </div>
                 </div>
               </div>
@@ -1044,10 +1046,10 @@ function EnhancedDetectionDemo() {
       time: "13:04:07",
       location: "Sonoma County",
       type: "normal",
-      sensor: "PM2.5",
-      reading: "80 µg/m³",
-      description: "dust plume from passing car",
-      action: "no alert",
+      sensor: "PM2.5 SPIKE",
+      reading: "High PM2.5 at node 47",
+      context: "Vehicle dust pattern + road proximity",
+      action: "IGNORE - dust from car",
       color: "text-muted-foreground",
       bgColor: "bg-muted/20",
     },
@@ -1055,10 +1057,10 @@ function EnhancedDetectionDemo() {
       time: "13:06:55",
       location: "Napa Valley",
       type: "warning",
-      sensor: "THERMAL",
-      reading: "+5°C uptick",
-      description: "thin grey column detected",
-      action: "mini alert queued",
+      sensor: "VISUAL SMOKE",
+      reading: "Thin grey column detected",
+      context: "Campground area + weekend pattern",
+      action: "WARNING - likely campfire",
       color: "text-yellow-600",
       bgColor: "bg-yellow-50",
     },
@@ -1066,10 +1068,10 @@ function EnhancedDetectionDemo() {
       time: "13:09:14",
       location: "Paradise Area",
       type: "critical",
-      sensor: "VISION + THERMAL",
-      reading: "bright orange cluster",
-      description: "heat pattern matches wildfire",
-      action: "REPORTED TO GOVERNMENT AGENCIES",
+      sensor: "MULTI-MODAL",
+      reading: "Heat + smoke + wind analysis",
+      context: "Remote area + dry conditions + spreading pattern",
+      action: "ALERT - wildfire confirmed",
       color: "text-destructive",
       bgColor: "bg-destructive/10",
     },
@@ -1120,17 +1122,21 @@ function EnhancedDetectionDemo() {
                   {alerts[currentAlert].sensor}
                 </span>
               </div>
-              <div className="text-sm">
-                <div
-                  className={`font-bold text-sm md:text-lg ${alerts[currentAlert].color}`}
-                >
-                  {alerts[currentAlert].reading}
+              <div className="text-sm space-y-2">
+                <div className="text-xs md:text-sm">
+                  <span className="text-muted-foreground">Anomaly: </span>
+                  <span className="font-medium">
+                    {alerts[currentAlert].reading}
+                  </span>
                 </div>
-                <div className="text-muted-foreground text-xs md:text-sm">
-                  {alerts[currentAlert].description}
+                <div className="text-xs md:text-sm">
+                  <span className="text-muted-foreground">Context: </span>
+                  <span className="text-foreground">
+                    {alerts[currentAlert].context}
+                  </span>
                 </div>
                 <div
-                  className={`font-mono text-xs md:text-sm mt-2 font-bold ${alerts[currentAlert].color}`}
+                  className={`font-mono text-xs md:text-sm font-bold ${alerts[currentAlert].color} bg-current/10 px-2 py-1 rounded`}
                 >
                   → {alerts[currentAlert].action}
                 </div>
