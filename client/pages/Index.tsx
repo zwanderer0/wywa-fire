@@ -469,13 +469,10 @@ function TechnologyCards() {
           {/* Card Content */}
           <div className="relative p-6">
             {/* Header */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-3xl">{card.icon}</div>
-              <div
-                className={`w-12 h-12 rounded-full bg-gradient-to-r ${card.gradient} flex items-center justify-center text-white font-bold`}
-              >
-                {index + 1}
-              </div>
+            <div
+              className={`w-12 h-12 rounded-full bg-gradient-to-r ${card.gradient} flex items-center justify-center text-white font-bold mb-4`}
+            >
+              {index + 1}
             </div>
 
             <h3 className="text-lg font-bold mb-6 text-gray-800">
@@ -574,7 +571,7 @@ function ProcessRail() {
       description: "Mother node validates with additional data:",
       details: [
         {
-          icon: "📷",
+          icon: "��",
           label: "Visual confirmation via camera feed",
           color: "text-yellow-600",
         },
