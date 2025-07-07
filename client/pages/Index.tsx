@@ -1019,7 +1019,7 @@ function HeroDetectionDemo() {
       action: "IGNORE - dust from car",
       color: "text-muted-foreground",
       bgColor: "bg-muted/20",
-      icon: "🚗",
+      icon: "",
       status: "ignored",
     },
     {
