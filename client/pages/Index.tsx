@@ -850,10 +850,6 @@ export default function Index() {
                   dan fitzgerald
                 </span>
               </p>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
-                Team from MIT, CMU. Have worked and led scaled up projects at
-                NVIDIA, Apple, and other startups.
-              </p>
             </div>
           </motion.div>
 
