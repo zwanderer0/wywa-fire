@@ -311,11 +311,7 @@ function HeroDetectionDemo() {
   return (
     <div className="w-full space-y-6">
       {/* Caption */}
-      <div className="text-center">
-        <p className="text-sm md:text-base text-muted-foreground">
-          Sensor read-out, five second refresh.
-        </p>
-      </div>
+      <div className="text-center"></div>
 
       {/* Main Detection Card */}
       <div className="sketch-border bg-card p-6 md:p-8 lg:p-10 transform -rotate-1 shadow-lg border rounded">
