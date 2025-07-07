@@ -499,13 +499,10 @@ function TechnologyCards() {
                   }}
                   transition={{ delay: idx * 0.1 }}
                 >
-                  <div className="flex items-center space-x-2">
-                    <span className="text-sm">{stat.icon}</span>
-                    <div>
-                      <div className="text-xs text-gray-500">{stat.label}</div>
-                      <div className="text-sm font-semibold text-gray-800">
-                        {stat.value}
-                      </div>
+                  <div>
+                    <div className="text-xs text-gray-500">{stat.label}</div>
+                    <div className="text-sm font-semibold text-gray-800">
+                      {stat.value}
                     </div>
                   </div>
                 </motion.div>
