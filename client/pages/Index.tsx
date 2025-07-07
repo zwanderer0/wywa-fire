@@ -646,7 +646,6 @@ function ProcessRail() {
                     }}
                     transition={{ delay: idx * 0.1 }}
                   >
-                    <span className="text-lg">{detail.icon}</span>
                     <span className={`text-sm font-medium ${detail.color}`}>
                       {detail.label}
                     </span>
@@ -983,7 +982,7 @@ function TeamSection() {
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
-              ���� Field Partners
+              🌲 Field Partners
             </div>
             <div className="text-gray-600">
               Pilot deployments, community connections
