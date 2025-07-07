@@ -65,7 +65,7 @@ export default function Index() {
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
                   <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
-                    AI enabled sensor network to wildfires as they begin
+                    AI enabled sensor network to detect wildfires as they begin
                   </p>
                   <Button
                     size="lg"
