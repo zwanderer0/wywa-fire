@@ -170,8 +170,8 @@ export default function Index() {
             </h2>
           </motion.div>
 
-          {/* Simple System Overview */}
-          <SimpleSystemOverview />
+          {/* What We're Building */}
+          <WhatWereBuilding />
 
           {/* Mock Dashboard */}
           <MockDashboard />
