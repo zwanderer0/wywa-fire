@@ -403,39 +403,36 @@ function TechnologyCards() {
   const cards = [
     {
       title: "Edge Sensors",
-      icon: "🌡️",
       gradient: "from-blue-400 to-cyan-400",
       stats: [
-        { label: "Temperature", value: "±0.1°C", icon: "🌡️" },
-        { label: "Air Quality", value: "PM2.5", icon: "☁️" },
-        { label: "Humidity", value: "±2%", icon: "💧" },
-        { label: "Wind", value: "Real-time", icon: "💨" },
+        { label: "Temperature", value: "±0.1°C" },
+        { label: "Air Quality", value: "PM2.5" },
+        { label: "Humidity", value: "±2%" },
+        { label: "Wind", value: "Real-time" },
       ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F131dac3b4f3e40b0bd5819fd93ecab5c?format=webp&width=800",
     },
     {
       title: "Small VLMs/AI Models",
-      icon: "🧠",
       gradient: "from-purple-400 to-pink-400",
       stats: [
-        { label: "Model Size", value: "47MB", icon: "📊" },
-        { label: "Inference", value: "23ms", icon: "⚡" },
-        { label: "Accuracy", value: "94%", icon: "🎯" },
-        { label: "Power", value: "2.4W", icon: "🔋" },
+        { label: "Model Size", value: "47MB" },
+        { label: "Inference", value: "23ms" },
+        { label: "Accuracy", value: "94%" },
+        { label: "Power", value: "2.4W" },
       ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fdc10538fe7bc44fea19f318a6ce1e6ef?format=webp&width=800",
     },
     {
       title: "LoRa Mesh Network",
-      icon: "📡",
       gradient: "from-green-400 to-emerald-400",
       stats: [
-        { label: "Range", value: "1km+", icon: "📏" },
-        { label: "Frequency", value: "915MHz", icon: "📻" },
-        { label: "Latency", value: "2-8s", icon: "⏱️" },
-        { label: "Nodes", value: "Scalable", icon: "🔗" },
+        { label: "Range", value: "1km+" },
+        { label: "Frequency", value: "915MHz" },
+        { label: "Latency", value: "2-8s" },
+        { label: "Nodes", value: "Scalable" },
       ],
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F98c0087d75cf4cdeb427c469d0f6a0b6?format=webp&width=800",
@@ -878,7 +875,7 @@ function MockDashboard() {
           <div
             className={`text-lg font-bold ${current.sensors.temp > 35 ? "text-red-400" : "text-blue-300"}`}
           >
-            {current.sensors.temp}��C
+            {current.sensors.temp}°C
           </div>
         </div>
         <div className="text-center">
