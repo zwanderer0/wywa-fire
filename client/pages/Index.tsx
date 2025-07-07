@@ -898,41 +898,52 @@ function SimpleSystemOverview() {
   );
 }
 
-// Mock Dashboard Component
+// Tactical Dashboard Component (inspired by command center interfaces)
 function MockDashboard() {
   const [activeDetection, setActiveDetection] = useState(0);
+  const [alertLevel, setAlertLevel] = useState("NORMAL");
 
   const detections = [
     {
-      id: "DET-001",
-      location: "Sonoma County, CA",
-      riskScore: 94,
-      action: "DISPATCH_CREWS",
-      actionLabel: "Fire crews dispatched",
-      keyInsight: "Thermal anomaly + smoke pattern in dry conditions",
-      sensors: { temp: 43, humidity: 8, pm25: 67, wind: "NE 12mph" },
-      timestamp: "13:42:07",
-      status: "CRITICAL",
+      id: "SENT-002",
+      location: "Sonoma County",
+      coords: "38.2911°N, 122.4583°W",
+      confidence: 0.94,
+      sensors: { temp: 85.2, humidity: 23, gas: 5.6, wind: "SSW" },
+      status: "CONFIRMED FIRE",
+      timestamp: "12:47:51 PM",
+      aiStage: "CONFIRMED",
+      alerts: [
+        { time: "12:47:51 PM", event: "Confirmed fire", sensor: "Sensor 4" },
+        { time: "12:46:51 PM", event: "Smoke detected", sensor: "Sensor 4" },
+      ],
     },
     {
-      id: "DET-002",
-      location: "Napa Valley, CA",
-      riskScore: 31,
-      action: "MONITOR",
-      actionLabel: "Continued monitoring",
-      keyInsight: "Controlled burn signature detected in managed area",
-      sensors: { temp: 28, humidity: 45, pm25: 23, wind: "SW 4mph" },
-      timestamp: "13:38:22",
-      status: "NORMAL",
+      id: "SENT-001",
+      location: "Napa Valley",
+      coords: "38.5025°N, 122.2654°W",
+      confidence: 0.67,
+      sensors: { temp: 72.1, humidity: 45, gas: 2.1, wind: "NW" },
+      status: "MONITORING",
+      timestamp: "12:38:22 PM",
+      aiStage: "EINFIRMED",
+      alerts: [
+        { time: "12:38:22 PM", event: "Anomaly detected", sensor: "Sensor 2" },
+      ],
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveDetection((prev) => (prev + 1) % detections.length);
-    }, 5000);
+      setAlertLevel(
+        detections[activeDetection].status === "CONFIRMED FIRE"
+          ? "CRITICAL"
+          : "NORMAL",
+      );
+    }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeDetection]);
 
   const current = detections[activeDetection];
 
@@ -942,111 +953,186 @@ function MockDashboard() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-12 sketch-border bg-slate-900 text-white p-6 md:p-8 rounded-lg transform -rotate-1"
+      className="mb-12 bg-gray-900 text-white p-6 md:p-8 rounded-lg border border-gray-700"
     >
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-bold text-emerald-400">
-          WILDFIRE EARLY DETECTION DASHBOARD
-        </h3>
-        <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-          <span className="text-sm text-gray-300">LIVE</span>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6 border-b border-gray-700 pb-4">
+        <div className="flex items-center space-x-4">
+          <div className="text-lg font-mono font-bold text-green-400">
+            WYWA COMMAND
+          </div>
+          <div className="text-sm text-gray-400 font-mono">
+            2024-01-15 12:47:51
+          </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-sm text-green-400 font-mono">
+              NETWORK LIVE
+            </span>
+          </div>
+          <div
+            className={`px-2 py-1 rounded text-xs font-bold ${alertLevel === "CRITICAL" ? "bg-red-600" : "bg-gray-600"}`}
+          >
+            {alertLevel}
+          </div>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-4 gap-6">
-        {/* Risk Score - Large Visual */}
-        <div className="lg:col-span-1 border border-gray-600 rounded p-6 text-center bg-gray-800/50">
-          <div className="text-xs text-gray-400 font-mono mb-2">RISK SCORE</div>
-          <div
-            className={`text-5xl font-black mb-3 ${current.riskScore > 80 ? "text-red-400" : current.riskScore > 50 ? "text-yellow-400" : "text-green-400"}`}
-          >
-            {current.riskScore}
+      <div className="grid lg:grid-cols-3 gap-6">
+        {/* Left: Sensor Data */}
+        <div className="space-y-4">
+          <div className="text-sm font-mono text-gray-400 mb-2">
+            SENSOR READINGS
           </div>
-          <div className="w-full bg-gray-700 rounded-full h-3 mb-3">
-            <div
-              className={`h-3 rounded-full transition-all duration-1000 ${current.riskScore > 80 ? "bg-gradient-to-r from-red-500 to-red-600" : current.riskScore > 50 ? "bg-gradient-to-r from-yellow-500 to-orange-500" : "bg-gradient-to-r from-green-500 to-emerald-500"}`}
-              style={{ width: `${current.riskScore}%` }}
-            ></div>
-          </div>
-          <div
-            className={`text-sm font-bold ${current.status === "CRITICAL" ? "text-red-400" : "text-green-400"}`}
-          >
-            {current.status}
-          </div>
-        </div>
 
-        {/* Key Insight */}
-        <div className="lg:col-span-2 border border-gray-600 rounded p-4 bg-gray-800/50">
-          <div className="text-xs text-gray-400 font-mono mb-2">
-            KEY INSIGHT
-          </div>
-          <div className="text-lg font-medium mb-3 text-white">
-            {current.keyInsight}
-          </div>
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <span className="text-gray-400">Location:</span>
-              <span className="ml-2 text-blue-300">{current.location}</span>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gray-800 rounded p-3 border border-gray-600">
+              <div className="text-xs text-gray-400 font-mono">TEMPERATURE</div>
+              <div
+                className={`text-2xl font-bold ${current.sensors.temp > 80 ? "text-orange-400" : "text-blue-300"}`}
+              >
+                {current.sensors.temp}°
+              </div>
+              <div className="text-xs text-gray-500">F</div>
             </div>
-            <div>
-              <span className="text-gray-400">Time:</span>
-              <span className="ml-2 text-blue-300">{current.timestamp}</span>
+
+            <div className="bg-gray-800 rounded p-3 border border-gray-600">
+              <div className="text-xs text-gray-400 font-mono">HUMIDITY</div>
+              <div
+                className={`text-2xl font-bold ${current.sensors.humidity < 30 ? "text-red-400" : "text-blue-300"}`}
+              >
+                {current.sensors.humidity}
+              </div>
+              <div className="text-xs text-gray-500">%</div>
+            </div>
+
+            <div className="bg-gray-800 rounded p-3 border border-gray-600">
+              <div className="text-xs text-gray-400 font-mono">GAS</div>
+              <div
+                className={`text-2xl font-bold ${current.sensors.gas > 5 ? "text-red-400" : "text-green-400"}`}
+              >
+                {current.sensors.gas}
+              </div>
+              <div className="text-xs text-gray-500">ppm</div>
+            </div>
+
+            <div className="bg-gray-800 rounded p-3 border border-gray-600">
+              <div className="text-xs text-gray-400 font-mono">WIND</div>
+              <div className="text-2xl font-bold text-blue-300">
+                {current.sensors.wind}
+              </div>
+              <div className="text-xs text-gray-500">dir</div>
             </div>
           </div>
         </div>
 
-        {/* Action Taken */}
-        <div className="lg:col-span-1 border border-gray-600 rounded p-4 bg-gray-800/50">
-          <div className="text-xs text-gray-400 font-mono mb-2">
-            ACTION TAKEN
+        {/* Center: AI Status */}
+        <div>
+          <div className="text-sm font-mono text-gray-400 mb-2">
+            AI ANALYSIS
           </div>
-          <div
-            className={`text-lg font-bold mb-2 ${current.action === "DISPATCH_CREWS" ? "text-red-400" : "text-yellow-400"}`}
-          >
-            {current.actionLabel}
+
+          <div className="bg-gray-800 rounded p-4 border border-gray-600 mb-4">
+            <div className="flex items-center justify-between mb-3">
+              <div className="text-xs text-gray-400 font-mono">NODE ID</div>
+              <div className="text-sm font-mono text-white">{current.id}</div>
+            </div>
+
+            <div className="mb-3">
+              <div className="text-xs text-gray-400 font-mono mb-1">STATUS</div>
+              <div
+                className={`text-lg font-bold ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-yellow-400"}`}
+              >
+                {current.aiStage}
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <div className="text-xs text-gray-400 font-mono mb-1">
+                CONFIDENCE
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="text-lg font-bold text-white">
+                  {(current.confidence * 100).toFixed(0)}%
+                </div>
+                <div className="flex-1 bg-gray-700 h-2 rounded">
+                  <div
+                    className={`h-2 rounded ${current.confidence > 0.8 ? "bg-red-400" : "bg-yellow-400"}`}
+                    style={{ width: `${current.confidence * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs text-gray-400 font-mono mb-1">
+                LOCATION
+              </div>
+              <div className="text-sm text-blue-300">{current.location}</div>
+              <div className="text-xs text-gray-500 font-mono">
+                {current.coords}
+              </div>
+            </div>
           </div>
-          <div className="text-xs text-gray-400">ID: {current.id}</div>
+        </div>
+
+        {/* Right: Alert Timeline */}
+        <div>
+          <div className="text-sm font-mono text-gray-400 mb-2">
+            ALERT TIMELINE
+          </div>
+
+          <div className="space-y-3">
+            {current.alerts.map((alert, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 rounded p-3 border border-gray-600"
+              >
+                <div className="flex justify-between items-start mb-1">
+                  <div className="text-xs font-mono text-gray-400">
+                    {alert.time}
+                  </div>
+                  <div
+                    className={`w-2 h-2 rounded-full ${alert.event.includes("Confirmed") ? "bg-red-400" : alert.event.includes("Smoke") ? "bg-yellow-400" : "bg-blue-400"}`}
+                  ></div>
+                </div>
+                <div
+                  className={`text-sm font-medium ${alert.event.includes("Confirmed") ? "text-red-400" : "text-white"}`}
+                >
+                  {alert.event}
+                </div>
+                <div className="text-xs text-gray-500">{alert.sensor}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Environmental Data */}
+          <div className="mt-4 bg-gray-800 rounded p-3 border border-gray-600">
+            <div className="text-xs font-mono text-gray-400 mb-2">
+              ENVIRONMENTAL
+            </div>
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span className="text-gray-400">TEMP</span>
+                <span className="text-orange-400 font-mono">78.2°F CO2</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">HUMIDITY</span>
+                <span className="text-blue-300 font-mono">22.5% RH</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">WIND</span>
+                <span className="text-blue-300 font-mono">5.8mph NW</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Sensor Data Row */}
-      <div className="grid grid-cols-4 gap-4 mt-6 p-4 bg-gray-800/30 rounded border border-gray-700">
-        <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">TEMP</div>
-          <div
-            className={`text-lg font-bold ${current.sensors.temp > 35 ? "text-red-400" : "text-blue-300"}`}
-          >
-            {current.sensors.temp}°C
-          </div>
-        </div>
-        <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">HUMIDITY</div>
-          <div
-            className={`text-lg font-bold ${current.sensors.humidity < 15 ? "text-red-400" : "text-blue-300"}`}
-          >
-            {current.sensors.humidity}%
-          </div>
-        </div>
-        <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">PM2.5</div>
-          <div
-            className={`text-lg font-bold ${current.sensors.pm25 > 50 ? "text-red-400" : "text-green-400"}`}
-          >
-            {current.sensors.pm25}
-          </div>
-        </div>
-        <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">WIND</div>
-          <div className="text-lg font-bold text-blue-300">
-            {current.sensors.wind}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 text-xs text-gray-500 text-center">
-        Live dashboard showing AI analysis with risk assessment • Development
-        prototype
+      <div className="mt-6 text-xs text-gray-500 text-center font-mono">
+        TACTICAL OVERVIEW • DEVELOPMENT BUILD • NETWORK STATUS: OPERATIONAL
       </div>
     </motion.div>
   );
