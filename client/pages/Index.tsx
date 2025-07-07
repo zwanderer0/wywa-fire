@@ -21,12 +21,12 @@ export default function Index() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b-2 border-primary">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-3xl font-bold tracking-tight text-primary sketch-text">
+            <div className="text-2xl md:text-3xl font-bold tracking-tight text-primary sketch-text">
               WYWA
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-6 lg:space-x-8">
               {["Problem", "Solution", "Progress", "Team", "Get Involved"].map(
                 (item) => (
                   <a
@@ -45,15 +45,15 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 bg-gradient-to-b from-sky-50 to-earth-50">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Title and tagline */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left: Title and Mission */}
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 tracking-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 tracking-tight">
                   <span className="text-primary">WYWA</span>
                   <br />
-                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-forest-600 sketch-text transform -rotate-1 inline-block">
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-forest-600 sketch-text transform -rotate-1 inline-block">
                     while you were away
                   </span>
                 </h1>
@@ -65,9 +65,16 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-4 md:p-6 mb-4 md:mb-6 transform rotate-1"
                 >
-                  <h2 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 md:mb-3 sketch-text">OUR MISSION</h2>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text">
-                    We plan to develop and deploy an AI-powered early detection system with tiny sensors across <span className="font-bold text-primary">1000s of miles</span> of unmonitored California wilderness.
+                  <h2 className="text-sm md:text-base lg:text-lg font-bold text-primary mb-2 md:mb-3 sketch-text">
+                    OUR MISSION
+                  </h2>
+                  <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text">
+                    We plan to develop and deploy an AI-powered early detection
+                    system with tiny sensors across{" "}
+                    <span className="font-bold text-primary">
+                      1000s of miles
+                    </span>{" "}
+                    of unmonitored California wilderness.
                   </p>
                 </motion.div>
 
@@ -78,7 +85,9 @@ export default function Index() {
                   className="sketch-border bg-accent/20 p-3 md:p-4 transform -rotate-1"
                 >
                   <p className="text-sm sm:text-base md:text-lg text-foreground sketch-text">
-                    <span className="sketch-highlight font-bold">Detects. Analyzes. Reports to authorities.</span>
+                    <span className="sketch-highlight font-bold">
+                      Detects. Analyzes. Reports to authorities.
+                    </span>
                   </p>
                 </motion.div>
               </div>
@@ -113,7 +122,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Problem Section - Inspired by the landscape sketch */}
+      {/* Problem Section */}
       <section id="problem" className="py-16 md:py-24 bg-muted/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
@@ -121,28 +130,46 @@ export default function Index() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="grid md:grid-cols-2 gap-8 md:gap-12 items-center"
+            className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center"
           >
             <div>
-              <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1"
+              >
                 THE PROBLEM
-              </h2>
-              <div className="sketch-border bg-card p-6 mb-6 transform rotate-1">
-                <p className="text-xl text-foreground mb-4 leading-relaxed sketch-text">
+              </motion.h2>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="sketch-border bg-card p-4 md:p-6 mb-6 transform rotate-1"
+              >
+                <p className="text-base md:text-lg lg:text-xl text-foreground mb-4 leading-relaxed sketch-text">
                   California wildfires are difficult to spot early across vast,
                   remote wilderness areas.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
                   With over 33 million acres of forest land and increasing
                   drought conditions, California needs early detection systems
                   covering thousands of miles of unmonitored terrain. By the
                   time smoke is visible, precious hours have been lost.
                 </p>
-              </div>
+              </motion.div>
             </div>
-            <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
               {/* Actual landscape sketch */}
-              <div className="h-96 w-full relative sketch-border bg-white transform -rotate-2 overflow-hidden">
+              <div className="h-64 md:h-80 lg:h-96 w-full relative sketch-border bg-white transform -rotate-2 overflow-hidden">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F752115d793c74cf1b1bcf1759d4eac1e?format=webp&width=800"
                   alt="Hand-drawn landscape showing wildfire detection challenges across vast remote areas with smoke plumes and monitoring equipment"
@@ -154,12 +181,12 @@ export default function Index() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Solution Section - Inspired by the technical sketches */}
+      {/* Solution Section */}
       <section id="solution" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
@@ -174,7 +201,7 @@ export default function Index() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1"
             >
               FIRST RESPONDER
             </motion.h2>
@@ -185,22 +212,23 @@ export default function Index() {
               viewport={{ once: true }}
               className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform -rotate-1"
             >
-              <p className="text-lg md:text-xl text-foreground sketch-text">
-                AI-powered sensor network that detects, analyzes, and reports to government agencies in real-time
+              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
+                AI-powered sensor network that detects, analyzes, and reports to
+                government agencies in real-time
               </p>
             </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="sketch-border bg-card p-8 transform rotate-2">
+              <div className="sketch-border bg-card p-6 md:p-8 transform rotate-2">
                 <div className="text-sm text-primary font-mono mb-4 sketch-text transform -rotate-1">
-                  🔍 DETECTION LOG
+                  DETECTION LOG
                 </div>
                 <div className="space-y-4 text-sm font-mono">
                   <div className="text-sky-600 sketch-highlight transform rotate-0.5">
@@ -230,7 +258,7 @@ export default function Index() {
               viewport={{ once: true }}
             >
               {/* Actual Mother/Daughter node technical sketch */}
-              <div className="h-96 w-full relative sketch-border bg-white transform -rotate-1 overflow-hidden">
+              <div className="h-64 md:h-80 lg:h-96 w-full relative sketch-border bg-white transform -rotate-1 overflow-hidden">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fea745fc9294a4ca7b5c81d5dd1f919ea?format=webp&width=800"
                   alt="Hand-drawn technical diagram showing Mother Node with Jetson Orin, 360° camera, LoRa antenna, solar panel, and Daughter Node with gas sensor and manual trigger"
@@ -248,21 +276,21 @@ export default function Index() {
       </section>
 
       {/* Alert Network Section */}
-      <section className="py-24 bg-gradient-to-br from-destructive/5 to-sky-50">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-destructive/5 to-sky-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
               ALERT NETWORK
             </h2>
-            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform rotate-1">
-              <p className="text-xl text-foreground sketch-text">
-                Smart alerts to the right people at the right time
+            <div className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform rotate-1">
+              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
+                Smart reporting to the right authorities at the right time
               </p>
             </div>
           </motion.div>
@@ -271,7 +299,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Technology Section - Enhanced with sketch aesthetics */}
+      {/* Technology Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-earth-50 to-forest-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
@@ -286,9 +314,9 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0, rotateZ: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-6 md:p-8 transform"
+              className="text-center sketch-border bg-card p-4 md:p-6 lg:p-8 transform"
             >
-              <div className="h-32 w-32 mx-auto mb-6 relative">
+              <div className="h-24 md:h-32 w-24 md:w-32 mx-auto mb-4 md:mb-6 relative">
                 <svg
                   className="w-full h-full"
                   viewBox="0 0 100 100"
@@ -339,8 +367,10 @@ export default function Index() {
                   </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 sketch-text">Edge AI</h3>
-              <p className="text-muted-foreground sketch-text">
+              <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
+                Edge AI
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground sketch-text">
                 Computer vision processing at the edge for instant analysis
               </p>
             </motion.div>
@@ -350,9 +380,9 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0, rotateZ: -1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-6 md:p-8 transform"
+              className="text-center sketch-border bg-card p-4 md:p-6 lg:p-8 transform"
             >
-              <div className="h-32 w-32 mx-auto mb-6 relative">
+              <div className="h-24 md:h-32 w-24 md:w-32 mx-auto mb-4 md:mb-6 relative">
                 <svg
                   className="w-full h-full"
                   viewBox="0 0 100 100"
@@ -408,10 +438,10 @@ export default function Index() {
                   </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 sketch-text">
+              <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
                 Multi-Sensor
               </h3>
-              <p className="text-muted-foreground sketch-text">
+              <p className="text-sm md:text-base text-muted-foreground sketch-text">
                 Temperature, humidity, air quality, and visual spectrum
                 monitoring
               </p>
@@ -422,9 +452,9 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0, rotateZ: 2 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-6 md:p-8 transform"
+              className="text-center sketch-border bg-card p-4 md:p-6 lg:p-8 transform"
             >
-              <div className="h-32 w-32 mx-auto mb-6 relative">
+              <div className="h-24 md:h-32 w-24 md:w-32 mx-auto mb-4 md:mb-6 relative">
                 <svg
                   className="w-full h-full"
                   viewBox="0 0 100 100"
@@ -494,52 +524,52 @@ export default function Index() {
                   </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 sketch-text">
+              <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
                 Mesh Network
               </h3>
-              <p className="text-muted-foreground sketch-text">
+              <p className="text-sm md:text-base text-muted-foreground sketch-text">
                 Self-healing network topology for remote area coverage
               </p>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Progress Section - Matching the infographic style */}
+      {/* Progress Section */}
       <section id="progress" className="py-16 md:py-24 bg-muted/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
               PROGRESS
             </h2>
-            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform rotate-1">
-              <p className="text-xl text-foreground sketch-text">
+            <div className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform rotate-1">
+              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
                 Building the future of environmental monitoring
               </p>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="sketch-border bg-card p-8 transform rotate-2"
+              className="sketch-border bg-card p-6 md:p-8 transform rotate-2"
             >
-              <div className="text-8xl font-black text-primary mb-4 sketch-text transform -rotate-3">
+              <div className="text-6xl md:text-8xl font-black text-primary mb-4 sketch-text transform -rotate-3">
                 2
               </div>
-              <h3 className="text-2xl font-bold mb-4 sketch-text">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 sketch-text">
                 PROTOTYPES BUILT
               </h3>
-              <p className="text-muted-foreground mb-6 sketch-text">
+              <p className="text-sm md:text-base text-muted-foreground mb-6 sketch-text">
                 Working sensor nodes deployed in test environments, collecting
                 real-world data and validating our approach.
               </p>
@@ -548,7 +578,7 @@ export default function Index() {
                   ✓ Solar panel integration complete
                 </div>
                 <div className="text-primary">
-                  ��� LoRa antenna tested 5km range
+                  ✓ LoRa antenna tested 5km range
                 </div>
                 <div className="text-primary">✓ Weather sealing verified</div>
                 <div className="text-primary">
@@ -562,15 +592,15 @@ export default function Index() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="sketch-border bg-card p-8 transform -rotate-1"
+              className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
             >
-              <div className="text-8xl font-black text-primary mb-4 sketch-text transform rotate-2">
+              <div className="text-6xl md:text-8xl font-black text-primary mb-4 sketch-text transform rotate-2">
                 1
               </div>
-              <h3 className="text-2xl font-bold mb-4 sketch-text">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 sketch-text">
                 AI MODEL IN DEVELOPMENT
               </h3>
-              <p className="text-muted-foreground mb-6 sketch-text">
+              <p className="text-sm md:text-base text-muted-foreground mb-6 sketch-text">
                 Computer vision model trained on wildfire and smoke detection
                 with thermal data correlation.
               </p>
@@ -594,20 +624,20 @@ export default function Index() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="team" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1">
               WHO WE ARE
             </h2>
-            <div className="sketch-border bg-card p-6 max-w-4xl mx-auto transform -rotate-1">
-              <p className="text-xl text-foreground sketch-text mb-4">
+            <div className="sketch-border bg-card p-4 md:p-6 max-w-4xl mx-auto transform -rotate-1">
+              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text mb-4">
                 Engineers and scientists who love nature, believing technology
                 and AI have a role to play in fighting disasters
               </p>
@@ -615,40 +645,40 @@ export default function Index() {
           </motion.div>
 
           {/* Team Members */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="sketch-border bg-card p-8 transform rotate-1"
+              className="sketch-border bg-card p-6 md:p-8 transform rotate-1"
             >
-              <h3 className="text-2xl font-bold mb-4 sketch-text text-primary">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sketch-text text-primary">
                 CORE TEAM
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-6 h-6 bg-primary rounded-full"></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-primary rounded-full"></div>
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">
+                    <div className="font-bold text-foreground text-sm md:text-base">
                       Navya Veeturi
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       Lead Engineer
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-6 h-6 bg-forest-500 rounded-full"></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-forest-500 rounded-full"></div>
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">
+                    <div className="font-bold text-foreground text-sm md:text-base">
                       Jaspreet Riar
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       AI Researcher
                     </div>
                   </div>
@@ -661,34 +691,34 @@ export default function Index() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="sketch-border bg-card p-8 transform -rotate-1"
+              className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
             >
-              <h3 className="text-2xl font-bold mb-4 sketch-text text-primary">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sketch-text text-primary">
                 ADVISORS
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-6 h-6 bg-accent rounded-full"></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-accent rounded-full"></div>
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">
+                    <div className="font-bold text-foreground text-sm md:text-base">
                       Anirudh Sharma
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       Technology Advisor
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-6 h-6 bg-earth-500 rounded-full"></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-earth-500 rounded-full"></div>
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">
+                    <div className="font-bold text-foreground text-sm md:text-base">
                       Dan Fitzgerald
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       Environmental Advisor
                     </div>
                   </div>
@@ -702,28 +732,34 @@ export default function Index() {
       {/* Get Involved Section */}
       <section
         id="getinvolved"
-        className="py-24 bg-gradient-to-br from-primary/5 to-forest-50"
+        className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-forest-50"
       >
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {/* Join WhatsApp */}
-              <div className="sketch-border bg-card p-8 transform rotate-1">
-                <h2 className="text-4xl md:text-5xl font-black mb-6 text-primary sketch-text transform -rotate-2">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="sketch-border bg-card p-6 md:p-8 transform rotate-1"
+              >
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 text-primary sketch-text transform -rotate-2">
                   GET INVOLVED
                 </h2>
-                <p className="text-lg text-foreground mb-6 leading-relaxed sketch-text">
+                <p className="text-sm md:text-base lg:text-lg text-foreground mb-6 leading-relaxed sketch-text">
                   Join our WhatsApp group to stay updated on California wildfire
                   prevention efforts and contribute to our mission.
                 </p>
                 <Button
                   size="lg"
-                  className="w-full text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform mb-4"
+                  className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform mb-4"
                   onClick={() =>
                     window.open(
                       "https://chat.whatsapp.com/your-group-link",
@@ -733,26 +769,34 @@ export default function Index() {
                 >
                   Join our WhatsApp Group
                 </Button>
-                <p className="text-sm text-muted-foreground sketch-text">
+                <p className="text-xs md:text-sm text-muted-foreground sketch-text">
                   Connect with researchers, engineers, and California residents
                   working together on wildfire early detection
                 </p>
-              </div>
+              </motion.div>
 
               {/* Contact Card */}
-              <div className="sketch-border bg-card p-8 transform -rotate-1">
-                <h3 className="text-3xl font-black mb-6 text-primary sketch-text transform rotate-2">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
+              >
+                <h3 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-primary sketch-text transform rotate-2">
                   CONTACT US
                 </h3>
                 <div className="space-y-4">
-                  <div className="sketch-border bg-accent/20 p-4 transform rotate-1">
-                    <p className="text-sm text-muted-foreground sketch-text mb-2">
+                  <div className="sketch-border bg-accent/20 p-3 md:p-4 transform rotate-1">
+                    <p className="text-xs md:text-sm text-muted-foreground sketch-text mb-2">
                       Lead Engineer
                     </p>
-                    <p className="font-bold text-foreground">Navya Veeturi</p>
+                    <p className="font-bold text-foreground text-sm md:text-base">
+                      Navya Veeturi
+                    </p>
                     <a
                       href="mailto:navya@wywa.ai"
-                      className="text-primary hover:text-primary/80 transition-colors font-mono text-sm"
+                      className="text-primary hover:text-primary/80 transition-colors font-mono text-xs md:text-sm"
                     >
                       navya@wywa.ai
                     </a>
@@ -760,7 +804,7 @@ export default function Index() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full text-lg px-8 py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
+                    className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
                     onClick={() =>
                       (window.location.href =
                         "mailto:navya@wywa.ai?subject=WYWA California Wildfire Initiative&body=Hi Navya, I am interested in learning more about the WYWA wildfire detection project.")
@@ -768,28 +812,28 @@ export default function Index() {
                   >
                     Send Email
                   </Button>
-                  <p className="text-sm text-muted-foreground sketch-text">
+                  <p className="text-xs md:text-sm text-muted-foreground sketch-text">
                     Questions about deployment, partnerships, or technical
                     details? We'd love to hear from you.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t-2 border-primary bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6">
+      <footer className="py-8 md:py-12 border-t-2 border-primary bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center">
-            <div className="text-3xl font-black text-primary mb-4 sketch-text">
+            <div className="text-2xl md:text-3xl font-black text-primary mb-4 sketch-text">
               WYWA
             </div>
-            <p className="text-muted-foreground mb-4 sketch-text">
+            <p className="text-sm md:text-base text-muted-foreground mb-4 sketch-text">
               While You Were Away - Environmental AI Initiative
             </p>
-            <p className="text-sm text-muted-foreground sketch-text">
+            <p className="text-xs md:text-sm text-muted-foreground sketch-text">
               Building first responder technology for environmental threats
             </p>
           </div>
@@ -799,11 +843,10 @@ export default function Index() {
   );
 }
 
-// Enhanced Detection Demo Component
+// Enhanced Detection Demo Component (Simplified)
 function EnhancedDetectionDemo() {
   const [currentAlert, setCurrentAlert] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [sensorCount, setSensorCount] = useState(847);
 
   const alerts = [
     {
@@ -846,7 +889,6 @@ function EnhancedDetectionDemo() {
 
     const interval = setInterval(() => {
       setCurrentAlert((prev) => (prev + 1) % alerts.length);
-      setSensorCount(prev => prev + Math.floor(Math.random() * 3) - 1);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -855,14 +897,14 @@ function EnhancedDetectionDemo() {
   return (
     <div className="w-full">
       {/* Live Detection Feed */}
-      <div className="sketch-border bg-card p-6 lg:p-8 transform -rotate-1">
+      <div className="sketch-border bg-card p-4 md:p-6 lg:p-8 transform -rotate-1">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold sketch-text text-primary">
+          <h3 className="text-lg md:text-xl font-bold sketch-text text-primary">
             LIVE AI DETECTION
           </h3>
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="text-sm text-muted-foreground hover:text-foreground sketch-border px-3 py-1 rounded"
+            className="text-xs md:text-sm text-muted-foreground hover:text-foreground sketch-border px-2 md:px-3 py-1 rounded"
           >
             {isPlaying ? "PAUSE" : "PLAY"}
           </button>
@@ -875,24 +917,30 @@ function EnhancedDetectionDemo() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className={`p-4 rounded-lg ${alerts[currentAlert].bgColor} sketch-border`}
+              className={`p-3 md:p-4 rounded-lg ${alerts[currentAlert].bgColor} sketch-border`}
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono text-muted-foreground">
                   [{alerts[currentAlert].time}] {alerts[currentAlert].location}
                 </span>
-                <span className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}>
+                <span
+                  className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}
+                >
                   {alerts[currentAlert].sensor}
                 </span>
               </div>
               <div className="text-sm">
-                <div className={`font-bold text-lg ${alerts[currentAlert].color}`}>
+                <div
+                  className={`font-bold text-sm md:text-lg ${alerts[currentAlert].color}`}
+                >
                   {alerts[currentAlert].reading}
                 </div>
-                <div className="text-muted-foreground">
+                <div className="text-muted-foreground text-xs md:text-sm">
                   {alerts[currentAlert].description}
                 </div>
-                <div className={`font-mono text-sm mt-2 font-bold ${alerts[currentAlert].color}`}>
+                <div
+                  className={`font-mono text-xs md:text-sm mt-2 font-bold ${alerts[currentAlert].color}`}
+                >
                   → {alerts[currentAlert].action}
                 </div>
               </div>
@@ -904,125 +952,12 @@ function EnhancedDetectionDemo() {
             {alerts.map((_, i) => (
               <div
                 key={i}
-                className={`h-3 flex-1 rounded-full transition-colors sketch-border ${
+                className={`h-2 md:h-3 flex-1 rounded-full transition-colors sketch-border ${
                   i === currentAlert ? "bg-primary" : "bg-muted"
                 }`}
               />
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Interactive Detection Demo Component
-function InteractiveDetectionDemo() {
-  const [currentAlert, setCurrentAlert] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const alerts = [
-    {
-      time: "13:04:07",
-      type: "normal",
-      sensor: "PM2.5",
-      reading: "80 µg/m³",
-      description: "dust plume from passing car",
-      action: "no alert",
-      color: "text-muted-foreground",
-      bgColor: "bg-muted/20",
-    },
-    {
-      time: "13:06:55",
-      type: "warning",
-      sensor: "THERMAL",
-      reading: "+5°C uptick",
-      description: "thin grey column detected",
-      action: "mini alert queued",
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-50",
-    },
-    {
-      time: "13:09:14",
-      type: "critical",
-      sensor: "VISION + THERMAL",
-      reading: "bright orange cluster",
-      description: "heat pattern matches wildfire",
-      action: "FULL ALERT PUSHED",
-      color: "text-destructive",
-      bgColor: "bg-destructive/10",
-    },
-  ];
-
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentAlert((prev) => (prev + 1) % alerts.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  return (
-    <div className="sketch-border bg-card p-6 transform -rotate-1">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold sketch-text text-primary">
-          LIVE DETECTION
-        </h3>
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          {isPlaying ? "PAUSE" : "PLAY"}
-        </button>
-      </div>
-
-      <div className="space-y-3">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentAlert}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className={`p-4 rounded-lg ${alerts[currentAlert].bgColor}`}
-          >
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-muted-foreground">
-                [{alerts[currentAlert].time}]
-              </span>
-              <span
-                className={`text-xs font-mono ${alerts[currentAlert].color}`}
-              >
-                {alerts[currentAlert].sensor}
-              </span>
-            </div>
-            <div className="text-sm">
-              <div className={`font-bold ${alerts[currentAlert].color}`}>
-                {alerts[currentAlert].reading}
-              </div>
-              <div className="text-muted-foreground">
-                {alerts[currentAlert].description}
-              </div>
-              <div
-                className={`font-mono text-xs mt-2 ${alerts[currentAlert].color}`}
-              >
-                → {alerts[currentAlert].action}
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Progress indicators */}
-        <div className="flex space-x-2">
-          {alerts.map((_, i) => (
-            <div
-              key={i}
-              className={`h-2 flex-1 rounded-full transition-colors ${
-                i === currentAlert ? "bg-primary" : "bg-muted"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </div>
@@ -1047,13 +982,9 @@ function AlertNetworkDemo() {
       color: "yellow-600",
     },
     {
-      stage: "Alert Dispatch",
-      desc: "Multi-channel notification sent",
-      stakeholders: [
-        "🚒 Fire Department",
-        "📡 HAM Operators",
-        "🚁 Drone Teams",
-      ],
+      stage: "Government Verification",
+      desc: "Alert sent to agencies for verification and response",
+      stakeholders: ["Fire Department", "Emergency Services", "Forest Service"],
       color: "primary",
     },
   ];
@@ -1068,7 +999,7 @@ function AlertNetworkDemo() {
 
   return (
     <div className="relative">
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-6 md:gap-8">
         {alertFlow.map((step, i) => (
           <motion.div
             key={i}
@@ -1076,22 +1007,28 @@ function AlertNetworkDemo() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
             viewport={{ once: true }}
-            className={`sketch-border bg-card p-6 transform ${i % 2 === 0 ? "rotate-1" : "-rotate-1"} ${
+            className={`sketch-border bg-card p-4 md:p-6 transform ${i % 2 === 0 ? "rotate-1" : "-rotate-1"} ${
               activeAlert === i ? "ring-2 ring-primary ring-offset-2" : ""
             }`}
           >
             <div className="text-center">
               <div
-                className={`text-4xl mb-4 ${
+                className={`mb-4 ${
                   activeAlert === i ? "scale-110" : "scale-100"
-                } transition-transform`}
+                } transition-transform h-12 md:h-16 w-12 md:w-16 mx-auto rounded-lg bg-gradient-to-br ${
+                  i === 0
+                    ? "from-destructive/20 to-destructive/40"
+                    : i === 1
+                      ? "from-yellow-200 to-yellow-400"
+                      : "from-primary/20 to-primary/40"
+                } flex items-center justify-center`}
               >
-                {i === 0 ? "🔥" : i === 1 ? "🌪️" : "📢"}
+                <div className="w-6 md:w-8 h-6 md:h-8 border-2 border-current rounded-full"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 sketch-text text-primary">
+              <h3 className="text-base md:text-lg lg:text-xl font-bold mb-3 sketch-text text-primary">
                 {step.stage}
               </h3>
-              <p className="text-muted-foreground sketch-text mb-4">
+              <p className="text-xs md:text-sm text-muted-foreground sketch-text mb-4">
                 {step.desc}
               </p>
 
@@ -1107,7 +1044,7 @@ function AlertNetworkDemo() {
                           : { opacity: 0.3, x: 0 }
                       }
                       transition={{ delay: j * 0.2 }}
-                      className="text-sm font-mono bg-accent/20 px-3 py-1 rounded"
+                      className="text-xs md:text-sm font-mono bg-accent/20 px-2 md:px-3 py-1 rounded"
                     >
                       {stakeholder}
                     </motion.div>
@@ -1120,7 +1057,7 @@ function AlertNetworkDemo() {
       </div>
 
       {/* Progress bar */}
-      <div className="mt-8 bg-muted h-2 rounded-full overflow-hidden">
+      <div className="mt-6 md:mt-8 bg-muted h-2 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-primary"
           initial={{ width: "0%" }}
