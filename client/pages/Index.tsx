@@ -57,10 +57,10 @@ export default function Index() {
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
-                  First Responder Initiative
+                  Detect wildfires early, before they spread
                 </h1>
 
-                {/* Mission for Large Physical Spaces */}
+                {/* Sub-line */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -68,10 +68,20 @@ export default function Index() {
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
                   <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    actionable intelligence that helps identify wildfires before
-                    they grow
-                    <br />
+                    Edge sensors and vision models send verified alerts within
+                    thirty seconds.
                   </p>
+                  <Button
+                    size="lg"
+                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+                    onClick={() =>
+                      document
+                        .getElementById("join")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
+                  >
+                    Join the pilot
+                  </Button>
                 </motion.div>
               </div>
             </motion.div>
