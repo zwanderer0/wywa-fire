@@ -20,81 +20,92 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b-2 border-primary">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold tracking-tight text-primary">
+            <div className="text-3xl font-bold tracking-tight text-primary sketch-text">
               WYWA
             </div>
             <div className="hidden md:flex space-x-8">
-              <a
-                href="#problem"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Problem
-              </a>
-              <a
-                href="#solution"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Solution
-              </a>
-              <a
-                href="#progress"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Progress
-              </a>
-              <a
-                href="#team"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Team
-              </a>
-              <a
-                href="#involve"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Get Involved
-              </a>
+              {["Problem", "Solution", "Progress", "Team", "Get Involved"].map(
+                (item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase().replace(" ", "")}`}
+                    className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  >
+                    {item}
+                  </a>
+                ),
+              )}
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative pt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+      <section className="min-h-screen flex items-center justify-center relative pt-20 bg-gradient-to-b from-sky-50 to-earth-50">
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <motion.div {...fadeInUp}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+            <h1 className="text-7xl md:text-9xl font-black mb-6 tracking-tight">
               <span className="text-primary">WYWA</span>
               <br />
-              <span className="text-muted-foreground text-4xl md:text-5xl">
+              <span className="text-forest-600 text-3xl md:text-4xl sketch-text transform -rotate-1 inline-block">
                 while you were away
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              Environmental AI that never sleeps. First responder technology for
-              wildfires, smoke, and environmental threats.
-            </p>
-            <Button size="lg" className="text-lg px-8 py-6">
-              See How It Works
+            <div className="sketch-border bg-card p-6 max-w-2xl mx-auto mb-8 transform rotate-1">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed sketch-text">
+                Environmental AI that never sleeps.
+                <span className="sketch-highlight">
+                  First responder technology
+                </span>
+                for wildfires, smoke, and environmental threats.
+              </p>
+            </div>
+            <Button
+              size="lg"
+              className="text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+            >
+              See How It Works ↓
             </Button>
           </motion.div>
         </div>
 
-        {/* Hand-drawn landscape background */}
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath d='M0,400 Q200,350 400,380 T800,400 L800,600 L0,600 Z' fill='%23134e4a' opacity='0.3'/%3E%3Cpath d='M0,450 Q150,400 300,430 T600,450 T800,440 L800,600 L0,600 Z' fill='%23065f46' opacity='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: "cover",
-            backgroundPosition: "bottom",
-          }}
-        />
+        {/* Hand-drawn landscape background inspired by first sketch */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
+            {/* Mountains */}
+            <path
+              d="M0,600 Q100,400 200,450 Q300,350 400,400 Q500,300 600,350 Q700,250 800,300 Q900,200 1000,250 Q1100,180 1200,220 L1200,800 L0,800 Z"
+              fill="currentColor"
+              className="text-forest-400"
+            />
+            <path
+              d="M0,650 Q150,500 300,550 Q450,450 600,500 Q750,400 900,450 Q1050,350 1200,400 L1200,800 L0,800 Z"
+              fill="currentColor"
+              className="text-forest-500"
+            />
+            {/* Smoke plumes */}
+            <path
+              d="M300,450 Q305,400 310,380 Q315,360 320,350 Q325,340 330,335 Q335,340 340,350 Q345,360 350,380 Q355,400 360,450"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+              className="text-muted-foreground opacity-60"
+            />
+            <path
+              d="M800,300 Q805,250 810,230 Q815,210 820,200 Q825,190 830,185 Q835,190 840,200 Q845,210 850,230 Q855,250 860,300"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+              className="text-muted-foreground opacity-60"
+            />
+          </svg>
+        </div>
       </section>
 
-      {/* Problem Section */}
+      {/* Problem Section - Inspired by the landscape sketch */}
       <section id="problem" className="py-24 bg-muted/30">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -105,67 +116,123 @@ export default function Index() {
             className="grid md:grid-cols-2 gap-12 items-center"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
                 THE PROBLEM
               </h2>
-              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                Wildfires are difficult to spot early across vast, remote areas.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                By the time smoke is visible to human observers or satellites,
-                precious hours have been lost. Early detection can mean the
-                difference between containment and catastrophe.
-              </p>
+              <div className="sketch-border bg-card p-6 mb-6 transform rotate-1">
+                <p className="text-xl text-foreground mb-4 leading-relaxed sketch-text">
+                  Wildfires are difficult to spot early across vast, remote
+                  areas.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  By the time smoke is visible to human observers or satellites,
+                  precious hours have been lost. Early detection can mean the
+                  difference between containment and catastrophe.
+                </p>
+              </div>
             </div>
             <div className="relative">
-              {/* Hand-drawn wildfire illustration */}
-              <div className="h-80 w-full relative">
+              {/* Hand-drawn wildfire illustration inspired by sketches */}
+              <div className="h-96 w-full relative sketch-border bg-gradient-to-b from-sky-100 to-earth-100 transform -rotate-2">
                 <svg
-                  className="w-full h-full"
-                  viewBox="0 0 400 300"
+                  className="w-full h-full p-4"
+                  viewBox="0 0 400 350"
                   fill="none"
                 >
-                  {/* Mountain silhouette */}
+                  {/* Mountain range with hand-drawn style */}
                   <path
-                    d="M0,200 Q50,150 100,160 Q150,140 200,155 Q250,135 300,150 Q350,140 400,155 L400,300 L0,300 Z"
+                    d="M0,250 Q50,200 100,220 Q150,180 200,200 Q250,160 300,180 Q350,140 400,160 L400,350 L0,350 Z"
                     fill="currentColor"
-                    className="text-forest-600 opacity-40"
-                  />
-                  {/* Fire/smoke */}
-                  <path
-                    d="M180,160 Q185,140 190,130 Q195,120 200,115 Q205,120 210,130 Q215,140 220,160"
+                    className="text-forest-300"
+                    strokeWidth="2"
                     stroke="currentColor"
-                    strokeWidth="3"
-                    fill="none"
-                    className="text-destructive"
                   />
-                  <circle
-                    cx="200"
-                    cy="170"
-                    r="8"
+                  <path
+                    d="M0,280 Q80,220 160,240 Q240,200 320,220 Q360,210 400,215 L400,350 L0,350 Z"
                     fill="currentColor"
-                    className="text-destructive opacity-60"
+                    className="text-forest-400"
+                    strokeWidth="2"
+                    stroke="currentColor"
                   />
-                  {/* Dashed lines showing detection area */}
+
+                  {/* Fire and smoke with sketchy style */}
+                  <g className="hand-drawn-arrow">
+                    {/* Flames */}
+                    <path
+                      d="M180,240 Q185,220 190,210 Q195,200 200,195 Q205,200 210,210 Q215,220 220,240"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      fill="none"
+                      className="text-destructive"
+                    />
+                    <circle
+                      cx="200"
+                      cy="250"
+                      r="12"
+                      fill="currentColor"
+                      className="text-destructive opacity-70"
+                    />
+
+                    {/* Smoke plume */}
+                    <path
+                      d="M200,195 Q205,180 210,170 Q215,160 220,155 Q225,150 230,148 Q235,150 240,155 Q245,160 250,170 Q255,180 260,195"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      fill="none"
+                      className="text-muted-foreground opacity-60"
+                    />
+                  </g>
+
+                  {/* Detection sensor (simple box) */}
+                  <rect
+                    x="320"
+                    y="300"
+                    width="30"
+                    height="20"
+                    fill="currentColor"
+                    className="text-primary"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    transform="rotate(-2)"
+                  />
+
+                  {/* Detection radius circles */}
                   <circle
                     cx="200"
-                    cy="160"
-                    r="50"
+                    cy="230"
+                    r="60"
                     stroke="currentColor"
                     strokeWidth="2"
-                    strokeDasharray="5,5"
+                    strokeDasharray="8,4"
                     fill="none"
-                    className="text-primary opacity-50"
+                    className="text-sky-500 opacity-40"
                   />
                   <circle
                     cx="200"
-                    cy="160"
-                    r="80"
+                    cy="230"
+                    r="90"
                     stroke="currentColor"
                     strokeWidth="2"
-                    strokeDasharray="5,5"
+                    strokeDasharray="8,4"
                     fill="none"
-                    className="text-primary opacity-30"
+                    className="text-sky-500 opacity-30"
+                  />
+
+                  {/* Hand-drawn annotations */}
+                  <text
+                    x="50"
+                    y="50"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    Too late to detect
+                  </text>
+                  <path
+                    d="M120,60 Q140,80 160,120"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-muted-foreground hand-drawn-arrow"
+                    fill="none"
+                    markerEnd="url(#arrowhead)"
                   />
                 </svg>
               </div>
@@ -174,7 +241,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solution Section - Inspired by the technical sketches */}
       <section id="solution" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -184,13 +251,15 @@ export default function Index() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform rotate-1">
               FIRST RESPONDER
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              AI-powered sensor network that detects, analyzes, and alerts in
-              real-time
-            </p>
+            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform -rotate-1">
+              <p className="text-xl text-foreground sketch-text">
+                AI-powered sensor network that detects, analyzes, and alerts in
+                real-time
+              </p>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
@@ -200,23 +269,26 @@ export default function Index() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-card border border-border rounded-lg p-8">
-                <div className="text-sm text-primary font-mono mb-2">
-                  DETECTION LOG
+              <div className="sketch-border bg-card p-8 transform rotate-2">
+                <div className="text-sm text-primary font-mono mb-4 sketch-text transform -rotate-1">
+                  🔍 DETECTION LOG
                 </div>
                 <div className="space-y-4 text-sm font-mono">
-                  <div className="text-destructive">
+                  <div className="text-sky-600 sketch-highlight transform rotate-0.5">
                     → PM2.5 observed, confirmed it's dust from car
                   </div>
-                  <div className="text-sky-600">
-                    → Temperature spike +15°C in sector 7
+                  <div className="text-forest-600">
+                    → Temperature normal, humidity 65%
                   </div>
-                  <div className="text-destructive font-bold">
+                  <div className="text-destructive font-bold sketch-highlight transform -rotate-0.5">
                     → Smoke observed, confirmed with thermal data, triggering
                     mini alert...
                   </div>
-                  <div className="text-primary">
-                    → Alert dispatched to first responders
+                  <div className="text-primary font-bold">
+                    🚨 Alert dispatched to first responders
+                  </div>
+                  <div className="text-muted-foreground text-xs">
+                    Response time: 4.2 seconds
                   </div>
                 </div>
               </div>
@@ -228,138 +300,341 @@ export default function Index() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              {/* Hand-drawn sensor network */}
-              <div className="h-80 w-full relative">
+              {/* Hand-drawn sensor network inspired by the technical sketches */}
+              <div className="h-96 w-full relative sketch-border bg-gradient-to-br from-earth-50 to-forest-50 transform -rotate-1">
                 <svg
-                  className="w-full h-full"
-                  viewBox="0 0 400 300"
+                  className="w-full h-full p-6"
+                  viewBox="0 0 400 350"
                   fill="none"
                 >
-                  {/* Mother node */}
-                  <rect
-                    x="50"
-                    y="100"
-                    width="40"
-                    height="60"
-                    fill="currentColor"
-                    className="text-primary opacity-20"
-                    rx="8"
-                  />
-                  <rect
-                    x="55"
-                    y="105"
-                    width="30"
-                    height="10"
-                    fill="currentColor"
-                    className="text-primary"
-                    rx="2"
-                  />
-                  <rect
-                    x="55"
-                    y="120"
-                    width="30"
-                    height="10"
-                    fill="currentColor"
-                    className="text-primary"
-                    rx="2"
-                  />
-                  <rect
-                    x="55"
-                    y="135"
-                    width="30"
-                    height="10"
-                    fill="currentColor"
-                    className="text-primary"
-                    rx="2"
-                  />
-                  <text
-                    x="95"
-                    y="120"
-                    className="text-xs fill-current text-muted-foreground"
-                  >
-                    MOTHER NODE
-                  </text>
-                  <text
-                    x="95"
-                    y="135"
-                    className="text-xs fill-current text-muted-foreground"
-                  >
-                    JETSON ORIN
-                  </text>
+                  {/* Mother Node - inspired by the "Mother Node" sketch */}
+                  <g className="sketch-text">
+                    {/* Main housing */}
+                    <rect
+                      x="50"
+                      y="120"
+                      width="45"
+                      height="80"
+                      fill="currentColor"
+                      className="text-card"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      rx="8"
+                    />
+                    <rect
+                      x="55"
+                      y="125"
+                      width="35"
+                      height="12"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="2"
+                    />
+                    <rect
+                      x="55"
+                      y="142"
+                      width="35"
+                      height="12"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="2"
+                    />
+                    <rect
+                      x="55"
+                      y="159"
+                      width="35"
+                      height="12"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="2"
+                    />
+                    <rect
+                      x="55"
+                      y="176"
+                      width="35"
+                      height="12"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="2"
+                    />
 
-                  {/* Daughter nodes */}
-                  <circle
-                    cx="200"
-                    cy="80"
-                    r="15"
-                    fill="currentColor"
-                    className="text-forest-500 opacity-60"
-                  />
-                  <circle
-                    cx="300"
-                    cy="120"
-                    r="15"
-                    fill="currentColor"
-                    className="text-forest-500 opacity-60"
-                  />
-                  <circle
-                    cx="250"
-                    cy="180"
-                    r="15"
-                    fill="currentColor"
-                    className="text-forest-500 opacity-60"
-                  />
+                    {/* Solar panel on top */}
+                    <rect
+                      x="45"
+                      y="105"
+                      width="55"
+                      height="15"
+                      fill="currentColor"
+                      className="text-sky-600"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      rx="3"
+                    />
+                    <line
+                      x1="50"
+                      y1="110"
+                      x2="95"
+                      y2="110"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-sky-800"
+                    />
+                    <line
+                      x1="50"
+                      y1="115"
+                      x2="95"
+                      y2="115"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-sky-800"
+                    />
 
-                  {/* Connections */}
-                  <line
-                    x1="90"
-                    y1="130"
-                    x2="185"
-                    y2="80"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeDasharray="3,3"
-                    className="text-primary opacity-50"
-                  />
-                  <line
-                    x1="90"
-                    y1="130"
-                    x2="285"
-                    y2="120"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeDasharray="3,3"
-                    className="text-primary opacity-50"
-                  />
-                  <line
-                    x1="90"
-                    y1="130"
-                    x2="235"
-                    y2="180"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeDasharray="3,3"
-                    className="text-primary opacity-50"
-                  />
+                    {/* LoRa Antenna */}
+                    <line
+                      x1="72"
+                      y1="105"
+                      x2="72"
+                      y2="85"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      className="text-foreground"
+                    />
+                    <circle
+                      cx="72"
+                      cy="82"
+                      r="3"
+                      fill="currentColor"
+                      className="text-foreground"
+                    />
+
+                    {/* Labels */}
+                    <text
+                      x="105"
+                      y="135"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      MOTHER NODE
+                    </text>
+                    <text
+                      x="105"
+                      y="150"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      JETSON ORIN
+                    </text>
+                    <text
+                      x="105"
+                      y="165"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      360° CAM
+                    </text>
+                    <text
+                      x="105"
+                      y="180"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      CONTROL &
+                    </text>
+                    <text
+                      x="105"
+                      y="195"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      OTHER MODULE
+                    </text>
+                  </g>
+
+                  {/* Daughter Nodes - inspired by sensor node sketches */}
+                  <g className="sketch-text">
+                    {/* Node 1 */}
+                    <rect
+                      x="220"
+                      y="80"
+                      width="25"
+                      height="40"
+                      fill="currentColor"
+                      className="text-card"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      rx="4"
+                    />
+                    <circle
+                      cx="232"
+                      cy="90"
+                      r="4"
+                      fill="currentColor"
+                      className="text-forest-500"
+                    />
+                    <rect
+                      x="225"
+                      y="100"
+                      width="15"
+                      height="8"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="1"
+                    />
+                    <text
+                      x="250"
+                      y="90"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      GAS
+                    </text>
+                    <text
+                      x="250"
+                      y="105"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      SENSOR
+                    </text>
+
+                    {/* Node 2 */}
+                    <rect
+                      x="320"
+                      y="140"
+                      width="25"
+                      height="40"
+                      fill="currentColor"
+                      className="text-card"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      rx="4"
+                    />
+                    <circle
+                      cx="332"
+                      cy="150"
+                      r="4"
+                      fill="currentColor"
+                      className="text-forest-500"
+                    />
+                    <rect
+                      x="325"
+                      y="160"
+                      width="15"
+                      height="8"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="1"
+                    />
+                    <text
+                      x="280"
+                      y="150"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      MANUAL
+                    </text>
+                    <text
+                      x="280"
+                      y="165"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      TRIGGER
+                    </text>
+
+                    {/* Node 3 */}
+                    <rect
+                      x="260"
+                      y="220"
+                      width="25"
+                      height="40"
+                      fill="currentColor"
+                      className="text-card"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      rx="4"
+                    />
+                    <circle
+                      cx="272"
+                      cy="230"
+                      r="4"
+                      fill="currentColor"
+                      className="text-forest-500"
+                    />
+                    <rect
+                      x="265"
+                      y="240"
+                      width="15"
+                      height="8"
+                      fill="currentColor"
+                      className="text-primary"
+                      rx="1"
+                    />
+                    <text
+                      x="200"
+                      y="235"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      DAUGHTER
+                    </text>
+                    <text
+                      x="200"
+                      y="250"
+                      className="text-xs fill-current text-muted-foreground"
+                    >
+                      NODE
+                    </text>
+                  </g>
+
+                  {/* Connections with hand-drawn style */}
+                  <g className="hand-drawn-arrow">
+                    <path
+                      d="M95,160 Q150,120 220,100"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeDasharray="4,2"
+                      className="text-primary opacity-60"
+                      fill="none"
+                    />
+                    <path
+                      d="M95,160 Q200,150 320,160"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeDasharray="4,2"
+                      className="text-primary opacity-60"
+                      fill="none"
+                    />
+                    <path
+                      d="M95,160 Q180,200 260,240"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeDasharray="4,2"
+                      className="text-primary opacity-60"
+                      fill="none"
+                    />
+                  </g>
 
                   {/* Detection waves */}
                   <circle
-                    cx="200"
-                    cy="80"
-                    r="25"
+                    cx="232"
+                    cy="100"
+                    r="20"
                     stroke="currentColor"
                     strokeWidth="1"
+                    strokeDasharray="2,2"
                     fill="none"
                     className="text-sky-500 opacity-40"
                   />
                   <circle
-                    cx="200"
-                    cy="80"
-                    r="35"
+                    cx="332"
+                    cy="160"
+                    r="25"
                     stroke="currentColor"
                     strokeWidth="1"
+                    strokeDasharray="2,2"
                     fill="none"
-                    className="text-sky-500 opacity-30"
+                    className="text-sky-500 opacity-40"
+                  />
+                  <circle
+                    cx="272"
+                    cy="240"
+                    r="30"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeDasharray="2,2"
+                    fill="none"
+                    className="text-sky-500 opacity-40"
                   />
                 </svg>
               </div>
@@ -368,8 +643,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Technology Section */}
-      <section className="py-24 bg-muted/30">
+      {/* Technology Section - Enhanced with sketch aesthetics */}
+      <section className="py-24 bg-gradient-to-br from-earth-50 to-forest-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
@@ -377,7 +652,7 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center sketch-border bg-card p-8 transform rotate-1"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -385,43 +660,53 @@ export default function Index() {
                   viewBox="0 0 100 100"
                   fill="none"
                 >
-                  {/* Camera icon */}
                   <rect
-                    x="20"
+                    x="15"
                     y="30"
-                    width="60"
-                    height="40"
+                    width="70"
+                    height="45"
                     fill="currentColor"
-                    className="text-primary opacity-20"
+                    className="text-card"
+                    stroke="currentColor"
+                    strokeWidth="3"
                     rx="8"
                   />
                   <circle
                     cx="50"
-                    cy="50"
-                    r="12"
-                    fill="currentColor"
+                    cy="52"
+                    r="15"
+                    stroke="currentColor"
+                    strokeWidth="3"
                     className="text-primary"
+                    fill="none"
                   />
                   <circle
                     cx="50"
-                    cy="50"
+                    cy="52"
                     r="8"
                     fill="currentColor"
-                    className="text-background"
+                    className="text-primary"
                   />
                   <rect
-                    x="65"
+                    x="70"
                     y="35"
-                    width="8"
-                    height="5"
+                    width="10"
+                    height="6"
                     fill="currentColor"
-                    className="text-primary"
+                    className="text-destructive"
                     rx="2"
                   />
+                  <text
+                    x="25"
+                    y="85"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    360° CAM
+                  </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Edge AI</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 sketch-text">Edge AI</h3>
+              <p className="text-muted-foreground sketch-text">
                 Computer vision processing at the edge for instant analysis
               </p>
             </motion.div>
@@ -431,7 +716,7 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center sketch-border bg-card p-8 transform -rotate-1"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -439,59 +724,60 @@ export default function Index() {
                   viewBox="0 0 100 100"
                   fill="none"
                 >
-                  {/* Sensor array */}
                   <circle
                     cx="30"
                     cy="40"
-                    r="8"
+                    r="10"
                     fill="currentColor"
                     className="text-forest-500"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   />
                   <circle
                     cx="70"
                     cy="40"
-                    r="8"
+                    r="10"
                     fill="currentColor"
                     className="text-forest-500"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   />
                   <circle
                     cx="50"
-                    cy="60"
-                    r="8"
+                    cy="65"
+                    r="10"
                     fill="currentColor"
                     className="text-forest-500"
-                  />
-                  <line
-                    x1="30"
-                    y1="40"
-                    x2="70"
-                    y2="40"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="text-primary"
                   />
-                  <line
-                    x1="30"
-                    y1="40"
-                    x2="50"
-                    y2="60"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="text-primary"
-                  />
-                  <line
-                    x1="70"
-                    y1="40"
-                    x2="50"
-                    y2="60"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="text-primary"
-                  />
+                  <text
+                    x="15"
+                    y="25"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    PM2.5
+                  </text>
+                  <text
+                    x="55"
+                    y="25"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    GAS
+                  </text>
+                  <text
+                    x="35"
+                    y="85"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    TEMP
+                  </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Multi-Sensor</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 sketch-text">
+                Multi-Sensor
+              </h3>
+              <p className="text-muted-foreground sketch-text">
                 Temperature, humidity, air quality, and visual spectrum
                 monitoring
               </p>
@@ -502,7 +788,7 @@ export default function Index() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center sketch-border bg-card p-8 transform rotate-2"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -510,42 +796,13 @@ export default function Index() {
                   viewBox="0 0 100 100"
                   fill="none"
                 >
-                  {/* Network icon */}
-                  <circle
-                    cx="20"
-                    cy="30"
-                    r="6"
-                    fill="currentColor"
-                    className="text-sky-500"
-                  />
-                  <circle
-                    cx="80"
-                    cy="30"
-                    r="6"
-                    fill="currentColor"
-                    className="text-sky-500"
-                  />
-                  <circle
-                    cx="50"
-                    cy="70"
-                    r="6"
-                    fill="currentColor"
-                    className="text-sky-500"
-                  />
-                  <circle
-                    cx="50"
-                    cy="15"
-                    r="6"
-                    fill="currentColor"
-                    className="text-primary"
-                  />
                   <line
                     x1="20"
                     y1="30"
                     x2="50"
                     y2="15"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     className="text-primary"
                   />
                   <line
@@ -554,7 +811,7 @@ export default function Index() {
                     x2="50"
                     y2="15"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     className="text-primary"
                   />
                   <line
@@ -563,13 +820,50 @@ export default function Index() {
                     x2="50"
                     y2="15"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     className="text-primary"
                   />
+                  <circle
+                    cx="20"
+                    cy="30"
+                    r="8"
+                    fill="currentColor"
+                    className="text-sky-500"
+                  />
+                  <circle
+                    cx="80"
+                    cy="30"
+                    r="8"
+                    fill="currentColor"
+                    className="text-sky-500"
+                  />
+                  <circle
+                    cx="50"
+                    cy="70"
+                    r="8"
+                    fill="currentColor"
+                    className="text-sky-500"
+                  />
+                  <circle
+                    cx="50"
+                    cy="15"
+                    r="8"
+                    fill="currentColor"
+                    className="text-primary"
+                  />
+                  <text
+                    x="20"
+                    y="85"
+                    className="text-xs fill-current text-muted-foreground sketch-text"
+                  >
+                    LoRa MESH
+                  </text>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Mesh Network</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 sketch-text">
+                Mesh Network
+              </h3>
+              <p className="text-muted-foreground sketch-text">
                 Self-healing network topology for remote area coverage
               </p>
             </motion.div>
@@ -577,8 +871,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Progress Section */}
-      <section id="progress" className="py-24">
+      {/* Progress Section - Matching the infographic style */}
+      <section id="progress" className="py-24 bg-muted/30">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -587,12 +881,14 @@ export default function Index() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
               PROGRESS
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Building the future of environmental monitoring
-            </p>
+            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform rotate-1">
+              <p className="text-xl text-foreground sketch-text">
+                Building the future of environmental monitoring
+              </p>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -601,19 +897,29 @@ export default function Index() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-lg p-8"
+              className="sketch-border bg-card p-8 transform rotate-2"
             >
-              <div className="text-6xl font-bold text-primary mb-4">2</div>
-              <h3 className="text-2xl font-semibold mb-3">PROTOTYPES BUILT</h3>
-              <p className="text-muted-foreground mb-4">
+              <div className="text-8xl font-black text-primary mb-4 sketch-text transform -rotate-3">
+                2
+              </div>
+              <h3 className="text-2xl font-bold mb-4 sketch-text">
+                PROTOTYPES BUILT
+              </h3>
+              <p className="text-muted-foreground mb-6 sketch-text">
                 Working sensor nodes deployed in test environments, collecting
                 real-world data and validating our approach.
               </p>
-              <div className="text-sm font-mono text-accent-foreground bg-accent/20 p-3 rounded">
-                → Solar panel integration complete
-                <br />
-                → LoRa antenna tested 5km range
-                <br />→ Weather sealing verified
+              <div className="sketch-border bg-accent/20 p-4 font-mono text-sm transform -rotate-1">
+                <div className="text-primary">
+                  ✓ Solar panel integration complete
+                </div>
+                <div className="text-primary">
+                  ✓ LoRa antenna tested 5km range
+                </div>
+                <div className="text-primary">✓ Weather sealing verified</div>
+                <div className="text-primary">
+                  ✓ Edge AI processing validated
+                </div>
               </div>
             </motion.div>
 
@@ -622,21 +928,31 @@ export default function Index() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-lg p-8"
+              className="sketch-border bg-card p-8 transform -rotate-1"
             >
-              <div className="text-6xl font-bold text-primary mb-4">1</div>
-              <h3 className="text-2xl font-semibold mb-3">
+              <div className="text-8xl font-black text-primary mb-4 sketch-text transform rotate-2">
+                1
+              </div>
+              <h3 className="text-2xl font-bold mb-4 sketch-text">
                 AI MODEL IN DEVELOPMENT
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-6 sketch-text">
                 Computer vision model trained on wildfire and smoke detection
                 with thermal data correlation.
               </p>
-              <div className="text-sm font-mono text-accent-foreground bg-accent/20 p-3 rounded">
-                → 95% accuracy on test dataset
-                <br />
-                → False positive rate &lt; 0.1%
-                <br />→ Edge deployment optimized
+              <div className="sketch-border bg-accent/20 p-4 font-mono text-sm transform rotate-1">
+                <div className="text-forest-600">
+                  → 95% accuracy on test dataset
+                </div>
+                <div className="text-forest-600">
+                  → False positive rate &lt; 0.1%
+                </div>
+                <div className="text-forest-600">
+                  → Edge deployment optimized
+                </div>
+                <div className="text-destructive font-bold">
+                  → Ready for field testing
+                </div>
               </div>
             </motion.div>
           </div>
@@ -644,7 +960,7 @@ export default function Index() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-24 bg-muted/30">
+      <section id="team" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -653,62 +969,58 @@ export default function Index() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform rotate-1">
               TEAM
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Scientists, engineers, and hackers united by purpose
-            </p>
+            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform -rotate-1">
+              <p className="text-xl text-foreground sketch-text">
+                Scientists, engineers, and hackers united by purpose
+              </p>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl mb-4">🔬</div>
-              <h3 className="text-xl font-semibold mb-3">SCIENTISTS</h3>
-              <p className="text-muted-foreground">
-                Environmental researchers and climate specialists driving our
-                mission with deep domain expertise
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-3">ENGINEERS</h3>
-              <p className="text-muted-foreground">
-                Hardware and software engineers building robust, scalable
-                solutions for extreme environments
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-5xl mb-4">💻</div>
-              <h3 className="text-xl font-semibold mb-3">HACKERS</h3>
-              <p className="text-muted-foreground">
-                Creative problem solvers pushing boundaries and finding
-                innovative paths forward
-              </p>
-            </motion.div>
+            {[
+              {
+                emoji: "🔬",
+                title: "SCIENTISTS",
+                desc: "Environmental researchers and climate specialists driving our mission with deep domain expertise",
+              },
+              {
+                emoji: "⚡",
+                title: "ENGINEERS",
+                desc: "Hardware and software engineers building robust, scalable solutions for extreme environments",
+              },
+              {
+                emoji: "💻",
+                title: "HACKERS",
+                desc: "Creative problem solvers pushing boundaries and finding innovative paths forward",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className={`sketch-border bg-card p-8 transform ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+              >
+                <div className="text-6xl mb-6">{item.emoji}</div>
+                <h3 className="text-xl font-bold mb-4 sketch-text">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground sketch-text">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Get Involved Section */}
-      <section id="involve" className="py-24">
+      <section
+        id="getinvolved"
+        className="py-24 bg-gradient-to-br from-primary/5 to-forest-50"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -716,35 +1028,47 @@ export default function Index() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
-              GET INVOLVED
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Join our mission to protect communities and environments through
-              early detection technology. Whether you're a researcher, engineer,
-              or just passionate about our cause - there's a place for you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-6">
-                Contribute Code
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-                Learn More
-              </Button>
+            <div className="sketch-border bg-card p-12 transform rotate-1">
+              <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-2">
+                GET INVOLVED
+              </h2>
+              <p className="text-xl text-foreground mb-8 leading-relaxed sketch-text">
+                Join our mission to protect communities and environments through
+                early detection technology. Whether you're a researcher,
+                engineer, or just passionate about our cause - there's a place
+                for you.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button
+                  size="lg"
+                  className="text-lg px-8 py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+                >
+                  Contribute Code 🔧
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-8 py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
+                >
+                  Learn More 📚
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border">
+      <footer className="py-12 border-t-2 border-primary bg-muted/30">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary mb-4">WYWA</div>
-            <p className="text-muted-foreground mb-4">
+            <div className="text-3xl font-black text-primary mb-4 sketch-text">
+              WYWA
+            </div>
+            <p className="text-muted-foreground mb-4 sketch-text">
               While You Were Away - Environmental AI Initiative
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground sketch-text">
               Building first responder technology for environmental threats
             </p>
           </div>

@@ -104,3 +104,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .sketch-border {
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .sketch-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid currentColor;
+    border-radius: 10px;
+    transform: rotate(0.5deg);
+    opacity: 0.3;
+  }
+
+  .sketch-text {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    transform: rotate(-0.5deg);
+  }
+
+  .hand-drawn-arrow {
+    stroke-dasharray: 3, 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sketch-highlight {
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 0, 0.3) 50%,
+      transparent 100%
+    );
+    padding: 2px 4px;
+    transform: rotate(-0.3deg);
+  }
+}
