@@ -184,13 +184,7 @@ export default function Index() {
             className="mb-12 text-center"
           >
             <div className="max-w-2xl mx-auto">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F3f07fd4a71334858a87ede111e8a73fa?format=webp&width=800"
-                alt="Technical process flow: Data Collection, Edge Processing, Gateway Analysis, Coordinated Response"
-                className="w-full h-auto rounded-lg border-2 border-primary/20 shadow-lg"
-                loading="lazy"
-              />
-              <p className="text-sm text-gray-500 mt-4 italic">
+              <p className="text-sm text-gray-500 pt-4 italic">
                 Technical workflow: From sensor data to emergency response
               </p>
             </div>
@@ -571,7 +565,7 @@ function ProcessRail() {
       description: "Mother node validates with additional data:",
       details: [
         {
-          icon: "��",
+          icon: "📷",
           label: "Visual confirmation via camera feed",
           color: "text-yellow-600",
         },
@@ -884,7 +878,7 @@ function MockDashboard() {
           <div
             className={`text-lg font-bold ${current.sensors.temp > 35 ? "text-red-400" : "text-blue-300"}`}
           >
-            {current.sensors.temp}°C
+            {current.sensors.temp}��C
           </div>
         </div>
         <div className="text-center">
