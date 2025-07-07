@@ -679,7 +679,7 @@ function DevelopmentStatusCards() {
           </div>
         </div>
         <p className="text-sm text-gray-600 mt-4 italic">
-          Prototype sensor node deployed for field testing in California forests
+          Lab level sensor node deployed for testing (In progress)
         </p>
       </motion.div>
 
