@@ -958,34 +958,54 @@ function MockDashboard() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-12 bg-gray-900 text-white p-6 md:p-8 rounded-lg border border-gray-700"
+      className="mb-12 bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg"
     >
       {/* Header */}
-      <div className="flex items-center justify-between mb-6 border-b border-gray-700 pb-4">
-        <div className="flex items-center space-x-4">
-          <div className="text-lg font-mono font-bold text-green-400">
-            WYWA COMMAND
-          </div>
-          <div className="text-sm text-gray-400 font-mono">
-            2024-01-15 12:47:51
-          </div>
+      <div className="bg-primary text-white p-4 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <div className="font-bold text-lg">WYWA Command</div>
         </div>
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm text-green-400 font-mono">
-              NETWORK LIVE
-            </span>
-          </div>
-          <div
-            className={`px-2 py-1 rounded text-xs font-bold ${alertLevel === "CRITICAL" ? "bg-red-600" : "bg-gray-600"}`}
-          >
-            {alertLevel}
-          </div>
+        <div
+          className={`px-3 py-1 rounded-full text-xs font-bold ${
+            alertLevel === "CRITICAL"
+              ? "bg-red-500 text-white"
+              : "bg-gray-100 text-gray-800"
+          }`}
+        >
+          {alertLevel}
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-4 gap-6">
+      {/* Main Content */}
+      <div className="p-6">
+        {/* Alert Card */}
+        <div className={`mb-6 p-4 rounded-lg border-l-4 ${
+          current.status === "CONFIRMED FIRE"
+            ? "bg-red-50 border-red-500"
+            : "bg-yellow-50 border-yellow-500"
+        }`}>
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center space-x-2">
+              <div className={`w-3 h-3 rounded-full ${
+                current.status === "CONFIRMED FIRE" ? "bg-red-500" : "bg-yellow-500"
+              } animate-pulse`}></div>
+              <span className="font-bold text-lg text-gray-800">
+                {current.location}
+              </span>
+            </div>
+            <span className="text-sm text-gray-600">{current.timestamp}</span>
+          </div>
+          <div className={`text-sm font-medium ${
+            current.status === "CONFIRMED FIRE" ? "text-red-700" : "text-yellow-700"
+          }`}>
+            {current.aiStage} • {(current.confidence * 100).toFixed(0)}% confidence
+          </div>
+          <div className="text-xs text-gray-500 mt-1">{current.coords}</div>
+        </div>
+
+        {/* Key Metrics Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {/* Left: Sensor Data */}
         <div className="space-y-4">
           <div className="text-sm font-mono text-gray-400 mb-2">
