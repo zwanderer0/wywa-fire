@@ -214,7 +214,7 @@ export default function Index() {
                     mini alert...
                   </div>
                   <div className="text-primary font-bold">
-                    🚨 Alert dispatched to first responders
+                    Report sent to government agencies
                   </div>
                   <div className="text-muted-foreground text-xs">
                     Response time: 4.2 seconds
