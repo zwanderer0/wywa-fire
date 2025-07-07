@@ -76,7 +76,7 @@ export default function Index() {
                         ?.scrollIntoView({ behavior: "smooth" })
                     }
                   >
-                    Help join the mission
+                    Join the mission
                   </Button>
                 </motion.div>
               </div>
