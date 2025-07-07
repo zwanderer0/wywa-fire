@@ -869,9 +869,9 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Get Involved Section */}
+      {/* Join Section */}
       <section
-        id="getinvolved"
+        id="join"
         className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-forest-50"
       >
         <div className="max-w-5xl mx-auto px-4 md:px-6">
