@@ -568,26 +568,71 @@ export default function Index() {
               viewport={{ once: true }}
               className="sketch-border bg-card p-6 md:p-8 transform rotate-2"
             >
-              <div className="text-6xl md:text-8xl font-black text-primary mb-4 sketch-text transform -rotate-3">
-                2
+              <div className="flex items-center mb-4">
+                <div className="text-4xl md:text-6xl font-black text-primary mr-4 sketch-text transform -rotate-3">
+                  AI
+                </div>
+                <div className="h-12 w-12 md:h-16 md:w-16 relative">
+                  <svg
+                    className="w-full h-full"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                  >
+                    {/* Brain/AI visualization */}
+                    <path
+                      d="M20,15 Q25,10 32,10 Q39,10 44,15 Q48,20 48,28 Q48,35 44,40 Q40,44 35,46 Q29,48 25,46 Q20,44 16,40 Q12,35 12,28 Q12,20 16,15 Q18,12 20,15"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      className="text-primary"
+                    />
+                    <circle
+                      cx="25"
+                      cy="25"
+                      r="2"
+                      fill="currentColor"
+                      className="text-accent"
+                    />
+                    <circle
+                      cx="35"
+                      cy="22"
+                      r="2"
+                      fill="currentColor"
+                      className="text-accent"
+                    />
+                    <circle
+                      cx="30"
+                      cy="35"
+                      r="2"
+                      fill="currentColor"
+                      className="text-accent"
+                    />
+                    <path
+                      d="M25,25 Q30,20 35,22 M25,25 Q28,30 30,35 M35,22 Q32,30 30,35"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-forest-500"
+                    />
+                  </svg>
+                </div>
               </div>
               <h3 className="text-xl md:text-2xl font-bold mb-4 sketch-text">
-                PROTOTYPES BUILT
+                AI MODELS
               </h3>
               <p className="text-sm md:text-base text-muted-foreground mb-6 sketch-text">
-                Working sensor nodes deployed in test environments, collecting
-                real-world data and validating our approach.
+                VLM finetuning and field testing for wildfire detection with
+                advanced vision capabilities.
               </p>
               <div className="sketch-border bg-accent/20 p-4 font-mono text-sm transform -rotate-1">
+                <div className="text-primary">→ VLM finetuning in progress</div>
                 <div className="text-primary">
-                  ✓ Solar panel integration complete
+                  → Field testing phase initiated
                 </div>
-                <div className="text-primary">
-                  ✓ LoRa antenna tested 5km range
+                <div className="text-forest-600">
+                  → 95% accuracy on test dataset
                 </div>
-                <div className="text-primary">✓ Weather sealing verified</div>
-                <div className="text-primary">
-                  ✓ Edge AI processing validated
+                <div className="text-destructive font-bold">
+                  → Real-world validation ongoing
                 </div>
               </div>
             </motion.div>
@@ -599,28 +644,154 @@ export default function Index() {
               viewport={{ once: true }}
               className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
             >
-              <div className="text-6xl md:text-8xl font-black text-primary mb-4 sketch-text transform rotate-2">
-                1
+              <div className="flex items-center mb-4">
+                <div className="text-3xl md:text-5xl font-black text-primary mr-4 sketch-text transform rotate-2">
+                  MESH
+                </div>
+                <div className="h-12 w-12 md:h-16 md:w-16 relative">
+                  <svg
+                    className="w-full h-full"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                  >
+                    {/* Mesh network visualization */}
+                    <circle
+                      cx="16"
+                      cy="16"
+                      r="4"
+                      fill="currentColor"
+                      className="text-sky-500"
+                    />
+                    <circle
+                      cx="48"
+                      cy="16"
+                      r="4"
+                      fill="currentColor"
+                      className="text-sky-500"
+                    />
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="4"
+                      fill="currentColor"
+                      className="text-primary"
+                    />
+                    <circle
+                      cx="16"
+                      cy="48"
+                      r="4"
+                      fill="currentColor"
+                      className="text-sky-500"
+                    />
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="4"
+                      fill="currentColor"
+                      className="text-sky-500"
+                    />
+
+                    {/* Connection lines */}
+                    <line
+                      x1="16"
+                      y1="16"
+                      x2="32"
+                      y2="32"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-primary opacity-60"
+                      strokeDasharray="2,2"
+                    />
+                    <line
+                      x1="48"
+                      y1="16"
+                      x2="32"
+                      y2="32"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-primary opacity-60"
+                      strokeDasharray="2,2"
+                    />
+                    <line
+                      x1="32"
+                      y1="32"
+                      x2="16"
+                      y2="48"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-primary opacity-60"
+                      strokeDasharray="2,2"
+                    />
+                    <line
+                      x1="32"
+                      y1="32"
+                      x2="48"
+                      y2="48"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-primary opacity-60"
+                      strokeDasharray="2,2"
+                    />
+                    <line
+                      x1="16"
+                      y1="16"
+                      x2="48"
+                      y2="16"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-forest-500 opacity-40"
+                      strokeDasharray="1,1"
+                    />
+                    <line
+                      x1="16"
+                      y1="48"
+                      x2="48"
+                      y2="48"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-forest-500 opacity-40"
+                      strokeDasharray="1,1"
+                    />
+
+                    {/* Signal waves */}
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="8"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                      className="text-primary opacity-30"
+                    />
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="12"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                      className="text-primary opacity-20"
+                    />
+                  </svg>
+                </div>
               </div>
               <h3 className="text-xl md:text-2xl font-bold mb-4 sketch-text">
-                AI MODEL IN DEVELOPMENT
+                SENSOR MESH DESIGN
               </h3>
               <p className="text-sm md:text-base text-muted-foreground mb-6 sketch-text">
-                Computer vision model trained on wildfire and smoke detection
-                with thermal data correlation.
+                Advanced mesh network architecture for seamless communication
+                across vast wilderness areas.
               </p>
               <div className="sketch-border bg-accent/20 p-4 font-mono text-sm transform rotate-1">
                 <div className="text-forest-600">
-                  → 95% accuracy on test dataset
+                  → Self-healing topology designed
                 </div>
                 <div className="text-forest-600">
-                  → False positive rate &lt; 0.1%
+                  → LoRa 5km range validated
                 </div>
-                <div className="text-forest-600">
-                  → Edge deployment optimized
-                </div>
+                <div className="text-primary">→ Mesh protocols optimized</div>
                 <div className="text-destructive font-bold">
-                  → Ready for field testing
+                  → Development phase active
                 </div>
               </div>
             </motion.div>
