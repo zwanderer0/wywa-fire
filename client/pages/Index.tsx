@@ -175,7 +175,28 @@ export default function Index() {
           {/* Technology Cards */}
           <TechnologyCards />
 
-          {/* Process Rail */}
+          {/* Reference Process Flow */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <div className="max-w-2xl mx-auto">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F3f07fd4a71334858a87ede111e8a73fa?format=webp&width=800"
+                alt="Technical process flow: Data Collection, Edge Processing, Gateway Analysis, Coordinated Response"
+                className="w-full h-auto rounded-lg border-2 border-primary/20 shadow-lg"
+                loading="lazy"
+              />
+              <p className="text-sm text-gray-500 mt-4 italic">
+                Technical workflow: From sensor data to emergency response
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Interactive Process Rail */}
           <ProcessRail />
         </div>
       </section>
