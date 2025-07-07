@@ -960,15 +960,41 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 md:py-12 border-t-2 border-primary bg-muted/30">
+      <footer className="py-8 md:py-12 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="text-center">
-            <div className="text-xl md:text-2xl font-black text-primary mb-4 sketch-text">
-              First Responder Initiative
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div>
+              <div className="text-lg font-bold mb-2">
+                First Responder Initiative
+              </div>
+              <p className="text-sm text-gray-300">
+                © 2024 WYWA. All rights reserved.
+              </p>
             </div>
-            <p className="text-sm md:text-base text-muted-foreground mb-4 sketch-text">
-              Part of WYWA: Ambient intelligence in the physical world
-            </p>
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+              <a
+                href="mailto:navya@wywa.ai"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                navya@wywa.ai
+              </a>
+              <a
+                href="https://linkedin.com/company/wywa-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/wywa-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
       </footer>
