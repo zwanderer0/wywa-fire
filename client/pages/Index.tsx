@@ -534,10 +534,10 @@ function ProcessRail() {
       description:
         "Edge sensors continuously monitor environmental conditions including:",
       details: [
-        { icon: "🌡️", label: "Temperature", color: "text-red-500" },
-        { icon: "💧", label: "Humidity", color: "text-blue-500" },
-        { icon: "💨", label: "Wind Speed", color: "text-gray-500" },
-        { icon: "☁️", label: "Air Quality", color: "text-purple-500" },
+        { label: "Temperature", color: "text-red-500" },
+        { label: "Humidity", color: "text-blue-500" },
+        { label: "Wind Speed", color: "text-gray-500" },
+        { label: "Air Quality", color: "text-purple-500" },
       ],
     },
     {
@@ -547,7 +547,6 @@ function ProcessRail() {
         "Small VLMs/AI models analyze sensor readings to detect anomalies:",
       details: [
         {
-          icon: "🔥",
           label: "Smoke detected, thermal anomaly confirmed",
           color: "text-red-600",
         },
@@ -559,7 +558,6 @@ function ProcessRail() {
       description: "Mother node validates with additional data:",
       details: [
         {
-          icon: "📷",
           label: "Visual confirmation via camera feed",
           color: "text-yellow-600",
         },
@@ -571,7 +569,6 @@ function ProcessRail() {
       description: "Cloud system triggers appropriate response:",
       details: [
         {
-          icon: "🚒",
           label: "Fire teams dispatched to precise coordinates",
           color: "text-green-600",
         },
@@ -986,7 +983,7 @@ function TeamSection() {
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
-              🌲 Field Partners
+              ���� Field Partners
             </div>
             <div className="text-gray-600">
               Pilot deployments, community connections
