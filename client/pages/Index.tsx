@@ -758,51 +758,45 @@ function DevelopmentStatusCards() {
   );
 }
 
-// Simple System Overview Component
-function SimpleSystemOverview() {
-  const [activeStep, setActiveStep] = useState(0);
+// What We're Building Component
+function WhatWereBuilding() {
+  const [activeLayer, setActiveLayer] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const steps = [
+  const aiLayers = [
     {
-      number: "01",
-      title: "Sensors Detect",
-      description:
-        "Temperature, humidity, gas sensors monitor forest conditions",
-      visual: "bg-blue-100 border-blue-300",
-      stats: "24/7 monitoring",
+      name: "Edge Intelligence",
+      description: "TinyML models on WYWA Pods perform chemical detection",
+      icon: "🧠",
+      color: "from-blue-500 to-cyan-500",
+      stats: { accuracy: "94%", latency: "<1ms", power: "Ultra-low" },
     },
     {
-      number: "02",
-      title: "AI Filters",
+      name: "Visual Understanding",
       description:
-        "Out of ~1000 smoke detections, AI qualifies ~10 as potential fires",
-      visual: "bg-purple-100 border-purple-300",
-      stats: "99% false positives filtered",
+        "VLMs on NVIDIA Jetson gateways analyze smoke patterns vs dust clouds",
+      icon: "👁️",
+      color: "from-purple-500 to-pink-500",
+      stats: { accuracy: "97%", latency: "50ms", power: "Efficient" },
     },
     {
-      number: "03",
-      title: "Alert Triggered",
+      name: "Context Engine",
       description:
-        "Qualified detections sent to first responders, firefighters, neighbors",
-      visual: "bg-orange-100 border-orange-300",
-      stats: "Location-based alerts",
-    },
-    {
-      number: "04",
-      title: "Human Verification",
-      description:
-        "Local responders verify and take action based on ground truth",
-      visual: "bg-green-100 border-green-300",
-      stats: "Human-in-the-loop",
+        "Generative AI creates tailored alerts for first responders and residents",
+      icon: "⚡",
+      color: "from-orange-500 to-red-500",
+      stats: { accuracy: "99%", latency: "200ms", power: "Cloud" },
     },
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setActiveLayer((prev) => (prev + 1) % aiLayers.length);
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered, aiLayers.length]);
 
   return (
     <motion.div
@@ -811,94 +805,131 @@ function SimpleSystemOverview() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="mb-12"
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="bg-white rounded-xl border-2 border-gray-200 p-8">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-2">
-            How It Works
-          </h3>
-          <p className="text-gray-600">
-            AI-powered filtering with human verification for accurate fire
-            detection
-          </p>
-        </div>
+      {/* Header */}
+      <div className="text-center mb-12">
+        <motion.h2
+          className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent"
+          initial={{ scale: 0.9 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          We are building the future of wildfire detection
+        </motion.h2>
+        <motion.p
+          className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Three layers of AI working together — from tiny sensors to intelligent
+          alerts that save lives
+        </motion.p>
+      </div>
 
-        <div className="grid md:grid-cols-4 gap-6">
-          {steps.map((step, index) => (
+      {/* Interactive AI Layers */}
+      <div className="relative">
+        <div className="grid lg:grid-cols-3 gap-8">
+          {aiLayers.map((layer, index) => (
             <motion.div
               key={index}
-              className={`relative p-6 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
-                activeStep === index
-                  ? step.visual
-                  : "bg-gray-50 border-gray-200"
+              className={`relative overflow-hidden rounded-2xl border-2 cursor-pointer transition-all duration-500 ${
+                activeLayer === index
+                  ? "border-transparent shadow-2xl scale-105"
+                  : "border-gray-200 hover:border-gray-300"
               }`}
-              onClick={() => setActiveStep(index)}
+              onClick={() => setActiveLayer(index)}
+              style={{
+                background:
+                  activeLayer === index
+                    ? `linear-gradient(135deg, ${layer.color.replace("from-", "").replace("to-", ", ")})`
+                    : "white",
+              }}
               animate={{
-                scale: activeStep === index ? 1.05 : 1,
-                boxShadow:
-                  activeStep === index
-                    ? "0 10px 25px rgba(0,0,0,0.1)"
-                    : "0 2px 5px rgba(0,0,0,0.05)",
+                y: activeLayer === index ? -10 : 0,
               }}
             >
-              {/* Step Number */}
-              <div className="text-3xl font-black text-gray-400 mb-3">
-                {step.number}
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -translate-y-16 translate-x-16"></div>
               </div>
 
-              {/* Content */}
-              <h4 className="text-lg font-bold text-gray-800 mb-2">
-                {step.title}
-              </h4>
-              <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                {step.description}
-              </p>
-              <div className="text-xs font-semibold text-primary bg-white/70 px-2 py-1 rounded">
-                {step.stats}
-              </div>
-
-              {/* Connection Arrow */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                  <div className="w-6 h-0.5 bg-gray-300"></div>
-                  <div className="absolute -right-1 -top-1 w-2 h-2 border-r-2 border-t-2 border-gray-300 transform rotate-45"></div>
+              <div className="relative p-8">
+                {/* Icon & Title */}
+                <div className="flex items-center space-x-4 mb-6">
+                  <div
+                    className={`text-4xl ${activeLayer === index ? "filter drop-shadow-lg" : ""}`}
+                  >
+                    {layer.icon}
+                  </div>
+                  <h3
+                    className={`text-2xl font-bold ${activeLayer === index ? "text-white" : "text-gray-800"}`}
+                  >
+                    {layer.name}
+                  </h3>
                 </div>
-              )}
 
-              {/* Active Indicator */}
-              {activeStep === index && (
-                <motion.div
-                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
+                {/* Description */}
+                <p
+                  className={`text-lg leading-relaxed mb-6 ${activeLayer === index ? "text-white/90" : "text-gray-600"}`}
                 >
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                </motion.div>
-              )}
+                  {layer.description}
+                </p>
+
+                {/* Stats Grid */}
+                <div className="grid grid-cols-3 gap-4">
+                  {Object.entries(layer.stats).map(([key, value]) => (
+                    <div key={key} className="text-center">
+                      <div
+                        className={`text-lg font-bold ${activeLayer === index ? "text-white" : "text-gray-800"}`}
+                      >
+                        {value}
+                      </div>
+                      <div
+                        className={`text-xs uppercase tracking-wide ${activeLayer === index ? "text-white/70" : "text-gray-500"}`}
+                      >
+                        {key}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Active Indicator */}
+                {activeLayer === index && (
+                  <motion.div
+                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Progress Bar */}
-        <div className="mt-8 flex justify-center">
-          <div className="flex space-x-2">
-            {steps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveStep(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  activeStep === index ? "bg-primary scale-125" : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="text-center mt-6 text-sm text-gray-500">
-          Click any step to explore • Auto-advancing every 3 seconds
-        </div>
+        {/* Connection Lines */}
+        <div className="hidden lg:block absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform -translate-y-1/2 z-0"></div>
+        <div className="hidden lg:block absolute top-1/2 right-1/3 w-1/3 h-0.5 bg-gradient-to-r from-purple-300 to-red-300 transform -translate-y-1/2 z-0"></div>
       </div>
+
+      {/* Bottom CTA */}
+      <motion.div
+        className="text-center mt-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        <div className="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-600">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span>Live in California pilots • Click layers to explore</span>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
