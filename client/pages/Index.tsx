@@ -765,31 +765,35 @@ function SimpleSystemOverview() {
   const steps = [
     {
       number: "01",
-      title: "Fire Starts",
-      description: "Wildfire begins in remote area",
-      visual: "bg-orange-100 border-orange-300",
-      icon: "🔥",
+      title: "Sensors Detect",
+      description:
+        "Temperature, humidity, gas sensors monitor forest conditions",
+      visual: "bg-blue-100 border-blue-300",
+      stats: "24/7 monitoring",
     },
     {
       number: "02",
-      title: "Sensors Detect",
-      description: "Temperature & smoke detected instantly",
-      visual: "bg-blue-100 border-blue-300",
-      icon: "🌡️",
+      title: "AI Filters",
+      description:
+        "Out of ~1000 smoke detections, AI qualifies ~10 as potential fires",
+      visual: "bg-purple-100 border-purple-300",
+      stats: "99% false positives filtered",
     },
     {
       number: "03",
-      title: "AI Analyzes",
-      description: "Model confirms fire vs false alarm",
-      visual: "bg-purple-100 border-purple-300",
-      icon: "🧠",
+      title: "Alert Triggered",
+      description:
+        "Qualified detections sent to first responders, firefighters, neighbors",
+      visual: "bg-orange-100 border-orange-300",
+      stats: "Location-based alerts",
     },
     {
       number: "04",
-      title: "Alert Sent",
-      description: "Crews dispatched within minutes",
+      title: "Human Verification",
+      description:
+        "Local responders verify and take action based on ground truth",
       visual: "bg-green-100 border-green-300",
-      icon: "🚒",
+      stats: "Human-in-the-loop",
     },
   ];
 
