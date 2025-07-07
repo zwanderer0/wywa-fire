@@ -94,15 +94,15 @@ export default function Index() {
                   className="sketch-border bg-accent/20 p-4 md:p-6 transform -rotate-1"
                 >
                   <h3 className="text-sm md:text-base font-bold text-primary mb-3 sketch-text">
-                    RESEARCH FOCUS
+                    CONTEXTUAL INTELLIGENCE
                   </h3>
                   <p className="text-sm md:text-base lg:text-lg text-foreground sketch-text">
-                    <span className="font-bold text-primary">Vision AI</span>{" "}
-                    for environmental monitoring.{" "}
+                    Beyond traditional CV. Understanding{" "}
                     <span className="font-bold text-primary">
-                      Sensor networks
-                    </span>{" "}
-                    for remote detection. Real-world deployment at scale.
+                      time series data from sensors
+                    </span>
+                    . Environmental context from multi-modal signals. Real-world
+                    ambient intelligence.
                   </p>
                 </motion.div>
               </div>
@@ -235,8 +235,9 @@ export default function Index() {
               className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform -rotate-1"
             >
               <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text">
-                AI-powered sensor network that detects, analyzes, and reports to
-                government agencies in real-time
+                Contextual intelligence beyond traditional computer vision.
+                Multi-sensor data fusion with temporal understanding for
+                environmental monitoring.
               </p>
             </motion.div>
           </motion.div>
@@ -1000,7 +1001,7 @@ export default function Index() {
                     className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
                     onClick={() =>
                       (window.location.href =
-                        "mailto:navya@wywa.ai?subject=First Responder Initiative - California Wildfire Detection&body=Hi Navya, I am interested in learning more about the First Responder Initiative wildfire detection project.")
+                        "mailto:navya@wywa.ai?subject=WYWA First Responder Initiative&body=Hi Navya, I am interested in learning more about the First Responder Initiative and WYWA's ambient intelligence mission.")
                     }
                   >
                     Send Email
@@ -1024,7 +1025,7 @@ export default function Index() {
               First Responder Initiative
             </div>
             <p className="text-sm md:text-base text-muted-foreground mb-4 sketch-text">
-              WYWA: While You were away
+              Part of WYWA: Ambient intelligence in the physical world
             </p>
           </div>
         </div>
