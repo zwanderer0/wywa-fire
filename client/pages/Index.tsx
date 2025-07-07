@@ -1092,7 +1092,7 @@ function HeroDetectionDemo() {
 
     const interval = setInterval(() => {
       setCurrentAlert((prev) => (prev + 1) % alerts.length);
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [isPlaying]);
@@ -1106,12 +1106,9 @@ function HeroDetectionDemo() {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="text-center"
       >
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary mb-2 sketch-text transform -rotate-1">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary mb-4 sketch-text transform -rotate-1">
           LIVE AI DETECTION
         </h2>
-        <p className="text-sm md:text-base text-muted-foreground sketch-text">
-          Watch contextual intelligence in action
-        </p>
       </motion.div>
 
       {/* Main Detection Card */}
@@ -1144,7 +1141,7 @@ function HeroDetectionDemo() {
             initial={{ opacity: 0, x: 20, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -20, scale: 0.95 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className={`p-6 md:p-8 rounded-xl ${alerts[currentAlert].bgColor} sketch-border`}
           >
             {/* Alert Header */}
@@ -1231,30 +1228,38 @@ function HeroDetectionDemo() {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-border">
-          <div className="text-center">
-            <div className="text-lg md:text-xl font-bold text-primary">
-              4.2s
+        {/* Tech Specs */}
+        <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-border">
+          <div className="text-left">
+            <div className="text-xs md:text-sm text-muted-foreground font-mono">
+              EDGE MODEL
             </div>
-            <div className="text-xs md:text-sm text-muted-foreground">
-              Analysis Time
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-lg md:text-xl font-bold text-forest-600">
-              847
-            </div>
-            <div className="text-xs md:text-sm text-muted-foreground">
-              Active Nodes
+            <div className="text-sm md:text-base font-medium text-foreground">
+              YOLOv8 + LoRA
             </div>
           </div>
-          <div className="text-center">
-            <div className="text-lg md:text-xl font-bold text-sky-600">
-              99.1%
+          <div className="text-left">
+            <div className="text-xs md:text-sm text-muted-foreground font-mono">
+              INFERENCE
             </div>
-            <div className="text-xs md:text-sm text-muted-foreground">
-              Accuracy
+            <div className="text-sm md:text-base font-medium text-foreground">
+              Real-time @ 30fps
+            </div>
+          </div>
+          <div className="text-left">
+            <div className="text-xs md:text-sm text-muted-foreground font-mono">
+              SENSORS
+            </div>
+            <div className="text-sm md:text-base font-medium text-foreground">
+              Multi-modal fusion
+            </div>
+          </div>
+          <div className="text-left">
+            <div className="text-xs md:text-sm text-muted-foreground font-mono">
+              POWER
+            </div>
+            <div className="text-sm md:text-base font-medium text-foreground">
+              Solar + 7-day backup
             </div>
           </div>
         </div>
