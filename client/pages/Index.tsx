@@ -52,27 +52,30 @@ export default function Index() {
                   First Responder Initiative
                 </h1>
 
-                {/* Development focus */}
+                {/* Tagline and mission */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed mb-4">
-                    We are designing an AI-powered system to detect and act on
-                    wildfires as they start.
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-primary">
+                    Detect wildfires early
+                  </h2>
+                  <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
+                    Non-profit initiative developing AI-powered early detection
+                    systems for California Bay Area communities.
                   </p>
                   <Button
                     size="lg"
-                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90"
                     onClick={() =>
                       document
-                        .getElementById("technology")
+                        .getElementById("team")
                         ?.scrollIntoView({ behavior: "smooth" })
                     }
                   >
-                    See how it works
+                    Help join the mission
                   </Button>
                 </motion.div>
               </div>
