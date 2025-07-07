@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -643,6 +643,30 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Alert Network Section */}
+      <section className="py-24 bg-gradient-to-br from-destructive/5 to-sky-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
+              ALERT NETWORK
+            </h2>
+            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform rotate-1">
+              <p className="text-xl text-foreground sketch-text">
+                Smart alerts to the right people at the right time
+              </p>
+            </div>
+          </motion.div>
+
+          <AlertNetworkDemo />
+        </div>
+      </section>
+
       {/* Technology Section - Enhanced with sketch aesthetics */}
       <section className="py-24 bg-gradient-to-br from-earth-50 to-forest-50">
         <div className="max-w-6xl mx-auto px-6">
@@ -970,49 +994,133 @@ export default function Index() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform rotate-1">
-              TEAM
+              WHO WE ARE
             </h2>
-            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform -rotate-1">
-              <p className="text-xl text-foreground sketch-text">
-                Scientists, engineers, and hackers united by purpose
+            <div className="sketch-border bg-card p-6 max-w-4xl mx-auto transform -rotate-1">
+              <p className="text-xl text-foreground sketch-text mb-4">
+                Engineers and scientists who love nature, believing technology
+                and AI have a role to play in fighting disasters
               </p>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            {[
-              {
-                emoji: "🔬",
-                title: "SCIENTISTS",
-                desc: "Environmental researchers and climate specialists driving our mission with deep domain expertise",
-              },
-              {
-                emoji: "⚡",
-                title: "ENGINEERS",
-                desc: "Hardware and software engineers building robust, scalable solutions for extreme environments",
-              },
-              {
-                emoji: "💻",
-                title: "HACKERS",
-                desc: "Creative problem solvers pushing boundaries and finding innovative paths forward",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className={`sketch-border bg-card p-8 transform ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
-              >
-                <div className="text-6xl mb-6">{item.emoji}</div>
-                <h3 className="text-xl font-bold mb-4 sketch-text">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground sketch-text">{item.desc}</p>
-              </motion.div>
-            ))}
+          {/* Team Members */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="sketch-border bg-card p-8 transform rotate-1"
+            >
+              <h3 className="text-2xl font-bold mb-4 sketch-text text-primary">
+                CORE TEAM
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">👩‍💻</span>
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">
+                      Navya Veeturi
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Lead Engineer
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">👨‍🔬</span>
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">
+                      Jaspreet Riar
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      AI Researcher
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="sketch-border bg-card p-8 transform -rotate-1"
+            >
+              <h3 className="text-2xl font-bold mb-4 sketch-text text-primary">
+                ADVISORS
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">
+                      Anirudh Sharma
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Technology Advisor
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🌍</span>
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">
+                      Dan Fitzgerald
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Environmental Advisor
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
+
+          {/* University Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="sketch-border bg-card p-8 transform rotate-1">
+              <h3 className="text-xl font-bold mb-6 sketch-text text-primary">
+                BACKED BY
+              </h3>
+              <div className="flex justify-center items-center space-x-12">
+                {/* MIT Logo */}
+                <div className="text-center">
+                  <div className="w-20 h-20 mx-auto mb-2 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">MIT</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground sketch-text">
+                    MIT
+                  </div>
+                </div>
+                {/* CMU Logo */}
+                <div className="text-center">
+                  <div className="w-20 h-20 mx-auto mb-2 bg-gradient-to-br from-red-800 to-red-900 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">CMU</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground sketch-text">
+                    Carnegie Mellon
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1074,6 +1182,224 @@ export default function Index() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// Interactive Detection Demo Component
+function InteractiveDetectionDemo() {
+  const [currentAlert, setCurrentAlert] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const alerts = [
+    {
+      time: "13:04:07",
+      type: "normal",
+      sensor: "PM2.5",
+      reading: "80 µg/m³",
+      description: "dust plume from passing car",
+      action: "no alert",
+      color: "text-muted-foreground",
+      bgColor: "bg-muted/20",
+    },
+    {
+      time: "13:06:55",
+      type: "warning",
+      sensor: "THERMAL",
+      reading: "+5°C uptick",
+      description: "thin grey column detected",
+      action: "mini alert queued",
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+    },
+    {
+      time: "13:09:14",
+      type: "critical",
+      sensor: "VISION + THERMAL",
+      reading: "bright orange cluster",
+      description: "heat pattern matches wildfire",
+      action: "FULL ALERT PUSHED",
+      color: "text-destructive",
+      bgColor: "bg-destructive/10",
+    },
+  ];
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentAlert((prev) => (prev + 1) % alerts.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  return (
+    <div className="sketch-border bg-card p-6 transform -rotate-1">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-bold sketch-text text-primary">
+          🎯 LIVE DETECTION
+        </h3>
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="text-sm text-muted-foreground hover:text-foreground"
+        >
+          {isPlaying ? "⏸️" : "▶️"}
+        </button>
+      </div>
+
+      <div className="space-y-3">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentAlert}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className={`p-4 rounded-lg ${alerts[currentAlert].bgColor}`}
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-mono text-muted-foreground">
+                [{alerts[currentAlert].time}]
+              </span>
+              <span
+                className={`text-xs font-mono ${alerts[currentAlert].color}`}
+              >
+                {alerts[currentAlert].sensor}
+              </span>
+            </div>
+            <div className="text-sm">
+              <div className={`font-bold ${alerts[currentAlert].color}`}>
+                {alerts[currentAlert].reading}
+              </div>
+              <div className="text-muted-foreground">
+                {alerts[currentAlert].description}
+              </div>
+              <div
+                className={`font-mono text-xs mt-2 ${alerts[currentAlert].color}`}
+              >
+                → {alerts[currentAlert].action}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Progress indicators */}
+        <div className="flex space-x-2">
+          {alerts.map((_, i) => (
+            <div
+              key={i}
+              className={`h-2 flex-1 rounded-full transition-colors ${
+                i === currentAlert ? "bg-primary" : "bg-muted"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Alert Network Demo Component
+function AlertNetworkDemo() {
+  const [activeAlert, setActiveAlert] = useState(0);
+
+  const alertFlow = [
+    {
+      stage: "Detection",
+      desc: "Wildfire confirmed",
+      stakeholders: [],
+      color: "destructive",
+    },
+    {
+      stage: "Analysis",
+      desc: "Wind speed 15mph NE, low humidity 20%, high risk",
+      stakeholders: [],
+      color: "yellow-600",
+    },
+    {
+      stage: "Alert Dispatch",
+      desc: "Multi-channel notification sent",
+      stakeholders: [
+        "🚒 Fire Department",
+        "📡 HAM Operators",
+        "🚁 Drone Teams",
+      ],
+      color: "primary",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveAlert((prev) => (prev + 1) % alertFlow.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative">
+      <div className="grid md:grid-cols-3 gap-8">
+        {alertFlow.map((step, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: i * 0.2 }}
+            viewport={{ once: true }}
+            className={`sketch-border bg-card p-6 transform ${i % 2 === 0 ? "rotate-1" : "-rotate-1"} ${
+              activeAlert === i ? "ring-2 ring-primary ring-offset-2" : ""
+            }`}
+          >
+            <div className="text-center">
+              <div
+                className={`text-4xl mb-4 ${
+                  activeAlert === i ? "scale-110" : "scale-100"
+                } transition-transform`}
+              >
+                {i === 0 ? "🔥" : i === 1 ? "🌪️" : "📢"}
+              </div>
+              <h3 className="text-xl font-bold mb-3 sketch-text text-primary">
+                {step.stage}
+              </h3>
+              <p className="text-muted-foreground sketch-text mb-4">
+                {step.desc}
+              </p>
+
+              {step.stakeholders.length > 0 && (
+                <div className="space-y-2">
+                  {step.stakeholders.map((stakeholder, j) => (
+                    <motion.div
+                      key={j}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={
+                        activeAlert === i
+                          ? { opacity: 1, x: 0 }
+                          : { opacity: 0.3, x: 0 }
+                      }
+                      transition={{ delay: j * 0.2 }}
+                      className="text-sm font-mono bg-accent/20 px-3 py-1 rounded"
+                    >
+                      {stakeholder}
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      <div className="mt-8 bg-muted h-2 rounded-full overflow-hidden">
+        <motion.div
+          className="h-full bg-primary"
+          initial={{ width: "0%" }}
+          animate={{
+            width: `${((activeAlert + 1) / alertFlow.length) * 100}%`,
+          }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
     </div>
   );
 }
