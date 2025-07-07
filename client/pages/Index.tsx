@@ -830,7 +830,7 @@ function MockDashboard() {
         {/* Key Insight */}
         <div className="lg:col-span-2 border border-gray-600 rounded p-4 bg-gray-800/50">
           <div className="text-xs text-gray-400 font-mono mb-2">
-            🧠 KEY INSIGHT
+            KEY INSIGHT
           </div>
           <div className="text-lg font-medium mb-3 text-white">
             {current.keyInsight}
