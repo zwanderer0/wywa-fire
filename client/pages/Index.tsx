@@ -249,7 +249,7 @@ export default function Index() {
                     → Anomaly: High PM2.5 at node XX
                   </div>
                   <div className="text-sky-600 sketch-highlight transform rotate-0.5">
-                    → Context: Road proximity + vehicle pattern
+                    ��� Context: Road proximity + vehicle pattern
                   </div>
                   <div className="text-forest-600">
                     → Decision: IGNORE - dust from car
@@ -1101,16 +1101,7 @@ function HeroDetectionDemo() {
   return (
     <div className="w-full space-y-6">
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="text-center"
-      >
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-primary mb-4 sketch-text transform -rotate-1">
-          LIVE AI DETECTION
-        </h2>
-      </motion.div>
+      <div className="text-center"></div>
 
       {/* Main Detection Card */}
       <div className="sketch-border bg-card p-6 md:p-8 lg:p-10 transform -rotate-1 shadow-lg">
