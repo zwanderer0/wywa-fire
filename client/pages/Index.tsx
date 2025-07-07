@@ -51,14 +51,10 @@ export default function Index() {
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-primary">First Responder</span>
                   <br />
-                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-forest-600 sketch-text transform -rotate-1 inline-block">
-                    Initiative
-                  </span>
                 </h1>
 
-                {/* Who We Are + Mission */}
+                {/* The Mission - Problem Focused */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -66,41 +62,40 @@ export default function Index() {
                   className="sketch-border bg-card p-4 md:p-6 mb-4 md:mb-6 transform rotate-1"
                 >
                   <h2 className="text-sm md:text-base lg:text-lg font-bold text-primary mb-2 md:mb-3 sketch-text">
-                    WHO WE ARE & OUR MISSION
+                    THE MISSION
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg text-foreground leading-relaxed sketch-text mb-3">
-                    We are a group of interdisciplinary scientists and
-                    engineers. Environmentalists who spend as much time in
-                    nature as in AI. We believe in collaboration.{" "}
-                    <span className="font-bold text-primary">
-                      Policy, tech, impact
-                    </span>{" "}
-                    — that's our approach.
+                    Wildfires devastate millions of acres annually. Early
+                    detection remains unsolved at scale. Current systems fail in
+                    remote areas where fires start.
                   </p>
                   <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
-                    We plan to utilize latest advancements in{" "}
+                    We're deploying{" "}
                     <span className="font-bold text-primary">
-                      Vision AI and sensors
+                      Vision AI and sensor networks
                     </span>{" "}
-                    to help detect wildfires. Starting with California.
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
-                    Deploying intelligent sensors across{" "}
-                    <span className="font-bold">1000s of miles</span> of
-                    unmonitored wilderness areas.
+                    across <span className="font-bold">1000s of miles</span> of
+                    California wilderness for real-time wildfire detection.
                   </p>
                 </motion.div>
 
+                {/* Who We Are - People Focused */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                   className="sketch-border bg-accent/20 p-3 md:p-4 transform -rotate-1"
                 >
+                  <h3 className="text-xs md:text-sm font-bold text-primary mb-2 sketch-text">
+                    WHO WE ARE
+                  </h3>
                   <p className="text-sm sm:text-base md:text-lg text-foreground sketch-text">
-                    <span className="sketch-highlight font-bold">
-                      Detects. Analyzes. Reports to authorities.
-                    </span>
+                    Interdisciplinary researchers. Field scientists. Hardware
+                    engineers. We split our time between wilderness and labs.{" "}
+                    <span className="font-bold text-primary">
+                      Policy, tech, impact
+                    </span>{" "}
+                    through collaboration.
                   </p>
                 </motion.div>
               </div>
