@@ -538,12 +538,26 @@ export default function Index() {
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
-                Mesh Network
+                Mesh network
               </h3>
               <p className="text-sm md:text-base text-muted-foreground sketch-text">
-                Self-healing network topology for remote area coverage
+                Long-range LoRa links every node to the cloud.
               </p>
             </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="sketch-border bg-card p-6 md:p-8 max-w-2xl mx-auto transform -rotate-1">
+              <p className="text-base md:text-lg text-foreground sketch-text font-medium">
+                You see verified alerts, never false alarms.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
