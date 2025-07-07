@@ -864,7 +864,7 @@ function MockDashboard() {
       {/* Sensor Data Row */}
       <div className="grid grid-cols-4 gap-4 mt-6 p-4 bg-gray-800/30 rounded border border-gray-700">
         <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">🌡️ TEMP</div>
+          <div className="text-xs text-gray-400 mb-1">TEMP</div>
           <div
             className={`text-lg font-bold ${current.sensors.temp > 35 ? "text-red-400" : "text-blue-300"}`}
           >
@@ -872,7 +872,7 @@ function MockDashboard() {
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">💧 HUMIDITY</div>
+          <div className="text-xs text-gray-400 mb-1">HUMIDITY</div>
           <div
             className={`text-lg font-bold ${current.sensors.humidity < 15 ? "text-red-400" : "text-blue-300"}`}
           >
@@ -880,7 +880,7 @@ function MockDashboard() {
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">☁️ PM2.5</div>
+          <div className="text-xs text-gray-400 mb-1">PM2.5</div>
           <div
             className={`text-lg font-bold ${current.sensors.pm25 > 50 ? "text-red-400" : "text-green-400"}`}
           >
@@ -888,7 +888,7 @@ function MockDashboard() {
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-gray-400 mb-1">💨 WIND</div>
+          <div className="text-xs text-gray-400 mb-1">WIND</div>
           <div className="text-lg font-bold text-blue-300">
             {current.sensors.wind}
           </div>
