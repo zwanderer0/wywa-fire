@@ -854,34 +854,9 @@ export default function Index() {
               <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sketch-text text-primary">
                 CORE TEAM
               </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-primary rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm md:text-base">
-                      Navya Veeturi
-                    </div>
-                    <div className="text-xs md:text-sm text-muted-foreground">
-                      Founder
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-forest-500 rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm md:text-base">
-                      Jaspreet Riar
-                    </div>
-                    <div className="text-xs md:text-sm text-muted-foreground">
-                      Hardware Lead
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p className="text-base md:text-lg text-foreground sketch-text">
+                navya veeturi, jaspreet riar
+              </p>
             </motion.div>
 
             <motion.div
