@@ -1066,12 +1066,20 @@ function MockDashboard() {
           <h3 className="font-semibold text-gray-800 mb-3">Recent Activity</h3>
           <div className="space-y-2">
             {current.alerts.map((alert, index) => (
-              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-200 last:border-0">
+              <div
+                key={index}
+                className="flex items-center justify-between py-2 border-b border-gray-200 last:border-0"
+              >
                 <div className="flex items-center space-x-2">
-                  <div className={`w-2 h-2 rounded-full ${
-                    alert.event.includes("Confirmed") ? "bg-red-500" :
-                    alert.event.includes("Smoke") ? "bg-yellow-500" : "bg-blue-500"
-                  }`}></div>
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      alert.event.includes("Confirmed")
+                        ? "bg-red-500"
+                        : alert.event.includes("Smoke")
+                          ? "bg-yellow-500"
+                          : "bg-blue-500"
+                    }`}
+                  ></div>
                   <span className="text-sm text-gray-700">{alert.event}</span>
                 </div>
                 <span className="text-xs text-gray-500">{alert.time}</span>
@@ -1084,19 +1092,26 @@ function MockDashboard() {
         <div className="grid grid-cols-3 gap-4 mt-6">
           <div className="text-center">
             <div className="text-2xl font-bold text-green-600">5</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide">Sensors Online</div>
+            <div className="text-xs text-gray-500 uppercase tracking-wide">
+              Sensors Online
+            </div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-600">{current.id}</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide">Active Node</div>
+            <div className="text-xs text-gray-500 uppercase tracking-wide">
+              Active Node
+            </div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-gray-600">
               {(current.confidence * 100).toFixed(0)}%
             </div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide">Confidence</div>
+            <div className="text-xs text-gray-500 uppercase tracking-wide">
+              Confidence
+            </div>
           </div>
         </div>
+      </div>
     </motion.div>
   );
 }
