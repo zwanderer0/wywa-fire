@@ -453,11 +453,10 @@ export default function Index() {
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-3 sketch-text">
-                Multi-Sensor
+                Multi-sensor pack
               </h3>
               <p className="text-sm md:text-base text-muted-foreground sketch-text">
-                Temperature, humidity, air quality, and visual spectrum
-                monitoring
+                Temperature, gas, and particulates confirm fire signatures.
               </p>
             </motion.div>
 
