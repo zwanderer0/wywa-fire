@@ -69,20 +69,15 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-primary mb-4 sketch-text">
-                    INTELLIGENCE FOR LARGE PHYSICAL SPACES
-                  </h2>
                   <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    We are building intelligence for wilderness, remote areas,
-                    and vast physical spaces. Wildfires, natural disasters,
-                    situational awareness.
+                    We are on a mission to build ambient, local intelligence for
+                    large spaces
                   </p>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text md:mr-0 max-md:-mr-1">
                     <span className="font-bold text-primary">
-                      Small edge models
+                      with small edge AIA models
                     </span>{" "}
-                    that understand 24/7. Real-world ambient intelligence
-                    deployed at scale.
+                    and cutting edge sensors.
                   </p>
                 </motion.div>
               </div>
