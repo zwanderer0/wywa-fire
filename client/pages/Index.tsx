@@ -832,15 +832,27 @@ export default function Index() {
                 Field scientists who spend weeks in wilderness. Hardware
                 engineers building for extreme environments.
               </p>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text mb-4">
                 We believe breakthroughs happen at intersections.{" "}
                 <span className="font-bold text-primary">
                   Policy, tech, impact
                 </span>{" "}
                 through collaboration.
               </p>
-              <p className="text-base md:text-lg text-foreground leading-relaxed sketch-text mb-4">
-                navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
+              <p className="text-base md:text-lg leading-relaxed sketch-text mb-4">
+                <span className="text-primary font-medium">navya veeturi</span>,{" "}
+                <span className="text-forest-500 font-medium">
+                  jaspreet riar
+                </span>
+                ,{" "}
+                <span className="text-accent font-medium">anirudh sharma</span>,{" "}
+                <span className="text-earth-500 font-medium">
+                  dan fitzgerald
+                </span>
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+                Team from MIT, CMU. Have worked and led scaled up projects at
+                NVIDIA, Apple, and other startups.
               </p>
             </div>
           </motion.div>
