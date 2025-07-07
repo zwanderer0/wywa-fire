@@ -64,12 +64,8 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-primary">
-                    Detect wildfires early
-                  </h2>
                   <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
-                    Non-profit initiative developing AI-powered early detection
-                    systems for California Bay Area communities.
+                    AI enabled sensor network to wildfires as they begin
                   </p>
                   <Button
                     size="lg"
