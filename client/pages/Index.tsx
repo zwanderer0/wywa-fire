@@ -133,16 +133,12 @@ export default function Index() {
                 viewport={{ once: true }}
                 className="sketch-border bg-card p-4 md:p-6 mb-6 transform rotate-1"
               >
-                <p className="text-base md:text-lg lg:text-xl text-foreground mb-4 leading-relaxed sketch-text">
-                  Satellites have hours of latency. Remote areas have no
-                  coverage. Hours are lost while fires spread.
+                <p className="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+                  Detection delays cost critical minutes during fire spread.
+                  Satellite coverage has 2-6 hour latency in remote areas.
                 </p>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  California has 33 million forest acres yet only 15 percent are
-                  under continuous watch.
-                </p>
-                <p className="text-xs text-muted-foreground mt-4">
-                  <em>Source: US Forest Service</em>
+                <p className="text-xs text-gray-500 mt-4">
+                  <sup>1</sup> CAL FIRE 2023 Fire Statistics
                 </p>
               </motion.div>
             </div>
