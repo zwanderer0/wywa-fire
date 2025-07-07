@@ -105,14 +105,14 @@ export default function Index() {
       </section>
 
       {/* Problem Section - Inspired by the landscape sketch */}
-      <section id="problem" className="py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="problem" className="py-16 md:py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid md:grid-cols-2 gap-8 md:gap-12 items-center"
           >
             <div>
               <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform -rotate-1">
@@ -151,27 +151,38 @@ export default function Index() {
       </section>
 
       {/* Solution Section - Inspired by the technical sketches */}
-      <section id="solution" className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="solution" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-black mb-8 text-primary sketch-text transform rotate-1">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1"
+            >
               FIRST RESPONDER
-            </h2>
-            <div className="sketch-border bg-card p-6 max-w-3xl mx-auto transform -rotate-1">
-              <p className="text-xl text-foreground sketch-text">
-                AI-powered sensor network that detects, analyzes, and alerts in
-                real-time
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="sketch-border bg-card p-4 md:p-6 max-w-3xl mx-auto transform -rotate-1"
+            >
+              <p className="text-lg md:text-xl text-foreground sketch-text">
+                AI-powered sensor network that detects, analyzes, and reports to government agencies in real-time
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -252,15 +263,21 @@ export default function Index() {
       </section>
 
       {/* Technology Section - Enhanced with sketch aesthetics */}
-      <section className="py-24 bg-gradient-to-br from-earth-50 to-forest-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-earth-50 to-forest-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-6 md:gap-8"
+          >
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 60, rotateZ: 0 }}
+              whileInView={{ opacity: 1, y: 0, rotateZ: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-8 transform rotate-1"
+              className="text-center sketch-border bg-card p-6 md:p-8 transform"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -320,11 +337,11 @@ export default function Index() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, y: 60, rotateZ: 0 }}
+              whileInView={{ opacity: 1, y: 0, rotateZ: -1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-8 transform -rotate-1"
+              className="text-center sketch-border bg-card p-6 md:p-8 transform"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -392,11 +409,11 @@ export default function Index() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, y: 60, rotateZ: 0 }}
+              whileInView={{ opacity: 1, y: 0, rotateZ: 2 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-center sketch-border bg-card p-8 transform rotate-2"
+              className="text-center sketch-border bg-card p-6 md:p-8 transform"
             >
               <div className="h-32 w-32 mx-auto mb-6 relative">
                 <svg
@@ -480,8 +497,8 @@ export default function Index() {
       </section>
 
       {/* Progress Section - Matching the infographic style */}
-      <section id="progress" className="py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="progress" className="py-16 md:py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -809,7 +826,7 @@ function EnhancedDetectionDemo() {
       sensor: "VISION + THERMAL",
       reading: "bright orange cluster",
       description: "heat pattern matches wildfire",
-      action: "CALIFORNIA ALERT DISPATCHED",
+      action: "REPORTED TO GOVERNMENT AGENCIES",
       color: "text-destructive",
       bgColor: "bg-destructive/10",
     },
@@ -820,45 +837,16 @@ function EnhancedDetectionDemo() {
 
     const interval = setInterval(() => {
       setCurrentAlert((prev) => (prev + 1) % alerts.length);
-      setSensorCount((prev) => prev + Math.floor(Math.random() * 3) - 1);
+      setSensorCount(prev => prev + Math.floor(Math.random() * 3) - 1);
     }, 3000);
 
     return () => clearInterval(interval);
   }, [isPlaying]);
 
   return (
-    <div className="space-y-6">
-      {/* Sensor Network Status */}
-      <div className="sketch-border bg-card p-6 transform rotate-1">
-        <h3 className="text-2xl font-bold sketch-text text-primary mb-4">
-          CALIFORNIA SENSOR NETWORK
-        </h3>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="text-center">
-            <div className="text-3xl font-black text-primary">
-              {sensorCount}
-            </div>
-            <div className="text-sm text-muted-foreground sketch-text">
-              Active Sensors
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-black text-forest-600">2,400</div>
-            <div className="text-sm text-muted-foreground sketch-text">
-              Miles Covered
-            </div>
-          </div>
-        </div>
-        <div className="h-2 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-primary to-forest-500 w-3/4"></div>
-        </div>
-        <p className="text-xs text-muted-foreground mt-2 sketch-text">
-          75% of high-risk California wilderness areas protected
-        </p>
-      </div>
-
+    <div className="w-full">
       {/* Live Detection Feed */}
-      <div className="sketch-border bg-card p-6 transform -rotate-1">
+      <div className="sketch-border bg-card p-6 lg:p-8 transform -rotate-1">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-bold sketch-text text-primary">
             LIVE AI DETECTION
@@ -884,24 +872,18 @@ function EnhancedDetectionDemo() {
                 <span className="text-xs font-mono text-muted-foreground">
                   [{alerts[currentAlert].time}] {alerts[currentAlert].location}
                 </span>
-                <span
-                  className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}
-                >
+                <span className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}>
                   {alerts[currentAlert].sensor}
                 </span>
               </div>
               <div className="text-sm">
-                <div
-                  className={`font-bold text-lg ${alerts[currentAlert].color}`}
-                >
+                <div className={`font-bold text-lg ${alerts[currentAlert].color}`}>
                   {alerts[currentAlert].reading}
                 </div>
                 <div className="text-muted-foreground">
                   {alerts[currentAlert].description}
                 </div>
-                <div
-                  className={`font-mono text-sm mt-2 font-bold ${alerts[currentAlert].color}`}
-                >
+                <div className={`font-mono text-sm mt-2 font-bold ${alerts[currentAlert].color}`}>
                   → {alerts[currentAlert].action}
                 </div>
               </div>
