@@ -851,52 +851,13 @@ export default function Index() {
               viewport={{ once: true }}
               className="sketch-border bg-card p-6 md:p-8 transform rotate-1"
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sketch-text text-primary">
-                CORE TEAM
-              </h3>
-              <p className="text-base md:text-lg text-foreground sketch-text">
-                navya veeturi, jaspreet riar
+              <p className="text-base md:text-lg text-foreground sketch-text mb-4">
+                navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
-            >
-              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sketch-text text-primary">
-                ADVISORS
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-accent rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm md:text-base">
-                      Anirudh Sharma
-                    </div>
-                    <div className="text-xs md:text-sm text-muted-foreground">
-                      Technology Advisor
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/20 rounded-full flex items-center justify-center sketch-border">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-earth-500 rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm md:text-base">
-                      Dan Fitzgerald
-                    </div>
-                    <div className="text-xs md:text-sm text-muted-foreground">
-                      Environmental Advisor
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p className="text-sm md:text-base text-muted-foreground sketch-text">
+                Interdisciplinary researchers, AI scientists, academics, and
+                hardware engineers.
+              </p>
             </motion.div>
           </div>
         </div>
