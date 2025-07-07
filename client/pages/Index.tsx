@@ -1088,6 +1088,165 @@ function MockDashboard() {
           </div>
         </div>
 
+        {/* AI Mission Plan */}
+        <div className="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6">
+          <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
+            AI Decision Flow
+          </h3>
+
+          {/* Processing Pipeline */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white rounded-lg p-4 border border-blue-200">
+              <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
+                Edge Detection
+              </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-700">TinyML Chemical</span>
+                <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                  Active
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full"
+                  style={{ width: `${current.sensors.gas * 10}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-4 border border-purple-200">
+              <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-2">
+                Visual Analysis
+              </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-700">VLM Processing</span>
+                <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                  Analyzing
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full"
+                  style={{ width: `${current.confidence * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-4 border border-red-200">
+              <div className="text-xs font-semibold text-red-600 uppercase tracking-wide mb-2">
+                Context Engine
+              </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-700">Alert Generation</span>
+                <span
+                  className={`text-xs px-2 py-1 rounded-full ${current.status === "CONFIRMED FIRE" ? "bg-red-100 text-red-800" : "bg-gray-100 text-gray-800"}`}
+                >
+                  {current.status === "CONFIRMED FIRE"
+                    ? "Alerting"
+                    : "Monitoring"}
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className={`h-2 rounded-full ${current.status === "CONFIRMED FIRE" ? "bg-gradient-to-r from-red-400 to-red-600" : "bg-gradient-to-r from-gray-400 to-gray-500"}`}
+                  style={{
+                    width: current.status === "CONFIRMED FIRE" ? "95%" : "25%",
+                  }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Alert Routing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg p-4">
+              <div className="text-sm font-semibold text-gray-800 mb-3">
+                Alert Routing
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div
+                      className={`w-2 h-2 rounded-full ${current.status === "CONFIRMED FIRE" ? "bg-red-500" : "bg-gray-300"}`}
+                    ></div>
+                    <span className="text-sm text-gray-600">
+                      First Responders
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-500">
+                    {current.status === "CONFIRMED FIRE"
+                      ? "Dispatched"
+                      : "Standby"}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div
+                      className={`w-2 h-2 rounded-full ${current.confidence > 0.8 ? "bg-yellow-500" : "bg-gray-300"}`}
+                    ></div>
+                    <span className="text-sm text-gray-600">
+                      Local Residents
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-500">
+                    {current.confidence > 0.8 ? "Notified" : "Monitoring"}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div
+                      className={`w-2 h-2 rounded-full ${current.status === "CONFIRMED FIRE" ? "bg-orange-500" : "bg-gray-300"}`}
+                    ></div>
+                    <span className="text-sm text-gray-600">
+                      Emergency Broadcast
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-500">
+                    {current.status === "CONFIRMED FIRE" ? "Active" : "Ready"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-4">
+              <div className="text-sm font-semibold text-gray-800 mb-3">
+                Context Factors
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-600">Time of Day</span>
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                    Afternoon
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-600">Wind Conditions</span>
+                  <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">
+                    Moderate
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-600">
+                    Proximity to Homes
+                  </span>
+                  <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">
+                    High Risk
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-600">
+                    Weather Forecast
+                  </span>
+                  <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">
+                    Dry
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Network Status */}
         <div className="grid grid-cols-3 gap-4 mt-6">
           <div className="text-center">
