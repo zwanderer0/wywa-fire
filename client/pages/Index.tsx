@@ -882,7 +882,7 @@ export default function Index() {
             viewport={{ once: true, margin: "-50px" }}
           >
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              {/* Join WhatsApp */}
+              {/* Email Capture */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -891,31 +891,30 @@ export default function Index() {
                 className="sketch-border bg-card p-6 md:p-8 transform rotate-1"
               >
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 text-primary sketch-text transform -rotate-2">
-                  GET INVOLVED
+                  Get early access
                 </h2>
                 <p className="text-sm md:text-base lg:text-lg text-foreground mb-6 leading-relaxed sketch-text">
-                  Join our WhatsApp group to stay updated on California wildfire
-                  prevention efforts and contribute to our mission.
+                  Stay updated on our wildfire detection pilot program.
                 </p>
-                <Button
-                  size="lg"
-                  className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform mb-4"
-                  onClick={() =>
-                    window.open(
-                      "https://chat.whatsapp.com/your-group-link",
-                      "_blank",
-                    )
-                  }
-                >
-                  Join our WhatsApp Group
-                </Button>
-                <p className="text-xs md:text-sm text-muted-foreground sketch-text">
-                  Connect with researchers, engineers, and California residents
-                  working together on wildfire early detection
-                </p>
+                <div className="space-y-4">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full p-3 md:p-4 border-2 border-primary/20 rounded-lg sketch-border bg-white/90 focus:outline-none focus:border-primary"
+                  />
+                  <Button
+                    size="lg"
+                    className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform -rotate-1 hover:rotate-0 transition-transform"
+                  >
+                    Get updates
+                  </Button>
+                  <p className="text-xs text-muted-foreground sketch-text">
+                    We protect your privacy. No spam, unsubscribe anytime.
+                  </p>
+                </div>
               </motion.div>
 
-              {/* Contact Card */}
+              {/* WhatsApp Community */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -924,38 +923,35 @@ export default function Index() {
                 className="sketch-border bg-card p-6 md:p-8 transform -rotate-1"
               >
                 <h3 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-primary sketch-text transform rotate-2">
-                  CONTACT US
+                  Join community
                 </h3>
-                <div className="space-y-4">
-                  <div className="sketch-border bg-accent/20 p-3 md:p-4 transform rotate-1">
-                    <p className="text-xs md:text-sm text-muted-foreground sketch-text mb-2">
-                      Founder
-                    </p>
-                    <p className="font-bold text-foreground text-sm md:text-base">
-                      Navya Veeturi
-                    </p>
-                    <a
-                      href="mailto:navya@wywa.ai"
-                      className="text-primary hover:text-primary/80 transition-colors font-mono text-xs md:text-sm"
-                    >
-                      navya@wywa.ai
-                    </a>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform"
-                    onClick={() =>
-                      (window.location.href =
-                        "mailto:navya@wywa.ai?subject=WYWA First Responder Initiative&body=Hi Navya, I am interested in learning more about the First Responder Initiative and WYWA's ambient intelligence mission.")
-                    }
-                  >
-                    Send Email
-                  </Button>
-                  <p className="text-xs md:text-sm text-muted-foreground sketch-text">
-                    Questions about deployment, partnerships, or technical
-                    details? We'd love to hear from you.
+                <p className="text-sm md:text-base text-foreground mb-6 leading-relaxed sketch-text">
+                  Connect with researchers and engineers working on wildfire
+                  detection.
+                </p>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 sketch-border transform rotate-1 hover:rotate-0 transition-transform mb-4"
+                  onClick={() =>
+                    window.open(
+                      "https://chat.whatsapp.com/your-group-link",
+                      "_blank",
+                    )
+                  }
+                >
+                  WhatsApp chat
+                </Button>
+                <div className="sketch-border bg-accent/20 p-3 md:p-4 transform rotate-1">
+                  <p className="text-xs md:text-sm text-muted-foreground sketch-text mb-1">
+                    Contact
                   </p>
+                  <a
+                    href="mailto:navya@wywa.ai"
+                    className="text-primary hover:text-primary/80 transition-colors font-mono text-xs md:text-sm"
+                  >
+                    navya@wywa.ai
+                  </a>
                 </div>
               </motion.div>
             </div>
