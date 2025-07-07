@@ -658,75 +658,105 @@ function ProcessRail() {
 // Development Status Cards Component
 function DevelopmentStatusCards() {
   return (
-    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+    <div className="space-y-8">
+      {/* Real Hardware Photo */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+        className="text-center mb-8"
       >
-        <h3 className="text-xl font-bold mb-4 text-primary">VLM Training</h3>
-        <div className="text-lg font-bold text-yellow-600 mb-2">
-          In Progress
+        <div className="relative max-w-2xl mx-auto">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F17493cbb65a5405a9c31ee973001362b?format=webp&width=800"
+            alt="Wildfire detection sensor node deployed on tree with solar panel in forest environment"
+            className="w-full h-auto rounded-lg shadow-lg border border-gray-200"
+            loading="lazy"
+          />
+          <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">
+            Field Deployment
+          </div>
         </div>
-        <p className="text-gray-600 mb-4">
-          Vision-Language Model under fine-tuning for wildfire detection and
-          classification.
+        <p className="text-sm text-gray-600 mt-4 italic">
+          Prototype sensor node deployed for field testing in California forests
         </p>
-        <div className="bg-yellow-100 rounded p-3">
-          <div className="text-sm text-yellow-800">
-            Current: Dataset preparation & augmentation
-          </div>
-          <div className="text-sm text-yellow-800">
-            Next: Multi-modal fusion testing
-          </div>
-        </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
-        viewport={{ once: true }}
-        className="sketch-border bg-card p-6 md:p-8 transform -rotate-1 border rounded"
-      >
-        <h3 className="text-xl font-bold mb-4 text-primary">Hardware Build</h3>
-        <div className="text-lg font-bold text-blue-600 mb-2">Development</div>
-        <p className="text-gray-600 mb-4">
-          Sensor arrays and environmental housing being assembled and tested.
-        </p>
-        <div className="bg-blue-100 rounded p-3">
-          <div className="text-sm text-blue-800">
-            Current: Prototype assembly
+      {/* Status Cards */}
+      <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+        >
+          <h3 className="text-xl font-bold mb-4 text-primary">VLM Training</h3>
+          <div className="text-lg font-bold text-yellow-600 mb-2">
+            In Progress
           </div>
-          <div className="text-sm text-blue-800">
-            Next: Field testing in controlled environment
+          <p className="text-gray-600 mb-4">
+            Vision-Language Model under fine-tuning for wildfire detection and
+            classification.
+          </p>
+          <div className="bg-yellow-100 rounded p-3">
+            <div className="text-sm text-yellow-800">
+              Current: Dataset preparation & augmentation
+            </div>
+            <div className="text-sm text-yellow-800">
+              Next: Multi-modal fusion testing
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
-      >
-        <h3 className="text-xl font-bold mb-4 text-primary">LoRa Mesh</h3>
-        <div className="text-lg font-bold text-green-600 mb-2">Building</div>
-        <p className="text-gray-600 mb-4">
-          Network topology and communication protocols being implemented.
-        </p>
-        <div className="bg-green-100 rounded p-3">
-          <div className="text-sm text-green-800">
-            Current: Protocol stack development
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="sketch-border bg-card p-6 md:p-8 transform -rotate-1 border rounded"
+        >
+          <h3 className="text-xl font-bold mb-4 text-primary">
+            Hardware Build
+          </h3>
+          <div className="text-lg font-bold text-blue-600 mb-2">Testing</div>
+          <p className="text-gray-600 mb-4">
+            Solar-powered sensor nodes deployed for field validation in forest
+            environments.
+          </p>
+          <div className="bg-blue-100 rounded p-3">
+            <div className="text-sm text-blue-800">
+              Current: Field deployment & data collection
+            </div>
+            <div className="text-sm text-blue-800">
+              Next: Multi-node mesh testing
+            </div>
           </div>
-          <div className="text-sm text-green-800">
-            Next: Range testing & optimization
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+        >
+          <h3 className="text-xl font-bold mb-4 text-primary">LoRa Mesh</h3>
+          <div className="text-lg font-bold text-green-600 mb-2">Building</div>
+          <p className="text-gray-600 mb-4">
+            Network topology and communication protocols being implemented.
+          </p>
+          <div className="bg-green-100 rounded p-3">
+            <div className="text-sm text-green-800">
+              Current: Protocol stack development
+            </div>
+            <div className="text-sm text-green-800">
+              Next: Range testing & optimization
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
