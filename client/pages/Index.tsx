@@ -62,7 +62,7 @@ export default function Index() {
                   First Responder Initiative
                 </h1>
 
-                {/* Who We Are - People Focused */}
+                {/* Mission for Large Physical Spaces */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -70,19 +70,19 @@ export default function Index() {
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
                   <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-primary mb-4 sketch-text">
-                    WHO WE ARE
+                    INTELLIGENCE FOR LARGE PHYSICAL SPACES
                   </h2>
                   <p className="text-base md:text-lg lg:text-xl text-foreground leading-relaxed sketch-text mb-4">
-                    Interdisciplinary researchers bridging nature and
-                    technology. Field scientists who spend weeks in wilderness.
-                    Hardware engineers building for extreme environments.
+                    We are building intelligence for wilderness, remote areas,
+                    and vast physical spaces. Wildfires, natural disasters,
+                    situational awareness.
                   </p>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
-                    We believe breakthroughs happen at intersections.{" "}
                     <span className="font-bold text-primary">
-                      Policy, tech, impact
+                      Small edge models
                     </span>{" "}
-                    through collaboration.
+                    that understand 24/7. Real-world ambient intelligence
+                    deployed at scale.
                   </p>
                 </motion.div>
               </div>
@@ -833,10 +833,21 @@ export default function Index() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1">
               OUR TEAM
             </h2>
-            <div className="sketch-border bg-card p-4 md:p-6 max-w-4xl mx-auto transform -rotate-1">
-              <p className="text-base md:text-lg lg:text-xl text-foreground sketch-text mb-4">
-                The people behind the First Responder Initiative. Field experts
-                and tech builders.
+            <div className="sketch-border bg-card p-6 md:p-8 max-w-4xl mx-auto transform -rotate-1 mb-8">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-4 sketch-text">
+                WHO WE ARE
+              </h3>
+              <p className="text-base md:text-lg text-foreground leading-relaxed sketch-text mb-4">
+                Interdisciplinary researchers bridging nature and technology.
+                Field scientists who spend weeks in wilderness. Hardware
+                engineers building for extreme environments.
+              </p>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed sketch-text">
+                We believe breakthroughs happen at intersections.{" "}
+                <span className="font-bold text-primary">
+                  Policy, tech, impact
+                </span>{" "}
+                through collaboration.
               </p>
             </div>
           </motion.div>
