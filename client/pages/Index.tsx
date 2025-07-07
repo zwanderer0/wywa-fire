@@ -773,6 +773,158 @@ export default function Index() {
   );
 }
 
+// Enhanced Detection Demo Component
+function EnhancedDetectionDemo() {
+  const [currentAlert, setCurrentAlert] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [sensorCount, setSensorCount] = useState(847);
+
+  const alerts = [
+    {
+      time: "13:04:07",
+      location: "Sonoma County",
+      type: "normal",
+      sensor: "PM2.5",
+      reading: "80 µg/m³",
+      description: "dust plume from passing car",
+      action: "no alert",
+      color: "text-muted-foreground",
+      bgColor: "bg-muted/20",
+    },
+    {
+      time: "13:06:55",
+      location: "Napa Valley",
+      type: "warning",
+      sensor: "THERMAL",
+      reading: "+5°C uptick",
+      description: "thin grey column detected",
+      action: "mini alert queued",
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+    },
+    {
+      time: "13:09:14",
+      location: "Paradise Area",
+      type: "critical",
+      sensor: "VISION + THERMAL",
+      reading: "bright orange cluster",
+      description: "heat pattern matches wildfire",
+      action: "CALIFORNIA ALERT DISPATCHED",
+      color: "text-destructive",
+      bgColor: "bg-destructive/10",
+    },
+  ];
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentAlert((prev) => (prev + 1) % alerts.length);
+      setSensorCount((prev) => prev + Math.floor(Math.random() * 3) - 1);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  return (
+    <div className="space-y-6">
+      {/* Sensor Network Status */}
+      <div className="sketch-border bg-card p-6 transform rotate-1">
+        <h3 className="text-2xl font-bold sketch-text text-primary mb-4">
+          CALIFORNIA SENSOR NETWORK
+        </h3>
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="text-center">
+            <div className="text-3xl font-black text-primary">
+              {sensorCount}
+            </div>
+            <div className="text-sm text-muted-foreground sketch-text">
+              Active Sensors
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-black text-forest-600">2,400</div>
+            <div className="text-sm text-muted-foreground sketch-text">
+              Miles Covered
+            </div>
+          </div>
+        </div>
+        <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-primary to-forest-500 w-3/4"></div>
+        </div>
+        <p className="text-xs text-muted-foreground mt-2 sketch-text">
+          75% of high-risk California wilderness areas protected
+        </p>
+      </div>
+
+      {/* Live Detection Feed */}
+      <div className="sketch-border bg-card p-6 transform -rotate-1">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-bold sketch-text text-primary">
+            LIVE AI DETECTION
+          </h3>
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="text-sm text-muted-foreground hover:text-foreground sketch-border px-3 py-1 rounded"
+          >
+            {isPlaying ? "PAUSE" : "PLAY"}
+          </button>
+        </div>
+
+        <div className="space-y-3">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentAlert}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className={`p-4 rounded-lg ${alerts[currentAlert].bgColor} sketch-border`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-muted-foreground">
+                  [{alerts[currentAlert].time}] {alerts[currentAlert].location}
+                </span>
+                <span
+                  className={`text-xs font-mono ${alerts[currentAlert].color} sketch-highlight`}
+                >
+                  {alerts[currentAlert].sensor}
+                </span>
+              </div>
+              <div className="text-sm">
+                <div
+                  className={`font-bold text-lg ${alerts[currentAlert].color}`}
+                >
+                  {alerts[currentAlert].reading}
+                </div>
+                <div className="text-muted-foreground">
+                  {alerts[currentAlert].description}
+                </div>
+                <div
+                  className={`font-mono text-sm mt-2 font-bold ${alerts[currentAlert].color}`}
+                >
+                  → {alerts[currentAlert].action}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Progress indicators */}
+          <div className="flex space-x-2">
+            {alerts.map((_, i) => (
+              <div
+                key={i}
+                className={`h-3 flex-1 rounded-full transition-colors sketch-border ${
+                  i === currentAlert ? "bg-primary" : "bg-muted"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Interactive Detection Demo Component
 function InteractiveDetectionDemo() {
   const [currentAlert, setCurrentAlert] = useState(0);
@@ -831,7 +983,7 @@ function InteractiveDetectionDemo() {
           onClick={() => setIsPlaying(!isPlaying)}
           className="text-sm text-muted-foreground hover:text-foreground"
         >
-          {isPlaying ? "⏸️" : "▶️"}
+          {isPlaying ? "PAUSE" : "PLAY"}
         </button>
       </div>
 
