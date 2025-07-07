@@ -59,7 +59,7 @@ export default function Index() {
             <motion.div {...fadeInUp} className="space-y-6 md:space-y-8">
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
-                  Detect wildfires early, before they spread
+                  First Responder Initiative
                 </h1>
 
                 {/* Sub-line */}
