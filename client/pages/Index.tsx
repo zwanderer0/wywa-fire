@@ -133,7 +133,7 @@ export default function Index() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1"
               >
-                THE PROBLEM
+                USA lost 10.3 million acres to wildfires in 2023
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -143,21 +143,15 @@ export default function Index() {
                 className="sketch-border bg-card p-4 md:p-6 mb-6 transform rotate-1"
               >
                 <p className="text-base md:text-lg lg:text-xl text-foreground mb-4 leading-relaxed sketch-text">
-                  Wildfires devastate millions of acres annually. Early
-                  detection remains unsolved at scale.
-                </p>
-                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed mb-4">
-                  Current systems fail in remote areas where fires start. By the
-                  time smoke is visible to satellites or observers, precious
-                  hours are lost.
+                  Satellites have hours of latency. Remote areas have no
+                  coverage. Hours are lost while fires spread.
                 </p>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  California's 33 million acres of forest need intelligent
-                  monitoring across{" "}
-                  <span className="font-bold text-primary">
-                    thousands of miles
-                  </span>{" "}
-                  of unmonitored wilderness.
+                  California has 33 million forest acres yet only 15 percent are
+                  under continuous watch.
+                </p>
+                <p className="text-xs text-muted-foreground mt-4">
+                  <em>Source: US Forest Service</em>
                 </p>
               </motion.div>
             </div>
