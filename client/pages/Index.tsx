@@ -980,50 +980,149 @@ function MockDashboard() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-4 gap-6">
         {/* Left: Sensor Data */}
         <div className="space-y-4">
           <div className="text-sm font-mono text-gray-400 mb-2">
             SENSOR READINGS
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <div className="bg-gray-800 rounded p-3 border border-gray-600">
               <div className="text-xs text-gray-400 font-mono">TEMPERATURE</div>
               <div
-                className={`text-2xl font-bold ${current.sensors.temp > 80 ? "text-orange-400" : "text-blue-300"}`}
+                className={`text-xl font-bold ${current.sensors.temp > 80 ? "text-orange-400" : "text-blue-300"}`}
               >
-                {current.sensors.temp}°
+                {current.sensors.temp}°F
               </div>
-              <div className="text-xs text-gray-500">F</div>
             </div>
 
             <div className="bg-gray-800 rounded p-3 border border-gray-600">
               <div className="text-xs text-gray-400 font-mono">HUMIDITY</div>
               <div
-                className={`text-2xl font-bold ${current.sensors.humidity < 30 ? "text-red-400" : "text-blue-300"}`}
+                className={`text-xl font-bold ${current.sensors.humidity < 30 ? "text-red-400" : "text-blue-300"}`}
               >
-                {current.sensors.humidity}
+                {current.sensors.humidity}%
               </div>
-              <div className="text-xs text-gray-500">%</div>
             </div>
 
             <div className="bg-gray-800 rounded p-3 border border-gray-600">
               <div className="text-xs text-gray-400 font-mono">GAS</div>
               <div
-                className={`text-2xl font-bold ${current.sensors.gas > 5 ? "text-red-400" : "text-green-400"}`}
+                className={`text-xl font-bold ${current.sensors.gas > 5 ? "text-red-400" : "text-green-400"}`}
               >
-                {current.sensors.gas}
+                {current.sensors.gas} ppm
               </div>
-              <div className="text-xs text-gray-500">ppm</div>
             </div>
 
             <div className="bg-gray-800 rounded p-3 border border-gray-600">
               <div className="text-xs text-gray-400 font-mono">WIND</div>
-              <div className="text-2xl font-bold text-blue-300">
+              <div className="text-xl font-bold text-blue-300">
                 {current.sensors.wind}
               </div>
-              <div className="text-xs text-gray-500">dir</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tactical Map */}
+        <div className="lg:col-span-1">
+          <div className="text-sm font-mono text-gray-400 mb-2">
+            TACTICAL MAP
+          </div>
+
+          <div className="bg-gray-800 rounded border border-gray-600 p-4 h-80 relative overflow-hidden">
+            {/* Map Grid Background */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
+                {Array.from({ length: 64 }).map((_, i) => (
+                  <div key={i} className="border border-gray-600"></div>
+                ))}
+              </div>
+            </div>
+
+            {/* Geographic Reference */}
+            <div className="absolute top-2 left-2 text-xs font-mono text-gray-400">
+              SONOMA/NAPA SECTOR
+            </div>
+            <div className="absolute top-2 right-2 text-xs font-mono text-gray-400">
+              GRID: 38.2°N, 122.4°W
+            </div>
+
+            {/* Sensor Nodes */}
+            <div className="relative h-full">
+              {/* Active Node (Current Detection) */}
+              <div
+                className="absolute w-3 h-3 bg-red-500 rounded-full animate-pulse"
+                style={{
+                  top: current.id === "SENT-002" ? "60%" : "35%",
+                  left: current.id === "SENT-002" ? "45%" : "65%",
+                }}
+              >
+                <div className="absolute -top-6 -left-4 text-xs font-mono text-red-400">
+                  {current.id}
+                </div>
+                {/* Alert Radius */}
+                <div className="absolute -inset-4 border border-red-500 rounded-full opacity-50 animate-ping"></div>
+              </div>
+
+              {/* Other Sensor Nodes */}
+              <div className="absolute top-[25%] left-[30%] w-2 h-2 bg-green-400 rounded-full">
+                <div className="absolute -top-5 -left-3 text-xs font-mono text-green-400">
+                  SENT-003
+                </div>
+              </div>
+
+              <div className="absolute top-[70%] left-[75%] w-2 h-2 bg-green-400 rounded-full">
+                <div className="absolute -top-5 -left-3 text-xs font-mono text-green-400">
+                  SENT-004
+                </div>
+              </div>
+
+              <div className="absolute top-[40%] left-[20%] w-2 h-2 bg-blue-400 rounded-full">
+                <div className="absolute -top-5 -left-3 text-xs font-mono text-blue-400">
+                  SENT-005
+                </div>
+              </div>
+
+              {/* Risk Zones */}
+              <div className="absolute top-[50%] left-[35%] w-16 h-12 border border-yellow-400 rounded-lg opacity-60">
+                <div className="absolute -top-5 left-0 text-xs font-mono text-yellow-400">
+                  HIGH RISK
+                </div>
+              </div>
+
+              {/* Fire Detection Zone */}
+              {current.status === "CONFIRMED FIRE" && (
+                <div
+                  className="absolute w-8 h-6 bg-red-500 opacity-40 rounded-lg"
+                  style={{
+                    top: current.id === "SENT-002" ? "58%" : "33%",
+                    left: current.id === "SENT-002" ? "42%" : "62%",
+                  }}
+                ></div>
+              )}
+
+              {/* Coverage Areas */}
+              <div className="absolute top-[20%] left-[25%] w-20 h-16 border border-blue-300 rounded-full opacity-30"></div>
+              <div className="absolute top-[55%] left-[40%] w-24 h-20 border border-blue-300 rounded-full opacity-30"></div>
+            </div>
+
+            {/* Map Legend */}
+            <div className="absolute bottom-2 left-2 text-xs font-mono">
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-red-400">ACTIVE</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-green-400">NORMAL</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <span className="text-blue-400">OFFLINE</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
