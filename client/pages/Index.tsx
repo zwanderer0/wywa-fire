@@ -859,44 +859,92 @@ function MockDashboard() {
 // Team Section Component
 function TeamSection() {
   return (
-    <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+    <div className="max-w-4xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
+        className="text-center mb-8"
       >
-        <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-          Shared background in field science and embedded hardware. Team
-          combines academic research experience with deployment expertise in
-          remote environments. Previous work spans sensor networks, computer
-          vision, and environmental monitoring systems.
-        </p>
+        <div className="sketch-border bg-card p-6 md:p-8 transform rotate-1 mb-6">
+          <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
+            <span className="font-semibold text-primary">
+              navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
+            </span>
+          </p>
+          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+            People passionate about environment. Background in entrepreneurship,
+            leading large projects at NVIDIA, Amazon, and research labs.
+            Interdisciplinary researchers bridging nature and technology. Field
+            scientists who spend weeks in wilderness. Hardware engineers
+            building for extreme environments.
+          </p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="sketch-border bg-accent/20 p-4 md:p-6 transform -rotate-1"
+        >
+          <p className="text-sm md:text-base text-foreground leading-relaxed">
+            We believe breakthroughs happen at intersections.
+            <span className="font-bold text-primary">
+              {" "}
+              Policy, tech, impact
+            </span>{" "}
+            through collaboration.
+          </p>
+        </motion.div>
       </motion.div>
 
+      {/* Call to Action for Contributors */}
       <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
-        className="space-y-3"
+        className="text-center bg-primary/5 rounded-lg p-6 md:p-8 border-2 border-primary/20"
       >
-        <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-          <span className="font-medium">Navya Veeturi</span>
-          <span className="text-sm text-gray-500">embedded engineer</span>
+        <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
+          Join Our Mission
+        </h3>
+        <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
+          We're looking for passionate individuals with backgrounds in AI,
+          hardware engineering, and field deployment to help bring early
+          wildfire detection to California communities.
+        </p>
+        <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
+          <div className="bg-white/70 rounded p-3 border border-primary/20">
+            <div className="font-semibold text-primary mb-1">
+              🧠 AI/ML Engineers
+            </div>
+            <div className="text-gray-600">
+              Computer vision, edge AI, model optimization
+            </div>
+          </div>
+          <div className="bg-white/70 rounded p-3 border border-primary/20">
+            <div className="font-semibold text-primary mb-1">
+              🔧 Hardware Engineers
+            </div>
+            <div className="text-gray-600">
+              Sensor networks, embedded systems, IoT
+            </div>
+          </div>
+          <div className="bg-white/70 rounded p-3 border border-primary/20">
+            <div className="font-semibold text-primary mb-1">
+              🌲 Field Partners
+            </div>
+            <div className="text-gray-600">
+              Pilot deployments, community connections
+            </div>
+          </div>
         </div>
-        <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-          <span className="font-medium">Jaspreet Riar</span>
-          <span className="text-sm text-gray-500">data scientist</span>
-        </div>
-        <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-          <span className="font-medium">Anirudh Sharma</span>
-          <span className="text-sm text-gray-500">product lead</span>
-        </div>
-        <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-          <span className="font-medium">Dan Fitzgerald</span>
-          <span className="text-sm text-gray-500">field ops</span>
-        </div>
+        <p className="text-sm text-gray-500">
+          Modern timelines. Remote-friendly. Impact-driven work.
+        </p>
       </motion.div>
     </div>
   );
