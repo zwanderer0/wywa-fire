@@ -23,8 +23,16 @@ export default function Index() {
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b-2 border-primary">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-xl md:text-2xl font-bold tracking-tight text-primary sketch-text">
-              First Responder Initiative
+            <div className="flex items-center space-x-2">
+              <div className="sketch-border bg-primary text-primary-foreground px-3 py-2 transform rotate-1">
+                <div className="text-lg md:text-xl font-black tracking-tight">
+                  <span className="text-destructive">FI</span>
+                  <span className="text-accent">RE</span>
+                </div>
+              </div>
+              <div className="hidden sm:block text-sm font-medium text-muted-foreground">
+                Initiative
+              </div>
             </div>
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {["Problem", "Solution", "Progress", "Team", "Get Involved"].map(
