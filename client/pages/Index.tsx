@@ -249,7 +249,7 @@ export default function Index() {
                     → Anomaly: High PM2.5 at node XX
                   </div>
                   <div className="text-sky-600 sketch-highlight transform rotate-0.5">
-                    ��� Context: Road proximity + vehicle pattern
+                    → Context: Road proximity + vehicle pattern
                   </div>
                   <div className="text-forest-600">
                     → Decision: IGNORE - dust from car
@@ -1218,42 +1218,6 @@ function HeroDetectionDemo() {
               }`}
             />
           ))}
-        </div>
-
-        {/* Tech Specs */}
-        <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-border">
-          <div className="text-left">
-            <div className="text-xs md:text-sm text-muted-foreground font-mono">
-              EDGE MODEL
-            </div>
-            <div className="text-sm md:text-base font-medium text-foreground">
-              YOLOv8 + LoRA
-            </div>
-          </div>
-          <div className="text-left">
-            <div className="text-xs md:text-sm text-muted-foreground font-mono">
-              INFERENCE
-            </div>
-            <div className="text-sm md:text-base font-medium text-foreground">
-              Real-time @ 30fps
-            </div>
-          </div>
-          <div className="text-left">
-            <div className="text-xs md:text-sm text-muted-foreground font-mono">
-              SENSORS
-            </div>
-            <div className="text-sm md:text-base font-medium text-foreground">
-              Multi-modal fusion
-            </div>
-          </div>
-          <div className="text-left">
-            <div className="text-xs md:text-sm text-muted-foreground font-mono">
-              POWER
-            </div>
-            <div className="text-sm md:text-base font-medium text-foreground">
-              Solar + 7-day backup
-            </div>
-          </div>
         </div>
       </div>
     </div>
