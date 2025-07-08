@@ -1209,43 +1209,60 @@ function MockDashboard() {
                 </div>
               </div>
 
-              {/* Clean Phone Outline */}
-              <div className="bg-gray-800 rounded p-3 border border-gray-600">
-                <div className="text-xs text-gray-400 mb-2">
+              {/* First Responder Phone */}
+              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                <div className="text-xs text-gray-600 mb-2">
                   First Responder Alert
                 </div>
 
-                {/* Simple phone outline */}
-                <div className="mx-auto w-32 h-52 border-2 border-gray-500 rounded-xl relative bg-gray-900">
+                {/* Phone with actual content */}
+                <div className="mx-auto w-36 h-64 border-2 border-gray-300 rounded-xl relative bg-gray-900">
                   {/* Screen area */}
-                  <div className="absolute inset-2 bg-gray-800 rounded-lg border border-gray-600">
+                  <div className="absolute inset-2 bg-white rounded-lg">
                     {/* Status bar */}
-                    <div className="h-4 border-b border-gray-600 flex justify-center items-center">
-                      <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
+                    <div className="h-6 bg-gray-100 rounded-t-lg flex justify-between items-center px-2 text-xs">
+                      <span>9:41</span>
+                      <span>100%</span>
                     </div>
 
                     {/* Alert content */}
-                    <div className="p-2 space-y-1">
-                      <div className="w-4 h-1 bg-gray-500 rounded"></div>
-                      <div className="w-6 h-1 bg-gray-600 rounded"></div>
-                      <div className="w-3 h-1 bg-gray-600 rounded"></div>
-
-                      {/* Alert indicator */}
-                      <div className="mt-2 w-8 h-3 bg-gray-400 rounded opacity-60"></div>
+                    <div className="p-3 space-y-2">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-xs font-bold text-red-600">
+                          FIRE ALERT
+                        </span>
+                      </div>
+                      <div className="text-xs text-gray-700">
+                        <div>📍 {current.location}</div>
+                        <div>🎯 {current.coords}</div>
+                        <div>
+                          📊 {(current.bayesianScore * 100).toFixed(0)}%
+                          confidence
+                        </div>
+                        <div>🔥 CO2: {current.sensors.co2}ppm</div>
+                      </div>
+                      <div className="text-xs text-gray-600 bg-yellow-50 p-2 rounded">
+                        Requires field verification
+                      </div>
                     </div>
 
-                    {/* Bottom buttons */}
-                    <div className="absolute bottom-2 left-2 right-2 flex space-x-1">
-                      <div className="flex-1 h-2 bg-gray-500 rounded"></div>
-                      <div className="flex-1 h-2 bg-gray-600 rounded"></div>
+                    {/* Action buttons */}
+                    <div className="absolute bottom-2 left-2 right-2 grid grid-cols-2 gap-1">
+                      <div className="bg-red-500 text-white text-xs py-1 px-2 rounded text-center">
+                        CONFIRM
+                      </div>
+                      <div className="bg-gray-300 text-gray-700 text-xs py-1 px-2 rounded text-center">
+                        FALSE
+                      </div>
                     </div>
                   </div>
 
                   {/* Home indicator */}
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-500 rounded-full"></div>
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-400 rounded-full"></div>
                 </div>
 
-                <div className="text-xs text-gray-400 mt-2 text-center">
+                <div className="text-xs text-gray-500 mt-2 text-center">
                   Alert sent for verification
                 </div>
               </div>
