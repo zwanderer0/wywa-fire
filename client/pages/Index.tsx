@@ -1333,21 +1333,66 @@ function TeamSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-center mb-8"
+        className="text-center"
       >
         <div className="sketch-border bg-card p-6 md:p-8 transform rotate-1 mb-6">
-          <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
-            <span className="font-semibold text-primary">
-              navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
-            </span>
-          </p>
-          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-            People passionate about environment. Background in entrepreneurship,
-            leading large projects at NVIDIA, Amazon, and research labs.
-            Interdisciplinary researchers bridging nature and technology. Field
-            scientists who spend weeks in wilderness. Hardware engineers
-            building for extreme environments.
-          </p>
+          <div className="mb-6">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
+              Collaborative Team
+            </h3>
+            <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
+              <span className="font-semibold text-primary">
+                navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
+              </span>
+            </p>
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
+              Engineers, researchers and environmentalists passionate about
+              forests and wilderness, building AI hardware for extreme
+              environments. Background in academic labs, shipping products in
+              startups, and big tech (NVIDIA, Amazon, Apple and other
+              companies).
+            </p>
+          </div>
+
+          {/* Join Mission integrated */}
+          <div className="border-t border-gray-200 pt-6">
+            <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
+              <div className="bg-primary/5 rounded p-3 border border-primary/20">
+                <div className="font-semibold text-primary mb-1">
+                  AI/ML Engineers
+                </div>
+                <div className="text-gray-600">edge AI, model distillation</div>
+              </div>
+              <div className="bg-primary/5 rounded p-3 border border-primary/20">
+                <div className="font-semibold text-primary mb-1">
+                  Hardware Engineers
+                </div>
+                <div className="text-gray-600">
+                  Sensor networks, embedded systems
+                </div>
+              </div>
+              <div className="bg-primary/5 rounded p-3 border border-primary/20">
+                <div className="font-semibold text-primary mb-1">
+                  Field Partners
+                </div>
+                <div className="text-gray-600">
+                  Pilot deployments, community connections
+                </div>
+              </div>
+            </div>
+
+            <Button
+              size="lg"
+              className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90 mb-4"
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Join the mission
+            </Button>
+          </div>
         </div>
 
         <motion.div
@@ -1366,48 +1411,6 @@ function TeamSection() {
             through collaboration.
           </p>
         </motion.div>
-      </motion.div>
-
-      {/* Call to Action for Contributors */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true }}
-        className="text-center bg-primary/5 rounded-lg p-6 md:p-8 border-2 border-primary/20"
-      >
-        <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
-          Join Our Mission
-        </h3>
-        <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
-          We're looking for passionate individuals with backgrounds in AI,
-          hardware engineering, and field deployment to help bring early
-          wildfire detection to California communities.
-        </p>
-        <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
-          <div className="bg-white/70 rounded p-3 border border-primary/20">
-            <div className="font-semibold text-primary mb-1">
-              AI/ML Engineers
-            </div>
-            <div className="text-gray-600">edge AI, model distillation</div>
-          </div>
-          <div className="bg-white/70 rounded p-3 border border-primary/20">
-            <div className="font-semibold text-primary mb-1">
-              Hardware Engineers
-            </div>
-            <div className="text-gray-600">
-              Sensor networks, embedded systems
-            </div>
-          </div>
-          <div className="bg-white/70 rounded p-3 border border-primary/20">
-            <div className="font-semibold text-primary mb-1">
-              Field Partners
-            </div>
-            <div className="text-gray-600">
-              Pilot deployments, community connections
-            </div>
-          </div>
-        </div>
       </motion.div>
     </div>
   );
