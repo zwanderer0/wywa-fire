@@ -772,12 +772,12 @@ function SensorShowcase() {
                   className="text-white"
                 >
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    Real-world deployment
+                    Intelligence Stack
                   </h3>
                   <p className="text-lg text-white/90 leading-relaxed mb-6">
-                    Our sensor nodes operate autonomously in remote wilderness
-                    areas, powered by solar energy and connected through LoRa
-                    mesh networks.
+                    Our AI models interpret data from 250 sensor LORA nodes and
+                    cameras at once, enabling full contextual understanding of
+                    wildfire conditions across vast wilderness areas.
                   </p>
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="flex items-center space-x-2">
