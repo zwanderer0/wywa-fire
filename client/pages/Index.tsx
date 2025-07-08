@@ -779,7 +779,7 @@ function WhatWereBuilding() {
     {
       name: "Context Engine",
       description:
-        "Decides what to do with information. Generates alerts to first responders who verify before community notification. All runs locally on Jetson hardware.",
+        "Decides what to do with the information. Generates mobile, Emergency Radio alerts to first responders who verify before community notification. All runs locally on Jetson hardware.",
       color: "from-orange-500 to-red-500",
     },
   ];
