@@ -951,6 +951,33 @@ function MockDashboard() {
     },
   ];
 
+  const inferenceStreams = [
+    [
+      "12:47:49 [EDGE] TinyML detecting gas signature...",
+      "12:47:49 [EDGE] CO2: 5.6ppm, VOCs: elevated, temp: 85.2°F",
+      "12:47:50 [VISUAL] VLM analyzing smoke plume geometry...",
+      "12:47:50 [VISUAL] Pattern: vertical column, velocity: slow rise",
+      "12:47:50 [VISUAL] Background: forest canopy, no dust sources",
+      "12:47:51 [CONTEXT] Weather: dry conditions, wind SSW 12mph",
+      "12:47:51 [CONTEXT] Proximity: 0.3mi to residential area",
+      "12:47:51 [CONTEXT] Time: 12:47 PM, high solar heating",
+      "12:47:51 [DECISION] FIRE CONFIRMED - dispatching alerts",
+      "12:47:51 [ALERT] CAL FIRE notified, local dept activated",
+      "12:47:51 [ALERT] HAM radio net W6ABC 146.52 MHz active",
+      "12:47:52 [COMMUNITY] 47 neighbors alerted via SMS",
+    ],
+    [
+      "12:38:20 [EDGE] Temperature anomaly detected: 72.1°F",
+      "12:38:21 [EDGE] Gas levels: CO2 2.1ppm (normal range)",
+      "12:38:21 [VISUAL] VLM scanning for visual confirmation...",
+      "12:38:22 [VISUAL] No visible smoke plume detected",
+      "12:38:22 [CONTEXT] Weather: moderate humidity 45%",
+      "12:38:22 [CONTEXT] Wind: NW direction, normal patterns",
+      "12:38:22 [DECISION] Below fire threshold - monitoring",
+      "12:38:22 [STATUS] Sensor SENT-001 continuing surveillance",
+    ],
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveDetection((prev) => (prev + 1) % detections.length);
