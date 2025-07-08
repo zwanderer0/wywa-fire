@@ -1344,9 +1344,6 @@ function TeamSection() {
             </div>
           </div>
         </div>
-        <p className="text-sm text-gray-500">
-          Modern timelines. Remote-friendly. Impact-driven work.
-        </p>
       </motion.div>
     </div>
   );
