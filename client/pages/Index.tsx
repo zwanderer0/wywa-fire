@@ -1035,8 +1035,8 @@ function MockDashboard() {
 
       <div className="grid lg:grid-cols-3 h-[500px]">
         {/* Left: Streaming Inference Logs */}
-        <div className="bg-black p-4 overflow-y-auto">
-          <div className="text-green-400 text-xs font-mono mb-2">
+        <div className="bg-gray-900 p-4 overflow-y-auto border-r border-gray-700">
+          <div className="text-gray-300 text-xs font-mono mb-3 opacity-60">
             $ wywa-inference --stream --node={current.id}
           </div>
           <div className="space-y-1">
@@ -1046,19 +1046,19 @@ function MockDashboard() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className={`text-xs font-mono ${
+                className={`text-xs font-mono leading-relaxed ${
                   log.includes("[EDGE]")
-                    ? "text-blue-400"
+                    ? "text-gray-200"
                     : log.includes("[VISUAL]")
-                      ? "text-purple-400"
+                      ? "text-gray-200"
                       : log.includes("[CONTEXT]")
-                        ? "text-yellow-400"
+                        ? "text-gray-200"
                         : log.includes("[DECISION]")
-                          ? "text-red-400"
+                          ? "text-gray-100 font-medium"
                           : log.includes("[ALERT]")
-                            ? "text-orange-400"
-                            : log.includes("[COMMUNITY]")
-                              ? "text-cyan-400"
+                            ? "text-gray-100 font-medium"
+                            : log.includes("[SYSTEM]")
+                              ? "text-gray-300"
                               : "text-gray-400"
                 }`}
               >
@@ -1066,7 +1066,7 @@ function MockDashboard() {
               </motion.div>
             ))}
             {logIndex < inferenceStreams[activeDetection].length && (
-              <div className="text-green-400 animate-pulse">▋</div>
+              <div className="text-gray-300 animate-pulse">▋</div>
             )}
           </div>
         </div>
