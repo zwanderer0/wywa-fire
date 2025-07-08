@@ -1124,7 +1124,7 @@ function MockDashboard() {
                     className={
                       current.sensors.co2 > 600
                         ? "text-red-600"
-                        : "text-gray-600"
+                        : `text-gray-600 ${isInferenceComplete && current.sensors.co2 <= 600 ? "animate-pulse" : ""}`
                     }
                   >
                     {current.sensors.co2 > 600 ? "ELEVATED" : "NORMAL"}
