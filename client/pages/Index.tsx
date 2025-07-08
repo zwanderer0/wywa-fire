@@ -1540,6 +1540,9 @@ Message: [Please add your message here]`;
           Click "Send Email" to open your email client, or "Copy" to copy
           contact info to clipboard.
         </p>
+        <p className="text-sm text-gray-700 text-center mt-2 font-mono">
+          navya@wywa.ai
+        </p>
       </div>
     </section>
   );
