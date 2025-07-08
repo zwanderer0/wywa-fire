@@ -826,68 +826,54 @@ function WhatWereBuilding() {
 
       {/* Interactive AI Layers */}
       <div className="relative">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {aiLayers.map((layer, index) => (
-            <motion.div
-              key={index}
-              className={`relative overflow-hidden rounded-2xl border-2 cursor-pointer transition-all duration-500 ${
-                activeLayer === index
-                  ? "border-transparent shadow-2xl scale-105"
-                  : "border-gray-200 hover:border-gray-300"
-              }`}
-              onClick={() => setActiveLayer(index)}
-              style={{
-                background:
+        {/* Simplified Flow */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {aiLayers.map((layer, index) => (
+              <motion.div
+                key={index}
+                className={`p-6 rounded-lg border transition-all duration-300 ${
                   activeLayer === index
-                    ? `linear-gradient(135deg, ${layer.color.replace("from-", "").replace("to-", ", ")})`
-                    : "white",
-              }}
-              animate={{
-                y: activeLayer === index ? -10 : 0,
-              }}
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -translate-y-16 translate-x-16"></div>
-              </div>
-
-              <div className="relative p-8">
-                {/* Title */}
-                <div className="mb-6">
-                  <h3
-                    className={`text-2xl font-bold ${activeLayer === index ? "text-white" : "text-gray-800"}`}
+                    ? "border-blue-300 bg-blue-50"
+                    : "border-gray-200 bg-white hover:border-gray-300"
+                }`}
+                onClick={() => setActiveLayer(index)}
+                whileHover={{ y: -2 }}
+              >
+                <div className="text-center">
+                  <div
+                    className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
+                      activeLayer === index ? "bg-blue-500" : "bg-gray-100"
+                    }`}
                   >
+                    <div
+                      className={`text-xl font-bold ${
+                        activeLayer === index ? "text-white" : "text-gray-600"
+                      }`}
+                    >
+                      {index + 1}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
                     {layer.name}
                   </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {layer.description}
+                  </p>
                 </div>
+              </motion.div>
+            ))}
+          </div>
 
-                {/* Description */}
-                <p
-                  className={`text-lg leading-relaxed mb-6 ${activeLayer === index ? "text-white/90" : "text-gray-600"}`}
-                >
-                  {layer.description}
-                </p>
-
-                {/* Active Indicator */}
-                {activeLayer === index && (
-                  <motion.div
-                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-          ))}
+          {/* Simple Flow Arrows */}
+          <div className="hidden md:flex justify-center items-center mt-8 space-x-8">
+            <div className="text-sm text-gray-500">Edge Sensors</div>
+            <div className="text-gray-400">→</div>
+            <div className="text-sm text-gray-500">Visual AI</div>
+            <div className="text-gray-400">→</div>
+            <div className="text-sm text-gray-500">Smart Alerts</div>
+          </div>
         </div>
-
-        {/* Connection Lines */}
-        <div className="hidden lg:block absolute top-1/2 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform -translate-y-1/2 z-0"></div>
-        <div className="hidden lg:block absolute top-1/2 right-1/3 w-1/3 h-0.5 bg-gradient-to-r from-purple-300 to-red-300 transform -translate-y-1/2 z-0"></div>
       </div>
 
       {/* Bottom CTA */}
