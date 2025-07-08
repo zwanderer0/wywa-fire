@@ -918,6 +918,8 @@ function WhatWereBuilding() {
 function MockDashboard() {
   const [activeDetection, setActiveDetection] = useState(0);
   const [alertLevel, setAlertLevel] = useState("NORMAL");
+  const [logs, setLogs] = useState([]);
+  const [logIndex, setLogIndex] = useState(0);
 
   const detections = [
     {
