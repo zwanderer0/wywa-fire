@@ -782,12 +782,14 @@ function SensorShowcase() {
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm font-mono">24/7 monitoring</span>
+                      <span className="text-sm font-mono">
+                        AI agents active
+                      </span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                       <span className="text-sm font-mono">
-                        Edge AI processing
+                        250 nodes connected
                       </span>
                     </div>
                   </div>
