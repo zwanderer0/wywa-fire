@@ -1301,31 +1301,49 @@ function ContactForm() {
     interest: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleMailto = () => {
+    const subject = `WYWA Contact: ${formData.interest} - ${formData.name}`;
+    const body = `Hi,
+
+Name: ${formData.name}
+Email: ${formData.email}
+Area of Interest: ${formData.interest}
+
+Message: [Please add your message here]
+
+Best regards,
+${formData.name}`;
+
+    const mailtoLink = `mailto:navya@wywa.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
+  const handleCopyToClipboard = () => {
+    const contactInfo = `Subject: WYWA Contact: ${formData.interest} - ${formData.name}
+To: navya@wywa.ai
+
+Name: ${formData.name}
+Email: ${formData.email}
+Area of Interest: ${formData.interest}
+
+Message: [Please add your message here]`;
+
+    navigator.clipboard.writeText(contactInfo).then(() => {
+      alert(
+        "Contact information copied to clipboard! You can paste it into your email client.",
+      );
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          to: "navya@wywa.ai",
-        }),
-      });
-
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", interest: "" });
-      } else {
-        alert("Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      alert("Failed to send message. Please try again.");
+    if (!formData.name || !formData.email || !formData.interest) {
+      alert("Please fill in all fields");
+      return;
     }
+
+    handleMailto();
   };
 
   return (
