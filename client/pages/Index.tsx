@@ -166,7 +166,7 @@ export default function Index() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
-              System Overview
+              Under the hood
             </h2>
           </motion.div>
 
