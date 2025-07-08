@@ -963,9 +963,10 @@ function MockDashboard() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveDetection((prev) => (prev + 1) % detections.length);
+      const newIndex = (activeDetection + 1) % detections.length;
+      setActiveDetection(newIndex);
       setAlertLevel(
-        detections[activeDetection].status === "CONFIRMED FIRE"
+        detections[newIndex].status === "CONFIRMED FIRE"
           ? "CRITICAL"
           : "NORMAL",
       );
