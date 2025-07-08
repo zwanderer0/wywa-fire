@@ -1194,24 +1194,23 @@ function MockDashboard() {
                     </div>
 
                     {/* Alert content */}
-                    <div className="p-3 space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <div className="p-2 space-y-1">
+                      <div className="flex items-center space-x-1">
+                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
                         <span className="text-xs font-bold text-red-600">
                           FIRE ALERT
                         </span>
                       </div>
-                      <div className="text-xs text-gray-700">
+                      <div className="text-xs text-gray-700 space-y-0.5">
                         <div>📍 {current.location}</div>
-                        <div>🎯 {current.coords}</div>
+                        <div>🎯 {current.coords.substring(0, 20)}...</div>
                         <div>
                           📊 {(current.bayesianScore * 100).toFixed(0)}%
-                          confidence
                         </div>
-                        <div>🔥 CO2: {current.sensors.co2}ppm</div>
+                        <div>🔥 {current.sensors.co2}ppm</div>
                       </div>
-                      <div className="text-xs text-gray-600 bg-yellow-50 p-2 rounded">
-                        Requires field verification
+                      <div className="text-xs text-gray-600 bg-yellow-50 p-1 rounded">
+                        Field verification needed
                       </div>
                     </div>
 
