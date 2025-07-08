@@ -1274,7 +1274,7 @@ function TeamSection() {
         <div className="sketch-border bg-card p-6 md:p-8 transform rotate-1 mb-6">
           <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
             <span className="font-semibold text-primary">
-              navya veeturi, jaspreet riar, anirudh sharma, dan fitzgerald
+              navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
             </span>
           </p>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed">
