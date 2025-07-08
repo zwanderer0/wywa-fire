@@ -47,8 +47,10 @@ export default function Index() {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          {/* Gradient overlay for text readability - more targeted to left side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          {/* Subtle spotlight effect for sensor area */}
+          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
         </div>
 
         {/* Content Container */}
