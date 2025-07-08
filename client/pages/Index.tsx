@@ -178,25 +178,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Field Results Section */}
-      <section id="fieldresults" className="py-16 md:py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="text-center mb-12 md:mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
-              Development Status
-            </h2>
-          </motion.div>
-
-          <DevelopmentStatusCards />
-        </div>
-      </section>
-
       {/* Team Section */}
       <section id="team" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
