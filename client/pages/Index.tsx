@@ -766,26 +766,24 @@ function WhatWereBuilding() {
   const aiLayers = [
     {
       name: "Edge Intelligence",
-      description: "TinyML models on WYWA Pods perform chemical detection",
-      icon: "🧠",
+      description:
+        "Sensors monitor temperature, humidity, gas signatures in real-time. TinyML models identify chemical combustion patterns instantly at the source.",
+      icon: "🔬",
       color: "from-blue-500 to-cyan-500",
-      stats: { accuracy: "94%", latency: "<1ms", power: "Ultra-low" },
     },
     {
       name: "Visual Understanding",
       description:
-        "VLMs on NVIDIA Jetson gateways analyze smoke patterns vs dust clouds",
+        "Computer vision analyzes smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context.",
       icon: "👁️",
       color: "from-purple-500 to-pink-500",
-      stats: { accuracy: "97%", latency: "50ms", power: "Efficient" },
     },
     {
       name: "Context Engine",
       description:
-        "Generative AI creates tailored alerts for first responders and residents",
+        "Decides what to do with information. Generates tailored alerts, coordinates response teams, activates community networks based on full situational awareness.",
       icon: "⚡",
       color: "from-orange-500 to-red-500",
-      stats: { accuracy: "99%", latency: "200ms", power: "Cloud" },
     },
   ];
 
