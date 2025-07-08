@@ -1188,50 +1188,24 @@ function MockDashboard() {
 
           {current.status === "CONFIRMED FIRE" ? (
             <div className="space-y-4">
-              {/* Visual Detection Display */}
-              <div className="bg-gray-800 rounded p-3 border border-gray-600">
-                <div className="text-xs text-gray-400 mb-2">
+              {/* Thermal Image Display */}
+              <div className="bg-white rounded-lg p-3 border border-gray-200">
+                <div className="text-xs text-gray-600 mb-2">
                   Thermal Signature
                 </div>
-                <div className="relative bg-gray-900 rounded h-24 border border-gray-600 overflow-hidden">
-                  {/* Thermal gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"></div>
-
-                  {/* Smoke plume visualization */}
-                  <div className="absolute bottom-2 right-8">
-                    <div className="relative">
-                      {/* Smoke clouds */}
-                      <div className="w-3 h-3 bg-gray-300 rounded-full opacity-60 animate-pulse"></div>
-                      <div
-                        className="w-2 h-2 bg-gray-400 rounded-full absolute -top-1 left-1 opacity-40 animate-pulse"
-                        style={{ animationDelay: "0.5s" }}
-                      ></div>
-                      <div
-                        className="w-1.5 h-1.5 bg-gray-500 rounded-full absolute -top-2 left-0.5 opacity-30 animate-pulse"
-                        style={{ animationDelay: "1s" }}
-                      ></div>
-                    </div>
-                  </div>
-
+                <div className="relative rounded h-24 overflow-hidden border border-gray-200">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fdaff0af9ddf84f06995f2f1da2b2b465?format=webp&width=800"
+                    alt="Thermal signature showing fire detection"
+                    className="w-full h-full object-cover"
+                  />
                   {/* Direction indicator */}
-                  <div className="absolute bottom-1 right-1 text-xs text-gray-400 font-mono">
+                  <div className="absolute bottom-1 right-1 text-xs text-white font-mono bg-black bg-opacity-50 px-1 rounded">
                     SE
                   </div>
-
-                  {/* Grid overlay */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div
-                      className="w-full h-full border border-gray-500"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(156, 163, 175, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(156, 163, 175, 0.1) 1px, transparent 1px)",
-                        backgroundSize: "8px 8px",
-                      }}
-                    ></div>
-                  </div>
                 </div>
-                <div className="text-xs text-gray-400 mt-1">
-                  Smoke plume detected SE direction
+                <div className="text-xs text-gray-500 mt-1">
+                  Heat signature detected SE direction
                 </div>
               </div>
 
