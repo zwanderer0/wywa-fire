@@ -189,6 +189,9 @@ export default function Index() {
           {/* What We're Building */}
           <WhatWereBuilding />
 
+          {/* Sensor Showcase */}
+          <SensorShowcase />
+
           {/* Mock Dashboard */}
           <MockDashboard />
         </div>
