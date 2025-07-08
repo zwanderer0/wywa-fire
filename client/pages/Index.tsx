@@ -1012,7 +1012,7 @@ function MockDashboard() {
         </div>
         <div
           className={`px-3 py-1 rounded text-xs font-mono ${
-            alertLevel === "CRITICAL"
+            alertLevel === "NORMAL"
               ? "bg-red-100 text-red-800 border border-red-200"
               : "bg-gray-100 text-gray-600 border border-gray-200"
           }`}
