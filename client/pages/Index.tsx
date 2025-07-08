@@ -853,13 +853,8 @@ function WhatWereBuilding() {
               </div>
 
               <div className="relative p-8">
-                {/* Icon & Title */}
-                <div className="flex items-center space-x-4 mb-6">
-                  <div
-                    className={`text-4xl ${activeLayer === index ? "filter drop-shadow-lg" : ""}`}
-                  >
-                    {layer.icon}
-                  </div>
+                {/* Title */}
+                <div className="mb-6">
                   <h3
                     className={`text-2xl font-bold ${activeLayer === index ? "text-white" : "text-gray-800"}`}
                   >
