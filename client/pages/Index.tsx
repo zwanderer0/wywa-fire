@@ -726,7 +726,7 @@ function WhatWereBuilding() {
             <div className="text-sm text-gray-500">Edge Sensors</div>
             <div className="text-gray-400">→</div>
             <div className="text-sm text-gray-500">Visual AI</div>
-            <div className="text-gray-400">��</div>
+            <div className="text-gray-400">����</div>
             <div className="text-sm text-gray-500">Smart Alerts</div>
           </div>
         </div>
@@ -1236,27 +1236,25 @@ function TeamSection() {
             <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
               <div className="bg-primary/5 rounded p-3 border border-primary/20">
                 <div className="font-semibold text-primary mb-1">
-                  AI/ML Engineers
+                  Model Distillation
                 </div>
-                <div className="text-gray-600">edge AI, model distillation</div>
+                <div className="text-gray-600">Edge VLMs</div>
               </div>
               <div className="bg-primary/5 rounded p-3 border border-primary/20">
                 <div className="font-semibold text-primary mb-1">
-                  Hardware Engineers
+                  Power Optimization
                 </div>
-                <div className="text-gray-600">
-                  Sensor networks, embedded systems
-                </div>
+                <div className="text-gray-600">Radio Communication</div>
               </div>
               <div className="bg-primary/5 rounded p-3 border border-primary/20">
-                <div className="font-semibold text-primary mb-1">
-                  Field Partners
-                </div>
-                <div className="text-gray-600">
-                  Pilot deployments, community connections
-                </div>
+                <div className="font-semibold text-primary mb-1">SaaS</div>
+                <div className="text-gray-600">Platform Development</div>
               </div>
             </div>
+
+            <p className="text-sm text-gray-600 mb-4">
+              If you still think you can help in any way, ping us.
+            </p>
 
             <Button
               size="lg"
