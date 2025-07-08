@@ -773,7 +773,7 @@ function WhatWereBuilding() {
     {
       name: "Multimodal Fusion",
       description:
-        "Computer vision analyzes smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
+        " Correlate Sensor data with visual smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
       color: "from-purple-500 to-pink-500",
     },
     {
