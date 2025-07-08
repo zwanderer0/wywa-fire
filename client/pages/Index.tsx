@@ -767,22 +767,19 @@ function WhatWereBuilding() {
     {
       name: "Edge Intelligence",
       description:
-        "Sensors monitor temperature, humidity, gas signatures in real-time. TinyML models identify chemical combustion patterns instantly at the source.",
-      icon: "🔬",
+        "Sensors monitor humidity and CO2 signatures across 200-250 nodes per sentinel. Edge classifiers identify chemical combustion patterns locally on Jetson hardware.",
       color: "from-blue-500 to-cyan-500",
     },
     {
       name: "Visual Understanding",
       description:
-        "Computer vision analyzes smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context.",
-      icon: "👁️",
+        "Computer vision analyzes smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
       color: "from-purple-500 to-pink-500",
     },
     {
       name: "Context Engine",
       description:
-        "Decides what to do with information. Generates tailored alerts, coordinates response teams, activates community networks based on full situational awareness.",
-      icon: "⚡",
+        "Decides what to do with information. Generates alerts to first responders who verify before community notification. All runs locally on Jetson hardware.",
       color: "from-orange-500 to-red-500",
     },
   ];
