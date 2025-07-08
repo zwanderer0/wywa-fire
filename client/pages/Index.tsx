@@ -1037,8 +1037,8 @@ function MockDashboard() {
 
       <div className="grid lg:grid-cols-3 h-[500px]">
         {/* Left: Streaming Inference Logs */}
-        <div className="bg-gray-900 p-4 overflow-y-auto border-r border-gray-700">
-          <div className="text-gray-300 text-xs font-mono mb-3 opacity-60">
+        <div className="bg-gray-50 p-4 overflow-y-auto border-r border-gray-200">
+          <div className="text-gray-500 text-xs font-mono mb-3">
             $ wywa-inference --stream --node={current.id}
           </div>
           <div className="space-y-1">
@@ -1050,25 +1050,28 @@ function MockDashboard() {
                 transition={{ duration: 0.3 }}
                 className={`text-xs font-mono leading-relaxed ${
                   log.includes("[EDGE]")
-                    ? "text-gray-200"
+                    ? "text-gray-700"
                     : log.includes("[VISUAL]")
-                      ? "text-gray-200"
+                      ? "text-gray-700"
                       : log.includes("[CONTEXT]")
-                        ? "text-gray-200"
+                        ? "text-gray-700"
                         : log.includes("[DECISION]")
-                          ? "text-gray-100 font-medium"
-                          : log.includes("[ALERT]")
-                            ? "text-gray-100 font-medium"
-                            : log.includes("[SYSTEM]")
-                              ? "text-gray-300"
-                              : "text-gray-400"
+                          ? "text-gray-800 font-medium"
+                          : log.includes("[ALERT]") &&
+                              log.includes("First responders")
+                            ? "text-red-600 font-medium"
+                            : log.includes("[ALERT]")
+                              ? "text-gray-800 font-medium"
+                              : log.includes("[SYSTEM]")
+                                ? "text-gray-600"
+                                : "text-gray-500"
                 }`}
               >
                 {log}
               </motion.div>
             ))}
             {logIndex < inferenceStreams[activeDetection].length && (
-              <div className="text-gray-300 animate-pulse">▋</div>
+              <div className="text-gray-600 animate-pulse">▋</div>
             )}
           </div>
         </div>
