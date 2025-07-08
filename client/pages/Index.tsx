@@ -1072,8 +1072,8 @@ function MockDashboard() {
         </div>
 
         {/* Center: Key Interpretation */}
-        <div className="bg-gray-800 p-4 text-white">
-          <div className="text-green-400 text-sm font-mono mb-4 border-b border-gray-700 pb-2">
+        <div className="bg-gray-800 p-4 text-white border-r border-gray-700">
+          <div className="text-gray-300 text-sm font-mono mb-4 border-b border-gray-600 pb-2 opacity-80">
             JETSON ANALYSIS
           </div>
 
