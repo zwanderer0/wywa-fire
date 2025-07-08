@@ -699,10 +699,10 @@ function DevelopmentStatusCards() {
           </p>
           <div className="bg-yellow-100 rounded p-3">
             <div className="text-sm text-yellow-800">
-              Current: Dataset preparation & augmentation
+              Dataset preparation & augmentation
             </div>
             <div className="text-sm text-yellow-800">
-              Next: Multi-modal fusion testing
+              Multi-modal fusion testing
             </div>
           </div>
         </motion.div>
