@@ -985,6 +985,11 @@ function MockDashboard() {
         () => {
           setLogs((prev) => [...prev, currentStream[logIndex]]);
           setLogIndex((prev) => prev + 1);
+
+          // Check if this is the last log entry to mark inference as complete
+          if (logIndex + 1 === currentStream.length) {
+            setTimeout(() => setIsInferenceComplete(true), 500);
+          }
         },
         400 + Math.random() * 300, // Slightly slower typing for readability
       );
