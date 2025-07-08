@@ -1096,51 +1096,41 @@ function MockDashboard() {
               </div>
             </div>
 
-            {/* Data Sources */}
-            <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                Local Processing
-              </div>
-              <div className="space-y-1 text-xs">
+            {/* Processing Status */}
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="text-xs text-gray-600 mb-2">Local Processing</div>
+              <div className="space-y-2 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-blue-400">Edge Classifiers</span>
-                  <span className="text-green-400">ACTIVE</span>
+                  <span className="text-gray-700">Edge Classifiers</span>
+                  <span className="text-gray-600">ACTIVE</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-purple-400">Visual AI</span>
-                  <span className="text-green-400">PROCESSING</span>
+                  <span className="text-gray-700">Visual AI</span>
+                  <span className="text-gray-600">PROCESSING</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-yellow-400">
+                  <span className="text-gray-700">
                     CO2: {current.sensors.co2}ppm
                   </span>
                   <span
                     className={
                       current.sensors.co2 > 600
-                        ? "text-red-400"
-                        : "text-green-400"
+                        ? "text-red-600"
+                        : "text-gray-600"
                     }
                   >
                     {current.sensors.co2 > 600 ? "ELEVATED" : "NORMAL"}
                   </span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-cyan-400">
-                    Humidity: {current.sensors.humidity}%
-                  </span>
-                  <span className="text-green-400">TRACKED</span>
-                </div>
               </div>
             </div>
 
-            {/* Response Actions */}
-            <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                Alert Protocol
-              </div>
-              <div className="space-y-1 text-xs">
+            {/* Alert Status */}
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="text-xs text-gray-600 mb-2">Alert Protocol</div>
+              <div className="space-y-2 text-xs">
                 <div
-                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-gray-500"}`}
+                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-600 font-medium" : "text-gray-500"}`}
                 >
                   <span>First Responders</span>
                   <span>
@@ -1149,17 +1139,9 @@ function MockDashboard() {
                       : "STANDBY"}
                   </span>
                 </div>
-                <div className={`flex justify-between text-gray-500`}>
+                <div className="flex justify-between text-gray-500">
                   <span>Community Alerts</span>
                   <span>AWAITING CONFIRMATION</span>
-                </div>
-                <div
-                  className={`flex justify-between ${current.confidence > 0.6 ? "text-blue-400" : "text-gray-500"}`}
-                >
-                  <span>HAM Radio W6ABC</span>
-                  <span>
-                    {current.confidence > 0.6 ? "STANDBY" : "INACTIVE"}
-                  </span>
                 </div>
               </div>
             </div>
