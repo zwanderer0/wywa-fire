@@ -1083,31 +1083,27 @@ function MockDashboard() {
           </div>
 
           <div className="space-y-3">
-            {/* Current Status */}
-            <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-                Network Status
-              </div>
-              <div className="text-sm text-white mb-1">
+            {/* Network Status */}
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="text-xs text-gray-600 mb-2">Network Status</div>
+              <div className="text-sm text-gray-800 mb-1">
                 {current.sensorCount} sensors → 1 sentinel
               </div>
-              <div className="text-xs text-gray-300">
+              <div className="text-xs text-gray-500">
                 {current.location} • {current.timestamp}
               </div>
             </div>
 
             {/* Bayesian Score */}
-            <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                Bayesian Score
-              </div>
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="text-xs text-gray-600 mb-2">Bayesian Score</div>
               <div className="flex items-center space-x-3">
-                <div className="text-lg font-bold text-white">
+                <div className="text-lg font-semibold text-gray-800">
                   {(current.bayesianScore * 100).toFixed(0)}%
                 </div>
-                <div className="flex-1 bg-gray-600 h-2 rounded">
+                <div className="flex-1 bg-gray-200 h-2 rounded">
                   <div
-                    className={`h-2 rounded ${current.bayesianScore > 0.8 ? "bg-red-500" : "bg-yellow-500"}`}
+                    className={`h-2 rounded ${current.bayesianScore > 0.8 ? "bg-blue-500" : "bg-gray-400"}`}
                     style={{ width: `${current.bayesianScore * 100}%` }}
                   ></div>
                 </div>
