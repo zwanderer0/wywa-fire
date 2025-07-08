@@ -1059,7 +1059,7 @@ function MockDashboard() {
                               : log.includes("[SYSTEM]")
                                 ? "text-gray-600"
                                 : "text-gray-500"
-                }`}
+                } ${isInferenceComplete && (log.includes("normal") || log.includes("continuing surveillance")) ? "animate-pulse" : ""}`}
               >
                 {log}
               </motion.div>
