@@ -876,12 +876,12 @@ function SensorShowcase() {
       viewport={{ once: true }}
       className="mb-16"
     >
-      <div className="relative h-[60vh] overflow-hidden rounded-xl">
+      <div className="relative h-[60vh] overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
         {/* Background Image */}
         <img
           src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F16e3dc66029b482192f882d58a0be911?format=webp&width=800"
           alt="Wildfire detection sensor deployment at dusk with mountain landscape"
-          className="w-full h-full object-contain bg-gray-900"
+          className="w-full h-full object-cover"
           loading="lazy"
         />
 
