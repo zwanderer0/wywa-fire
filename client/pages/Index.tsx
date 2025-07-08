@@ -82,29 +82,13 @@ export default function Index() {
               </div>
             </motion.div>
 
-            {/* Right: Sensor Node Image */}
+            {/* Right: Live Analysis Inference */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
             >
-              <div className="sketch-border bg-card p-4 md:p-6 transform rotate-1 shadow-lg border rounded overflow-hidden">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fbc63e564e9774affadbc8282539649af?format=webp&width=800"
-                  alt="Sensor node deployment during golden hour with mountain landscape"
-                  className="w-full h-auto rounded-lg"
-                  loading="eager"
-                />
-                <div className="absolute bottom-6 left-6 bg-black/70 text-white px-3 py-1 rounded text-sm font-mono">
-                  Live deployment
-                </div>
-              </div>
-              <div className="text-center mt-4">
-                <p className="text-sm text-gray-600 italic sketch-text">
-                  Sensor node in natural habitat
-                </p>
-              </div>
+              <HeroDetectionDemo />
             </motion.div>
           </div>
         </div>
@@ -870,7 +854,7 @@ function WhatWereBuilding() {
             <div className="text-sm text-gray-500">Edge Sensors</div>
             <div className="text-gray-400">→</div>
             <div className="text-sm text-gray-500">Visual AI</div>
-            <div className="text-gray-400">→</div>
+            <div className="text-gray-400">��</div>
             <div className="text-sm text-gray-500">Smart Alerts</div>
           </div>
         </div>
