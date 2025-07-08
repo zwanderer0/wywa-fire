@@ -726,7 +726,7 @@ function WhatWereBuilding() {
             <div className="text-sm text-gray-500">Edge Sensors</div>
             <div className="text-gray-400">→</div>
             <div className="text-sm text-gray-500">Visual AI</div>
-            <div className="text-gray-400">����</div>
+            <div className="text-gray-400">��</div>
             <div className="text-sm text-gray-500">Smart Alerts</div>
           </div>
         </div>
@@ -1261,7 +1261,7 @@ function TeamSection() {
               className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90 mb-4"
               onClick={() =>
                 document
-                  .getElementById("contact")
+                  .getElementById("collaborate")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
