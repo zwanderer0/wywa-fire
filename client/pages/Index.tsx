@@ -744,10 +744,10 @@ function DevelopmentStatusCards() {
           </p>
           <div className="bg-green-100 rounded p-3">
             <div className="text-sm text-green-800">
-              Current: Protocol stack development
+              Protocol stack development
             </div>
             <div className="text-sm text-green-800">
-              Next: Range testing & optimization
+              Range testing & optimization
             </div>
           </div>
         </motion.div>
