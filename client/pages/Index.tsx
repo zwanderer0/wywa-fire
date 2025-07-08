@@ -1014,19 +1014,21 @@ function MockDashboard() {
       className="mb-12 bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200"
     >
       {/* Header */}
-      <div className="bg-gray-800 text-green-400 p-4 flex items-center justify-between border-b border-gray-700">
+      <div className="bg-white p-4 flex items-center justify-between border-b border-gray-200">
         <div className="flex items-center space-x-3">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <div className="font-mono text-lg">WYWA Command Terminal</div>
-          <div className="text-xs text-gray-400 font-mono">
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          <div className="font-mono text-lg text-gray-800">
+            WYWA Command Terminal
+          </div>
+          <div className="text-xs text-gray-500 font-mono">
             [{current.location}]
           </div>
         </div>
         <div
           className={`px-3 py-1 rounded text-xs font-mono ${
             alertLevel === "CRITICAL"
-              ? "bg-red-600 text-white"
-              : "bg-gray-700 text-gray-300"
+              ? "bg-red-100 text-red-800 border border-red-200"
+              : "bg-gray-100 text-gray-600 border border-gray-200"
           }`}
         >
           {alertLevel}
