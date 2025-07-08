@@ -973,6 +973,7 @@ function MockDashboard() {
       );
       setLogs([]);
       setLogIndex(0);
+      setIsInferenceComplete(false);
     }, 15000); // Increased from 8000 to 15000 for better readability
     return () => clearInterval(interval);
   }, [activeDetection]);
