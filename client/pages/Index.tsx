@@ -120,7 +120,6 @@ export default function Index() {
             <div className="w-px h-8 bg-white/30 animate-pulse"></div>
           </div>
         </motion.div>
-        </div>
       </section>
 
       {/* Problem Section */}
