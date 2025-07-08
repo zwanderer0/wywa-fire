@@ -38,7 +38,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
