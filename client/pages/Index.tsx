@@ -902,17 +902,6 @@ function SensorShowcase() {
                     cameras at once, enabling full contextual understanding of
                     wildfire conditions across vast wilderness areas.
                   </p>
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm font-mono">25 data points</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-sm font-mono">edge processing</span>
-                    </div>
-                  </div>
-
                   {/* Behind the scenes button */}
                   <Button
                     onClick={() => setShowTerminal(!showTerminal)}
