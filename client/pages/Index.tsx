@@ -1347,13 +1347,25 @@ function TeamSection() {
                 navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
               </span>
             </p>
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
-              Engineers, researchers and environmentalists passionate about
-              forests and wilderness, building AI hardware for extreme
-              environments. Background in academic labs, shipping products in
-              startups, and big tech (NVIDIA, Amazon, Apple and other
-              companies).
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
+              <strong className="text-primary">
+                This is an opensource effort
+              </strong>{" "}
+              with science volunteers - engineers, researchers and
+              environmentalists passionate about forests and wilderness,
+              building AI hardware for extreme environments. Background in
+              academic labs, shipping products in startups, and big tech
+              (NVIDIA, Amazon, Apple and other companies).
             </p>
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
+              <p className="text-sm text-primary font-semibold">
+                🌍 Open Science Initiative
+              </p>
+              <p className="text-xs text-gray-700 mt-1">
+                All research, models, and hardware designs will be released open
+                source for the scientific community.
+              </p>
+            </div>
           </div>
 
           {/* Join Mission integrated */}
