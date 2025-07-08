@@ -1014,62 +1014,132 @@ function MockDashboard() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-12 bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg"
+      className="mb-12 bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700"
     >
       {/* Header */}
-      <div className="bg-primary text-white p-4 flex items-center justify-between">
+      <div className="bg-gray-800 text-green-400 p-4 flex items-center justify-between border-b border-gray-700">
         <div className="flex items-center space-x-3">
           <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <div className="font-bold text-lg">WYWA Command</div>
+          <div className="font-mono text-lg">WYWA Command Terminal</div>
+          <div className="text-xs text-gray-400 font-mono">[{current.location}]</div>
         </div>
-        <div
-          className={`px-3 py-1 rounded-full text-xs font-bold ${
-            alertLevel === "CRITICAL"
-              ? "bg-red-500 text-white"
-              : "bg-gray-100 text-gray-800"
-          }`}
-        >
+        <div className={`px-3 py-1 rounded text-xs font-mono ${
+          alertLevel === "CRITICAL" ? "bg-red-600 text-white" : "bg-gray-700 text-gray-300"
+        }`}>
           {alertLevel}
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="p-6">
-        {/* Alert Card */}
-        <div
-          className={`mb-6 p-4 rounded-lg border-l-4 ${
-            current.status === "CONFIRMED FIRE"
-              ? "bg-red-50 border-red-500"
-              : "bg-yellow-50 border-yellow-500"
-          }`}
-        >
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center space-x-2">
-              <div
-                className={`w-3 h-3 rounded-full ${
-                  current.status === "CONFIRMED FIRE"
-                    ? "bg-red-500"
-                    : "bg-yellow-500"
-                } animate-pulse`}
-              ></div>
-              <span className="font-bold text-lg text-gray-800">
-                {current.location}
-              </span>
-            </div>
-            <span className="text-sm text-gray-600">{current.timestamp}</span>
+      <div className="grid lg:grid-cols-2 h-96">
+        {/* Left: Streaming Inference Logs */}
+        <div className="bg-black p-4 overflow-y-auto">
+          <div className="text-green-400 text-xs font-mono mb-2">
+            $ wywa-inference --stream --node={current.id}
           </div>
-          <div
-            className={`text-sm font-medium ${
-              current.status === "CONFIRMED FIRE"
-                ? "text-red-700"
-                : "text-yellow-700"
-            }`}
-          >
-            {current.aiStage} • {(current.confidence * 100).toFixed(0)}%
-            confidence
+          <div className="space-y-1">
+            {logs.map((log, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className={`text-xs font-mono ${
+                  log.includes('[EDGE]') ? 'text-blue-400' :
+                  log.includes('[VISUAL]') ? 'text-purple-400' :
+                  log.includes('[CONTEXT]') ? 'text-yellow-400' :
+                  log.includes('[DECISION]') ? 'text-red-400' :
+                  log.includes('[ALERT]') ? 'text-orange-400' :
+                  log.includes('[COMMUNITY]') ? 'text-cyan-400' :
+                  'text-gray-400'
+                }`}
+              >
+                {log}
+              </motion.div>
+            ))}
+            {logIndex < inferenceStreams[activeDetection].length && (
+              <div className="text-green-400 animate-pulse">▋</div>
+            )}
           </div>
-          <div className="text-xs text-gray-500 mt-1">{current.coords}</div>
         </div>
+
+        {/* Right: Key Interpretation */}
+        <div className="bg-gray-800 p-4 text-white">
+          <div className="text-green-400 text-sm font-mono mb-4 border-b border-gray-700 pb-2">
+            REAL-TIME ANALYSIS
+          </div>
+
+          <div className="space-y-4">
+            {/* Current Status */}
+            <div className="bg-gray-700 rounded p-3">
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Current Status</div>
+              <div className={`text-lg font-bold ${
+                current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-yellow-400"
+              }`}>
+                {current.aiStage}
+              </div>
+              <div className="text-xs text-gray-300">{current.location} • {current.timestamp}</div>
+            </div>
+
+            {/* Confidence Level */}
+            <div className="bg-gray-700 rounded p-3">
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">AI Confidence</div>
+              <div className="flex items-center space-x-3">
+                <div className="text-lg font-bold text-white">
+                  {(current.confidence * 100).toFixed(0)}%
+                </div>
+                <div className="flex-1 bg-gray-600 h-2 rounded">
+                  <div
+                    className={`h-2 rounded ${current.confidence > 0.8 ? "bg-red-500" : "bg-yellow-500"}`}
+                    style={{width: `${current.confidence * 100}%`}}
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Sources */}
+            <div className="bg-gray-700 rounded p-3">
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">Active Sources</div>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-blue-400">🔬 Edge Sensors</span>
+                  <span className="text-green-400">ACTIVE</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-purple-400">👁️ Visual AI</span>
+                  <span className="text-green-400">PROCESSING</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-yellow-400">🌤️ Weather API</span>
+                  <span className="text-green-400">LIVE</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-cyan-400">📡 Satellite</span>
+                  <span className="text-green-400">SYNCED</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Response Actions */}
+            <div className="bg-gray-700 rounded p-3">
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">Response Actions</div>
+              <div className="space-y-1 text-xs">
+                <div className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-gray-500"}`}>
+                  <span>🚒 Emergency Dispatch</span>
+                  <span>{current.status === "CONFIRMED FIRE" ? "ACTIVE" : "STANDBY"}</span>
+                </div>
+                <div className={`flex justify-between ${current.confidence > 0.6 ? "text-blue-400" : "text-gray-500"}`}>
+                  <span>📻 HAM Radio W6ABC</span>
+                  <span>{current.confidence > 0.6 ? "LIVE" : "STANDBY"}</span>
+                </div>
+                <div className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-orange-400" : "text-gray-500"}`}>
+                  <span>📱 Community Alerts</span>
+                  <span>{current.status === "CONFIRMED FIRE" ? "SENT" : "READY"}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
         {/* Raw Data Streams */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
