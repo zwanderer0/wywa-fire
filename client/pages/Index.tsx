@@ -724,11 +724,9 @@ function DevelopmentStatusCards() {
           </p>
           <div className="bg-blue-100 rounded p-3">
             <div className="text-sm text-blue-800">
-              Current: Field deployment & data collection
+              Field deployment & data collection
             </div>
-            <div className="text-sm text-blue-800">
-              Next: Multi-node mesh testing
-            </div>
+            <div className="text-sm text-blue-800">Multi-node mesh testing</div>
           </div>
         </motion.div>
 
