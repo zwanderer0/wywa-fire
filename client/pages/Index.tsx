@@ -1033,7 +1033,7 @@ function MockDashboard() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 h-96">
+      <div className="grid lg:grid-cols-3 h-[500px]">
         {/* Left: Streaming Inference Logs */}
         <div className="bg-black p-4 overflow-y-auto">
           <div className="text-green-400 text-xs font-mono mb-2">
