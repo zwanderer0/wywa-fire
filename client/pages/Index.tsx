@@ -1332,7 +1332,7 @@ function TeamSection() {
               Hardware Engineers
             </div>
             <div className="text-gray-600">
-              Sensor networks, embedded systems, IoT
+              Sensor networks, embedded systems
             </div>
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
