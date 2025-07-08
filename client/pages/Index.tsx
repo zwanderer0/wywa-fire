@@ -38,32 +38,17 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F16e3dc66029b482192f882d58a0be911?format=webp&width=800"
-            alt="Wildfire detection sensor deployment at dusk with mountain landscape"
-            className="w-full h-full object-contain object-center bg-gray-900"
-            loading="eager"
-          />
-          {/* Gradient overlay for text readability - more targeted to left side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-          {/* Subtle spotlight effect for sensor area */}
-          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-        </div>
-
-        {/* Content Container */}
-        <div className="relative z-10 flex items-center min-h-screen">
-          <div className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-24">
-            <div className="max-w-2xl">
-              {/* Hero Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-white">
+      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left: Hero Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
                   Detect
                   <br />
                   wildfires
@@ -77,9 +62,9 @@ export default function Index() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="sketch-border bg-white/95 backdrop-blur-sm p-6 md:p-8 mb-6 transform rotate-1 shadow-lg"
+                  className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
+                  <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
                     AI enabled sensor network to detect wildfires as they begin
                   </p>
                   <Button
@@ -94,34 +79,35 @@ export default function Index() {
                     Join the mission
                   </Button>
                 </motion.div>
+              </div>
+            </motion.div>
 
-                {/* Status Indicator */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
-                  className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-white border border-white/20"
-                >
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="font-mono">Live sensor deployment</span>
-                </motion.div>
-              </motion.div>
-            </div>
+            {/* Right: Sensor Node Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative"
+            >
+              <div className="sketch-border bg-card p-4 md:p-6 transform rotate-1 shadow-lg border rounded overflow-hidden">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fbc63e564e9774affadbc8282539649af?format=webp&width=800"
+                  alt="Sensor node deployment during golden hour with mountain landscape"
+                  className="w-full h-auto rounded-lg"
+                  loading="eager"
+                />
+                <div className="absolute bottom-6 left-6 bg-black/70 text-white px-3 py-1 rounded text-sm font-mono">
+                  Live deployment
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <p className="text-sm text-gray-600 italic sketch-text">
+                  Sensor node in natural habitat
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-        >
-          <div className="flex flex-col items-center text-white/70">
-            <span className="text-xs font-mono mb-2">Scroll to explore</span>
-            <div className="w-px h-8 bg-white/30 animate-pulse"></div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Problem Section */}
