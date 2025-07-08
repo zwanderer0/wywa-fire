@@ -898,6 +898,7 @@ function MockDashboard() {
   const [alertLevel, setAlertLevel] = useState("NORMAL");
   const [logs, setLogs] = useState([]);
   const [logIndex, setLogIndex] = useState(0);
+  const [isInferenceComplete, setIsInferenceComplete] = useState(false);
 
   const detections = [
     {
