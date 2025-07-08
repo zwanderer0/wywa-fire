@@ -856,19 +856,6 @@ function WhatWereBuilding() {
           </div>
         </div>
       </div>
-
-      {/* Bottom CTA */}
-      <motion.div
-        className="text-center mt-12"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        <div className="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-600">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span>Live in California pilots • Click layers to explore</span>
-        </div>
-      </motion.div>
     </motion.div>
   );
 }
