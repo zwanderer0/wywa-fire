@@ -927,10 +927,12 @@ function MockDashboard() {
       location: "Sonoma County",
       coords: "38.2911°N, 122.4583°W",
       confidence: 0.94,
-      sensors: { temp: 85.2, humidity: 23, gas: 5.6, wind: "SSW" },
+      sensors: { humidity: 23, co2: 850, wind: "SSW" },
       status: "CONFIRMED FIRE",
       timestamp: "12:47:51 PM",
       aiStage: "CONFIRMED",
+      bayesianScore: 0.92,
+      sensorCount: 247,
       alerts: [
         { time: "12:47:51 PM", event: "Confirmed fire", sensor: "Sensor 4" },
         { time: "12:46:51 PM", event: "Smoke detected", sensor: "Sensor 4" },
@@ -941,10 +943,12 @@ function MockDashboard() {
       location: "Napa Valley",
       coords: "38.5025°N, 122.2654°W",
       confidence: 0.67,
-      sensors: { temp: 72.1, humidity: 45, gas: 2.1, wind: "NW" },
+      sensors: { humidity: 45, co2: 420, wind: "NW" },
       status: "MONITORING",
       timestamp: "12:38:22 PM",
-      aiStage: "EINFIRMED",
+      aiStage: "MONITORING",
+      bayesianScore: 0.31,
+      sensorCount: 203,
       alerts: [
         { time: "12:38:22 PM", event: "Anomaly detected", sensor: "Sensor 2" },
       ],
@@ -1021,11 +1025,17 @@ function MockDashboard() {
         <div className="flex items-center space-x-3">
           <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
           <div className="font-mono text-lg">WYWA Command Terminal</div>
-          <div className="text-xs text-gray-400 font-mono">[{current.location}]</div>
+          <div className="text-xs text-gray-400 font-mono">
+            [{current.location}]
+          </div>
         </div>
-        <div className={`px-3 py-1 rounded text-xs font-mono ${
-          alertLevel === "CRITICAL" ? "bg-red-600 text-white" : "bg-gray-700 text-gray-300"
-        }`}>
+        <div
+          className={`px-3 py-1 rounded text-xs font-mono ${
+            alertLevel === "CRITICAL"
+              ? "bg-red-600 text-white"
+              : "bg-gray-700 text-gray-300"
+          }`}
+        >
           {alertLevel}
         </div>
       </div>
@@ -1044,13 +1054,19 @@ function MockDashboard() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
                 className={`text-xs font-mono ${
-                  log.includes('[EDGE]') ? 'text-blue-400' :
-                  log.includes('[VISUAL]') ? 'text-purple-400' :
-                  log.includes('[CONTEXT]') ? 'text-yellow-400' :
-                  log.includes('[DECISION]') ? 'text-red-400' :
-                  log.includes('[ALERT]') ? 'text-orange-400' :
-                  log.includes('[COMMUNITY]') ? 'text-cyan-400' :
-                  'text-gray-400'
+                  log.includes("[EDGE]")
+                    ? "text-blue-400"
+                    : log.includes("[VISUAL]")
+                      ? "text-purple-400"
+                      : log.includes("[CONTEXT]")
+                        ? "text-yellow-400"
+                        : log.includes("[DECISION]")
+                          ? "text-red-400"
+                          : log.includes("[ALERT]")
+                            ? "text-orange-400"
+                            : log.includes("[COMMUNITY]")
+                              ? "text-cyan-400"
+                              : "text-gray-400"
                 }`}
               >
                 {log}
@@ -1071,18 +1087,28 @@ function MockDashboard() {
           <div className="space-y-4">
             {/* Current Status */}
             <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">Current Status</div>
-              <div className={`text-lg font-bold ${
-                current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-yellow-400"
-              }`}>
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
+                Current Status
+              </div>
+              <div
+                className={`text-lg font-bold ${
+                  current.status === "CONFIRMED FIRE"
+                    ? "text-red-400"
+                    : "text-yellow-400"
+                }`}
+              >
                 {current.aiStage}
               </div>
-              <div className="text-xs text-gray-300">{current.location} • {current.timestamp}</div>
+              <div className="text-xs text-gray-300">
+                {current.location} • {current.timestamp}
+              </div>
             </div>
 
             {/* Confidence Level */}
             <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">AI Confidence</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
+                AI Confidence
+              </div>
               <div className="flex items-center space-x-3">
                 <div className="text-lg font-bold text-white">
                   {(current.confidence * 100).toFixed(0)}%
@@ -1090,7 +1116,7 @@ function MockDashboard() {
                 <div className="flex-1 bg-gray-600 h-2 rounded">
                   <div
                     className={`h-2 rounded ${current.confidence > 0.8 ? "bg-red-500" : "bg-yellow-500"}`}
-                    style={{width: `${current.confidence * 100}%`}}
+                    style={{ width: `${current.confidence * 100}%` }}
                   ></div>
                 </div>
               </div>
@@ -1098,7 +1124,9 @@ function MockDashboard() {
 
             {/* Data Sources */}
             <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">Active Sources</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
+                Active Sources
+              </div>
               <div className="space-y-1 text-xs">
                 <div className="flex justify-between">
                   <span className="text-blue-400">🔬 Edge Sensors</span>
@@ -1121,19 +1149,31 @@ function MockDashboard() {
 
             {/* Response Actions */}
             <div className="bg-gray-700 rounded p-3">
-              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">Response Actions</div>
+              <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
+                Response Actions
+              </div>
               <div className="space-y-1 text-xs">
-                <div className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-gray-500"}`}>
+                <div
+                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-gray-500"}`}
+                >
                   <span>🚒 Emergency Dispatch</span>
-                  <span>{current.status === "CONFIRMED FIRE" ? "ACTIVE" : "STANDBY"}</span>
+                  <span>
+                    {current.status === "CONFIRMED FIRE" ? "ACTIVE" : "STANDBY"}
+                  </span>
                 </div>
-                <div className={`flex justify-between ${current.confidence > 0.6 ? "text-blue-400" : "text-gray-500"}`}>
+                <div
+                  className={`flex justify-between ${current.confidence > 0.6 ? "text-blue-400" : "text-gray-500"}`}
+                >
                   <span>📻 HAM Radio W6ABC</span>
                   <span>{current.confidence > 0.6 ? "LIVE" : "STANDBY"}</span>
                 </div>
-                <div className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-orange-400" : "text-gray-500"}`}>
+                <div
+                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-orange-400" : "text-gray-500"}`}
+                >
                   <span>📱 Community Alerts</span>
-                  <span>{current.status === "CONFIRMED FIRE" ? "SENT" : "READY"}</span>
+                  <span>
+                    {current.status === "CONFIRMED FIRE" ? "SENT" : "READY"}
+                  </span>
                 </div>
               </div>
             </div>
