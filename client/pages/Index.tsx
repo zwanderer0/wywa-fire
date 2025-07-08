@@ -1215,7 +1215,7 @@ function TeamSection() {
         <div className="sketch-border bg-card p-6 md:p-8 transform rotate-1 mb-6">
           <div className="mb-6">
             <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
-              Collaborative Team
+              Collaborate
             </h3>
             <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
               <span className="font-semibold text-primary">
