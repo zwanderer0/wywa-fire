@@ -804,25 +804,6 @@ function WhatWereBuilding() {
       onHoverEnd={() => setIsHovered(false)}
     >
       {/* Header */}
-      <div className="text-center mb-12">
-        <motion.h2
-          className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent"
-          initial={{ scale: 0.9 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          We are building the future of wildfire detection
-        </motion.h2>
-        <motion.p
-          className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Three layers of AI working together — from tiny sensors to intelligent
-          alerts that save lives
-        </motion.p>
-      </div>
 
       {/* Interactive AI Layers */}
       <div className="relative">
