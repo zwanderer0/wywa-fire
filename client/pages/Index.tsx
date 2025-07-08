@@ -1000,23 +1000,13 @@ function MockDashboard() {
   const current = detections[activeDetection];
 
   return (
-    <>
-      <style jsx>{`
-        @keyframes blink {
-          0%, 50% { opacity: 1; }
-          51%, 100% { opacity: 0.3; }
-        }
-        .inference-blink {
-          animation: blink 1s ease-in-out infinite;
-        }
-      `}</style>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="mb-12 bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200"
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="mb-12 bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200"
+    >
       {/* Header */}
       <div className="bg-white p-4 flex items-center justify-between border-b border-gray-200">
         <div className="flex items-center space-x-3">
