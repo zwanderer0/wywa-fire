@@ -1399,12 +1399,23 @@ Message: [Please add your message here]`;
               <option value="other">Other</option>
             </select>
           </div>
-          <Button type="submit" className="px-6 py-3">
-            Submit
-          </Button>
+          <div className="flex gap-2">
+            <Button type="submit" className="px-6 py-3">
+              Send Email
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="px-4 py-3 text-sm"
+              onClick={handleCopyToClipboard}
+            >
+              Copy
+            </Button>
+          </div>
         </motion.form>
         <p className="text-xs text-gray-500 text-center mt-4">
-          We share quarterly deployment notes; no marketing mail.
+          Click "Send Email" to open your email client, or "Copy" to copy
+          contact info to clipboard.
         </p>
       </div>
     </section>
