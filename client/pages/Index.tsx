@@ -1011,7 +1011,7 @@ function MockDashboard() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-12 bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700"
+      className="mb-12 bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200"
     >
       {/* Header */}
       <div className="bg-gray-800 text-green-400 p-4 flex items-center justify-between border-b border-gray-700">
