@@ -1371,9 +1371,11 @@ function ContactForm() {
               required
             >
               <option value="">Area of Interest</option>
-              <option value="deployment">Deployment Partnership</option>
-              <option value="technical">Technical Collaboration</option>
-              <option value="research">Research Interest</option>
+              <option value="model-distillation">Model Distillation</option>
+              <option value="edge-vlms">Edge VLMs</option>
+              <option value="power-optimization">Power Optimization</option>
+              <option value="radio-communication">Radio Communication</option>
+              <option value="saas">SaaS Platform</option>
               <option value="other">Other</option>
             </select>
           </div>
