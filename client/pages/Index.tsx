@@ -877,24 +877,6 @@ function WhatWereBuilding() {
                   {layer.description}
                 </p>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-4">
-                  {Object.entries(layer.stats).map(([key, value]) => (
-                    <div key={key} className="text-center">
-                      <div
-                        className={`text-lg font-bold ${activeLayer === index ? "text-white" : "text-gray-800"}`}
-                      >
-                        {value}
-                      </div>
-                      <div
-                        className={`text-xs uppercase tracking-wide ${activeLayer === index ? "text-white/70" : "text-gray-500"}`}
-                      >
-                        {key}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
                 {/* Active Indicator */}
                 {activeLayer === index && (
                   <motion.div
