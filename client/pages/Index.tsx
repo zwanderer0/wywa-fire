@@ -767,7 +767,7 @@ function WhatWereBuilding() {
     {
       name: "Edge Intelligence",
       description:
-        "Sensors monitor humidity and CO2 signatures across 200-250 nodes per sentinel. Edge classifiers identify chemical combustion patterns locally on Jetson hardware.",
+        "Sensors monitor humidity and CO2 signatures across 200-250 nodes per sentinel. Edge classifiers identify chemical combustion patterns locally on sensor node, and transmit inference.",
       color: "from-blue-500 to-cyan-500",
     },
     {
