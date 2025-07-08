@@ -993,7 +993,7 @@ function MockDashboard() {
       );
       setLogs([]);
       setLogIndex(0);
-    }, 8000);
+    }, 15000); // Increased from 8000 to 15000 for better readability
     return () => clearInterval(interval);
   }, [activeDetection]);
 
@@ -1005,8 +1005,8 @@ function MockDashboard() {
           setLogs((prev) => [...prev, currentStream[logIndex]]);
           setLogIndex((prev) => prev + 1);
         },
-        300 + Math.random() * 200,
-      ); // Realistic typing speed
+        400 + Math.random() * 300, // Slightly slower typing for readability
+      );
       return () => clearTimeout(timer);
     }
   }, [logIndex, activeDetection, inferenceStreams]);
