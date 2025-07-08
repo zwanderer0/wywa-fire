@@ -1073,7 +1073,7 @@ function MockDashboard() {
         {/* Center: Key Interpretation */}
         <div className="bg-white p-4 border-r border-gray-200">
           <div className="text-gray-700 text-sm font-mono mb-4 border-b border-gray-200 pb-2">
-            JETSON ANALYSIS
+            LOCAL EDGE AI ANALYSIS
           </div>
 
           <div className="space-y-3">
