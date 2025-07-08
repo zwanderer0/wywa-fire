@@ -666,17 +666,17 @@ function DevelopmentStatusCards() {
       >
         <div className="relative max-w-2xl mx-auto">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F17493cbb65a5405a9c31ee973001362b?format=webp&width=800"
-            alt="Wildfire detection sensor node deployed on tree with solar panel in forest environment"
+            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F80fb671f357248a0b81a3d54518d6851?format=webp&width=800"
+            alt="AI sensor node hardware development with antenna and display"
             className="w-full h-auto rounded-lg shadow-lg border border-gray-200"
             loading="lazy"
           />
           <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">
-            Field Deployment
+            AI sensor node under development
           </div>
         </div>
         <p className="text-sm text-gray-600 mt-4 italic">
-          Lab level sensor node deployed for testing (In progress)
+          Hardware prototype with integrated AI processing (In progress)
         </p>
       </motion.div>
 
