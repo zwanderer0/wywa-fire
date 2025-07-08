@@ -1325,9 +1325,7 @@ function TeamSection() {
             <div className="font-semibold text-primary mb-1">
               AI/ML Engineers
             </div>
-            <div className="text-gray-600">
-              Computer vision, edge AI, model optimization
-            </div>
+            <div className="text-gray-600">edge AI, model distillation</div>
           </div>
           <div className="bg-white/70 rounded p-3 border border-primary/20">
             <div className="font-semibold text-primary mb-1">
