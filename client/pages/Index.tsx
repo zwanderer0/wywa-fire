@@ -175,9 +175,6 @@ export default function Index() {
 
           {/* Sensor Showcase */}
           <SensorShowcase />
-
-          {/* Mock Dashboard */}
-          <MockDashboard />
         </div>
       </section>
 
