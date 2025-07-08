@@ -1140,8 +1140,9 @@ function MockDashboard() {
           </div>
         </div>
       </div>
-
-        {/* Raw Data Streams */}
+    </motion.div>
+  );
+}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Environmental Data Matrix */}
           <div className="bg-gray-50 rounded-lg p-4">
