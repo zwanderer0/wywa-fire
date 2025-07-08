@@ -966,8 +966,8 @@ function MockDashboard() {
       setActiveDetection((prev) => (prev + 1) % detections.length);
       setAlertLevel(
         detections[activeDetection].status === "CONFIRMED FIRE"
-          ? "NORMAL"
-          : "CRITICAL",
+          ? "CRITICAL"
+          : "NORMAL",
       );
       setLogs([]);
       setLogIndex(0);
