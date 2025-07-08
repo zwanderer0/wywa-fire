@@ -986,9 +986,25 @@ function MockDashboard() {
           ? "CRITICAL"
           : "NORMAL",
       );
-    }, 6000);
+      setLogs([]);
+      setLogIndex(0);
+    }, 8000);
     return () => clearInterval(interval);
   }, [activeDetection]);
+
+  useEffect(() => {
+    const currentStream = inferenceStreams[activeDetection];
+    if (logIndex < currentStream.length) {
+      const timer = setTimeout(
+        () => {
+          setLogs((prev) => [...prev, currentStream[logIndex]]);
+          setLogIndex((prev) => prev + 1);
+        },
+        300 + Math.random() * 200,
+      ); // Realistic typing speed
+      return () => clearTimeout(timer);
+    }
+  }, [logIndex, activeDetection, inferenceStreams]);
 
   const current = detections[activeDetection];
 
