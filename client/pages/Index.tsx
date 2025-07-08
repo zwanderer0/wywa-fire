@@ -1184,7 +1184,7 @@ function MockDashboard() {
                 </div>
 
                 {/* Phone with actual content */}
-                <div className="mx-auto w-36 h-64 border-2 border-gray-300 rounded-xl relative bg-gray-900">
+                <div className="mx-auto w-32 h-56 border-2 border-gray-300 rounded-xl relative bg-gray-900">
                   {/* Screen area */}
                   <div className="absolute inset-2 bg-white rounded-lg">
                     {/* Status bar */}
