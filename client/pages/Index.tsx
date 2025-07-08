@@ -633,8 +633,7 @@ function ProcessRail() {
   );
 }
 
-// Development Status Cards Component
-function DevelopmentStatusCards() {
+
   return (
     <div className="space-y-8">
       {/* Real Hardware Photo */}
