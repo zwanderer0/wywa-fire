@@ -1181,8 +1181,8 @@ function MockDashboard() {
         </div>
 
         {/* Right: Visual Confirmation & Alert */}
-        <div className="bg-gray-700 p-4">
-          <div className="text-gray-300 text-sm font-mono mb-4 border-b border-gray-600 pb-2 opacity-80">
+        <div className="bg-gray-100 p-4">
+          <div className="text-gray-700 text-sm font-mono mb-4 border-b border-gray-200 pb-2">
             VISUAL CONFIRMATION
           </div>
 
