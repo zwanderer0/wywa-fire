@@ -1248,7 +1248,9 @@ function MockDashboard() {
               <div className="text-gray-600 text-sm mb-2">
                 No Active Detection
               </div>
-              <div className="text-xs text-gray-500">
+              <div
+                className={`text-xs text-gray-500 ${isInferenceComplete ? "animate-pulse" : ""}`}
+              >
                 Visual monitoring normal
               </div>
             </div>
