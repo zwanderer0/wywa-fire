@@ -1236,8 +1236,8 @@ function MockDashboard() {
               </div>
             </div>
           ) : (
-            <div className="bg-gray-800 rounded p-3 text-center border border-gray-600">
-              <div className="text-gray-400 text-sm mb-2">
+            <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
+              <div className="text-gray-600 text-sm mb-2">
                 No Active Detection
               </div>
               <div className="text-xs text-gray-500">
