@@ -869,81 +869,95 @@ function SensorShowcase() {
 
   return (
     <>
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mb-16"
-    >
-      <div className="relative h-[60vh] overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
-        {/* Background Image */}
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F16e3dc66029b482192f882d58a0be911?format=webp&width=800"
-          alt="Wildfire detection sensor deployment at dusk with mountain landscape"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <div className="relative h-[60vh] overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
+          {/* Background Image */}
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F16e3dc66029b482192f882d58a0be911?format=webp&width=800"
+            alt="Wildfire detection sensor deployment at dusk with mountain landscape"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/30"></div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/30"></div>
 
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
-            <div className="max-w-xl">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="text-white"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                  Real-world deployment
-                </h3>
-                <p className="text-lg text-white/90 leading-relaxed mb-6">
-                  Our sensor nodes operate autonomously in remote wilderness
-                  areas, powered by solar energy and connected through LoRa mesh
-                  networks.
-                </p>
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-mono">24/7 monitoring</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-sm font-mono">
-                      Edge AI processing
-                    </span>
-                  </div>
-                </div>
-
-                {/* Behind the scenes button */}
-                <Button
-                  onClick={() => setShowTerminal(!showTerminal)}
-                  className="sketch-border transform -rotate-1 hover:rotate-0 transition-all bg-white/20 backdrop-blur-sm text-white border-white/20 hover:bg-white/30"
+          {/* Content overlay */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
+              <div className="max-w-xl">
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="text-white"
                 >
-                  {showTerminal ? 'Hide' : 'Behind the scenes'} →
-                </Button>
-              </motion.div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Real-world deployment
+                  </h3>
+                  <p className="text-lg text-white/90 leading-relaxed mb-6">
+                    Our sensor nodes operate autonomously in remote wilderness
+                    areas, powered by solar energy and connected through LoRa
+                    mesh networks.
+                  </p>
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-mono">24/7 monitoring</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                      <span className="text-sm font-mono">
+                        Edge AI processing
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Behind the scenes button */}
+                  <Button
+                    onClick={() => setShowTerminal(!showTerminal)}
+                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-all bg-white/20 backdrop-blur-sm text-white border-white/20 hover:bg-white/30"
+                  >
+                    {showTerminal ? "Hide" : "Behind the scenes"} →
+                  </Button>
+                </motion.div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Sensor location indicator */}
+          {/* Sensor location indicator */}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-red-500 rounded-full shadow-lg"
+          >
+            <div className="absolute inset-0 bg-red-500 rounded-full animate-ping"></div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* WYWA Command Terminal - conditionally rendered */}
+      {showTerminal && (
         <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-red-500 rounded-full shadow-lg"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <div className="absolute inset-0 bg-red-500 rounded-full animate-ping"></div>
+          <MockDashboard />
         </motion.div>
-      </div>
-    </motion.div>
+      )}
+    </>
   );
 }
 
