@@ -1079,45 +1079,39 @@ function MockDashboard() {
           </div>
         </div>
 
-        {/* Right: Key Interpretation */}
+        {/* Center: Key Interpretation */}
         <div className="bg-gray-800 p-4 text-white">
           <div className="text-green-400 text-sm font-mono mb-4 border-b border-gray-700 pb-2">
-            REAL-TIME ANALYSIS
+            JETSON ANALYSIS
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Current Status */}
             <div className="bg-gray-700 rounded p-3">
               <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-                Current Status
+                Network Status
               </div>
-              <div
-                className={`text-lg font-bold ${
-                  current.status === "CONFIRMED FIRE"
-                    ? "text-red-400"
-                    : "text-yellow-400"
-                }`}
-              >
-                {current.aiStage}
+              <div className="text-sm text-white mb-1">
+                {current.sensorCount} sensors → 1 sentinel
               </div>
               <div className="text-xs text-gray-300">
                 {current.location} • {current.timestamp}
               </div>
             </div>
 
-            {/* Confidence Level */}
+            {/* Bayesian Score */}
             <div className="bg-gray-700 rounded p-3">
               <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                AI Confidence
+                Bayesian Score
               </div>
               <div className="flex items-center space-x-3">
                 <div className="text-lg font-bold text-white">
-                  {(current.confidence * 100).toFixed(0)}%
+                  {(current.bayesianScore * 100).toFixed(0)}%
                 </div>
                 <div className="flex-1 bg-gray-600 h-2 rounded">
                   <div
-                    className={`h-2 rounded ${current.confidence > 0.8 ? "bg-red-500" : "bg-yellow-500"}`}
-                    style={{ width: `${current.confidence * 100}%` }}
+                    className={`h-2 rounded ${current.bayesianScore > 0.8 ? "bg-red-500" : "bg-yellow-500"}`}
+                    style={{ width: `${current.bayesianScore * 100}%` }}
                   ></div>
                 </div>
               </div>
@@ -1126,24 +1120,36 @@ function MockDashboard() {
             {/* Data Sources */}
             <div className="bg-gray-700 rounded p-3">
               <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                Active Sources
+                Local Processing
               </div>
               <div className="space-y-1 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-blue-400">🔬 Edge Sensors</span>
+                  <span className="text-blue-400">Edge Classifiers</span>
                   <span className="text-green-400">ACTIVE</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-purple-400">👁️ Visual AI</span>
+                  <span className="text-purple-400">Visual AI</span>
                   <span className="text-green-400">PROCESSING</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-yellow-400">🌤️ Weather API</span>
-                  <span className="text-green-400">LIVE</span>
+                  <span className="text-yellow-400">
+                    CO2: {current.sensors.co2}ppm
+                  </span>
+                  <span
+                    className={
+                      current.sensors.co2 > 600
+                        ? "text-red-400"
+                        : "text-green-400"
+                    }
+                  >
+                    {current.sensors.co2 > 600 ? "ELEVATED" : "NORMAL"}
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-cyan-400">📡 Satellite</span>
-                  <span className="text-green-400">SYNCED</span>
+                  <span className="text-cyan-400">
+                    Humidity: {current.sensors.humidity}%
+                  </span>
+                  <span className="text-green-400">TRACKED</span>
                 </div>
               </div>
             </div>
@@ -1151,34 +1157,105 @@ function MockDashboard() {
             {/* Response Actions */}
             <div className="bg-gray-700 rounded p-3">
               <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                Response Actions
+                Alert Protocol
               </div>
               <div className="space-y-1 text-xs">
                 <div
                   className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-400" : "text-gray-500"}`}
                 >
-                  <span>🚒 Emergency Dispatch</span>
+                  <span>First Responders</span>
                   <span>
-                    {current.status === "CONFIRMED FIRE" ? "ACTIVE" : "STANDBY"}
+                    {current.status === "CONFIRMED FIRE"
+                      ? "NOTIFIED"
+                      : "STANDBY"}
                   </span>
+                </div>
+                <div className={`flex justify-between text-gray-500`}>
+                  <span>Community Alerts</span>
+                  <span>AWAITING CONFIRMATION</span>
                 </div>
                 <div
                   className={`flex justify-between ${current.confidence > 0.6 ? "text-blue-400" : "text-gray-500"}`}
                 >
-                  <span>📻 HAM Radio W6ABC</span>
-                  <span>{current.confidence > 0.6 ? "LIVE" : "STANDBY"}</span>
-                </div>
-                <div
-                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-orange-400" : "text-gray-500"}`}
-                >
-                  <span>📱 Community Alerts</span>
+                  <span>HAM Radio W6ABC</span>
                   <span>
-                    {current.status === "CONFIRMED FIRE" ? "SENT" : "READY"}
+                    {current.confidence > 0.6 ? "STANDBY" : "INACTIVE"}
                   </span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right: Mobile Alert UI */}
+        <div className="bg-gray-700 p-4">
+          <div className="text-green-400 text-sm font-mono mb-4 border-b border-gray-600 pb-2">
+            FIRST RESPONDER ALERT
+          </div>
+
+          {current.status === "CONFIRMED FIRE" ? (
+            <div
+              className="bg-white rounded-lg p-1 shadow-lg"
+              style={{ width: "240px" }}
+            >
+              {/* Mobile Phone Frame */}
+              <div className="bg-black rounded-lg p-2">
+                <div className="bg-white rounded p-3">
+                  {/* Status Bar */}
+                  <div className="flex justify-between items-center text-xs text-gray-600 mb-3">
+                    <span>9:41</span>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-4 h-2 bg-green-500 rounded-sm"></div>
+                      <span>100%</span>
+                    </div>
+                  </div>
+
+                  {/* Alert Content */}
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-3">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <span className="text-sm font-bold text-red-800">
+                        FIRE ALERT
+                      </span>
+                    </div>
+                    <div className="text-xs text-red-700 mb-2">
+                      <strong>Location:</strong> {current.location}
+                    </div>
+                    <div className="text-xs text-red-700 mb-2">
+                      <strong>Coords:</strong> {current.coords}
+                    </div>
+                    <div className="text-xs text-red-700 mb-2">
+                      <strong>Confidence:</strong>{" "}
+                      {(current.bayesianScore * 100).toFixed(0)}%
+                    </div>
+                    <div className="text-xs text-red-700 mb-3">
+                      <strong>CO2:</strong> {current.sensors.co2}ppm (elevated)
+                    </div>
+                    <div className="text-xs text-gray-600 mb-2">
+                      Requires field verification before community alert
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <button className="bg-red-500 text-white text-xs py-2 rounded font-medium">
+                      CONFIRM FIRE
+                    </button>
+                    <button className="bg-gray-300 text-gray-700 text-xs py-2 rounded font-medium">
+                      FALSE ALARM
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-gray-800 rounded p-3 text-center">
+              <div className="text-gray-400 text-sm mb-2">No Active Alerts</div>
+              <div className="text-xs text-gray-500">
+                System monitoring normally
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
