@@ -907,7 +907,7 @@ function SensorShowcase() {
                   areas, powered by solar energy and connected through LoRa mesh
                   networks.
                 </p>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 mb-6">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                     <span className="text-sm font-mono">24/7 monitoring</span>
@@ -919,6 +919,14 @@ function SensorShowcase() {
                     </span>
                   </div>
                 </div>
+
+                {/* Behind the scenes button */}
+                <Button
+                  onClick={() => setShowTerminal(!showTerminal)}
+                  className="sketch-border transform -rotate-1 hover:rotate-0 transition-all bg-white/20 backdrop-blur-sm text-white border-white/20 hover:bg-white/30"
+                >
+                  {showTerminal ? 'Hide' : 'Behind the scenes'} →
+                </Button>
               </motion.div>
             </div>
           </div>
