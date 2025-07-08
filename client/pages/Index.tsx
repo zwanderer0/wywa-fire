@@ -1179,72 +1179,109 @@ function MockDashboard() {
           </div>
         </div>
 
-        {/* Right: Mobile Alert UI */}
+        {/* Right: Visual Confirmation & Alert */}
         <div className="bg-gray-700 p-4">
-          <div className="text-green-400 text-sm font-mono mb-4 border-b border-gray-600 pb-2">
-            FIRST RESPONDER ALERT
+          <div className="text-gray-300 text-sm font-mono mb-4 border-b border-gray-600 pb-2 opacity-80">
+            VISUAL CONFIRMATION
           </div>
 
           {current.status === "CONFIRMED FIRE" ? (
-            <div
-              className="bg-white rounded-lg p-1 shadow-lg"
-              style={{ width: "240px" }}
-            >
-              {/* Mobile Phone Frame */}
-              <div className="bg-black rounded-lg p-2">
-                <div className="bg-white rounded p-3">
-                  {/* Status Bar */}
-                  <div className="flex justify-between items-center text-xs text-gray-600 mb-3">
-                    <span>9:41</span>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-4 h-2 bg-green-500 rounded-sm"></div>
-                      <span>100%</span>
+            <div className="space-y-4">
+              {/* Visual Detection Display */}
+              <div className="bg-gray-800 rounded p-3 border border-gray-600">
+                <div className="text-xs text-gray-400 mb-2">
+                  Thermal Signature
+                </div>
+                <div className="relative bg-gray-900 rounded h-24 border border-gray-600 overflow-hidden">
+                  {/* Thermal gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"></div>
+
+                  {/* Smoke plume visualization */}
+                  <div className="absolute bottom-2 right-8">
+                    <div className="relative">
+                      {/* Smoke clouds */}
+                      <div className="w-3 h-3 bg-gray-300 rounded-full opacity-60 animate-pulse"></div>
+                      <div
+                        className="w-2 h-2 bg-gray-400 rounded-full absolute -top-1 left-1 opacity-40 animate-pulse"
+                        style={{ animationDelay: "0.5s" }}
+                      ></div>
+                      <div
+                        className="w-1.5 h-1.5 bg-gray-500 rounded-full absolute -top-2 left-0.5 opacity-30 animate-pulse"
+                        style={{ animationDelay: "1s" }}
+                      ></div>
                     </div>
                   </div>
 
-                  {/* Alert Content */}
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-3">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <span className="text-sm font-bold text-red-800">
-                        FIRE ALERT
-                      </span>
+                  {/* Direction indicator */}
+                  <div className="absolute bottom-1 right-1 text-xs text-gray-400 font-mono">
+                    SE
+                  </div>
+
+                  {/* Grid overlay */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div
+                      className="w-full h-full border border-gray-500"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(rgba(156, 163, 175, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(156, 163, 175, 0.1) 1px, transparent 1px)",
+                        backgroundSize: "8px 8px",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="text-xs text-gray-400 mt-1">
+                  Smoke plume detected SE direction
+                </div>
+              </div>
+
+              {/* Clean Phone Outline */}
+              <div className="bg-gray-800 rounded p-3 border border-gray-600">
+                <div className="text-xs text-gray-400 mb-2">
+                  First Responder Alert
+                </div>
+
+                {/* Simple phone outline */}
+                <div className="mx-auto w-32 h-52 border-2 border-gray-500 rounded-xl relative bg-gray-900">
+                  {/* Screen area */}
+                  <div className="absolute inset-2 bg-gray-800 rounded-lg border border-gray-600">
+                    {/* Status bar */}
+                    <div className="h-4 border-b border-gray-600 flex justify-center items-center">
+                      <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
                     </div>
-                    <div className="text-xs text-red-700 mb-2">
-                      <strong>Location:</strong> {current.location}
+
+                    {/* Alert content */}
+                    <div className="p-2 space-y-1">
+                      <div className="w-4 h-1 bg-gray-500 rounded"></div>
+                      <div className="w-6 h-1 bg-gray-600 rounded"></div>
+                      <div className="w-3 h-1 bg-gray-600 rounded"></div>
+
+                      {/* Alert indicator */}
+                      <div className="mt-2 w-8 h-3 bg-gray-400 rounded opacity-60"></div>
                     </div>
-                    <div className="text-xs text-red-700 mb-2">
-                      <strong>Coords:</strong> {current.coords}
-                    </div>
-                    <div className="text-xs text-red-700 mb-2">
-                      <strong>Confidence:</strong>{" "}
-                      {(current.bayesianScore * 100).toFixed(0)}%
-                    </div>
-                    <div className="text-xs text-red-700 mb-3">
-                      <strong>CO2:</strong> {current.sensors.co2}ppm (elevated)
-                    </div>
-                    <div className="text-xs text-gray-600 mb-2">
-                      Requires field verification before community alert
+
+                    {/* Bottom buttons */}
+                    <div className="absolute bottom-2 left-2 right-2 flex space-x-1">
+                      <div className="flex-1 h-2 bg-gray-500 rounded"></div>
+                      <div className="flex-1 h-2 bg-gray-600 rounded"></div>
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="grid grid-cols-2 gap-2">
-                    <button className="bg-red-500 text-white text-xs py-2 rounded font-medium">
-                      CONFIRM FIRE
-                    </button>
-                    <button className="bg-gray-300 text-gray-700 text-xs py-2 rounded font-medium">
-                      FALSE ALARM
-                    </button>
-                  </div>
+                  {/* Home indicator */}
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-500 rounded-full"></div>
+                </div>
+
+                <div className="text-xs text-gray-400 mt-2 text-center">
+                  Alert sent for verification
                 </div>
               </div>
             </div>
           ) : (
-            <div className="bg-gray-800 rounded p-3 text-center">
-              <div className="text-gray-400 text-sm mb-2">No Active Alerts</div>
+            <div className="bg-gray-800 rounded p-3 text-center border border-gray-600">
+              <div className="text-gray-400 text-sm mb-2">
+                No Active Detection
+              </div>
               <div className="text-xs text-gray-500">
-                System monitoring normally
+                Visual monitoring normal
               </div>
             </div>
           )}
