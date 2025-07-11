@@ -860,7 +860,7 @@ function WhatWereBuilding() {
 
 // Widescreen Sensor Showcase Component
 function SensorShowcase() {
-  const [showTerminal, setShowTerminal] = useState(false);
+  const [showTerminal, setShowTerminal] = useState(true);
 
   return (
     <>
