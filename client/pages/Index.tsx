@@ -32,6 +32,12 @@ export default function Index() {
                   </a>
                 ),
               )}
+              <a
+                href="/updates/"
+                className="text-muted-foreground hover:text-foreground transition-colors font-normal"
+              >
+                Updates
+              </a>
             </div>
           </div>
         </div>
@@ -139,7 +145,7 @@ export default function Index() {
             >
               <div className="h-64 md:h-80 lg:h-96 w-full relative sketch-border bg-white transform -rotate-2 overflow-hidden border border-gray-200 rounded">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fc5a33b1c6ebe4fe98a728ee5c6fcca7a?format=webp&width=800"
+                  src="/images/problem-landscape.webp"
                   alt="Landscape showing wildfire detection challenges"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -390,7 +396,7 @@ function TechnologyCards() {
         { label: "Wind", value: "Real-time" },
       ],
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F131dac3b4f3e40b0bd5819fd93ecab5c?format=webp&width=800",
+        "/images/tech-edge-sensors.webp",
     },
     {
       title: "Small VLMs/AI Models",
@@ -402,7 +408,7 @@ function TechnologyCards() {
         { label: "Power", value: "2.4W" },
       ],
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fdc10538fe7bc44fea19f318a6ce1e6ef?format=webp&width=800",
+        "/images/tech-vlms.webp",
     },
     {
       title: "LoRa Mesh Network",
@@ -414,7 +420,7 @@ function TechnologyCards() {
         { label: "Nodes", value: "Scalable" },
       ],
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F98c0087d75cf4cdeb427c469d0f6a0b6?format=webp&width=800",
+        "/images/tech-lora-mesh.webp",
     },
   ];
 
@@ -666,7 +672,7 @@ function DevelopmentStatusCards() {
       >
         <div className="relative max-w-2xl mx-auto">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F80fb671f357248a0b81a3d54518d6851?format=webp&width=800"
+            src="/images/hardware-node.webp"
             alt="AI sensor node hardware development with antenna and display"
             className="w-full h-auto rounded-lg shadow-lg border border-gray-200"
             loading="lazy"
@@ -874,7 +880,7 @@ function SensorShowcase() {
         <div className="relative h-[60vh] overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
           {/* Background Image */}
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2F16e3dc66029b482192f882d58a0be911?format=webp&width=800"
+            src="/images/sensor-showcase.webp"
             alt="Wildfire detection sensor deployment at dusk with mountain landscape"
             className="w-full h-full object-cover object-right"
             loading="lazy"
@@ -1222,7 +1228,7 @@ function MockDashboard() {
                 </div>
                 <div className="relative rounded h-24 overflow-hidden border border-gray-200">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F2891faa92b574a07a8369948a9a1f207%2Fdaff0af9ddf84f06995f2f1da2b2b465?format=webp&width=800"
+                    src="/images/thermal-signature.webp"
                     alt="Thermal signature showing fire detection"
                     className="w-full h-full object-cover"
                   />

@@ -1,0 +1,26 @@
+---
+const base = (import.meta.env.BASE_URL ?? "/").replace(/\/?$/, "/");
+const previewCss = `${base}admin/preview.css`;
+const decapCdn =
+  "https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WYWA FI-RE Admin</title>
+    <link rel="stylesheet" href={previewCss} />
+  </head>
+  <body>
+    <main id="nc-root"></main>
+    <script is:inline>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src={decapCdn}></script>
+    <script is:inline>
+      window.CMS.init();
+    </script>
+  </body>
+</html>

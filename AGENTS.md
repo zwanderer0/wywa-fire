@@ -90,11 +90,25 @@ Path aliases:
 
 ```bash
 npm run dev        # Start dev server (client + server)
+npm run dev:updates # Run Astro dev server for the updates blog (localhost:4321)
 npm run build      # Production build
 npm run start      # Start production server
 npm run typecheck  # TypeScript validation
 npm test          # Run Vitest tests
 ```
+
+## Updates Blog (Astro + Decap CMS)
+
+- The weekly update site lives in `updates/` and is powered by **Astro** with Markdown (content collections) for posts.
+- Run `npm run dev:updates` for a live preview at `http://localhost:4321/updates`; stop with `Ctrl+C` when finished.
+- `npm run build` now also compiles the Astro site and syncs the static output into `dist/updates` so Express can serve it at `/updates`.
+- Admin UI: visit `/updates/admin/` to open **Decap CMS**. It stores Markdown in `updates/src/content/updates/` and uploads media to `updates/public/uploads/`.
+- To enable GitHub authentication:
+  1. Create a Decap-compatible GitHub OAuth app and copy the **App ID**.
+  2. Deploy an auth proxy (Netlify Identity, Decap Auth Gateway, or similar) and update `base_url`, `auth_endpoint`, and `app_id` in `updates/public/admin/config.yml`.
+  3. Restrict the OAuth app to the correct organization/team; only approved GitHub accounts will be able to publish.
+- Editorial workflow is ON. Decap will open pull requests for review before merging to `main`; merge triggers the Astro build during CI.
+- Media support: use the media library for images, GIFs, and MP4 clips. Reference assets in Markdown via `/updates/uploads/<filename>`.
 
 ## Adding Features
 
