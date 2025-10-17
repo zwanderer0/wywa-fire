@@ -15,8 +15,12 @@ export default function Index() {
             <div className="flex items-center space-x-3">
               <div className="sketch-border bg-primary text-primary-foreground px-2 py-1 transform -rotate-2">
                 <span className="font-black text-sm md:text-base sketch-text">
-                  FI-RE
+                  WYWA FI-RE
                 </span>
+              </div>
+              <div className="hidden md:flex items-center space-x-2">
+                <span className="text-xs text-muted-foreground">First Responder AI Initiative</span>
+                <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-semibold">Open Source</span>
               </div>
             </div>
             {/* Navigation */}
@@ -70,20 +74,33 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
                 >
-                  <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
-                    AI enabled sensor network to detect wildfires as they begin
+                  <p className="text-base md:text-lg text-foreground leading-relaxed mb-2">
+                    <span className="font-bold text-primary">First Responder AI</span> • Open source sensor network to detect wildfires as they begin
                   </p>
-                  <Button
-                    size="lg"
-                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90"
-                    onClick={() =>
-                      document
-                        .getElementById("team")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    Join the mission
-                  </Button>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Empowering firefighters with AI-driven early detection • Community-driven development
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button
+                      size="lg"
+                      className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90"
+                      onClick={() =>
+                        document
+                          .getElementById("team")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      Join the mission
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="sketch-border transform rotate-1 hover:rotate-0 transition-transform"
+                      onClick={() => window.open("https://github.com/wywa-ai", "_blank")}
+                    >
+                      View on GitHub
+                    </Button>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
@@ -230,35 +247,42 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div>
-              <div className="text-lg font-bold mb-2">
-                First Responder Initiative
+              <div className="flex items-center space-x-3 mb-2">
+                <span className="text-lg font-bold">WYWA FI-RE</span>
+                <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full font-semibold">OPEN SOURCE</span>
               </div>
-              <p className="text-sm text-gray-300">
-                © 2024 WYWA. All rights reserved.
+              <p className="text-sm text-gray-300 mb-1">
+                First Responder AI Initiative
+              </p>
+              <p className="text-xs text-gray-400">
+                © 2024 WYWA. Open source under MIT License.
               </p>
             </div>
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
               <a
                 href="mailto:navya@wywa.ai"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
               >
-                navya@wywa.ai
-              </a>
-              <a
-                href="https://linkedin.com/company/wywa-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
-              >
-                LinkedIn
+                <span>✉️</span>
+                <span>navya@wywa.ai</span>
               </a>
               <a
                 href="https://github.com/wywa-ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
               >
-                GitHub
+                <span>🔧</span>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://linkedin.com/company/wywa-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
+              >
+                <span>💼</span>
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
