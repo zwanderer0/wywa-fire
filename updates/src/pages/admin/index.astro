@@ -1,8 +1,6 @@
 ---
 const base = (import.meta.env.BASE_URL ?? "/").replace(/\/?$/, "/");
-const previewCss = `${base}admin/preview.css`;
-const decapCdn =
-  "https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js";
+const decapCdn = "https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js";
 ---
 
 <!doctype html>
@@ -11,106 +9,25 @@ const decapCdn =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WYWA FI-RE Admin - First Responder AI</title>
-    <link rel="stylesheet" href={previewCss} />
     <style>
-      /* Override Decap CMS default colors for First Responder theme */
-      :root {
-        --primary-color: #dc2626;
-        --primary-dark: #991b1b;
-        --primary-light: #ef4444;
-      }
-
+      /* First Responder Theme */
       body {
         background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
 
-      /* Hide default Decap logo */
-      .nc-app-header-logo,
-      [class*="AppHeaderLogoStyled"],
-      [class*="CustomLogoStyled"] {
-        display: none !important;
-      }
-
-      /* Custom header branding */
-      .nc-app-header::before,
-      [class*="AppHeaderContent"]::before {
-        content: "🔥 WYWA FI-RE Admin";
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-      }
-
-      /* Style the login button */
-      [class*="LoginButton"],
-      button[class*="Login"] {
-        background: #dc2626 !important;
-        border-color: #dc2626 !important;
-      }
-
-      button[class*="Login"]:hover {
-        background: #991b1b !important;
-        border-color: #991b1b !important;
-      }
-
-      /* Fix header colors */
-      .nc-app-header,
-      [class*="AppHeaderStyled"],
-      [class*="AppHeader"] {
-        background: #1f2937 !important;
-        border-bottom: 2px solid #dc2626 !important;
-      }
-
-      /* Fix footer */
-      [class*="FooterStyled"],
-      footer {
-        background: #1f2937 !important;
-        border-top: 1px solid #374151 !important;
-      }
-
-      /* Hide Voro logo and Decap branding */
-      img[alt*="Voro"],
+      /* Hide default logos */
+      [href*="decapcms"],
+      [href*="netlify"],
       img[alt*="Decap"],
-      [class*="PoweredBy"],
-      [class*="LogoImage"] {
+      img[alt*="Netlify"] {
         display: none !important;
-      }
-
-      /* Add custom footer text */
-      footer::after,
-      [class*="FooterStyled"]::after {
-        content: "First Responder AI Initiative • Open Source";
-        color: #9ca3af;
-        font-size: 12px;
-        display: block;
-        text-align: center;
-        padding: 10px;
       }
     </style>
   </head>
   <body>
-    <main id="nc-root"></main>
-    <script is:inline>
-      window.CMS_MANUAL_INIT = true;
-    </script>
+    <!-- CMS Admin will mount here -->
     <script src={decapCdn}></script>
-    <script is:inline>
-      // Initialize CMS with custom configuration
-      window.CMS.init({
-        config: {
-          site_url: 'https://www.wywa.ai',
-          display_url: 'https://www.wywa.ai',
-        }
-      });
-
-      // Override any logo elements after load
-      setTimeout(() => {
-        document.querySelectorAll('img[alt*="Voro"], img[alt*="Decap"], [class*="Logo"]').forEach(el => {
-          el.style.display = 'none';
-        });
-      }, 1000);
-    </script>
   </body>
 </html>

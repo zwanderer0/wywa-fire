@@ -1,13 +1,14 @@
 # Decap CMS configuration for WYWA FI-RE weekly updates
 backend:
-  name: git-gateway
-  branch: main
-  squash_merges: true
+  name: test-repo
+  # For production, change to:
+  # name: github
+  # repo: zwanderer0/wywa-fire
+  # branch: main
+
 publish_mode: editorial_workflow
 media_folder: updates/public/uploads
 public_folder: /updates/uploads
-# logo_url: /updates/admin/wywa-admin-badge.svg
-local_backend: true
 
 collections:
   - name: updates
