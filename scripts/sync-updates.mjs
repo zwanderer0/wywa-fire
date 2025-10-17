@@ -4,7 +4,7 @@ import process from "node:process";
 
 const root = process.cwd();
 const source = path.join(root, "updates", "dist");
-const targetRoot = path.join(root, "dist");
+const targetRoot = path.join(root, "dist", "spa");
 const target = path.join(targetRoot, "updates");
 
 if (!existsSync(source)) {
