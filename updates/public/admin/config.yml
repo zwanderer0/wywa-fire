@@ -6,7 +6,7 @@ backend:
 publish_mode: editorial_workflow
 media_folder: updates/public/uploads
 public_folder: /updates/uploads
-logo_url: /updates/admin/wywa-admin-badge.svg
+# logo_url: /updates/admin/wywa-admin-badge.svg
 local_backend: true
 
 collections:
