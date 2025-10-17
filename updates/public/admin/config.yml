@@ -1,12 +1,7 @@
 # Decap CMS configuration for WYWA FI-RE weekly updates
 backend:
-  name: github
-  repo: zwanderer0/wywa-fire
+  name: git-gateway
   branch: main
-  base_url: https://your-auth-proxy.example.com # TODO: replace with deployed OAuth proxy URL
-  auth_endpoint: /api/auth
-  app_id: 0 # TODO: replace with your GitHub OAuth app ID
-  auth_scope: repo
   squash_merges: true
 publish_mode: editorial_workflow
 media_folder: updates/public/uploads
