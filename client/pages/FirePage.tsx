@@ -75,11 +75,8 @@ export default function FirePage() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="border border-gray-300 bg-white p-6 md:p-8 mb-6 rounded-lg"
                 >
-                  <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-2">
-                    <span className="font-bold text-gray-900">First Responder AI</span> • Distributed AI to smell and see wildfires as they begin
-                  </p>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Empowering firefighters with AI-driven early detection • Open source initiative
+                  <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
+                    Distributed AI to smell and see wildfires as they begin
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
