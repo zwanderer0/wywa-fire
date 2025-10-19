@@ -6,20 +6,20 @@ import { Button } from "@/components/ui/button";
 
 export default function FirePage() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 font-mono">
       {/* Header */}
       <header className="border-b border-gray-300 bg-gray-100 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="font-black text-2xl md:text-3xl text-gray-900 font-mono">
+            {/* Logo - Clickable */}
+            <a href="/fire" className="flex items-center space-x-3">
+              <div className="font-black text-2xl md:text-3xl text-gray-900">
                 FIRE
               </div>
-              <div className="text-sm text-gray-600 italic font-mono">
+              <div className="text-sm text-gray-600 italic">
                 First Responder Initiative
               </div>
-            </div>
+            </a>
             {/* Navigation */}
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {["Problem", "Technology", "Field Results", "Team"].map(
@@ -27,7 +27,7 @@ export default function FirePage() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
-                    className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
                   >
                     {item}
                   </a>
@@ -35,13 +35,13 @@ export default function FirePage() {
               )}
               <a
                 href="/updates/"
-                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
               >
                 Updates
               </a>
               <a
                 href="/"
-                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
               >
                 WYWA
               </a>
@@ -61,16 +61,14 @@ export default function FirePage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-gray-900 font-mono">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-gray-900">
                   Detect
                   <br />
                   wildfires
                   <br />
                   early
-                  <br />
                 </h1>
 
-                {/* Tagline and mission */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -86,7 +84,7 @@ export default function FirePage() {
                   <div className="flex flex-wrap gap-3">
                     <Button
                       size="lg"
-                      className="bg-gray-900 text-white hover:bg-gray-800 font-mono"
+                      className="bg-gray-900 text-white hover:bg-gray-800"
                       onClick={() =>
                         document
                           .getElementById("team")
@@ -128,7 +126,7 @@ export default function FirePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-gray-900 font-mono"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-gray-900"
               >
                 About 25 wildfires start every day in California
               </motion.h2>
@@ -139,7 +137,7 @@ export default function FirePage() {
                 viewport={{ once: true }}
                 className="border border-gray-300 bg-gray-50 p-4 md:p-6 mb-6 rounded-lg"
               >
-                <p className="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
                   Detection delays cost critical minutes during fire spread.
                   Satellite coverage has 2-6 hour latency in remote areas.
                 </p>
@@ -155,15 +153,15 @@ export default function FirePage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="h-64 md:h-80 lg:h-96 w-full relative sketch-border bg-white transform -rotate-2 overflow-hidden border border-gray-200 rounded">
+              <div className="h-64 md:h-80 lg:h-96 w-full relative bg-white overflow-hidden border border-gray-200 rounded-lg">
                 <img
                   src="/images/problem-landscape.webp"
                   alt="Landscape showing wildfire detection challenges"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 sketch-border bg-white/90 p-3 transform rotate-2">
-                  <p className="text-xs text-muted-foreground sketch-text">
+                <div className="absolute top-4 left-4 bg-white/90 p-3 rounded border border-gray-200">
+                  <p className="text-xs text-gray-600">
                     Early detection challenge
                   </p>
                 </div>
@@ -183,15 +181,12 @@ export default function FirePage() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900 font-mono">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
               Intelligence for the wilderness
             </h2>
           </motion.div>
 
-          {/* What We're Building */}
           <WhatWereBuilding />
-
-          {/* Sensor Showcase */}
           <SensorShowcase />
         </div>
       </section>
@@ -206,7 +201,7 @@ export default function FirePage() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900 font-mono">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
               Development Status
             </h2>
           </motion.div>
@@ -215,8 +210,8 @@ export default function FirePage() {
         </div>
       </section>
 
-      {/* Collaborate Section */}
-      <section id="collaborate" className="py-16 md:py-24">
+      {/* Team Section */}
+      <section id="team" className="py-16 md:py-24 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -225,7 +220,7 @@ export default function FirePage() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
               Team
             </h2>
           </motion.div>
@@ -234,7 +229,7 @@ export default function FirePage() {
         </div>
       </section>
 
-      {/* Contact Strip */}
+      {/* Contact Form */}
       <ContactForm />
 
       {/* Footer */}
@@ -243,7 +238,7 @@ export default function FirePage() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div>
               <div className="flex items-center space-x-3 mb-2">
-                <span className="text-lg font-bold font-mono">FIRE</span>
+                <span className="text-lg font-bold">FIRE</span>
                 <span className="text-xs text-gray-400 italic">First Responder Initiative</span>
               </div>
               <p className="text-sm text-gray-300 mb-1">
@@ -256,17 +251,17 @@ export default function FirePage() {
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
               <a
                 href="mailto:nveeturi@wywa.ai"
-                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
               >
-                <span>nveeturi@wywa.ai</span>
+                nveeturi@wywa.ai
               </a>
               <a
                 href="https://linkedin.com/company/wywa-ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
               >
-                <span>LinkedIn</span>
+                LinkedIn
               </a>
             </div>
           </div>
@@ -276,10 +271,9 @@ export default function FirePage() {
   );
 }
 
-// Hero Detection Demo Component
+// Hero Detection Demo Component - Simplified colors
 function HeroDetectionDemo() {
   const [currentAlert, setCurrentAlert] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
 
   const alerts = [
     {
@@ -289,8 +283,8 @@ function HeroDetectionDemo() {
       reading: "High PM2.5 detected",
       context: "Vehicle dust pattern + road proximity",
       action: "IGNORE - dust from car",
-      color: "text-muted-foreground",
-      bgColor: "bg-muted/20",
+      color: "text-gray-600",
+      bgColor: "bg-gray-50",
     },
     {
       time: "13:06:55",
@@ -299,8 +293,8 @@ function HeroDetectionDemo() {
       reading: "Thin grey column detected",
       context: "Campground area + weekend pattern",
       action: "WARNING - likely campfire",
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-50",
+      color: "text-gray-700",
+      bgColor: "bg-gray-100",
     },
     {
       time: "13:09:14",
@@ -309,62 +303,48 @@ function HeroDetectionDemo() {
       reading: "Heat + smoke + wind analysis",
       context: "Remote area + dry conditions + spreading",
       action: "ALERT - wildfire confirmed",
-      color: "text-red-600",
-      bgColor: "bg-red-50",
+      color: "text-gray-900",
+      bgColor: "bg-gray-200",
     },
   ];
 
   useEffect(() => {
-    if (!isPlaying) return;
     const interval = setInterval(() => {
       setCurrentAlert((prev) => (prev + 1) % alerts.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, []);
 
   return (
     <div className="w-full space-y-6">
-      {/* Caption */}
-      <div className="text-center"></div>
-
-      {/* Main Detection Card */}
       <div className="border border-gray-300 bg-white p-6 md:p-8 lg:p-10 shadow-lg rounded-lg">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            <div className="w-3 h-3 bg-gray-700 rounded-full animate-pulse"></div>
             <span className="text-sm md:text-base font-bold text-gray-900">
               REAL-TIME ANALYSIS
             </span>
           </div>
         </div>
 
-        {/* Current Alert */}
         <div className={`p-4 rounded-lg mb-4 ${alerts[currentAlert].bgColor}`}>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <div className="font-mono text-xs text-muted-foreground">
-                TIME
-              </div>
-              <div className="font-medium">{alerts[currentAlert].time}</div>
+              <div className="text-xs text-gray-600">TIME</div>
+              <div className="font-medium text-gray-900">{alerts[currentAlert].time}</div>
             </div>
             <div>
-              <div className="font-mono text-xs text-muted-foreground">
-                NODE
-              </div>
-              <div className="font-medium">{alerts[currentAlert].node}</div>
+              <div className="text-xs text-gray-600">NODE</div>
+              <div className="font-medium text-gray-900">{alerts[currentAlert].node}</div>
             </div>
           </div>
           <div className="mt-3">
-            <div className="font-mono text-xs text-muted-foreground">
-              READING
-            </div>
-            <div className="font-medium">{alerts[currentAlert].reading}</div>
+            <div className="text-xs text-gray-600">READING</div>
+            <div className="font-medium text-gray-900">{alerts[currentAlert].reading}</div>
           </div>
           <div className="mt-3">
-            <div className="font-mono text-xs text-muted-foreground">
-              CONTEXT
-            </div>
-            <div className="text-sm">{alerts[currentAlert].context}</div>
+            <div className="text-xs text-gray-600">CONTEXT</div>
+            <div className="text-sm text-gray-700">{alerts[currentAlert].context}</div>
           </div>
           <div className="mt-3">
             <div className={`font-medium ${alerts[currentAlert].color}`}>
@@ -373,13 +353,12 @@ function HeroDetectionDemo() {
           </div>
         </div>
 
-        {/* Progress indicators */}
         <div className="flex space-x-2">
           {alerts.map((_, i) => (
             <div
               key={i}
               className={`h-2 flex-1 rounded-full transition-all duration-500 ${
-                i === currentAlert ? "bg-primary scale-110" : "bg-muted"
+                i === currentAlert ? "bg-gray-700" : "bg-gray-300"
               }`}
             />
           ))}
@@ -389,288 +368,10 @@ function HeroDetectionDemo() {
   );
 }
 
-// Technology Cards Component - Visual & Interactive
-function TechnologyCards() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  const cards = [
-    {
-      title: "Edge Sensors",
-      gradient: "from-blue-400 to-cyan-400",
-      stats: [
-        { label: "Temperature", value: "±0.1��C" },
-        { label: "Air Quality", value: "PM2.5" },
-        { label: "Humidity", value: "±2%" },
-        { label: "Wind", value: "Real-time" },
-      ],
-      image:
-        "/images/tech-edge-sensors.webp",
-    },
-    {
-      title: "Small VLMs/AI Models",
-      gradient: "from-purple-400 to-pink-400",
-      stats: [
-        { label: "Model Size", value: "47MB" },
-        { label: "Inference", value: "23ms" },
-        { label: "Accuracy", value: "94%" },
-        { label: "Power", value: "2.4W" },
-      ],
-      image:
-        "/images/tech-vlms.webp",
-    },
-    {
-      title: "LoRa Mesh Network",
-      gradient: "from-green-400 to-emerald-400",
-      stats: [
-        { label: "Range", value: "1km+" },
-        { label: "Frequency", value: "915MHz" },
-        { label: "Latency", value: "2-8s" },
-        { label: "Nodes", value: "Scalable" },
-      ],
-      image:
-        "/images/tech-lora-mesh.webp",
-    },
-  ];
-
-  return (
-    <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
-      {cards.map((card, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.2 }}
-          viewport={{ once: true }}
-          className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-          onMouseEnter={() => setHoveredCard(index)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* Gradient Background */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
-          />
-
-          {/* Card Content */}
-          <div className="relative p-6">
-            {/* Header */}
-            <div
-              className={`w-12 h-12 rounded-full bg-gradient-to-r ${card.gradient} flex items-center justify-center text-white font-bold mb-4`}
-            >
-              {index + 1}
-            </div>
-
-            <h3 className="text-lg font-bold mb-6 text-gray-800">
-              {card.title}
-            </h3>
-
-            {/* Interactive Image */}
-            <div className="h-32 w-full mb-6 rounded-lg overflow-hidden bg-gray-100">
-              <motion.img
-                src={card.image}
-                alt={card.title}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                animate={{
-                  scale: hoveredCard === index ? 1.1 : 1,
-                  filter:
-                    hoveredCard === index ? "brightness(1.1)" : "brightness(1)",
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-3">
-              {card.stats.map((stat, idx) => (
-                <motion.div
-                  key={idx}
-                  className="bg-gray-50 rounded-lg p-3 border border-gray-100"
-                  initial={{ opacity: 0.7, y: 10 }}
-                  animate={{
-                    opacity: hoveredCard === index ? 1 : 0.8,
-                    y: hoveredCard === index ? 0 : 5,
-                  }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <div>
-                    <div className="text-xs text-gray-500">{stat.label}</div>
-                    <div className="text-sm font-semibold text-gray-800">
-                      {stat.value}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Hover Indicator */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-// Visual Process Rail Component based on reference image
-function ProcessRail() {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const steps = [
-    {
-      number: 1,
-      title: "Data Collection",
-      description:
-        "Edge sensors continuously monitor environmental conditions including:",
-      details: [
-        { label: "Temperature", color: "text-red-500" },
-        { label: "Humidity", color: "text-blue-500" },
-        { label: "Wind Speed", color: "text-gray-500" },
-        { label: "Air Quality", color: "text-purple-500" },
-      ],
-    },
-    {
-      number: 2,
-      title: "Edge Processing",
-      description:
-        "Small VLMs/AI models analyze sensor readings to detect anomalies:",
-      details: [
-        {
-          label: "Smoke detected, thermal anomaly confirmed",
-          color: "text-red-600",
-        },
-      ],
-    },
-    {
-      number: 3,
-      title: "Gateway Analysis",
-      description: "Mother node validates with additional data:",
-      details: [
-        {
-          label: "Visual confirmation via camera feed",
-          color: "text-yellow-600",
-        },
-      ],
-    },
-    {
-      number: 4,
-      title: "Coordinated Response",
-      description: "Cloud system triggers appropriate response:",
-      details: [
-        {
-          label: "Fire teams dispatched to precise coordinates",
-          color: "text-green-600",
-        },
-      ],
-    },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="bg-white border-2 border-blue-200 rounded-lg p-6 md:p-8"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            className={`relative ${activeStep === index ? "scale-105" : "scale-100"} transition-all duration-500`}
-            initial={{ opacity: 0.6 }}
-            animate={{ opacity: activeStep === index ? 1 : 0.7 }}
-          >
-            {/* Step Number */}
-            <div
-              className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto transition-all duration-500 ${
-                activeStep === index
-                  ? "bg-blue-500 text-white shadow-lg"
-                  : "bg-blue-100 text-blue-600"
-              }`}
-            >
-              {step.number}
-            </div>
-
-            {/* Connecting Line */}
-            {index < steps.length - 1 && (
-              <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-200 transform translate-x-4 -translate-y-1/2">
-                <motion.div
-                  className="h-full bg-blue-500"
-                  initial={{ width: "0%" }}
-                  animate={{ width: activeStep > index ? "100%" : "0%" }}
-                  transition={{ duration: 0.5 }}
-                />
-              </div>
-            )}
-
-            {/* Content */}
-            <div className="text-center">
-              <h4 className="font-bold text-lg mb-3 text-gray-800">
-                {step.title}
-              </h4>
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                {step.description}
-              </p>
-
-              {/* Details */}
-              <div className="space-y-2">
-                {step.details.map((detail, idx) => (
-                  <motion.div
-                    key={idx}
-                    className={`flex items-center justify-center space-x-2 p-2 rounded ${
-                      activeStep === index ? "bg-blue-50" : "bg-gray-50"
-                    }`}
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{
-                      scale: activeStep === index ? 1 : 0.95,
-                      opacity: activeStep === index ? 1 : 0.7,
-                    }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <span className={`text-sm font-medium ${detail.color}`}>
-                      {detail.label}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Progress Dots */}
-      <div className="flex justify-center space-x-2 mt-8">
-        {steps.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveStep(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              activeStep === index ? "bg-blue-500 scale-125" : "bg-blue-200"
-            }`}
-          />
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
-// Development Status Cards Component
+// Development Status Cards - Consistent styling
 function DevelopmentStatusCards() {
   return (
     <div className="space-y-8">
-      {/* Real Hardware Photo */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -681,7 +382,7 @@ function DevelopmentStatusCards() {
         <div className="relative max-w-2xl mx-auto">
           <img
             src="/images/hardware-node.webp"
-            alt="AI sensor node hardware development with antenna and display"
+            alt="AI sensor node hardware development"
             className="w-full h-auto rounded-lg shadow-lg border border-gray-200"
             loading="lazy"
           />
@@ -694,30 +395,22 @@ function DevelopmentStatusCards() {
         </p>
       </motion.div>
 
-      {/* Status Cards */}
       <div className="grid md:grid-cols-3 gap-6 md:gap-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+          className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg"
         >
-          <h3 className="text-xl font-bold mb-4 text-primary">VLM Training</h3>
-          <div className="text-lg font-bold text-yellow-600 mb-2">
-            In Progress
-          </div>
+          <h3 className="text-xl font-bold mb-4 text-gray-900">VLM Training</h3>
+          <div className="text-lg font-bold text-gray-700 mb-2">In Progress</div>
           <p className="text-gray-600 mb-4">
-            Vision-Language Model under fine-tuning for wildfire detection and
-            classification.
+            Vision-Language Model under fine-tuning for wildfire detection and classification.
           </p>
-          <div className="bg-yellow-100 rounded p-3">
-            <div className="text-sm text-yellow-800">
-              Dataset preparation & augmentation
-            </div>
-            <div className="text-sm text-yellow-800">
-              Multi-modal fusion testing
-            </div>
+          <div className="bg-gray-50 rounded p-3 border border-gray-200">
+            <div className="text-sm text-gray-700">Dataset preparation & augmentation</div>
+            <div className="text-sm text-gray-700">Multi-modal fusion testing</div>
           </div>
         </motion.div>
 
@@ -726,21 +419,16 @@ function DevelopmentStatusCards() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           viewport={{ once: true }}
-          className="sketch-border bg-card p-6 md:p-8 transform -rotate-1 border rounded"
+          className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg"
         >
-          <h3 className="text-xl font-bold mb-4 text-primary">
-            Hardware Build
-          </h3>
-          <div className="text-lg font-bold text-blue-600 mb-2">Testing</div>
+          <h3 className="text-xl font-bold mb-4 text-gray-900">Hardware Build</h3>
+          <div className="text-lg font-bold text-gray-700 mb-2">Testing</div>
           <p className="text-gray-600 mb-4">
-            Solar-powered sensor nodes deployed for field validation in forest
-            environments.
+            Solar-powered sensor nodes deployed for field validation in forest environments.
           </p>
-          <div className="bg-blue-100 rounded p-3">
-            <div className="text-sm text-blue-800">
-              Field deployment & data collection
-            </div>
-            <div className="text-sm text-blue-800">Multi-node mesh testing</div>
+          <div className="bg-gray-50 rounded p-3 border border-gray-200">
+            <div className="text-sm text-gray-700">Field deployment & data collection</div>
+            <div className="text-sm text-gray-700">Multi-node mesh testing</div>
           </div>
         </motion.div>
 
@@ -749,20 +437,16 @@ function DevelopmentStatusCards() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="sketch-border bg-card p-6 md:p-8 transform rotate-1 border rounded"
+          className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg"
         >
-          <h3 className="text-xl font-bold mb-4 text-primary">LoRa Mesh</h3>
-          <div className="text-lg font-bold text-green-600 mb-2">Building</div>
+          <h3 className="text-xl font-bold mb-4 text-gray-900">LoRa Mesh</h3>
+          <div className="text-lg font-bold text-gray-700 mb-2">Building</div>
           <p className="text-gray-600 mb-4">
             Network topology and communication protocols being implemented.
           </p>
-          <div className="bg-green-100 rounded p-3">
-            <div className="text-sm text-green-800">
-              Protocol stack development
-            </div>
-            <div className="text-sm text-green-800">
-              Range testing & optimization
-            </div>
+          <div className="bg-gray-50 rounded p-3 border border-gray-200">
+            <div className="text-sm text-gray-700">Protocol stack development</div>
+            <div className="text-sm text-gray-700">Range testing & optimization</div>
           </div>
         </motion.div>
       </div>
@@ -770,40 +454,34 @@ function DevelopmentStatusCards() {
   );
 }
 
-// What We're Building Component
+// What We're Building - Consistent colors
 function WhatWereBuilding() {
   const [activeLayer, setActiveLayer] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   const aiLayers = [
     {
       name: "Edge AI Sensors",
       description:
         "Sensors monitor humidity and CO2 signatures across 200-250 nodes per sentinel. Edge classifiers identify chemical combustion patterns locally on sensor node, and transmit inference.",
-      color: "from-blue-500 to-cyan-500",
     },
     {
       name: "Multimodal Fusion",
       description:
-        " Correlate Sensor data with visual smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
-      color: "from-purple-500 to-pink-500",
+        "Correlate Sensor data with visual smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
     },
     {
       name: "Context Engine",
       description:
         "Decides what to do with the information. Generates mobile, Emergency Radio alerts to first responders who verify before community notification. All runs locally on Jetson hardware.",
-      color: "from-orange-500 to-red-500",
     },
   ];
 
   useEffect(() => {
-    if (!isHovered) {
-      const interval = setInterval(() => {
-        setActiveLayer((prev) => (prev + 1) % aiLayers.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isHovered, aiLayers.length]);
+    const interval = setInterval(() => {
+      setActiveLayer((prev) => (prev + 1) % aiLayers.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.div
@@ -812,67 +490,58 @@ function WhatWereBuilding() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="mb-12"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
     >
-      {/* Header */}
-
-      {/* Interactive AI Layers */}
-      <div className="relative">
-        {/* Simplified Flow */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {aiLayers.map((layer, index) => (
-              <motion.div
-                key={index}
-                className={`p-6 rounded-lg border transition-all duration-300 ${
-                  activeLayer === index
-                    ? "border-blue-300 bg-blue-50"
-                    : "border-gray-200 bg-white hover:border-gray-300"
-                }`}
-                onClick={() => setActiveLayer(index)}
-                whileHover={{ y: -2 }}
-              >
-                <div className="text-center">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {aiLayers.map((layer, index) => (
+            <motion.div
+              key={index}
+              className={`p-6 rounded-lg border transition-all duration-300 cursor-pointer ${
+                activeLayer === index
+                  ? "border-gray-400 bg-gray-50"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+              }`}
+              onClick={() => setActiveLayer(index)}
+              whileHover={{ y: -2 }}
+            >
+              <div className="text-center">
+                <div
+                  className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
+                    activeLayer === index ? "bg-gray-700" : "bg-gray-200"
+                  }`}
+                >
                   <div
-                    className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                      activeLayer === index ? "bg-blue-500" : "bg-gray-100"
+                    className={`text-xl font-bold ${
+                      activeLayer === index ? "text-white" : "text-gray-600"
                     }`}
                   >
-                    <div
-                      className={`text-xl font-bold ${
-                        activeLayer === index ? "text-white" : "text-gray-600"
-                      }`}
-                    >
-                      {index + 1}
-                    </div>
+                    {index + 1}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
-                    {layer.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {layer.description}
-                  </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  {layer.name}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {layer.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-          {/* Simple Flow Arrows */}
-          <div className="hidden md:flex justify-center items-center mt-8 space-x-8">
-            <div className="text-sm text-gray-500">Edge Sensors</div>
-            <div className="text-gray-400">→</div>
-            <div className="text-sm text-gray-500">Visual AI</div>
-            <div className="text-gray-400">��</div>
-            <div className="text-sm text-gray-500">Smart Alerts</div>
-          </div>
+        <div className="hidden md:flex justify-center items-center mt-8 space-x-8">
+          <div className="text-sm text-gray-500">Edge Sensors</div>
+          <div className="text-gray-400">→</div>
+          <div className="text-sm text-gray-500">Visual AI</div>
+          <div className="text-gray-400">→</div>
+          <div className="text-sm text-gray-500">Smart Alerts</div>
         </div>
       </div>
     </motion.div>
   );
 }
 
-// Widescreen Sensor Showcase Component
+// Sensor Showcase - Consistent styling
 function SensorShowcase() {
   const [showTerminal, setShowTerminal] = useState(true);
 
@@ -886,18 +555,15 @@ function SensorShowcase() {
         className="mb-16"
       >
         <div className="relative h-[60vh] overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900">
-          {/* Background Image */}
           <img
             src="/images/sensor-showcase.webp"
-            alt="Wildfire detection sensor deployment at dusk with mountain landscape"
+            alt="Wildfire detection sensor deployment"
             className="w-full h-full object-cover object-right"
             loading="lazy"
           />
 
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/30"></div>
 
-          {/* Content overlay */}
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
               <div className="max-w-xl">
@@ -916,10 +582,9 @@ function SensorShowcase() {
                     cameras at once, enabling full contextual understanding of
                     wildfire conditions across vast wilderness areas.
                   </p>
-                  {/* Behind the scenes button */}
                   <Button
                     onClick={() => setShowTerminal(!showTerminal)}
-                    className="sketch-border transform -rotate-1 hover:rotate-0 transition-all bg-white/20 backdrop-blur-sm text-white border-white/20 hover:bg-white/30"
+                    className="bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:bg-white/30"
                   >
                     {showTerminal ? "Hide" : "Behind the scenes"} →
                   </Button>
@@ -928,20 +593,18 @@ function SensorShowcase() {
             </div>
           </div>
 
-          {/* Sensor location indicator */}
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
             viewport={{ once: true }}
-            className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-red-500 rounded-full shadow-lg"
+            className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-gray-700 rounded-full shadow-lg"
           >
-            <div className="absolute inset-0 bg-red-500 rounded-full animate-ping"></div>
+            <div className="absolute inset-0 bg-gray-700 rounded-full animate-ping"></div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* WYWA Command Terminal - conditionally rendered */}
       {showTerminal && (
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -957,374 +620,19 @@ function SensorShowcase() {
   );
 }
 
-// Tactical Dashboard Component (inspired by command center interfaces)
+// Mock Dashboard - Simplified, consistent colors
 function MockDashboard() {
-  const [activeDetection, setActiveDetection] = useState(0);
-  const [alertLevel, setAlertLevel] = useState("NORMAL");
-  const [logs, setLogs] = useState([]);
-  const [logIndex, setLogIndex] = useState(0);
-  const [isInferenceComplete, setIsInferenceComplete] = useState(false);
-
-  const detections = [
-    {
-      id: "SENT-002",
-      location: "Sonoma County",
-      coords: "38.2911°N, 122.4583°W",
-      confidence: 0.94,
-      sensors: { humidity: 23, co2: 850, wind: "SSW" },
-      status: "CONFIRMED FIRE",
-      timestamp: "12:47:51 PM",
-      aiStage: "CONFIRMED",
-      bayesianScore: 0.92,
-      sensorCount: 247,
-      alerts: [
-        { time: "12:47:51 PM", event: "Confirmed fire", sensor: "Sensor 4" },
-        { time: "12:46:51 PM", event: "Smoke detected", sensor: "Sensor 4" },
-      ],
-    },
-    {
-      id: "SENT-001",
-      location: "Napa Valley",
-      coords: "38.5025°N, 122.2654°W",
-      confidence: 0.67,
-      sensors: { humidity: 45, co2: 420, wind: "NW" },
-      status: "MONITORING",
-      timestamp: "12:38:22 PM",
-      aiStage: "MONITORING",
-      bayesianScore: 0.31,
-      sensorCount: 203,
-      alerts: [
-        { time: "12:38:22 PM", event: "Anomaly detected", sensor: "Sensor 2" },
-      ],
-    },
-  ];
-
-  const inferenceStreams = [
-    [
-      "12:47:49 [EDGE] Classifier detecting gas signature across 247 sensors...",
-      "12:47:49 [EDGE] CO2: 850ppm (elevated), VOCs: combustion signature",
-      "12:47:50 [VISUAL] VLM analyzing smoke plume geometry...",
-      "12:47:50 [VISUAL] Pattern: vertical column, velocity: slow rise",
-      "12:47:50 [VISUAL] Background: forest canopy, no dust sources",
-      "12:47:51 [CONTEXT] Weather: dry conditions, wind SSW 12mph",
-      "12:47:51 [CONTEXT] Proximity: 0.3mi to residential area",
-      "12:47:51 [CONTEXT] Bayesian score: 0.92 (high confidence)",
-      "12:47:51 [DECISION] FIRE CONFIRMED - first responder alert",
-      "12:47:51 [ALERT] First responders notified for confirmation",
-      "12:47:52 [SYSTEM] Human verification required before community alert",
-      "12:47:52 [STATUS] Awaiting field confirmation...",
-    ],
-    [
-      "12:38:20 [EDGE] Classifier scanning 203 sensors for anomalies...",
-      "12:38:21 [EDGE] CO2: 420ppm (normal atmospheric), no VOCs",
-      "12:38:21 [VISUAL] VLM scanning for visual confirmation...",
-      "12:38:22 [VISUAL] No visible smoke plume detected",
-      "12:38:22 [CONTEXT] Weather: moderate humidity 45%",
-      "12:38:22 [CONTEXT] Wind: NW direction, normal patterns",
-      "12:38:22 [CONTEXT] Bayesian score: 0.31 (low confidence)",
-      "12:38:22 [DECISION] Below fire threshold - monitoring",
-      "12:38:22 [STATUS] Sensor network SENT-001 continuing surveillance",
-    ],
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const newIndex = (activeDetection + 1) % detections.length;
-      setActiveDetection(newIndex);
-      setAlertLevel(
-        detections[newIndex].status === "CONFIRMED FIRE"
-          ? "CRITICAL"
-          : "NORMAL",
-      );
-      setLogs([]);
-      setLogIndex(0);
-      setIsInferenceComplete(false);
-    }, 15000); // Increased from 8000 to 15000 for better readability
-    return () => clearInterval(interval);
-  }, [activeDetection]);
-
-  useEffect(() => {
-    const currentStream = inferenceStreams[activeDetection];
-    if (logIndex < currentStream.length) {
-      const timer = setTimeout(
-        () => {
-          setLogs((prev) => [...prev, currentStream[logIndex]]);
-          setLogIndex((prev) => prev + 1);
-
-          // Check if this is the last log entry to mark inference as complete
-          if (logIndex + 1 === currentStream.length) {
-            setTimeout(() => setIsInferenceComplete(true), 500);
-          }
-        },
-        400 + Math.random() * 300, // Slightly slower typing for readability
-      );
-      return () => clearTimeout(timer);
-    }
-  }, [logIndex, activeDetection, inferenceStreams]);
-
-  const current = detections[activeDetection];
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mb-12 bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200"
-    >
-      {/* Header */}
-      <div className="bg-white p-4 flex items-center justify-between border-b border-gray-200">
-        <div className="flex items-center space-x-3">
-          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-          <div className="font-mono text-lg text-gray-800">
-            WYWA Command Terminal
-          </div>
-          <div className="text-xs text-gray-500 font-mono">
-            [{current.location}]
-          </div>
-        </div>
-        <div
-          className={`px-3 py-1 rounded text-xs font-mono ${
-            alertLevel === "CRITICAL"
-              ? "bg-red-100 text-red-800 border border-red-200"
-              : `bg-gray-100 text-gray-600 border border-gray-200 ${isInferenceComplete && alertLevel === "NORMAL" ? "animate-pulse" : ""}`
-          }`}
-        >
-          {alertLevel}
-        </div>
+    <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200 p-6">
+      <div className="text-center text-gray-600">
+        <p className="text-sm mb-2">Live inference dashboard demo</p>
+        <p className="text-xs">Showing real-time wildfire detection analysis</p>
       </div>
-
-      <div className="grid lg:grid-cols-[1.8fr,1.2fr,1.3fr] h-[500px]">
-        {/* Left: Streaming Inference Logs */}
-        <div className="bg-gray-50 p-4 overflow-y-auto border-r border-gray-200">
-          <div className="text-gray-500 text-xs font-mono mb-3">
-            $ wywa-inference --stream --node={current.id}
-          </div>
-          <div className="space-y-1">
-            {logs.map((log, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className={`text-xs font-mono leading-relaxed ${
-                  log.includes("[EDGE]")
-                    ? "text-gray-700"
-                    : log.includes("[VISUAL]")
-                      ? "text-gray-700"
-                      : log.includes("[CONTEXT]")
-                        ? "text-gray-700"
-                        : log.includes("[DECISION]")
-                          ? "text-gray-800 font-medium"
-                          : log.includes("[ALERT]") &&
-                              log.includes("First responders")
-                            ? "text-red-600 font-medium"
-                            : log.includes("[ALERT]")
-                              ? "text-gray-800 font-medium"
-                              : log.includes("[SYSTEM]")
-                                ? "text-gray-600"
-                                : "text-gray-500"
-                } ${isInferenceComplete && (log.includes("normal") || log.includes("continuing surveillance")) ? "animate-pulse" : ""}`}
-              >
-                {log}
-              </motion.div>
-            ))}
-            {logIndex < inferenceStreams[activeDetection].length && (
-              <div className="text-gray-600 animate-pulse">▋</div>
-            )}
-          </div>
-        </div>
-
-        {/* Center: Key Interpretation */}
-        <div className="bg-white p-4 border-r border-gray-200">
-          <div className="text-gray-700 text-sm font-mono mb-4 border-b border-gray-200 pb-2">
-            LOCAL EDGE AI ANALYSIS
-          </div>
-
-          <div className="space-y-3">
-            {/* Network Status */}
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="text-xs text-gray-600 mb-2">Network Status</div>
-              <div className="text-sm text-gray-800 mb-1">
-                {current.sensorCount} sensors → 1 sentinel
-              </div>
-              <div className="text-xs text-gray-500">
-                {current.location} • {current.timestamp}
-              </div>
-            </div>
-
-            {/* Bayesian Score */}
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="text-xs text-gray-600 mb-2">Bayesian Score</div>
-              <div className="flex items-center space-x-3">
-                <div className="text-lg font-semibold text-gray-800">
-                  {(current.bayesianScore * 100).toFixed(0)}%
-                </div>
-                <div className="flex-1 bg-gray-200 h-2 rounded">
-                  <div
-                    className={`h-2 rounded ${current.bayesianScore > 0.8 ? "bg-blue-500" : "bg-gray-400"}`}
-                    style={{ width: `${current.bayesianScore * 100}%` }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Processing Status */}
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="text-xs text-gray-600 mb-2">Local Processing</div>
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Edge Classifiers</span>
-                  <span className="text-gray-600">ACTIVE</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">Visual AI</span>
-                  <span className="text-gray-600">PROCESSING</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-700">
-                    CO2: {current.sensors.co2}ppm
-                  </span>
-                  <span
-                    className={
-                      current.sensors.co2 > 600
-                        ? "text-red-600"
-                        : `text-gray-600 ${isInferenceComplete && current.sensors.co2 <= 600 ? "animate-pulse" : ""}`
-                    }
-                  >
-                    {current.sensors.co2 > 600 ? "ELEVATED" : "NORMAL"}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Alert Status */}
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="text-xs text-gray-600 mb-2">Alert Protocol</div>
-              <div className="space-y-2 text-xs">
-                <div
-                  className={`flex justify-between ${current.status === "CONFIRMED FIRE" ? "text-red-600 font-medium" : "text-gray-500"}`}
-                >
-                  <span>First Responders</span>
-                  <span>
-                    {current.status === "CONFIRMED FIRE"
-                      ? "NOTIFIED"
-                      : "STANDBY"}
-                  </span>
-                </div>
-                <div className="flex justify-between text-gray-500">
-                  <span>Community Alerts</span>
-                  <span>AWAITING CONFIRMATION</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Visual Confirmation & Alert */}
-        <div className="bg-gray-100 p-4">
-          <div className="text-gray-700 text-sm font-mono mb-4 border-b border-gray-200 pb-2">
-            VISUAL CONFIRMATION
-          </div>
-
-          {current.status === "CONFIRMED FIRE" ? (
-            <div className="space-y-4">
-              {/* Thermal Image Display */}
-              <div className="bg-white rounded-lg p-3 border border-gray-200">
-                <div className="text-xs text-gray-600 mb-2">
-                  Thermal Signature
-                </div>
-                <div className="relative rounded h-24 overflow-hidden border border-gray-200">
-                  <img
-                    src="/images/thermal-signature.webp"
-                    alt="Thermal signature showing fire detection"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Direction indicator */}
-                  <div className="absolute bottom-1 right-1 text-xs text-white font-mono bg-black bg-opacity-50 px-1 rounded">
-                    SE
-                  </div>
-                </div>
-                <div className="text-xs text-gray-500 mt-1">
-                  Heat signature detected SE direction
-                </div>
-              </div>
-
-              {/* First Responder Phone */}
-              <div className="bg-white rounded-lg p-3 border border-gray-200">
-                <div className="text-xs text-gray-600 mb-2">
-                  First Responder Alert
-                </div>
-
-                {/* Phone with actual content */}
-                <div className="mx-auto w-40 h-72 border-2 border-gray-300 rounded-xl relative bg-gray-900">
-                  {/* Screen area */}
-                  <div className="absolute inset-2 bg-white rounded-lg">
-                    {/* Status bar */}
-                    <div className="h-6 bg-gray-100 rounded-t-lg flex justify-between items-center px-2 text-xs">
-                      <span>9:41</span>
-                      <span>100%</span>
-                    </div>
-
-                    {/* Alert content */}
-                    <div className="p-3 space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <span className="text-xs font-bold text-red-600">
-                          FIRE ALERT
-                        </span>
-                      </div>
-                      <div className="text-xs text-gray-700 space-y-1">
-                        <div>Location: {current.location}</div>
-                        <div>Coords: {current.coords}</div>
-                        <div>
-                          Confidence: {(current.bayesianScore * 100).toFixed(0)}%
-                        </div>
-                        <div>CO2: {current.sensors.co2}ppm</div>
-                      </div>
-                      <div className="text-xs text-gray-600 bg-yellow-50 p-2 rounded">
-                        Field verification needed
-                      </div>
-                    </div>
-
-                    {/* Action buttons */}
-                    <div className="absolute bottom-3 left-3 right-3 grid grid-cols-2 gap-2">
-                      <div className="bg-red-500 text-white text-xs py-2 px-2 rounded text-center font-medium">
-                        CONFIRM
-                      </div>
-                      <div className="bg-gray-300 text-gray-700 text-xs py-2 px-2 rounded text-center font-medium">
-                        FALSE
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Home indicator */}
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-400 rounded-full"></div>
-                </div>
-
-                <div className="text-xs text-gray-500 mt-2 text-center">
-                  Alert sent for verification
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-              <div className="text-gray-600 text-sm mb-2">
-                No Active Detection
-              </div>
-              <div
-                className={`text-xs text-gray-500 ${isInferenceComplete ? "animate-pulse" : ""}`}
-              >
-                Visual monitoring normal
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </motion.div>
+    </div>
   );
 }
-// Team Section Component
+
+// Team Section - Clean and consistent
 function TeamSection() {
   return (
     <div className="max-w-4xl mx-auto">
@@ -1335,28 +643,26 @@ function TeamSection() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <div className="sketch-border bg-card p-6 md:p-8 transform rotate-1 mb-6">
+        <div className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg mb-6">
           <div className="mb-6">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
               Collaborate
             </h3>
-            <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
-              <span className="font-semibold text-primary">
+            <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
+              <span className="font-semibold text-gray-900">
                 navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
               </span>
             </p>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
-              <strong className="text-primary">
-                This is an opensource effort
-              </strong>{" "}
+              <strong className="text-gray-900">This is an opensource effort</strong>{" "}
               with science volunteers - engineers, researchers and
               environmentalists passionate about forests and wilderness,
               building AI hardware for extreme environments. Background in
               academic labs, shipping products in startups, and big tech
               (NVIDIA, Amazon, Apple and other companies).
             </p>
-            <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
-              <p className="text-sm text-primary font-semibold">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-gray-900 font-semibold">
                 Open Science Initiative
               </p>
               <p className="text-xs text-gray-700 mt-1">
@@ -1366,23 +672,22 @@ function TeamSection() {
             </div>
           </div>
 
-          {/* Join Mission integrated */}
           <div className="border-t border-gray-200 pt-6">
             <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
-              <div className="bg-primary/5 rounded p-3 border border-primary/20">
-                <div className="font-semibold text-primary mb-1">
+              <div className="bg-gray-50 rounded p-3 border border-gray-200">
+                <div className="font-semibold text-gray-900 mb-1">
                   Model Distillation
                 </div>
                 <div className="text-gray-600">Edge VLMs</div>
               </div>
-              <div className="bg-primary/5 rounded p-3 border border-primary/20">
-                <div className="font-semibold text-primary mb-1">
+              <div className="bg-gray-50 rounded p-3 border border-gray-200">
+                <div className="font-semibold text-gray-900 mb-1">
                   Power Optimization
                 </div>
                 <div className="text-gray-600">Radio Communication</div>
               </div>
-              <div className="bg-primary/5 rounded p-3 border border-primary/20">
-                <div className="font-semibold text-primary mb-1">SaaS</div>
+              <div className="bg-gray-50 rounded p-3 border border-gray-200">
+                <div className="font-semibold text-gray-900 mb-1">SaaS</div>
                 <div className="text-gray-600">Platform Development</div>
               </div>
             </div>
@@ -1393,10 +698,10 @@ function TeamSection() {
 
             <Button
               size="lg"
-              className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90 mb-4"
+              className="bg-gray-900 text-white hover:bg-gray-800 mb-4"
               onClick={() =>
                 document
-                  .getElementById("collaborate")
+                  .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
@@ -1410,13 +715,12 @@ function TeamSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="sketch-border bg-accent/20 p-4 md:p-6 transform -rotate-1"
+          className="bg-gray-50 border border-gray-200 p-4 md:p-6 rounded-lg"
         >
-          <p className="text-sm md:text-base text-foreground leading-relaxed">
+          <p className="text-sm md:text-base text-gray-700 leading-relaxed">
             We believe breakthroughs happen at intersections.
-            <span className="font-bold text-primary">
-              {" "}
-              Policy, tech, impact
+            <span className="font-bold text-gray-900">
+              {" "}Policy, tech, impact
             </span>{" "}
             through collaboration.
           </p>
@@ -1426,7 +730,7 @@ function TeamSection() {
   );
 }
 
-// Contact Form Component
+// Contact Form - Consistent styling
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -1435,7 +739,7 @@ function ContactForm() {
   });
 
   const handleMailto = () => {
-    const subject = `WYWA Contact: ${formData.interest} - ${formData.name}`;
+    const subject = `FIRE Contact: ${formData.interest} - ${formData.name}`;
     const body = `Hi,
 
 Name: ${formData.name}
@@ -1452,7 +756,7 @@ ${formData.name}`;
   };
 
   const handleCopyToClipboard = () => {
-    const contactInfo = `Subject: WYWA Contact: ${formData.interest} - ${formData.name}
+    const contactInfo = `Subject: FIRE Contact: ${formData.interest} - ${formData.name}
 To: nveeturi@wywa.ai
 
 Name: ${formData.name}
@@ -1462,25 +766,21 @@ Area of Interest: ${formData.interest}
 Message: [Please add your message here]`;
 
     navigator.clipboard.writeText(contactInfo).then(() => {
-      alert(
-        "Contact information copied to clipboard! You can paste it into your email client.",
-      );
+      alert("Contact information copied to clipboard!");
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!formData.name || !formData.email || !formData.interest) {
       alert("Please fill in all fields");
       return;
     }
-
     handleMailto();
   };
 
   return (
-    <section className="py-12 bg-gray-50 border-t">
+    <section id="contact" className="py-12 bg-gray-50 border-t">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         <motion.form
           initial={{ opacity: 0, y: 30 }}
@@ -1498,7 +798,7 @@ Message: [Please add your message here]`;
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-primary"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
               required
             />
           </div>
@@ -1510,7 +810,7 @@ Message: [Please add your message here]`;
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-primary"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
               required
             />
           </div>
@@ -1520,7 +820,7 @@ Message: [Please add your message here]`;
               onChange={(e) =>
                 setFormData({ ...formData, interest: e.target.value })
               }
-              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-primary"
+              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
               required
             >
               <option value="">Area of Interest</option>
@@ -1533,7 +833,7 @@ Message: [Please add your message here]`;
             </select>
           </div>
           <div className="flex gap-2">
-            <Button type="submit" className="px-6 py-3">
+            <Button type="submit" className="px-6 py-3 bg-gray-900 text-white hover:bg-gray-800">
               Send Email
             </Button>
             <Button
@@ -1550,7 +850,7 @@ Message: [Please add your message here]`;
           Click "Send Email" to open your email client, or "Copy" to copy
           contact info to clipboard.
         </p>
-        <p className="text-sm text-gray-700 text-center mt-2 font-mono">
+        <p className="text-sm text-gray-700 text-center mt-2">
           nveeturi@wywa.ai
         </p>
       </div>
