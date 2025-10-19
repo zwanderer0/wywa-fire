@@ -150,10 +150,76 @@ netlify open
   - Typography: `font-mono`, `text-sm`, `font-bold`
 
 ## Blog/Updates Section
-- Located in `updates/` directory
-- Built with Astro
-- Admin panel at: wywa.ai/updates/admin/
-- Uses Decap CMS with Netlify Identity for authentication
+
+### Accessing the Blog Editor
+1. **Go to Admin Panel**: https://www.wywa.ai/updates/admin/
+2. **Login with Netlify Identity**:
+   - Authorized emails: `anirudh.zw@gmail.com`, `nveeturi@gmail.com`
+   - Use password set via invite email
+   - If no password, check email for Netlify invite
+
+### Using the CMS Editor
+Once logged in, you can:
+- **Create New Post**: Click "New Blog" or "New Post" button
+- **Edit Existing Posts**: Click any post from the list
+- **Add Images**: Drag and drop or use media library
+- **Preview Changes**: Use preview pane before publishing
+- **Publish**: Click "Publish" to make changes live
+
+### Alternative: Edit Blog Files Directly
+Location: `updates/src/content/blog/`
+
+Create new post:
+```markdown
+# File: updates/src/content/blog/2025-10-19-your-title.md
+---
+title: "Your Post Title"
+description: "Brief description"
+pubDate: 2025-10-19
+author: "Your Name"
+tags: ["updates", "fire", "ai"]
+---
+
+Your blog content here in Markdown...
+```
+
+Deploy blog changes:
+```bash
+git add -A
+git commit -m "Add new blog post"
+git push
+netlify deploy --prod
+```
+
+### Blog Structure
+- **Admin Panel**: https://www.wywa.ai/updates/admin/
+- **Public Blog**: https://www.wywa.ai/updates/
+- **Blog Files**: `updates/src/content/blog/`
+- **Blog Config**: `updates/public/admin/config.yml`
+- **Built with**: Astro static site generator
+- **CMS**: Decap CMS (formerly Netlify CMS) with Netlify Identity
+
+### Troubleshooting Blog Login
+If you can't login to admin panel:
+
+1. **Request New Invite**:
+```bash
+netlify sites:invite-user
+# Enter email when prompted
+```
+
+2. **Reset Password**:
+   - Go to https://www.wywa.ai/updates/admin/
+   - Click "Forgot Password?"
+   - Check email for reset link
+
+3. **Check Identity Settings**:
+```bash
+netlify open
+# Navigate to: Site Settings → Identity → Settings
+# Ensure registration is invite-only
+# Check invited users list
+```
 
 ## Important Files
 - `netlify.toml` - Deployment configuration
