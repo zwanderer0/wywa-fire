@@ -755,88 +755,37 @@ function TeamSection() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <div className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg mb-6">
-          <div className="mb-6">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-              Collaborate
-            </h3>
-            <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
-              <span className="font-semibold text-gray-900">
-                navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
-              </span>
-            </p>
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
-              <strong className="text-gray-900">This is an opensource effort</strong>{" "}
-              with science volunteers - engineers, researchers and
-              environmentalists passionate about forests and wilderness,
-              building AI hardware for extreme environments. Background in
-              academic labs, shipping products in startups, and big tech
-              (NVIDIA, Amazon, Apple and other companies).
-            </p>
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-gray-900 font-semibold">
-                Open Science Initiative
-              </p>
-              <p className="text-xs text-gray-700 mt-1">
-                All research, models, and hardware designs will be released open
-                source for the scientific community.
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-200 pt-6">
-            <div className="grid md:grid-cols-3 gap-4 mb-6 text-sm">
-              <div className="bg-gray-50 rounded p-3 border border-gray-200">
-                <div className="font-semibold text-gray-900 mb-1">
-                  Model Distillation
-                </div>
-                <div className="text-gray-600">Edge VLMs</div>
-              </div>
-              <div className="bg-gray-50 rounded p-3 border border-gray-200">
-                <div className="font-semibold text-gray-900 mb-1">
-                  Power Optimization
-                </div>
-                <div className="text-gray-600">Radio Communication</div>
-              </div>
-              <div className="bg-gray-50 rounded p-3 border border-gray-200">
-                <div className="font-semibold text-gray-900 mb-1">SaaS</div>
-                <div className="text-gray-600">Platform Development</div>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-600 mb-4">
-              If you still think you can help in any way, ping us.
-            </p>
-
-            <Button
-              size="lg"
-              className="bg-gray-900 text-white hover:bg-gray-800 mb-4"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Join the mission
-            </Button>
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="bg-gray-50 border border-gray-200 p-4 md:p-6 rounded-lg"
-        >
-          <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-            We believe breakthroughs happen at intersections.
-            <span className="font-bold text-gray-900">
-              {" "}Policy, tech, impact
-            </span>{" "}
-            through collaboration.
+        <div className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+            Collaborate
+          </h3>
+          <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
+            <span className="font-semibold text-gray-900">
+              navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
+            </span>
           </p>
-        </motion.div>
+          <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
+            <strong className="text-gray-900">This is an opensource effort</strong>{" "}
+            with science volunteers - engineers, researchers and
+            environmentalists passionate about forests and wilderness,
+            building AI hardware for extreme environments. Background in
+            academic labs, shipping products in startups, and big tech
+            (NVIDIA, Amazon, Apple and other companies). All research, models,
+            and hardware designs will be released open source for the scientific community.
+          </p>
+
+          <Button
+            size="lg"
+            className="bg-gray-900 text-white hover:bg-gray-800"
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Join the mission
+          </Button>
+        </div>
       </motion.div>
     </div>
   );
