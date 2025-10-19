@@ -49,9 +49,9 @@ export default function Index() {
           {/* About */}
           <div className="border-l-2 border-gray-400 pl-4">
             <p className="text-gray-700 leading-relaxed">
-              WYWA is an open-source nonprofit connecting physical world signals
-              into impactful understanding. We build systems that observe, interpret,
-              and act on environmental data to create meaningful change.
+              WYWA is an open-source nonprofit building embodied AI systems that
+              understand physical world signals. We build and ship systems that observe,
+              interpret, and act on environmental data to create meaningful change.
             </p>
           </div>
 
@@ -62,8 +62,8 @@ export default function Index() {
               href="/fire"
               className="block group hover:bg-gray-200 p-2 -ml-2 transition-colors"
             >
-              <div className="text-gray-900 group-hover:text-gray-700 font-semibold">
-                WYWA FI-RE
+              <div className="text-blue-600 group-hover:text-blue-700 font-semibold">
+                WYWA FIRE
               </div>
               <div className="text-gray-600 text-xs mt-1">
                 First Responder AI Initiative - Wildfire detection using edge AI and sensor networks
@@ -90,7 +90,8 @@ export default function Index() {
                 <li>- Build hardware for extreme environments</li>
                 <li>- Train small, efficient models</li>
                 <li>- Have ideas on scaling and strategy</li>
-                <li>- Care about environmental impact</li>
+                <li>- Background in distributed sensing</li>
+                <li>- Interaction designers/human factors</li>
               </ul>
             </div>
           </div>
