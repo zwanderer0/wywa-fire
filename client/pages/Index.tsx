@@ -92,14 +92,6 @@ export default function Index() {
                     >
                       Join the mission
                     </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="sketch-border transform rotate-1 hover:rotate-0 transition-transform"
-                      onClick={() => window.open("https://github.com/wywa-ai", "_blank")}
-                    >
-                      View on GitHub
-                    </Button>
                   </div>
                 </motion.div>
               </div>
@@ -260,20 +252,11 @@ export default function Index() {
             </div>
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
               <a
-                href="mailto:navya@wywa.ai"
+                href="mailto:nveeturi@wywa.ai"
                 className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
               >
                 <span>✉️</span>
-                <span>navya@wywa.ai</span>
-              </a>
-              <a
-                href="https://github.com/wywa-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-300 hover:text-white transition-colors flex items-center space-x-1"
-              >
-                <span>🔧</span>
-                <span>GitHub</span>
+                <span>nveeturi@wywa.ai</span>
               </a>
               <a
                 href="https://linkedin.com/company/wywa-ai"
@@ -1464,13 +1447,13 @@ Message: [Please add your message here]
 Best regards,
 ${formData.name}`;
 
-    const mailtoLink = `mailto:navya@wywa.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:nveeturi@wywa.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 
   const handleCopyToClipboard = () => {
     const contactInfo = `Subject: WYWA Contact: ${formData.interest} - ${formData.name}
-To: navya@wywa.ai
+To: nveeturi@wywa.ai
 
 Name: ${formData.name}
 Email: ${formData.email}
@@ -1568,7 +1551,7 @@ Message: [Please add your message here]`;
           contact info to clipboard.
         </p>
         <p className="text-sm text-gray-700 text-center mt-2 font-mono">
-          navya@wywa.ai
+          nveeturi@wywa.ai
         </p>
       </div>
     </section>
