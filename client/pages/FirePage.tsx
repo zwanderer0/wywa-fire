@@ -76,10 +76,10 @@ export default function FirePage() {
                   className="border border-gray-300 bg-white p-6 md:p-8 mb-6 rounded-lg"
                 >
                   <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-2">
-                    <span className="font-bold text-gray-900">First Responder AI</span> • Open source sensor network to detect wildfires as they begin
+                    <span className="font-bold text-gray-900">First Responder AI</span> • Distributed AI to smell and see wildfires as they begin
                   </p>
                   <p className="text-sm text-gray-600 mb-4">
-                    Empowering firefighters with AI-driven early detection • Community-driven development
+                    Empowering firefighters with AI-driven early detection • Open source initiative
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
@@ -293,8 +293,8 @@ function HeroDetectionDemo() {
       reading: "Thin grey column detected",
       context: "Campground area + weekend pattern",
       action: "WARNING - likely campfire",
-      color: "text-gray-700",
-      bgColor: "bg-gray-100",
+      color: "text-yellow-700",
+      bgColor: "bg-yellow-50",
     },
     {
       time: "13:09:14",
@@ -303,8 +303,8 @@ function HeroDetectionDemo() {
       reading: "Heat + smoke + wind analysis",
       context: "Remote area + dry conditions + spreading",
       action: "ALERT - wildfire confirmed",
-      color: "text-gray-900",
-      bgColor: "bg-gray-200",
+      color: "text-red-700",
+      bgColor: "bg-red-50",
     },
   ];
 
@@ -620,13 +620,128 @@ function SensorShowcase() {
   );
 }
 
-// Mock Dashboard - Simplified, consistent colors
+// Mock Dashboard - Live inference visualization
 function MockDashboard() {
+  const [activeNode, setActiveNode] = useState(0);
+  const [metrics, setMetrics] = useState({
+    temp: 22.3,
+    humidity: 45,
+    pm25: 12.5,
+    co2: 415,
+  });
+
+  const nodes = [
+    { id: "N-047", status: "active", lat: 38.5234, lng: -122.6762 },
+    { id: "N-023", status: "active", lat: 38.2919, lng: -122.4580 },
+    { id: "N-012", status: "warning", lat: 39.7596, lng: -121.6219 },
+    { id: "N-089", status: "active", lat: 38.7646, lng: -122.9874 },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveNode((prev) => (prev + 1) % nodes.length);
+      // Simulate changing metrics
+      setMetrics({
+        temp: 20 + Math.random() * 10,
+        humidity: 40 + Math.random() * 20,
+        pm25: 10 + Math.random() * 15,
+        co2: 410 + Math.random() * 20,
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200 p-6">
-      <div className="text-center text-gray-600">
-        <p className="text-sm mb-2">Live inference dashboard demo</p>
-        <p className="text-xs">Showing real-time wildfire detection analysis</p>
+    <div className="bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+      <div className="p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-green-500 text-xs font-bold tracking-wider">LIVE INFERENCE</span>
+          </div>
+          <span className="text-gray-400 text-xs">250 NODES ACTIVE</span>
+        </div>
+
+        {/* Main Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Left: Node Status */}
+          <div className="space-y-4">
+            <div className="bg-gray-800 rounded-lg p-4">
+              <div className="text-gray-400 text-xs mb-2">ACTIVE NODE</div>
+              <div className="text-white font-bold text-lg mb-3">{nodes[activeNode].id}</div>
+
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div>
+                  <div className="text-gray-500">TEMP</div>
+                  <div className="text-gray-300 font-mono">{metrics.temp.toFixed(1)}°C</div>
+                </div>
+                <div>
+                  <div className="text-gray-500">HUMIDITY</div>
+                  <div className="text-gray-300 font-mono">{metrics.humidity.toFixed(0)}%</div>
+                </div>
+                <div>
+                  <div className="text-gray-500">PM2.5</div>
+                  <div className="text-gray-300 font-mono">{metrics.pm25.toFixed(1)} µg/m³</div>
+                </div>
+                <div>
+                  <div className="text-gray-500">CO2</div>
+                  <div className="text-gray-300 font-mono">{metrics.co2.toFixed(0)} ppm</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Node List */}
+            <div className="space-y-2">
+              {nodes.map((node, i) => (
+                <div
+                  key={i}
+                  className={`bg-gray-800 rounded p-2 flex items-center justify-between transition-all ${
+                    i === activeNode ? "ring-1 ring-gray-600" : ""
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className={`w-2 h-2 rounded-full ${
+                        node.status === "warning" ? "bg-yellow-500" : "bg-green-500"
+                      }`}
+                    />
+                    <span className="text-gray-300 text-sm font-mono">{node.id}</span>
+                  </div>
+                  <span className="text-gray-500 text-xs">
+                    {node.lat.toFixed(4)}, {node.lng.toFixed(4)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Analysis Stream */}
+          <div className="bg-gray-800 rounded-lg p-4">
+            <div className="text-gray-400 text-xs mb-3">INFERENCE STREAM</div>
+            <div className="space-y-2 font-mono text-xs">
+              <div className="text-green-400">[13:09:44] Model: smoke_detect_v3.2</div>
+              <div className="text-gray-400">[13:09:44] Input: multi-spectral + thermal</div>
+              <div className="text-gray-400">[13:09:45] Processing: feature extraction...</div>
+              <div className="text-yellow-400">[13:09:45] Confidence: 0.89 (smoke plume)</div>
+              <div className="text-gray-400">[13:09:46] Cross-ref: nodes 23, 47, 89</div>
+              <div className="text-gray-400">[13:09:46] Wind vector: 12km/h NW</div>
+              <div className="text-green-400">[13:09:47] Classification: controlled burn</div>
+              <div className="text-gray-500">[13:09:47] Alert: suppressed (low risk)</div>
+              <div className="text-gray-400">[13:09:48] Next scan in 15s...</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Status Bar */}
+        <div className="mt-6 pt-4 border-t border-gray-700 flex items-center justify-between text-xs">
+          <div className="flex items-center space-x-4">
+            <span className="text-gray-400">JETSON ORIN • 8GB</span>
+            <span className="text-gray-400">LORA 915MHz</span>
+            <span className="text-gray-400">SOLAR 12V</span>
+          </div>
+          <span className="text-gray-500">Inference: 234ms</span>
+        </div>
       </div>
     </div>
   );
