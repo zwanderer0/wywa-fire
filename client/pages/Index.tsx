@@ -21,20 +21,20 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono p-8 overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gray-100 text-gray-900 font-mono p-8 flex items-center justify-center">
+      <div className="max-w-3xl w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-8"
         >
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
             <span className="inline-block">{typedText}</span>
-            <span className="animate-pulse">_</span>
+            <span className="animate-pulse text-gray-500">_</span>
           </h1>
-          <div className="text-sm text-green-300 opacity-80">
+          <div className="text-sm text-gray-600">
             Ambient Intelligence Interest Group
           </div>
         </motion.div>
@@ -44,52 +44,49 @@ export default function Index() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="space-y-8 text-sm md:text-base"
+          className="space-y-6 text-sm md:text-base"
         >
-          {/* About Section */}
-          <div className="border-l-2 border-green-400 pl-4">
-            <div className="text-green-500 mb-2">$ cat about.txt</div>
-            <p className="text-green-300 leading-relaxed">
+          {/* About */}
+          <div className="border-l-2 border-gray-400 pl-4">
+            <p className="text-gray-700 leading-relaxed">
               WYWA is an open-source nonprofit connecting physical world signals
               into impactful understanding. We build systems that observe, interpret,
               and act on environmental data to create meaningful change.
             </p>
           </div>
 
-          {/* Projects */}
-          <div className="border-l-2 border-green-400 pl-4">
-            <div className="text-green-500 mb-4">$ ls projects/</div>
-            <div className="space-y-3">
-              <a
-                href="/fire"
-                className="block group hover:bg-green-400/10 p-2 -ml-2 transition-colors"
-              >
-                <div className="text-green-400 group-hover:text-green-300">
-                  <span className="text-green-500">[01]</span> WYWA FI-RE
-                </div>
-                <div className="text-green-300/70 text-xs mt-1 ml-5">
-                  First Responder AI Initiative - Wildfire detection using edge AI and sensor networks
-                </div>
-              </a>
-            </div>
+          {/* Project */}
+          <div className="border-l-2 border-gray-400 pl-4">
+            <div className="text-gray-600 mb-2 font-semibold">Current Project</div>
+            <a
+              href="/fire"
+              className="block group hover:bg-gray-200 p-2 -ml-2 transition-colors"
+            >
+              <div className="text-gray-900 group-hover:text-gray-700 font-semibold">
+                WYWA FI-RE
+              </div>
+              <div className="text-gray-600 text-xs mt-1">
+                First Responder AI Initiative - Wildfire detection using edge AI and sensor networks
+              </div>
+            </a>
           </div>
 
           {/* Meetings */}
-          <div className="border-l-2 border-green-400 pl-4">
-            <div className="text-green-500 mb-2">$ cal meetings</div>
-            <p className="text-green-300">
+          <div className="border-l-2 border-gray-400 pl-4">
+            <div className="text-gray-600 mb-2 font-semibold">Meetings</div>
+            <p className="text-gray-700">
               Bay Area, California
               <br />
-              <span className="text-green-300/70">Bi-weekly gatherings for builders and researchers</span>
+              <span className="text-gray-600 text-sm">Bi-weekly gatherings for builders and researchers</span>
             </p>
           </div>
 
           {/* Join */}
-          <div className="border-l-2 border-green-400 pl-4">
-            <div className="text-green-500 mb-2">$ join</div>
-            <div className="text-green-300 space-y-2">
+          <div className="border-l-2 border-gray-400 pl-4">
+            <div className="text-gray-600 mb-2 font-semibold">Join Us</div>
+            <div className="text-gray-700 space-y-1 text-sm">
               <p>We're looking for collaborators who:</p>
-              <ul className="ml-4 space-y-1 text-green-300/80">
+              <ul className="ml-4 space-y-0.5 text-gray-600">
                 <li>- Build hardware for extreme environments</li>
                 <li>- Train small, efficient models</li>
                 <li>- Have ideas on scaling and strategy</li>
@@ -99,51 +96,37 @@ export default function Index() {
           </div>
 
           {/* Contact */}
-          <div className="border-l-2 border-green-400 pl-4">
-            <div className="text-green-500 mb-2">$ contact</div>
-            <div className="space-y-1">
-              <div className="text-green-300">
+          <div className="border-l-2 border-gray-400 pl-4">
+            <div className="text-gray-600 mb-2 font-semibold">Contact</div>
+            <div className="space-y-1 text-sm">
+              <div className="text-gray-700">
                 <a
                   href="mailto:nveeturi@wywa.ai"
-                  className="hover:text-green-200 transition-colors underline"
+                  className="hover:text-gray-900 transition-colors underline"
                 >
                   nveeturi@wywa.ai
                 </a>
               </div>
-              <div className="text-green-300">
+              <div className="text-gray-700">
                 <a
                   href="/updates"
-                  className="hover:text-green-200 transition-colors underline"
+                  className="hover:text-gray-900 transition-colors underline"
                 >
                   Weekly Updates
                 </a>
               </div>
             </div>
           </div>
-
-          {/* Status */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="pt-8 border-t border-green-400/30"
-          >
-            <div className="text-green-500 mb-2">$ status</div>
-            <div className="text-green-300/60 text-xs">
-              <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-              501(c)(3) Nonprofit Organization
-            </div>
-          </motion.div>
         </motion.div>
 
         {/* Footer */}
         <motion.footer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="mt-16 pt-8 border-t border-green-400/20 text-green-300/50 text-xs"
+          transition={{ delay: 1, duration: 0.5 }}
+          className="mt-8 pt-6 border-t border-gray-300 text-gray-500 text-xs"
         >
-          <div>WYWA (While You Were Away) - Open Source Ambient Intelligence</div>
+          <div>WYWA - Open Source Ambient Intelligence</div>
           <div className="mt-1">California, USA</div>
         </motion.footer>
       </div>
