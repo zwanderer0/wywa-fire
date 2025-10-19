@@ -6,20 +6,18 @@ import { Button } from "@/components/ui/button";
 
 export default function FirePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="border-b-2 border-primary bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <header className="border-b border-gray-300 bg-gray-100 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="sketch-border bg-primary text-primary-foreground px-2 py-1 transform -rotate-2">
-                <span className="font-black text-sm md:text-base sketch-text">
-                  WYWA FI-RE
-                </span>
+              <div className="font-black text-2xl md:text-3xl text-gray-900 font-mono">
+                FIRE
               </div>
-              <div className="hidden md:flex items-center">
-                <span className="text-xs text-muted-foreground italic">First Responder Initiative</span>
+              <div className="text-sm text-gray-600 italic font-mono">
+                First Responder Initiative
               </div>
             </div>
             {/* Navigation */}
@@ -29,7 +27,7 @@ export default function FirePage() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-normal"
+                    className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
                   >
                     {item}
                   </a>
@@ -37,9 +35,15 @@ export default function FirePage() {
               )}
               <a
                 href="/updates/"
-                className="text-muted-foreground hover:text-foreground transition-colors font-normal"
+                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
               >
                 Updates
+              </a>
+              <a
+                href="/"
+                className="text-gray-600 hover:text-gray-900 transition-colors font-mono text-sm"
+              >
+                WYWA
               </a>
             </div>
           </div>
@@ -57,7 +61,7 @@ export default function FirePage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-primary">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-gray-900 font-mono">
                   Detect
                   <br />
                   wildfires
@@ -71,18 +75,18 @@ export default function FirePage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="sketch-border bg-card p-6 md:p-8 mb-6 transform rotate-1"
+                  className="border border-gray-300 bg-white p-6 md:p-8 mb-6 rounded-lg"
                 >
-                  <p className="text-base md:text-lg text-foreground leading-relaxed mb-2">
-                    <span className="font-bold text-primary">First Responder AI</span> • Open source sensor network to detect wildfires as they begin
+                  <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-2">
+                    <span className="font-bold text-gray-900">First Responder AI</span> • Open source sensor network to detect wildfires as they begin
                   </p>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-gray-600 mb-4">
                     Empowering firefighters with AI-driven early detection • Community-driven development
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
                       size="lg"
-                      className="sketch-border transform -rotate-1 hover:rotate-0 transition-transform bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="bg-gray-900 text-white hover:bg-gray-800 font-mono"
                       onClick={() =>
                         document
                           .getElementById("team")
@@ -109,7 +113,7 @@ export default function FirePage() {
       </section>
 
       {/* Problem Section */}
-      <section id="problem" className="py-16 md:py-24 bg-muted/30">
+      <section id="problem" className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -124,7 +128,7 @@ export default function FirePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-gray-900 font-mono"
               >
                 About 25 wildfires start every day in California
               </motion.h2>
@@ -133,7 +137,7 @@ export default function FirePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="sketch-border bg-card p-4 md:p-6 mb-6 transform rotate-1"
+                className="border border-gray-300 bg-gray-50 p-4 md:p-6 mb-6 rounded-lg"
               >
                 <p className="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
                   Detection delays cost critical minutes during fire spread.
@@ -170,7 +174,7 @@ export default function FirePage() {
       </section>
 
       {/* Technology Section */}
-      <section id="technology" className="py-16 md:py-24">
+      <section id="technology" className="py-16 md:py-24 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -179,7 +183,7 @@ export default function FirePage() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900 font-mono">
               Intelligence for the wilderness
             </h2>
           </motion.div>
@@ -193,7 +197,7 @@ export default function FirePage() {
       </section>
 
       {/* Development Status Section */}
-      <section id="fieldresults" className="py-16 md:py-24 bg-muted/30">
+      <section id="fieldresults" className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -202,7 +206,7 @@ export default function FirePage() {
             viewport={{ once: true, margin: "-50px" }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-primary sketch-text transform -rotate-1">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900 font-mono">
               Development Status
             </h2>
           </motion.div>
@@ -234,13 +238,13 @@ export default function FirePage() {
       <ContactForm />
 
       {/* Footer */}
-      <footer className="py-8 md:py-12 bg-gray-900 text-white">
+      <footer className="py-8 md:py-12 bg-gray-800 text-gray-200">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div>
               <div className="flex items-center space-x-3 mb-2">
-                <span className="text-lg font-bold">WYWA FI-RE</span>
-                <span className="text-xs text-gray-300 italic">Open Source Initiative</span>
+                <span className="text-lg font-bold font-mono">FIRE</span>
+                <span className="text-xs text-gray-400 italic">First Responder Initiative</span>
               </div>
               <p className="text-sm text-gray-300 mb-1">
                 First Responder AI Initiative
@@ -324,11 +328,11 @@ function HeroDetectionDemo() {
       <div className="text-center"></div>
 
       {/* Main Detection Card */}
-      <div className="sketch-border bg-card p-6 md:p-8 lg:p-10 transform -rotate-1 shadow-lg border rounded">
+      <div className="border border-gray-300 bg-white p-6 md:p-8 lg:p-10 shadow-lg rounded-lg">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm md:text-base font-bold text-primary">
+            <span className="text-sm md:text-base font-bold text-gray-900">
               REAL-TIME ANALYSIS
             </span>
           </div>
