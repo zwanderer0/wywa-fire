@@ -76,7 +76,7 @@ export default function FirePage() {
                   className="border border-gray-300 bg-white p-6 md:p-8 mb-6 rounded-lg"
                 >
                   <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
-                    250 sentinels. Silent. Watching. They know before you see the flames.
+                    250 distributed sensors detecting chemical signatures before visible smoke.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
@@ -135,8 +135,8 @@ export default function FirePage() {
                 className="border border-gray-300 bg-gray-50 p-4 md:p-6 mb-6 rounded-lg"
               >
                 <p className="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
-                  By the time satellites see it, it's already too late.
-                  6 hours of blind spots. Miles of darkness. We're changing that.
+                  Current satellite detection: 2-6 hour latency.
+                  Remote areas have coverage gaps. Our network provides continuous monitoring.
                 </p>
                 <p className="text-xs text-gray-500 mt-4">
                   <sup>1</sup> CAL FIRE 2023 Fire Statistics
@@ -179,7 +179,7 @@ export default function FirePage() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
-              The network sees everything
+              Sensor network
             </h2>
           </motion.div>
 
@@ -218,7 +218,7 @@ export default function FirePage() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
-              The Architects
+              Team
             </h2>
           </motion.div>
 
@@ -276,30 +276,30 @@ function HeroDetectionDemo() {
     {
       time: "13:04:07",
       location: "Sonoma County",
-      node: "Sentinel 47",
-      reading: "Particulate spike detected",
-      context: "Pattern match: Vehicle signature. Threat level: Zero",
-      action: "DISREGARD - False positive",
+      node: "Node 047",
+      reading: "PM2.5 spike detected",
+      context: "Vehicle dust pattern identified. Non-combustion source.",
+      action: "NO THREAT - Vehicle dust",
       color: "text-gray-600",
       bgColor: "bg-gray-50",
     },
     {
       time: "13:06:55",
       location: "Napa Valley",
-      node: "Sentinel 23",
-      reading: "Smoke column rising. Temperature anomaly.",
-      context: "Human presence confirmed. Contained heat source.",
-      action: "MONITOR - Tracking active",
+      node: "Node 023",
+      reading: "Smoke detected. Temperature increase.",
+      context: "Campground proximity. Controlled burn signature.",
+      action: "MONITORING - Campfire",
       color: "text-yellow-700",
       bgColor: "bg-yellow-50",
     },
     {
       time: "13:09:14",
       location: "Paradise Area",
-      node: "Sentinel 12",
-      reading: "CRITICAL: Exponential heat growth detected",
-      context: "No containment. Wind vector: spreading. Vegetation: dry.",
-      action: "STRIKE TEAM DEPLOYED",
+      node: "Node 012",
+      reading: "Rapid temperature increase. Smoke plume expanding.",
+      context: "No containment structures. Wind 12mph NW. Low humidity.",
+      action: "ALERT - Fire confirmed",
       color: "text-red-700",
       bgColor: "bg-red-50",
     },
@@ -457,19 +457,19 @@ function WhatWereBuilding() {
 
   const aiLayers = [
     {
-      name: "Chemical Signatures",
+      name: "Chemical Detection",
       description:
-        "They smell the fear. CO₂ spikes. Humidity drops. 250 nodes taste the air for the chemical fingerprint of combustion. Silent. Always watching.",
+        "Real-time monitoring of CO₂, humidity, and particulate levels. 250 sensors analyze combustion signatures locally before transmission.",
     },
     {
-      name: "Pattern Recognition",
+      name: "Pattern Analysis",
       description:
-        "Dust or death? Fog or fire? The machines know. They see patterns humans miss. Movement vectors. Heat signatures. They never sleep.",
+        "Differentiates smoke from dust, fog, and steam. Cross-references thermal data with visual feeds. Continuous 24/7 monitoring.",
     },
     {
-      name: "The Decision",
+      name: "Alert Protocol",
       description:
-        "0.89 seconds to decide who lives. Alert protocols engage. First responders mobilized. The network has spoken. No false alarms.",
+        "Sub-second classification and routing. Direct notification to first responders. 89% accuracy in early detection.",
     },
   ];
 
@@ -572,18 +572,17 @@ function SensorShowcase() {
                   className="text-white"
                 >
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    The Hive Mind
+                    Distributed Intelligence
                   </h3>
                   <p className="text-lg text-white/90 leading-relaxed mb-6">
-                    250 eyes. One brain. They share everything - heat, smoke, fear.
-                    A distributed consciousness spanning miles of wilderness.
-                    When one sees danger, they all know.
+                    250 sensor nodes processing data locally. Real-time correlation across the network.
+                    When one detects an anomaly, adjacent nodes verify. Miles of coverage, millisecond response.
                   </p>
                   <Button
                     onClick={() => setShowTerminal(!showTerminal)}
                     className="bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:bg-white/30"
                   >
-                    {showTerminal ? "Hide" : "Watch them think"} →
+                    {showTerminal ? "Hide" : "View dashboard"} →
                   </Button>
                 </motion.div>
               </div>
@@ -757,7 +756,7 @@ function TeamSection() {
       >
         <div className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg">
           <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-            The Collective
+            Contributors
           </h3>
           <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
             <span className="font-semibold text-gray-900">
@@ -765,11 +764,11 @@ function TeamSection() {
             </span>
           </p>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
-            <strong className="text-gray-900">Open source insurgency.</strong>{" "}
-            Former operatives from NVIDIA, Amazon, Apple.
-            Building machines that survive where humans can't.
-            Every line of code, every circuit, every algorithm - released to the wild.
-            The corporations fear what we're building. Good.
+            <strong className="text-gray-900">Open source initiative.</strong>{" "}
+            Engineers from NVIDIA, Amazon, Apple.
+            Building hardware for extreme environments.
+            All code, schematics, and models publicly released.
+            Community-driven development.
           </p>
 
           <Button
