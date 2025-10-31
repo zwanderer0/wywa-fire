@@ -82,13 +82,12 @@ export default function Index() {
                 className="flex-1 group hover:opacity-80 transition-opacity"
                 title="WYWA presenting at the AI Infrastructure Summit on edge AI and wildfire detection systems"
               >
-                <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg p-4 flex flex-col items-center justify-center h-24">
-                  <div className="text-white font-bold text-xs text-center leading-tight">
-                    AI INFRA
-                    <br />
-                    SUMMIT
-                  </div>
-                  <div className="text-white/80 text-xs mt-1">SPEAKER</div>
+                <div className="bg-white rounded-lg p-2 flex items-center justify-center h-24 border border-gray-300">
+                  <img
+                    src="/images/ai-infra-summit-logo.png"
+                    alt="AI Infrastructure Summit"
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
               </a>
               <a
@@ -98,13 +97,12 @@ export default function Index() {
                 className="flex-1 group hover:opacity-80 transition-opacity"
                 title="Featured alongside Amazon Lab126 and Graviky Labs for our nonprofit wildfire detection efforts"
               >
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg p-4 flex flex-col items-center justify-center h-24">
-                  <div className="text-white font-bold text-xs text-center leading-tight">
-                    TECHWALK
-                    <br />
-                    SF
-                  </div>
-                  <div className="text-white/80 text-xs mt-1">TECH WEEK</div>
+                <div className="bg-white rounded-lg p-2 flex items-center justify-center h-24 border border-gray-300 overflow-hidden">
+                  <img
+                    src="/images/techwalk-sf.jpg"
+                    alt="TechWalk SF Tech Week"
+                    className="max-h-full max-w-full object-cover"
+                  />
                 </div>
               </a>
             </div>
