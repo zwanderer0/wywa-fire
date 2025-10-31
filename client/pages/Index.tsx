@@ -71,6 +71,39 @@ export default function Index() {
             </a>
           </div>
 
+          {/* Recent Features */}
+          <div className="border-l-2 border-gray-400 pl-4">
+            <div className="text-gray-600 mb-2 font-semibold">Recent Features</div>
+            <div className="space-y-3">
+              <a
+                href="https://www.ai-infra-summit.com/events/ai-infra-summit/speakers?modal_speaker=27323"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group hover:bg-gray-200 p-2 -ml-2 transition-colors"
+              >
+                <div className="text-blue-600 group-hover:text-blue-700 font-semibold text-sm">
+                  AI Infrastructure Summit Speaker
+                </div>
+                <div className="text-gray-600 text-xs mt-1">
+                  WYWA presenting at the AI Infrastructure Summit on edge AI and wildfire detection systems
+                </div>
+              </a>
+              <a
+                href="https://www.linkedin.com/posts/rupabhagwat_while-sf-is-celebrating-the-tech-week-if-activity-7381082144426823680-5W00/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group hover:bg-gray-200 p-2 -ml-2 transition-colors"
+              >
+                <div className="text-blue-600 group-hover:text-blue-700 font-semibold text-sm">
+                  TechWalk SF Tech Week Feature
+                </div>
+                <div className="text-gray-600 text-xs mt-1">
+                  Featured alongside Amazon Lab126 and Graviky Labs for our nonprofit wildfire detection efforts
+                </div>
+              </a>
+            </div>
+          </div>
+
           {/* Meetings */}
           <div className="border-l-2 border-gray-400 pl-4">
             <div className="text-gray-600 mb-2 font-semibold">Meetings</div>
