@@ -62,11 +62,11 @@ export default function FirePage() {
             >
               <div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight text-gray-900">
-                  Detect
+                  Before
                   <br />
-                  wildfires
+                  the smoke
                   <br />
-                  early
+                  rises
                 </h1>
 
                 <motion.div
@@ -76,7 +76,7 @@ export default function FirePage() {
                   className="border border-gray-300 bg-white p-6 md:p-8 mb-6 rounded-lg"
                 >
                   <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
-                    Distributed AI to smell and see wildfires as they begin
+                    250 sentinels. Silent. Watching. They know before you see the flames.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
@@ -125,7 +125,7 @@ export default function FirePage() {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 text-gray-900"
               >
-                About 25 wildfires start every day in California
+                Every 57 minutes. Another one ignites.
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -135,8 +135,8 @@ export default function FirePage() {
                 className="border border-gray-300 bg-gray-50 p-4 md:p-6 mb-6 rounded-lg"
               >
                 <p className="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
-                  Detection delays cost critical minutes during fire spread.
-                  Satellite coverage has 2-6 hour latency in remote areas.
+                  By the time satellites see it, it's already too late.
+                  6 hours of blind spots. Miles of darkness. We're changing that.
                 </p>
                 <p className="text-xs text-gray-500 mt-4">
                   <sup>1</sup> CAL FIRE 2023 Fire Statistics
@@ -179,7 +179,7 @@ export default function FirePage() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
-              Intelligence for the wilderness
+              The network sees everything
             </h2>
           </motion.div>
 
@@ -199,7 +199,7 @@ export default function FirePage() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
-              Development Status
+              Field Operations
             </h2>
           </motion.div>
 
@@ -218,7 +218,7 @@ export default function FirePage() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-6 md:mb-8 text-gray-900">
-              Team
+              The Architects
             </h2>
           </motion.div>
 
@@ -276,30 +276,30 @@ function HeroDetectionDemo() {
     {
       time: "13:04:07",
       location: "Sonoma County",
-      node: "Node 47",
-      reading: "High PM2.5 detected",
-      context: "Vehicle dust pattern + road proximity",
-      action: "IGNORE - dust from car",
+      node: "Sentinel 47",
+      reading: "Particulate spike detected",
+      context: "Pattern match: Vehicle signature. Threat level: Zero",
+      action: "DISREGARD - False positive",
       color: "text-gray-600",
       bgColor: "bg-gray-50",
     },
     {
       time: "13:06:55",
       location: "Napa Valley",
-      node: "Node 23",
-      reading: "Thin grey column detected",
-      context: "Campground area + weekend pattern",
-      action: "WARNING - likely campfire",
+      node: "Sentinel 23",
+      reading: "Smoke column rising. Temperature anomaly.",
+      context: "Human presence confirmed. Contained heat source.",
+      action: "MONITOR - Tracking active",
       color: "text-yellow-700",
       bgColor: "bg-yellow-50",
     },
     {
       time: "13:09:14",
       location: "Paradise Area",
-      node: "Node 12",
-      reading: "Heat + smoke + wind analysis",
-      context: "Remote area + dry conditions + spreading",
-      action: "ALERT - wildfire confirmed",
+      node: "Sentinel 12",
+      reading: "CRITICAL: Exponential heat growth detected",
+      context: "No containment. Wind vector: spreading. Vegetation: dry.",
+      action: "STRIKE TEAM DEPLOYED",
       color: "text-red-700",
       bgColor: "bg-red-50",
     },
@@ -319,7 +319,7 @@ function HeroDetectionDemo() {
           <div className="flex items-center space-x-3">
             <div className="w-3 h-3 bg-gray-700 rounded-full animate-pulse"></div>
             <span className="text-sm md:text-base font-bold text-gray-900">
-              REAL-TIME ANALYSIS
+              THREAT ASSESSMENT
             </span>
           </div>
         </div>
@@ -457,19 +457,19 @@ function WhatWereBuilding() {
 
   const aiLayers = [
     {
-      name: "Edge AI Sensors",
+      name: "Chemical Signatures",
       description:
-        "Sensors monitor humidity and CO2 signatures across 200-250 nodes per sentinel. Edge classifiers identify chemical combustion patterns locally on sensor node, and transmit inference.",
+        "They smell the fear. CO₂ spikes. Humidity drops. 250 nodes taste the air for the chemical fingerprint of combustion. Silent. Always watching.",
     },
     {
-      name: "Multimodal Fusion",
+      name: "Pattern Recognition",
       description:
-        "Correlate Sensor data with visual smoke plumes, differentiating between fire, dust, fog. Understands movement patterns and environmental context, all processed locally.",
+        "Dust or death? Fog or fire? The machines know. They see patterns humans miss. Movement vectors. Heat signatures. They never sleep.",
     },
     {
-      name: "Context Engine",
+      name: "The Decision",
       description:
-        "Decides what to do with the information. Generates mobile, Emergency Radio alerts to first responders who verify before community notification. All runs locally on Jetson hardware.",
+        "0.89 seconds to decide who lives. Alert protocols engage. First responders mobilized. The network has spoken. No false alarms.",
     },
   ];
 
@@ -572,18 +572,18 @@ function SensorShowcase() {
                   className="text-white"
                 >
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    Intelligence Stack
+                    The Hive Mind
                   </h3>
                   <p className="text-lg text-white/90 leading-relaxed mb-6">
-                    Our AI models interpret data from 250 sensor LORA nodes and
-                    cameras at once, enabling full contextual understanding of
-                    wildfire conditions across vast wilderness areas.
+                    250 eyes. One brain. They share everything - heat, smoke, fear.
+                    A distributed consciousness spanning miles of wilderness.
+                    When one sees danger, they all know.
                   </p>
                   <Button
                     onClick={() => setShowTerminal(!showTerminal)}
                     className="bg-white/20 backdrop-blur-sm text-white border border-white/20 hover:bg-white/30"
                   >
-                    {showTerminal ? "Hide" : "Behind the scenes"} →
+                    {showTerminal ? "Hide" : "Watch them think"} →
                   </Button>
                 </motion.div>
               </div>
@@ -757,21 +757,19 @@ function TeamSection() {
       >
         <div className="border border-gray-300 bg-white p-6 md:p-8 rounded-lg">
           <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-            Collaborate
+            The Collective
           </h3>
           <p className="text-base md:text-lg text-gray-800 leading-relaxed mb-4">
             <span className="font-semibold text-gray-900">
-              navya veeturi, anirudh sharma, jaspreet riar, dan fitzgerald
+              navya veeturi • anirudh sharma • jaspreet riar • dan fitzgerald
             </span>
           </p>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
-            <strong className="text-gray-900">This is an opensource effort</strong>{" "}
-            with science volunteers - engineers, researchers and
-            environmentalists passionate about forests and wilderness,
-            building AI hardware for extreme environments. Background in
-            academic labs, shipping products in startups, and big tech
-            (NVIDIA, Amazon, Apple and other companies). All research, models,
-            and hardware designs will be released open source for the scientific community.
+            <strong className="text-gray-900">Open source insurgency.</strong>{" "}
+            Former operatives from NVIDIA, Amazon, Apple.
+            Building machines that survive where humans can't.
+            Every line of code, every circuit, every algorithm - released to the wild.
+            The corporations fear what we're building. Good.
           </p>
 
           <Button
