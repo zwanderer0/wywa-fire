@@ -74,37 +74,27 @@ export default function Index() {
           {/* Recent Features */}
           <div className="border-l-2 border-gray-400 pl-4">
             <div className="text-gray-600 mb-2 font-semibold">Recent Features</div>
-            <div className="flex gap-4">
-              <a
-                href="https://www.ai-infra-summit.com/events/ai-infra-summit/speakers?modal_speaker=27323"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 group hover:opacity-80 transition-opacity"
-                title="WYWA presenting at the AI Infrastructure Summit on edge AI and wildfire detection systems"
-              >
-                <div className="bg-white rounded-lg p-2 flex items-center justify-center h-24 border border-gray-300">
-                  <img
-                    src="/images/ai-infra-summit-logo.png"
-                    alt="AI Infrastructure Summit"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.linkedin.com/posts/rupabhagwat_while-sf-is-celebrating-the-tech-week-if-activity-7381082144426823680-5W00/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 group hover:opacity-80 transition-opacity"
-                title="Featured alongside Amazon Lab126 and Graviky Labs for our nonprofit wildfire detection efforts"
-              >
-                <div className="bg-white rounded-lg p-2 flex items-center justify-center h-24 border border-gray-300 overflow-hidden">
-                  <img
-                    src="/images/techwalk-sf.jpg"
-                    alt="TechWalk SF Tech Week"
-                    className="max-h-full max-w-full object-cover"
-                  />
-                </div>
-              </a>
+            <div className="space-y-1 text-sm">
+              <div>
+                <a
+                  href="https://www.ai-infra-summit.com/events/ai-infra-summit/speakers?modal_speaker=27323"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-600 hover:text-red-700 underline"
+                >
+                  AI Infra Summit CA, 2025
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.linkedin.com/posts/rupabhagwat_while-sf-is-celebrating-the-tech-week-if-activity-7381082144426823680-5W00/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-600 hover:text-red-700 underline"
+                >
+                  SF TechWalk 2025
+                </a>
+              </div>
             </div>
           </div>
 
