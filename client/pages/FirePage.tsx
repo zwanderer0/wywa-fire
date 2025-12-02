@@ -34,10 +34,12 @@ export default function FirePage() {
                 ),
               )}
               <a
-                href="/updates/"
-                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-600 hover:text-red-800 transition-colors text-sm font-medium"
               >
-                Updates
+                AI Infra Summit
               </a>
               <a
                 href="/"
