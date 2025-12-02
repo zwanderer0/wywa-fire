@@ -102,19 +102,19 @@ export default function Index() {
             </div>
 
             {/* Right: SNIFFR Image - scaled to fit viewport */}
-            <div className="relative pt-4">
-              <div className="rounded-xl overflow-hidden shadow-lg">
+            <div className="pt-4">
+              <div className="relative inline-block rounded-xl overflow-hidden shadow-lg">
                 <img
                   src="/images/sniffr-sensor.png"
                   alt="SNIFFR 0.1 Sensor Node"
                   className="w-full h-auto max-h-[calc(100vh-180px)] object-contain"
                 />
-              </div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
-                  <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures passively.
-                  Battery free design. 10-mile radio range.
-                </p>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
+                    <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures passively.
+                    Battery free design. 10-mile radio range.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
