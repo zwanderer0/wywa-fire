@@ -127,22 +127,19 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-                Satellites take hours. Cameras miss what's invisible.
+                22 fires start in California every day.
               </h2>
-              <p className="text-gray-700 leading-relaxed">
-                Wildfires release chemical signatures before smoke is visible.
-                Our sensors detect these signatures locally and relay alerts via long-range radio.
-                No cell towers. No satellites. No delay.
+              <p className="text-gray-700 leading-relaxed text-sm">
+                <a href="https://www.fire.ca.gov/our-impact/statistics" target="_blank" rel="noopener noreferrer" className="underline">8,000+ wildfires per year</a>.
+                Satellites take 15-45 minutes to detect. Cameras wait for visible smoke.
+                By then, wind turns a spark into a wall of fire. We studied the fuel—Red Brome,
+                Medusahead, Wild oats, Cheatgrass—invasive grasses that release distinct
+                VOC signatures when they ignite. Not dust. Not diesel. Not fog.
+                Combustion chemistry that our sensors detect in real-time, before anything is visible.
               </p>
             </div>
             <div>
-              <div className="rounded-lg overflow-hidden border border-gray-200">
-                <img
-                  src="/images/problem-landscape.webp"
-                  alt="Remote terrain"
-                  className="w-full h-64 md:h-80 object-cover"
-                />
-              </div>
+              <ProblemSlider />
             </div>
           </div>
         </div>
@@ -549,6 +546,98 @@ function InviteModal({ onClose }: { onClose: () => void }) {
           </Button>
         </form>
       </div>
+    </div>
+  );
+}
+
+// Problem Section Comparison Slider
+function ProblemSlider() {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(percentage);
+  };
+
+  const handleMouseDown = () => {
+    isDragging.current = true;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging.current) {
+      handleMove(e.clientX);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    handleMove(e.touches[0].clientX);
+  };
+
+  return (
+    <div className="relative">
+      <div
+        ref={containerRef}
+        className="relative rounded-lg overflow-hidden border border-gray-200 h-64 md:h-80 cursor-ew-resize select-none"
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onTouchMove={handleTouchMove}
+      >
+        {/* Impact image (background) */}
+        <img
+          src="/images/goldengate.webp"
+          alt="Wildfire impact"
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
+        />
+
+        {/* Fuel image (foreground, clipped) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ width: `${sliderPosition}%` }}
+        >
+          <img
+            src="/images/grass.png"
+            alt="Fuel samples in lab"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ width: containerRef.current?.offsetWidth || "100%" }}
+            draggable={false}
+          />
+        </div>
+
+        {/* Slider line */}
+        <div
+          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg"
+          style={{ left: `${sliderPosition}%` }}
+        >
+          {/* Slider handle */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+            <div className="flex gap-0.5">
+              <div className="w-0.5 h-4 bg-gray-400 rounded"></div>
+              <div className="w-0.5 h-4 bg-gray-400 rounded"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Labels */}
+        <div className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+          Fuel
+        </div>
+        <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+          Impact
+        </div>
+      </div>
+      <p className="mt-2 text-xs text-gray-500 text-center">Drag to compare</p>
     </div>
   );
 }
