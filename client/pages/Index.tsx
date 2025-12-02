@@ -77,7 +77,7 @@ export default function Index() {
             <div className="space-y-1 text-sm">
               <div>
                 <a
-                  href="https://www.ai-infra-summit.com/events/ai-infra-summit/speakers?modal_speaker=27323"
+                  href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-600 hover:text-red-700 underline"
