@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Space+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -106,6 +108,23 @@
 }
 
 @layer components {
+  /* Science page styles */
+  .nav-glass {
+    background: rgba(12, 17, 28, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-dark {
+    background: linear-gradient(135deg, #101828 0%, #0c111c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+
+  .divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
   .sketch-border {
     border: 2px solid currentColor;
     border-radius: 8px;
