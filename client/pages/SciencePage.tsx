@@ -7,7 +7,7 @@ export default function SciencePage() {
     <div className="min-h-screen bg-gray-100 text-gray-900 font-mono">
       {/* Header */}
       <header className="border-b border-gray-300 bg-gray-100 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="font-black text-xl md:text-2xl text-gray-900">
               WYWA
@@ -25,7 +25,7 @@ export default function SciencePage() {
 
       {/* Hero */}
       <section className="py-12 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function SciencePage() {
 
       {/* Analyse / Interpret / Act - Visual Pipeline */}
       <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Analyse */}
             <motion.div
@@ -120,7 +120,7 @@ export default function SciencePage() {
 
       {/* Multimodal Fusion */}
       <section className="py-12 md:py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ export default function SciencePage() {
 
       {/* The Hard Problem */}
       <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -271,7 +271,7 @@ export default function SciencePage() {
 
       {/* Field Tests */}
       <section className="py-12 md:py-16 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -320,7 +320,7 @@ export default function SciencePage() {
 
       {/* Footer */}
       <footer className="py-8 bg-gray-800 text-gray-300">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm">
               WYWA AI
