@@ -27,7 +27,7 @@ export default function Index() {
     <div className="min-h-screen bg-gray-100 text-gray-900 font-mono">
       {/* Header */}
       <header className="border-b border-gray-300 bg-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="font-black text-xl md:text-2xl text-gray-900">
               WYWA
@@ -51,7 +51,7 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-60px)] relative">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
             {/* Left: Text - pushed down */}
             <div className="flex flex-col justify-center pt-[25vh] pb-8">
@@ -123,7 +123,7 @@ export default function Index() {
 
       {/* Problem Section */}
       <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
@@ -150,7 +150,7 @@ export default function Index() {
 
       {/* Prototypes Section - Tab Based Videos */}
       <section id="prototypes" className="py-12 md:py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
               Working Prototypes
@@ -163,7 +163,7 @@ export default function Index() {
 
       {/* Hardware Section */}
       <section id="hardware" className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
               The Hardware
@@ -293,7 +293,7 @@ export default function Index() {
 
       {/* Team Section */}
       <section id="team" className="py-12 md:py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="max-w-xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Team
@@ -329,7 +329,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="py-8 bg-gray-800 text-gray-300">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm">
               WYWA AI
