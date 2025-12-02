@@ -13,8 +13,11 @@ export default function SciencePage() {
               WYWA
             </a>
             <div className="hidden md:flex space-x-6 text-sm">
-              <a href="/" className="text-gray-600 hover:text-gray-900">Home</a>
-              <a href="mailto:nveeturi@wywa.ai" className="text-gray-600 hover:text-gray-900">Contact</a>
+              <a href="/#prototypes" className="text-gray-600 hover:text-gray-900">Prototypes</a>
+              <a href="/#hardware" className="text-gray-600 hover:text-gray-900">Hardware</a>
+              <a href="/#team" className="text-gray-600 hover:text-gray-900">Team</a>
+              <a href="/science" className="text-gray-900 font-medium">Science</a>
+              <a href="/#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
             </div>
           </div>
         </div>
@@ -229,13 +232,20 @@ export default function SciencePage() {
                 morning fog with stable sensors? Suppressed.
               </p>
 
-              <p>
-                For deployment on edge devices (Raspberry Pi, Mac, Linux), we distill
-                the full model into a lightweight version. Object detection and segmentation
-                are well-understood problems with efficient solutions. The hard part—temporal
-                fire/smoke classification—runs as a separate head that processes motion features
-                extracted from 5-second clips.
-              </p>
+              <div className="bg-gray-100 border border-gray-300 rounded-lg p-5 my-6">
+                <h3 className="font-bold text-gray-900 mb-3">The data problem:</h3>
+                <p className="text-sm text-gray-700 mb-3">
+                  Public fire datasets are limited—mostly close-up footage, controlled burns,
+                  news clips. Real wildfire monitoring happens from distant tower cameras
+                  at odd angles, through haze, at dawn when fog looks like smoke.
+                </p>
+                <p className="text-sm text-gray-700">
+                  We use game engines (Unreal, Unity) to generate synthetic training data:
+                  realistic smoke plumes at various distances, camera angles from 0.5 to 10 miles,
+                  fog banks drifting through valleys, sun glare at golden hour, headlights on mountain roads.
+                  Thousands of hours of labeled video that would be impossible to capture in the real world.
+                </p>
+              </div>
 
               <div className="bg-gray-800 text-gray-100 rounded-lg p-5 mt-6">
                 <h3 className="font-bold mb-3">Detection Classes</h3>
@@ -313,11 +323,12 @@ export default function SciencePage() {
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm">
-              WYWA — Nonprofit. Open Source.
+              WYWA AI
             </div>
             <div className="flex gap-6 text-sm">
               <a href="/" className="hover:text-white">Home</a>
               <a href="mailto:nveeturi@wywa.ai" className="hover:text-white">nveeturi@wywa.ai</a>
+              <a href="https://linkedin.com/company/wywa-ai" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
             </div>
           </div>
         </div>

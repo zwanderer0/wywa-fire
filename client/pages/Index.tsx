@@ -61,8 +61,8 @@ export default function Index() {
                   <span className="animate-pulse text-gray-400">_</span>
                 </h1>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  WYWA (While You Were Away) builds Physical AI systems that smell and see wildfires.
-                  No batteries. No internet required.
+                  Physical AI systems that smell and see wildfires.
+                  No batteries. No internet required. Open Source.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -112,8 +112,8 @@ export default function Index() {
               </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
-                  <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures.
-                  Solar-powered. 10-mile radio range.
+                  <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures passively.
+                  Battery free design. 10-mile radio range.
                 </p>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm">
-              WYWA — Nonprofit. Open Source.
+              WYWA AI
             </div>
             <div className="flex gap-6 text-sm">
               <a href="/science" className="hover:text-white">Science</a>
