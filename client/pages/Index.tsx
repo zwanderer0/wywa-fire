@@ -50,11 +50,11 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-[calc(100vh-60px)] relative">
-        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
-          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
-            {/* Left: Text - pushed down */}
-            <div className="flex flex-col justify-center pt-[25vh] pb-8">
+      <section className="h-[calc(100vh-60px)] overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16 h-full">
+          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 h-full">
+            {/* Left: Text - vertically centered */}
+            <div className="flex flex-col justify-center py-8">
               <div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                   <span>{typedText}</span>
@@ -101,19 +101,21 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right: SNIFFR Image - scaled to fit viewport */}
-            <div className="pt-4">
-              <div className="relative inline-block rounded-xl overflow-hidden shadow-lg">
-                <img
-                  src="/images/sniffr-sensor.png"
-                  alt="SNIFFR 0.1 Sensor Node"
-                  className="w-full h-auto max-h-[calc(100vh-180px)] object-contain"
-                />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
-                    <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures passively.
-                    Battery free design. 10-mile radio range.
-                  </p>
+            {/* Right: SNIFFR Image - fills available height */}
+            <div className="flex items-center justify-center py-4 h-full">
+              <div className="relative h-full max-h-full flex items-center">
+                <div className="relative rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src="/images/sniffr-sensor.png"
+                    alt="SNIFFR 0.1 Sensor Node"
+                    className="h-[calc(100vh-120px)] w-auto object-contain"
+                  />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
+                      <span className="font-medium">SNIFFR 0.1</span> — Detects combustion signatures passively.
+                      Battery free design. 10-mile radio range.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
