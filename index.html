@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>WYWA FI-RE: First Responder AI Initiative | Open Source Wildfire Detection</title>
+    <meta
+      name="description"
+      content="Open source First Responder AI initiative. Community-driven wildfire detection system using edge AI, multimodal fusion, and LoRa mesh networks to empower firefighters with early detection."
+    />
+    <meta
+      name="keywords"
+      content="first responder AI, wildfire detection, open source, AI sensors, edge AI, firefighters, LoRa mesh, environmental monitoring, WYWA FI-RE"
+    />
+    <meta property="og:title" content="WYWA FI-RE: First Responder AI Initiative" />
+    <meta
+      property="og:description"
+      content="Open source AI-enabled sensor network empowering first responders to detect wildfires as they begin"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/client/App.tsx"></script>
+
+    <!-- Handle Netlify Identity invites and redirects -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              // Redirect to admin after login
+              document.location.href = "/updates/admin/";
+            });
+          }
+        });
+
+        // Handle invite tokens
+        if (window.location.hash.includes('invite_token') ||
+            window.location.hash.includes('recovery_token')) {
+          // Show the modal for password reset
+          window.netlifyIdentity.open();
+        }
+      }
+    </script>
+  </body>
+</html>

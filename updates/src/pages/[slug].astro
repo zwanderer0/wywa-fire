@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("updates", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<"updates">;
+};
+
+const { post } = Astro.props as Props;
+const { Content } = await post.render();
+const {
+  title,
+  description,
+  date,
+  heroImage,
+  heroImageAlt,
+  heroVideo,
+  tags,
+  author = "WYWA FI-RE Team",
+} = post.data;
+
+const formattedDate = new Intl.DateTimeFormat("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+}).format(date);
+---
+
+<Layout title={`${title} • WYWA FI-RE Updates`} description={description}>
+  <article class="article">
+    <header class="article-header">
+      <div class="article-meta">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span>{author}</span>
+        {tags?.length ? <span>{tags[0]}</span> : null}
+      </div>
+      <h1 class="article-title">{title}</h1>
+      {description ? <p class="article-dek">{description}</p> : null}
+    </header>
+
+    {(heroImage || heroVideo) && (
+      <div class="article-hero">
+        {heroVideo ? (
+          <video
+            src={heroVideo}
+            controls
+            playsinline
+            poster={heroImage}
+            preload="metadata"
+          />
+        ) : (
+          <img src={heroImage} alt={heroImageAlt ?? title} loading="eager" />
+        )}
+      </div>
+    )}
+
+    <div class="article-body">
+      <Content />
+    </div>
+
+    <script type="module">
+      import mediumZoom from "https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.esm.min.js";
+
+      mediumZoom(".article-hero img, .article-body img", {
+        margin: 24,
+        background: "rgba(18, 18, 18, 0.85)",
+      });
+    </script>
+
+    <footer class="article-footer">
+      <a class="article-footer__back" href="/updates/">← Back to archive</a>
+      <div>
+        {tags?.length ? (
+          <div class="article-footer__tags">
+            {tags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </footer>
+  </article>
+</Layout>

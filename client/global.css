@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 45 20% 98%;
+    --foreground: 160 15% 15%;
+
+    --card: 45 20% 98%;
+    --card-foreground: 160 15% 15%;
+
+    --popover: 45 20% 98%;
+    --popover-foreground: 160 15% 15%;
+
+    --primary: 155 45% 35%;
+    --primary-foreground: 45 20% 98%;
+
+    --secondary: 120 25% 85%;
+    --secondary-foreground: 160 15% 15%;
+
+    --muted: 120 25% 92%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 65 55% 75%;
+    --accent-foreground: 160 15% 15%;
+
+    --destructive: 15 75% 55%;
+    --destructive-foreground: 45 20% 98%;
+
+    --border: 120 20% 88%;
+    --input: 120 20% 88%;
+    --ring: 155 45% 35%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 45 15% 92%;
+
+    --card: 160 20% 8%;
+    --card-foreground: 45 15% 92%;
+
+    --popover: 160 20% 8%;
+    --popover-foreground: 45 15% 92%;
+
+    --primary: 155 55% 65%;
+    --primary-foreground: 160 20% 8%;
+
+    --secondary: 160 15% 15%;
+    --secondary-foreground: 45 15% 92%;
+
+    --muted: 160 15% 15%;
+    --muted-foreground: 160 5% 65%;
+
+    --accent: 65 45% 55%;
+    --accent-foreground: 45 15% 92%;
+
+    --destructive: 15 65% 55%;
+    --destructive-foreground: 45 15% 92%;
+
+    --border: 160 15% 15%;
+    --input: 160 15% 15%;
+    --ring: 155 55% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .sketch-border {
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .sketch-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid currentColor;
+    border-radius: 10px;
+    transform: rotate(0.5deg);
+    opacity: 0.3;
+  }
+
+  .sketch-text {
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transform: rotate(-0.5deg);
+  }
+
+  .hand-drawn-arrow {
+    stroke-dasharray: 3, 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sketch-highlight {
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 0, 0.3) 50%,
+      transparent 100%
+    );
+    padding: 2px 4px;
+    transform: rotate(-0.3deg);
+  }
+}

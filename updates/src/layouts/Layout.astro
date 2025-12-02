@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = "FI-RE Dispatch",
+  description = "Lightweight weekly notes from the WYWA FI-RE team.",
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Besley:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <div class="site-header__meta">
+          <h1 class="site-title">
+            <a href="/updates/">FI-RE Dispatch</a>
+          </h1>
+          <p class="site-tagline">
+            wildfire sensing + field engineering log
+          </p>
+        </div>
+        <nav class="site-nav">
+          <a href="/updates/">Archive</a>
+          <a href="/updates/rss.xml">RSS</a>
+          <a href="/">Back to wywa.ai</a>
+        </nav>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; {new Date().getFullYear()} WYWA FI-RE</p>
+        <p>
+          Contact: <a href="mailto:navya@wywa.ai">navya@wywa.ai</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
