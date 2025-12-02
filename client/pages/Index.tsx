@@ -101,13 +101,13 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right: SNIFFR Image - constrained to viewport */}
+            {/* Right: SNIFFR Image - scaled to fit viewport */}
             <div className="relative pt-4">
-              <div className="rounded-xl overflow-hidden shadow-lg max-h-[calc(100vh-180px)]">
+              <div className="rounded-xl overflow-hidden shadow-lg">
                 <img
                   src="/images/sniffr-sensor.png"
                   alt="SNIFFR 0.1 Sensor Node"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-auto max-h-[calc(100vh-180px)] object-contain"
                 />
               </div>
               <div className="absolute bottom-4 left-4 right-4">
