@@ -599,11 +599,11 @@ function HowItWorksTabs() {
           </ul>
         </div>
         <div className="order-1 lg:order-2">
-          <div className="rounded-lg overflow-hidden border border-gray-200">
+          <div className="rounded-lg overflow-hidden border border-gray-200 bg-gray-100">
             <img
               src={currentStep.image}
               alt={currentStep.imageAlt}
-              className="w-full h-64 md:h-80 object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
