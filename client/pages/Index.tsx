@@ -32,6 +32,13 @@ export default function Index() {
             <a href="/" className="font-black text-xl md:text-2xl text-gray-900">
               WYWA
             </a>
+            {/* Mobile menu */}
+            <div className="flex md:hidden space-x-4 text-sm">
+              <a href="#prototypes" className="text-gray-600 hover:text-gray-900">Demos</a>
+              <a href="/science" className="text-gray-600 hover:text-gray-900">Science</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+            {/* Desktop menu */}
             <div className="hidden md:flex space-x-6 text-sm">
               <button
                 onClick={() => setShowInviteModal(true)}
@@ -50,11 +57,11 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="h-[calc(100vh-60px)] overflow-hidden">
+      <section className="min-h-fit lg:h-[calc(100vh-60px)] overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16 h-full">
-          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 h-full">
+          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 lg:h-full">
             {/* Left: Text - space between content and bottom logos */}
-            <div className="flex flex-col justify-between py-8 h-full">
+            <div className="flex flex-col justify-between py-6 lg:py-8 lg:h-full">
               <div className="flex flex-col justify-center flex-1">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                   <span>{typedText}</span>
@@ -108,12 +115,12 @@ export default function Index() {
             </div>
 
             {/* Right: SNIFFR Image - fills available height, aligned right */}
-            <div className="flex items-center justify-center lg:justify-end py-4 h-full">
+            <div className="flex items-center justify-center lg:justify-end py-4 lg:h-full">
               <div className="relative rounded-xl overflow-hidden shadow-lg">
                 <img
                   src="/images/sniffr-sensor.png"
                   alt="SNIFFR 0.1 Sensor Node"
-                  className="max-h-[40vh] md:max-h-[50vh] lg:h-[calc(100vh-120px)] lg:max-h-none w-auto object-contain"
+                  className="w-auto max-w-full h-auto max-h-[35vh] md:max-h-[45vh] lg:max-h-none lg:h-[calc(100vh-120px)] object-contain"
                 />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
