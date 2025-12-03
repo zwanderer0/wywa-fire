@@ -259,7 +259,7 @@ export default function Index() {
                 <img
                   src="/images/sentinel-edge.jpg"
                   alt="Edge compute unit"
-                  className="w-full h-auto"
+                  className="w-full h-64 object-cover"
                 />
                 <p className="p-3 text-sm text-gray-600 bg-gray-50">
                   Edge compute with SDR antennas
@@ -269,7 +269,7 @@ export default function Index() {
                 <img
                   src="/images/sentinel-monitor.jpg"
                   alt="Sentinel monitor"
-                  className="w-full h-auto"
+                  className="w-full h-64 object-cover"
                 />
                 <p className="p-3 text-sm text-gray-600 bg-gray-50">
                   Live dashboard: temp, humidity, GPS, signal strength
