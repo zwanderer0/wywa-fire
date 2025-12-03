@@ -53,9 +53,9 @@ export default function Index() {
       <section className="h-[calc(100vh-60px)] overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16 h-full">
           <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 h-full">
-            {/* Left: Text - vertically centered */}
-            <div className="flex flex-col justify-center py-8">
-              <div>
+            {/* Left: Text - space between content and bottom logos */}
+            <div className="flex flex-col justify-between py-8 h-full">
+              <div className="flex flex-col justify-center flex-1">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                   <span>{typedText}</span>
                   <span className="animate-pulse text-gray-400">_</span>
@@ -78,10 +78,8 @@ export default function Index() {
                     </Button>
                   </a>
                 </div>
-              </div>
 
-              <div className="text-xs text-gray-500 pt-10">
-                <div className="mb-2">
+                <div className="text-xs text-gray-500 pt-6">
                   <span className="mr-2">Featured at:</span>
                   <a
                     href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
@@ -100,9 +98,12 @@ export default function Index() {
                     SF Tech Week 2025
                   </a>
                 </div>
-                <div className="flex items-center mt-4">
-                  <img src="/images/MIT-CMU.png" alt="MIT and CMU" className="h-10 opacity-70" />
-                </div>
+              </div>
+
+              {/* Bottom aligned with hero image */}
+              <div className="pb-4">
+                <p className="text-xs text-gray-500 mb-2">By researchers, alumni and affiliates from:</p>
+                <img src="/images/MIT-CMU.png" alt="MIT and CMU" className="h-10 opacity-70" />
               </div>
             </div>
 
