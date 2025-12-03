@@ -61,8 +61,8 @@ export default function Index() {
                   <span className="animate-pulse text-gray-400">_</span>
                 </h1>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Physical AI systems that smell and see wildfires.
-                  No batteries. No internet required. Open Source.
+                  At WYWA (While You Were Away) we research and build Physical AI systems
+                  that smell and see wildfires. No batteries. No internet required. Open Source.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -86,17 +86,9 @@ export default function Index() {
                   href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-gray-900 underline mr-3"
-                >
-                  AI Infra Summit 2025
-                </a>
-                <a
-                  href="https://www.linkedin.com/posts/rupabhagwat_while-sf-is-celebrating-the-tech-week-if-activity-7381082144426823680-5W00/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-gray-700 hover:text-gray-900 underline"
                 >
-                  SF TechWalk 2025
+                  AI Infra Summit 2025
                 </a>
               </div>
             </div>
@@ -291,25 +283,23 @@ export default function Index() {
       {/* Team Section */}
       <section id="team" className="py-12 md:py-16 bg-gray-100">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-              Team
+              Who We Are
             </h2>
-            <p className="text-gray-600 mb-6">
-              Engineers, Scientists from NVIDIA, CMU, MIT, Amazon Lab126.
-              All code, schematics, and models publicly released.
+            <p className="text-gray-600 mb-4">
+              WYWA started in San Francisco—scientists, engineers, designers, researchers
+              from different backgrounds who wanted to understand the environment better.
             </p>
-
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <a
-                href="https://linkedin.com/company/wywa-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
-              >
-                LinkedIn
-              </a>
-            </div>
+            <p className="text-gray-600 mb-4">
+              We're building sensors and AI that give communities, governments, and responders
+              real-time environmental data. Ground-level detection. Local inference.
+              Alerts that work where cell towers don't.
+            </p>
+            <p className="text-gray-600">
+              The goal: a sensing network that makes wildfire response faster and
+              communities safer. All open source.
+            </p>
           </div>
         </div>
       </section>
