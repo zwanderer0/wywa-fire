@@ -100,9 +100,8 @@ export default function Index() {
                     SF Tech Week 2025
                   </a>
                 </div>
-                <div className="flex items-center gap-6 mt-4">
-                  <img src="/images/MIT-Massachusetts-Institute-of-Technology-Logo.png" alt="MIT" className="h-6 opacity-60" />
-                  <img src="/images/CMU_Logo_Stack_Red.png" alt="CMU" className="h-6 opacity-60" />
+                <div className="flex items-center mt-4">
+                  <img src="/images/MIT-CMU.png" alt="MIT and CMU" className="h-10 opacity-70" />
                 </div>
               </div>
             </div>
