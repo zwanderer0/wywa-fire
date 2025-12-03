@@ -100,9 +100,9 @@ export default function Index() {
                     SF Tech Week 2025
                   </a>
                 </div>
-                <div className="flex items-center gap-4 mt-3">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg" alt="MIT" className="h-4 opacity-60" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Carnegie_Mellon_wordmark.svg" alt="CMU" className="h-4 opacity-60" />
+                <div className="flex items-center gap-6 mt-4">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/MIT_Seal.svg" alt="MIT" className="h-8 opacity-50" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Carnegie_Mellon_University_seal.svg" alt="CMU" className="h-8 opacity-50" />
                 </div>
               </div>
             </div>
