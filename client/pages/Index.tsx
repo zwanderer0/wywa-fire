@@ -288,8 +288,9 @@ export default function Index() {
               Who We Are
             </h2>
             <p className="text-gray-600 mb-4">
-              WYWA started in San Francisco—scientists, engineers, designers, researchers
-              from different backgrounds who wanted to understand the environment better.
+              WYWA started in San Francisco—engineers, scientists, and researchers
+              from NVIDIA, Amazon Lab126, CMU, and MIT who wanted to understand the environment better.
+              Advised by climate scientists and first responders.
             </p>
             <p className="text-gray-600 mb-4">
               We're building sensors and AI that give communities, governments, and responders
