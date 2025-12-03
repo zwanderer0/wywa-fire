@@ -81,15 +81,29 @@ export default function Index() {
               </div>
 
               <div className="text-xs text-gray-500 pt-10">
-                <span className="mr-2">Featured at:</span>
-                <a
-                  href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-gray-900 underline"
-                >
-                  AI Infra Summit 2025
-                </a>
+                <div className="mb-2">
+                  <span className="mr-2">Featured at:</span>
+                  <a
+                    href="https://www.ai-infra-summit.com/speakers/navya-veeturi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-gray-900 underline mr-3"
+                  >
+                    AI Infra Summit 2025
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/posts/rupabhagwat_while-sf-is-celebrating-the-tech-week-if-activity-7381082144426823680-5W00/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-gray-900 underline"
+                  >
+                    SF Tech Week 2025
+                  </a>
+                </div>
+                <div className="flex items-center gap-4 mt-3">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg" alt="MIT" className="h-4 opacity-60" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Carnegie_Mellon_wordmark.svg" alt="CMU" className="h-4 opacity-60" />
+                </div>
               </div>
             </div>
 
