@@ -101,8 +101,8 @@ export default function Index() {
                   </a>
                 </div>
                 <div className="flex items-center gap-6 mt-4">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/MIT_Seal.svg" alt="MIT" className="h-8 opacity-50" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Carnegie_Mellon_University_seal.svg" alt="CMU" className="h-8 opacity-50" />
+                  <img src="/images/MIT-Massachusetts-Institute-of-Technology-Logo.png" alt="MIT" className="h-6 opacity-60" />
+                  <img src="/images/CMU_Logo_Stack_Red.png" alt="CMU" className="h-6 opacity-60" />
                 </div>
               </div>
             </div>
