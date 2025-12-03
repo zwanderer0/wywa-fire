@@ -150,133 +150,16 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Hardware Section */}
+      {/* How It Works Section */}
       <section id="hardware" className="py-12 md:py-16 bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-              The Hardware
+              How It Works
             </h2>
           </div>
 
-          {/* SNIFFR Nodes */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="order-2 lg:order-1">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
-                  SNIFFR Nodes
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Deploy-and-forget sensors. Gas detection distinguishes brush fire
-                  from incense, diesel, dust. Solar-powered, battery-free.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    VOC, CO2, particulate detection
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    LoRa mesh networking
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    Solar harvesting, supercapacitor storage
-                  </li>
-                </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="bg-black rounded-lg overflow-hidden">
-                  <img
-                    src="/images/sniffr-blueprint.png"
-                    alt="SNIFFR schematic"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Sentinel Hub */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="rounded-lg overflow-hidden border border-gray-200">
-                  <img
-                    src="/images/sentinel-system.jpg"
-                    alt="Sentinel hub setup"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
-                  Sentinel Hub
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Hosts VLA, classifiers, SDR, Sat Link.
-                  10-mile range. Works offline.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    On-device ML models
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    Software-defined radio transmission
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-gray-800 rounded-full"></span>
-                    Camera for visual confirmation
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Edge Compute + Monitor */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-lg overflow-hidden border border-gray-200">
-                <img
-                  src="/images/sentinel-edge.jpg"
-                  alt="Edge compute unit"
-                  className="w-full h-64 object-cover"
-                />
-                <p className="p-3 text-sm text-gray-600 bg-gray-50">
-                  Edge compute with SDR antennas
-                </p>
-              </div>
-              <div className="rounded-lg overflow-hidden border border-gray-200">
-                <img
-                  src="/images/sentinel-monitor.jpg"
-                  alt="Sentinel monitor"
-                  className="w-full h-64 object-cover"
-                />
-                <p className="p-3 text-sm text-gray-600 bg-gray-50">
-                  Live dashboard: temp, humidity, GPS, signal strength
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          <HowItWorksTabs />
         </div>
       </section>
 
@@ -629,6 +512,116 @@ function ProblemSlider() {
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500 text-center">Drag to compare</p>
+    </div>
+  );
+}
+
+// How It Works - Tab-based journey
+function HowItWorksTabs() {
+  const [activeStep, setActiveStep] = useState("deploy");
+
+  const steps = [
+    {
+      id: "deploy",
+      label: "1. Deploy",
+      title: "SNIFFR Nodes",
+      description: "Deploy-and-forget sensors. Gas detection distinguishes brush fire from incense, diesel, dust. Solar-powered, battery-free.",
+      specs: ["VOC, CO2, particulate detection", "LoRa mesh networking", "Solar harvesting, supercapacitor storage"],
+      image: "/images/u3mount.jpg",
+      imageAlt: "SNIFFR node mounted in field"
+    },
+    {
+      id: "collect",
+      label: "2. Collect",
+      title: "Sentinel Hub",
+      description: "Receives data from distributed nodes. Hosts VLA, classifiers, SDR, Sat Link. 10-mile range. Works offline.",
+      specs: ["On-device ML models", "Software-defined radio transmission", "Camera for visual confirmation"],
+      image: "/images/sentinel-system.jpg",
+      imageAlt: "Sentinel hub setup"
+    },
+    {
+      id: "process",
+      label: "3. Process",
+      title: "Edge Inference",
+      description: "Local compute runs classification. Cross-attention transformer fuses chemical, visual, and temporal signals. No cloud dependency.",
+      specs: ["Real-time VOC pattern matching", "Visual smoke/flame detection", "Multi-modal sensor fusion"],
+      image: "/images/sentinel-edge.jpg",
+      imageAlt: "Edge compute unit with SDR antennas"
+    },
+    {
+      id: "alert",
+      label: "4. Alert",
+      title: "Live Dashboard",
+      description: "Real-time monitoring of all nodes. Temperature, humidity, GPS, signal strength. Alerts broadcast via SDR radio.",
+      specs: ["Text-to-speech radio broadcast", "No internet required", "Instant alert to responders"],
+      image: "/images/sentinel-monitor.jpg",
+      imageAlt: "Live monitoring dashboard"
+    }
+  ];
+
+  const currentStep = steps.find(s => s.id === activeStep) || steps[0];
+
+  return (
+    <div>
+      {/* Tab buttons - horizontal scroll on mobile */}
+      <div className="flex overflow-x-auto gap-2 pb-4 mb-6 scrollbar-hide">
+        {steps.map((step) => (
+          <button
+            key={step.id}
+            onClick={() => setActiveStep(step.id)}
+            className={`flex-shrink-0 px-4 py-2 text-sm font-mono rounded-lg transition-colors ${
+              activeStep === step.id
+                ? "bg-gray-900 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            {step.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="order-2 lg:order-1">
+          <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
+            {currentStep.title}
+          </h3>
+          <p className="text-gray-700 mb-4">
+            {currentStep.description}
+          </p>
+          <ul className="space-y-2 text-sm text-gray-600">
+            {currentStep.specs.map((spec, i) => (
+              <li key={i} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-gray-800 rounded-full flex-shrink-0"></span>
+                {spec}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="order-1 lg:order-2">
+          <div className="rounded-lg overflow-hidden border border-gray-200">
+            <img
+              src={currentStep.image}
+              alt={currentStep.imageAlt}
+              className="w-full h-64 md:h-80 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Step indicator dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {steps.map((step) => (
+          <button
+            key={step.id}
+            onClick={() => setActiveStep(step.id)}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              activeStep === step.id ? "bg-gray-900" : "bg-gray-300"
+            }`}
+            aria-label={step.label}
+          />
+        ))}
+      </div>
     </div>
   );
 }
