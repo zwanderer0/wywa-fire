@@ -113,7 +113,7 @@ export default function Index() {
                 <img
                   src="/images/sniffr-sensor.png"
                   alt="SNIFFR 0.1 Sensor Node"
-                  className="max-h-[50vh] lg:h-[calc(100vh-120px)] lg:max-h-none w-auto object-contain"
+                  className="max-h-[40vh] md:max-h-[50vh] lg:h-[calc(100vh-120px)] lg:max-h-none w-auto object-contain"
                 />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-xs text-white/90 bg-black/50 backdrop-blur-sm p-3 rounded-lg">
