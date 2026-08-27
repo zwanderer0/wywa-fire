@@ -20,7 +20,7 @@ export const teamMembers: TeamMember[] = [
     id: "anirudh",
     name: "Anirudh Sharma",
     count: 2,
-    role: "Co-Founder",
+    role: "Technical Advisor",
     image: "/images/anirudh.webp",
     linkedin: "https://www.linkedin.com/in/zwanderer/",
   },
